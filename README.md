@@ -1,10 +1,10 @@
-PayPal C# AdaptivePayments SDK
+PayPal C# Permissions SDK
 ======================
 
 Prerequisites
 -------------
 
-PayPal's C# AdaptivePayments SDK requires 
+PayPal's C# Permissions SDK requires 
 
  * Visual Studio 2005
  * NUnit 2.5.10.11092 (only for running the test cases) 
@@ -17,22 +17,22 @@ To use the SDK,
 
  * Copy the SDK DLL file into your project and add a reference.
  * Create a service wrapper object
- * Create a request object as per your project's needs. All the API request and response classes are available in AdaptivePaymentsStubs.cs
+ * Create a request object as per your project's needs. All the API request and response classes are available in PermissionsModel.cs
  * Invoke the appropriate method on the request object.
 
 
 For example,
 
-	using PayPal.AdaptivePayments;
-	using PayPal.AdaptivePayments.Model;
+	using PayPal.Permissions;
+	using PayPal.Permissions.Model;
 
 
-	PayRequest req = new PayRequest();
-	req.PayKey = "AP-1JJ33735NG923180S";
+	RequestPermissionsRequest req = new RequestPermissionsRequest();
+	req.scope = new List<String>();
 	......
 
-	AdaptivePaymentsService service = new AdaptivePaymentsService();
-	PayResponse cir = service.Pay(cr);
+	PermissionsService service = new PermissionsService();
+	RequestPermissionsResponse cir = service.RequestPermissions(cr);
  
 	if(cir.responseEnvelope.ack == AckCode.SUCCESS) {
 		// Success
@@ -55,7 +55,7 @@ A sample configuration file has been provided with the unit tests. Adding PayPal
 
     &lt;configSections&gt;
 
-      &lt;section name="paypal" type="PayPal.Manager.SDKConfigHandler, PayPal_AdaptivePayments_SDK" /&gt;
+      &lt;section name="paypal" type="PayPal.Manager.SDKConfigHandler, PayPal_Permissions_SDK" /&gt;
 
     &lt;/configSections&gt;
 
