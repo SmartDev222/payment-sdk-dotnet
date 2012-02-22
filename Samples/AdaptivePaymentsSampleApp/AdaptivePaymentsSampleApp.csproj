@@ -49,12 +49,75 @@
     <Compile Include="adaptivepaymentshandler.ashx.cs">
       <DependentUpon>adaptivepaymentshandler.ashx</DependentUpon>
     </Compile>
+    <Compile Include="CancelPreapproval.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>CancelPreapproval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CancelPreapproval.aspx.designer.cs">
+      <DependentUpon>CancelPreapproval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConfirmPreapproval.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ConfirmPreapproval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConfirmPreapproval.aspx.designer.cs">
+      <DependentUpon>ConfirmPreapproval.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExecutePayment.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ExecutePayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExecutePayment.aspx.designer.cs">
+      <DependentUpon>ExecutePayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetAllowedFundingSources.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>GetAllowedFundingSources.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetAllowedFundingSources.aspx.designer.cs">
+      <DependentUpon>GetAllowedFundingSources.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetAvailableShippingAddresses.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>GetAvailableShippingAddresses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetAvailableShippingAddresses.aspx.designer.cs">
+      <DependentUpon>GetAvailableShippingAddresses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetFundingPlans.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>GetFundingPlans.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetFundingPlans.aspx.designer.cs">
+      <DependentUpon>GetFundingPlans.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetPaymentOptions.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>GetPaymentOptions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetPaymentOptions.aspx.designer.cs">
+      <DependentUpon>GetPaymentOptions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetShippingAddresses.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>GetShippingAddresses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetShippingAddresses.aspx.designer.cs">
+      <DependentUpon>GetShippingAddresses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetUserLimits.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>GetUserLimits.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetUserLimits.aspx.designer.cs">
+      <DependentUpon>GetUserLimits.aspx</DependentUpon>
     </Compile>
     <Compile Include="objectdumper.cs" />
     <Compile Include="Pay.aspx.cs">
@@ -64,6 +127,13 @@
     <Compile Include="Pay.aspx.designer.cs">
       <DependentUpon>Pay.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PaymentDetails.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>PaymentDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentDetails.aspx.designer.cs">
+      <DependentUpon>PaymentDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Preapproval.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Preapproval.aspx</DependentUpon>
@@ -71,10 +141,47 @@
     <Compile Include="Preapproval.aspx.designer.cs">
       <DependentUpon>Preapproval.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PreapprovalDetails.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>PreapprovalDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PreapprovalDetails.aspx.designer.cs">
+      <DependentUpon>PreapprovalDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Refund.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Refund.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Refund.aspx.designer.cs">
+      <DependentUpon>Refund.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SetPaymentOptions.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>SetPaymentOptions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SetPaymentOptions.aspx.designer.cs">
+      <DependentUpon>SetPaymentOptions.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="adaptivepaymentshandler.ashx" />
+    <Content Include="CancelPreapproval.aspx" />
+    <Content Include="ConfirmPreapproval.aspx" />
+    <Content Include="ExecutePayment.aspx" />
+    <Content Include="GetAllowedFundingSources.aspx" />
+    <Content Include="GetAvailableShippingAddresses.aspx" />
+    <Content Include="GetFundingPlans.aspx" />
+    <Content Include="GetPaymentOptions.aspx" />
+    <Content Include="GetShippingAddresses.aspx" />
+    <Content Include="GetUserLimits.aspx" />
+    <Content Include="Content\jquery-1.3.2.min.js" />
+    <Content Include="PaymentDetails.aspx" />
+    <Content Include="PreapprovalDetails.aspx" />
+    <Content Include="Refund.aspx" />
+    <Content Include="Content\sdk.css" />
+    <Content Include="Content\sdk_functions.js" />
+    <Content Include="SetPaymentOptions.aspx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\PayPal_AdaptivePayments_SDK\PayPal_AdaptivePayments_SDK.csproj">

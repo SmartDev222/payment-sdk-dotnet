@@ -7,22 +7,6 @@ namespace PayPal
 	/// </summary>
 	public class BaseConstants
 	{
-		/// <summary>
-		/// Modify these values if you want to use your own profile.
-		/// </summary>
-
-		/* 
-		 *                                                                         *
-		 * WARNING: Do not embed plaintext credentials in your application code.   *
-		 * Doing so is insecure and against best practices.                        *
-		 *                                                                         *
-		 * Your API credentials must be handled securely. Please consider          *
-		 * encrypting them for use in any production environment, and ensure       *
-		 * that only authorized individuals may view or modify them.               *
-		 *                                                                         *
-		 */
-               					
-
         public const string XPAYPALREQUESTDATAFORMAT = "X-PAYPAL-REQUEST-DATA-FORMAT";
         public const string XPAYPALRESPONSEDATAFORMAT = "X-PAYPAL-RESPONSE-DATA-FORMAT";
         public const string XPAYPALSERVICEVERSION = "X-PAYPAL-SERVICE-VERSION";        
@@ -49,14 +33,14 @@ namespace PayPal
 
         // Encoding format to be used for API payloads
         public static readonly Encoding ENCODING_FORMAT = Encoding.UTF8;
-        
-        public const string XPAYPALSOURCE = "PayPal_Invoicing_Dotnet_SDK";
+
+        public const string SDK_NAME = "sdk-adaptivepayments-dotnet";
+        public const string SDK_VERSION = "0.6.86";
 
         public class ErrorMessages
         {
             public const string PROFILE_NULL = "APIProfile cannot be null." ;
             public const string PAYLOAD_NULL = "PayLoad cannot be null or empty.";
-
 
             public const string err_endpoint = "Endpoint cannot be empty.";
             public const string err_username = "API username cannot be empty";
@@ -65,10 +49,6 @@ namespace PayPal
             public const string err_appid = "Application Id cannot be empty";
             public const string err_certificate = "Certificate cannot be empty";
             public const string err_privatekeypassword = "Private Key password cannot be null or empty.";
-
-
-
         }
-
 	}
 }

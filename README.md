@@ -1,10 +1,10 @@
-PayPal C# Permissions SDK
+PayPal C# Adaptive Payments SDK
 ======================
 
 Prerequisites
 -------------
 
-PayPal's C# Permissions SDK requires 
+PayPal's C# Adaptive Payments SDK requires 
 
  * Visual Studio 2005
  * NUnit 2.5.10.11092 (only for running the test cases) 
@@ -23,18 +23,19 @@ To use the SDK,
 
 For example,
 
-	using PayPal.Permissions;
-	using PayPal.Permissions.Model;
+	using PayPal.AdaptivePayments;
+	using PayPal.AdaptivePayments.Model;
 
-
-	RequestPermissionsRequest req = new RequestPermissionsRequest();
-	req.scope = new List<String>();
+      PaymentDetailsRequest req = new PaymentDetailsRequest(new RequestEnvelope("en_US")); 
+      // set optional parameters
+      req.payKey = "AP-343434343";
+      req.transactionId = "12435";
 	......
 
-	PermissionsService service = new PermissionsService();
-	RequestPermissionsResponse cir = service.RequestPermissions(cr);
+	AdaptivePaymentsService service = new AdaptivePaymentsService();
+	PaymentDetailsResponse resp = service.PaymentDetails(req);
  
-	if(cir.responseEnvelope.ack == AckCode.SUCCESS) {
+	if(resp.responseEnvelope.ack == AckCode.SUCCESS) {
 		// Success
 	}
   
@@ -72,3 +73,14 @@ A sample configuration file has been provided with the unit tests. Adding PayPal
       &lt;/accounts&gt;
 
     &lt;/paypal&gt;
+
+
+FAQ
+---
+
+  * Can the SDK be used in Medium trust applications?
+
+     To use the SDK in an application that runs in the medium trust level, you will need to configure appropriate WebPermissions to allow outbound 
+HTTP connection to PayPal's API servers
+
+    <trust level="Medium" originUrl="https://svcs.sandbox.paypal.com/.*" />

@@ -9,9 +9,22 @@
 <body>
  <h2>AdaptivePayments API samples</h2>
     <form id="form1" runat="server">
-    <div>
-    <a href="Pay.aspx">Pay</a> <br />
-          <a href="Preapproval.aspx">Preapproval</a> <br />
+    <div>    
+        <a href="Pay.aspx">Pay</a> <br />
+        <a href="PaymentDetails.aspx">Payment Details</a> <br />
+        <a href="Preapproval.aspx">Preapproval</a> <br />        
+        <a href="PreapprovalDetails.aspx">PreapprovalDetails</a> <br />
+        <a href="ConfirmPreapproval.aspx">ConfirmPreapproval</a> <br />
+        <a href="CancelPreapproval.aspx">CancelPreapproval</a> <br />
+        <a href="Refund.aspx">Refund</a> <br />
+        <a href="GetPaymentOptions.aspx">GetPaymentOptions</a> <br />                                        
+        <a href="SetPaymentOptions.aspx">SetPaymentOptions</a> <br />
+        <a href="ExecutePayment.aspx">ExecutePayment</a> <br />
+        <a href="GetAllowedFundingSources.aspx">GetAllowedFundingSources</a> <br />
+        <a href="GetFundingPlans.aspx">GetFundingPlans</a> <br />
+        <a href="GetAvailableShippingAddresses.aspx">GetAvailableShippingAddresses</a> <br />
+        <a href="GetShippingAddresses.aspx">GetShippingAddresses</a> <br />
+        <a href="GetUserLimits.aspx">GetUserLimits</a> <br />
     </div>
     </form>
 </body>
