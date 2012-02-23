@@ -728,9 +728,9 @@ return null;
 			if (map.ContainsKey(key + ".timestamp")) {
 				this.responseEnvelope = new ResponseEnvelope(map, key + '.');
 			}
-			key = prefix + "estimatedAmountTable";
+            key = prefix + "estimatedAmountTable.currencyConversionList(0).baseAmount.code";
 			if (map.ContainsKey(key)) {
-				this.estimatedAmountTable = new CurrencyConversionTable(map, key + '.');
+				this.estimatedAmountTable = new CurrencyConversionTable(map, prefix + "estimatedAmountTable" + '.');
 			}
 			for (int i = 0; i < 10; i++) {
 				key = prefix + "error" + '(' + i + ")";
@@ -889,7 +889,7 @@ return null;
 			string key = "";
 			for (int i = 0; i < 10; i++) {
 				key = prefix + "currencyConversionList" + '(' + i + ")";
-				if (map.ContainsKey(key + ".baseAmount(0).code")) {
+				if (map.ContainsKey(key + ".baseAmount.code")) {
 					this.currencyConversionList.Add( new CurrencyConversionList(map, key + '.')); 
 				}
 			}
