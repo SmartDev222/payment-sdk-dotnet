@@ -29,6 +29,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -62,6 +63,13 @@
     </Compile>
     <Compile Include="ConfirmPreapproval.aspx.designer.cs">
       <DependentUpon>ConfirmPreapproval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConvertCurrency.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ConvertCurrency.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConvertCurrency.aspx.designer.cs">
+      <DependentUpon>ConvertCurrency.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -119,6 +127,9 @@
     <Compile Include="GetUserLimits.aspx.designer.cs">
       <DependentUpon>GetUserLimits.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="objectdumper.cs" />
     <Compile Include="Pay.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -168,6 +179,7 @@
     <Content Include="adaptivepaymentshandler.ashx" />
     <Content Include="CancelPreapproval.aspx" />
     <Content Include="ConfirmPreapproval.aspx" />
+    <Content Include="ConvertCurrency.aspx" />
     <Content Include="ExecutePayment.aspx" />
     <Content Include="GetAllowedFundingSources.aspx" />
     <Content Include="GetAvailableShippingAddresses.aspx" />
@@ -176,6 +188,8 @@
     <Content Include="GetShippingAddresses.aspx" />
     <Content Include="GetUserLimits.aspx" />
     <Content Include="Content\jquery-1.3.2.min.js" />
+    <Content Include="Global.asax" />
+    <Content Include="lib\log4net.dll" />
     <Content Include="PaymentDetails.aspx" />
     <Content Include="PreapprovalDetails.aspx" />
     <Content Include="Refund.aspx" />
@@ -188,6 +202,9 @@
       <Project>{1F5FF00B-CE0F-40B8-9BC4-7B5ED2087266}</Project>
       <Name>PayPal_AdaptivePayments_SDK</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v8.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -11,7 +11,6 @@ C:\Inetpub\adaptivepayments-dotnet-sdk\Samples\AdaptivePaymentsSampleApp\bin\Ada
 C:\Inetpub\adaptivepayments-dotnet-sdk\Samples\AdaptivePaymentsSampleApp\bin\AdaptivePaymentsSampleApp.pdb
 C:\Inetpub\adaptivepayments-dotnet-sdk\Samples\AdaptivePaymentsSampleApp\bin\PayPal_AdaptivePayments_SDK.dll
 C:\Inetpub\adaptivepayments-dotnet-sdk\Samples\AdaptivePaymentsSampleApp\bin\log4net.dll
-C:\Inetpub\adaptivepayments-dotnet-sdk\Samples\AdaptivePaymentsSampleApp\bin\log4net.xml
 C:\Inetpub\adaptivepayments-dotnet-sdk\Samples\AdaptivePaymentsSampleApp\bin\PayPal_AdaptivePayments_SDK.pdb
 C:\Inetpub\adaptivepayments-dotnet-sdk\Samples\AdaptivePaymentsSampleApp\obj\Debug\ResolveAssemblyReference.cache
 C:\Inetpub\adaptivepayments-dotnet-sdk\Samples\AdaptivePaymentsSampleApp\obj\Debug\AdaptivePaymentsSampleApp.dll

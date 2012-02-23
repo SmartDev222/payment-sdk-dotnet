@@ -17,6 +17,7 @@
         <a href="ConfirmPreapproval.aspx">ConfirmPreapproval</a> <br />
         <a href="CancelPreapproval.aspx">CancelPreapproval</a> <br />
         <a href="Refund.aspx">Refund</a> <br />
+        <a href="ConvertCurrency.aspx">ConvertCurrency</a> <br />
         <a href="GetPaymentOptions.aspx">GetPaymentOptions</a> <br />                                        
         <a href="SetPaymentOptions.aspx">SetPaymentOptions</a> <br />
         <a href="ExecutePayment.aspx">ExecutePayment</a> <br />

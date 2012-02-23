@@ -54,6 +54,10 @@ namespace AdaptivePaymentsSampleApp
             {
                 Refund(context);
             }
+            else if (strCall.Equals("ConvertCurrency"))
+            {
+                ConvertCurrency(context);
+            }
             else if (strCall.Equals("GetAllowedFundingSources"))
             {
                 GetAllowedFundingSources(context);
@@ -555,6 +559,76 @@ namespace AdaptivePaymentsSampleApp
                 resp.error, redirectUrl);
         }
 
+
+        /// <summary>
+        /// Handle ConvertCurrency API call
+        /// </summary>
+        /// <param name="context"></param>
+        private void ConvertCurrency(HttpContext context)
+        {
+            NameValueCollection parameters = context.Request.Params;           
+            string[] fromCurrencyCodes = context.Request.Form.GetValues("currencyCode");
+            string[] fromCurrencyAmounts = context.Request.Form.GetValues("currencyAmount");
+            string[] toCurrencyCodes = context.Request.Form.GetValues("toCurrencyCode");
+
+            List<CurrencyType> currencies = new List<CurrencyType>();
+            for(int i=0; i<fromCurrencyCodes.Length; i++)
+            {
+                currencies.Add(
+                    new CurrencyType(fromCurrencyCodes[i], decimal.Parse(fromCurrencyAmounts[i]))
+                );
+            }
+            CurrencyList baseAmountList = new CurrencyList(currencies);
+
+            List<String> toCurrencyCodeList = new List<String>();
+            for (int i = 0; i < toCurrencyCodes.Length; i++)
+                toCurrencyCodeList.Add(toCurrencyCodes[i]);
+            CurrencyCodeList convertToCurrencyList = new CurrencyCodeList(toCurrencyCodeList);
+
+            ConvertCurrencyRequest req = new ConvertCurrencyRequest(
+                new RequestEnvelope("en_US"), baseAmountList, convertToCurrencyList);
+            // Add optional parameters
+            if (parameters["countryCode"] != "")
+                req.countryCode = parameters["countryCode"];
+            if (parameters["conversionType"] != "")
+                req.conversionType = parameters["conversionType"];
+
+
+            // All set. Fire the request            
+            AdaptivePaymentsService service = new AdaptivePaymentsService();
+            ConvertCurrencyResponse resp = null;
+            try
+            {
+                resp = service.ConvertCurrency(req);
+            }
+            catch (System.Exception e)
+            {
+                context.Response.Write(e.Message);
+                return;
+            }
+
+            // Display response values. 
+            Dictionary<string, string> keyResponseParams = new Dictionary<string, string>();
+            string redirectUrl = null;
+            if (!(resp.responseEnvelope.ack == AckCode.FAILURE) &&
+                !(resp.responseEnvelope.ack == AckCode.FAILUREWITHWARNING))
+            {
+                if (resp.estimatedAmountTable != null
+                    && resp.estimatedAmountTable.currencyConversionList != null)
+                {
+                    int idx = 1;
+                    foreach (CurrencyConversionList list in resp.estimatedAmountTable.currencyConversionList)
+                    {
+                        keyResponseParams.Add("Base amount " + idx,
+                            list.baseAmount.amount + " " + list.baseAmount.code);
+                        idx++;
+                    }
+                }
+            }
+            displayResponse(context, "ConvertCurrency", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
+                resp.error, redirectUrl);
+        }
+
         /// <summary>
         /// Handle GetAllowedFundingSources API call
         /// </summary>
@@ -1008,7 +1082,7 @@ namespace AdaptivePaymentsSampleApp
 
             context.Response.Write("<html><head><title>");
             context.Response.Write("PayPal Adaptive Payments - " + apiName);
-            context.Response.Write("</title><link rel='stylesheet' href='sdk.css' type='text/css'/></head><body>");
+            context.Response.Write("</title><link rel='stylesheet' href='Content/sdk.css' type='text/css'/></head><body>");
             context.Response.Write("<h3>" + apiName + " response</h3>");
             if (errorMessages != null && errorMessages.Count > 0)
             {
@@ -1023,7 +1097,7 @@ namespace AdaptivePaymentsSampleApp
             if (redirectUrl != null)
             {
                 string red = "<div>This API involves a web flow. You must now redirect your user to " + redirectUrl;
-                red = red + "<br />Please click <a href='" + redirectUrl + "'>here</a> to try the flow.</div><br/>";
+                red = red + "<br />Please click <a href='" + redirectUrl + "' target='_blank'>here</a> to try the flow.</div><br/>";
                 context.Response.Write(red);
             }
             context.Response.Write("<div class='section_header'>Key values from response</div>");
@@ -1036,9 +1110,9 @@ namespace AdaptivePaymentsSampleApp
                 context.Response.Write("</td></tr>");
             }
 
-            context.Response.Write("</table><h4>Request:</h4><br/><textarea rows=20 cols=80 readonly>");
+            context.Response.Write("</table><h4>Request:</h4><br/><textarea rows=15 cols=80 readonly>");
             context.Response.Write(requestPayload);
-            context.Response.Write("</textarea><br/><h4>Response</h4><br/><textarea rows=20 cols=80 readonly>");
+            context.Response.Write("</textarea><br/><h4>Response</h4><br/><textarea rows=15 cols=80 readonly>");
             context.Response.Write(responsePayload);
             context.Response.Write("</textarea>");            
             context.Response.Write("<br/><br/><a href='Default.aspx'>Home<a><br/><br/></body></html>");

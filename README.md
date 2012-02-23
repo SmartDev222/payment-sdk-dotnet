@@ -1,5 +1,6 @@
+
 PayPal C# Adaptive Payments SDK
-======================
+===============================
 
 Prerequisites
 -------------
@@ -84,3 +85,7 @@ FAQ
 HTTP connection to PayPal's API servers
 
     <trust level="Medium" originUrl="https://svcs.sandbox.paypal.com/.*" />
+
+  * Why does logging not work in my application ?
+
+     
