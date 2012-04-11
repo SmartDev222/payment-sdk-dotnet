@@ -728,9 +728,9 @@ return null;
 			if (map.ContainsKey(key + ".timestamp")) {
 				this.responseEnvelope = new ResponseEnvelope(map, key + '.');
 			}
-            key = prefix + "estimatedAmountTable.currencyConversionList(0).baseAmount.code";
+			key = prefix + "estimatedAmountTable";
 			if (map.ContainsKey(key)) {
-				this.estimatedAmountTable = new CurrencyConversionTable(map, prefix + "estimatedAmountTable" + '.');
+				this.estimatedAmountTable = new CurrencyConversionTable(map, key + '.');
 			}
 			for (int i = 0; i < 10; i++) {
 				key = prefix + "error" + '(' + i + ")";
@@ -889,7 +889,7 @@ return null;
 			string key = "";
 			for (int i = 0; i < 10; i++) {
 				key = prefix + "currencyConversionList" + '(' + i + ")";
-				if (map.ContainsKey(key + ".baseAmount.code")) {
+				if (map.ContainsKey(key + ".baseAmount(0).code")) {
 					this.currencyConversionList.Add( new CurrencyConversionList(map, key + '.')); 
 				}
 			}
@@ -4891,7 +4891,7 @@ return null;
 	 * The sender identifier type contains information
 	 * to identify a PayPal account.
 	 */
-	public partial class ReceiverIdentifier :AccountIdentifier{
+	public partial class ReceiverIdentifier : AccountIdentifier {
 
 		public ReceiverIdentifier() {
 		}
@@ -5220,7 +5220,7 @@ sb.Append(base.toNVPString(prefix));
 			string key = "";
 			for (int i = 0; i < 10; i++) {
 				key = prefix + "refundInfo" + '(' + i + ")";
-				if (map.ContainsKey(key + ".receiver.amount")) {
+				if (map.ContainsKey(key + ".receiver(0).amount")) {
 					this.refundInfo.Add( new RefundInfo(map, key + '.')); 
 				}
 			}
@@ -5535,7 +5535,7 @@ sb.Append(base.toNVPString(prefix));
 	 * The sender identifier type contains information
 	 * to identify a PayPal account.
 	 */
-	public partial class SenderIdentifier :AccountIdentifier{
+	public partial class SenderIdentifier : AccountIdentifier {
 
 		private bool? useCredentialsField;
 		public bool? useCredentials {

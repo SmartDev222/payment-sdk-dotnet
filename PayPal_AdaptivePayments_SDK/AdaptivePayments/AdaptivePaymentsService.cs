@@ -13,7 +13,21 @@ namespace PayPal.AdaptivePayments {
 
 	public partial class AdaptivePaymentsService : BasePayPalService{
 
-		 public AdaptivePaymentsService() : base("AdaptivePayments", "1.7.0"){}
+		 public AdaptivePaymentsService() : base("AdaptivePayments", "1.8.0"){}
+		/// <summary>
+		/// Sets standard parameters common to all requests
+		/// </summary>
+		private void setStandardParams(AbstractRequestType request)
+		{
+			if (request.Version == null)
+			{
+				request.Version = serviceVersion;
+			}
+			if(request.ErrorLanguage != null && ConfigManager.Instance.GetProperty("languageCode") != null)
+			{
+				request.ErrorLanguage = ConfigManager.Instance.GetProperty("languageCode");
+			}
+		}
 		/**
 		 *
 		 */
