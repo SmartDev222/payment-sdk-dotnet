@@ -17,17 +17,6 @@ namespace PayPal.AdaptivePayments {
 		/// <summary>
 		/// Sets standard parameters common to all requests
 		/// </summary>
-		private void setStandardParams(AbstractRequestType request)
-		{
-			if (request.Version == null)
-			{
-				request.Version = serviceVersion;
-			}
-			if(request.ErrorLanguage != null && ConfigManager.Instance.GetProperty("languageCode") != null)
-			{
-				request.ErrorLanguage = ConfigManager.Instance.GetProperty("languageCode");
-			}
-		}
 		/**
 		 *
 		 */
