@@ -11,18 +11,26 @@ namespace PayPal.AdaptivePayments {
 	using PayPal.Manager;
 	using PayPal.AdaptivePayments.Model;
 
-	public partial class AdaptivePaymentsService : BasePayPalService{
+	public partial class AdaptivePaymentsService :BasePayPalService{
 
-		 public AdaptivePaymentsService() : base("AdaptivePayments", "1.8.0"){}
-		/// <summary>
-		/// Sets standard parameters common to all requests
-		/// </summary>
+		private static string serviceName = "AdaptivePayments";
+
+
+		private static string serviceVersion"1.8.0";
+
+
+		 public AdaptivePaymentsService() : base(serviceName)
+		        {}
+	/// <summary>
+ /// Sets standard parameters common to all requests
+ /// </summary>
 		/**
 		 *
 		 */
 		public CancelPreapprovalResponse CancelPreapproval(CancelPreapprovalRequest CancelPreapprovalRequest, string apiUsername) 
 		{
-			string resp = call("CancelPreapproval", CancelPreapprovalRequest.toNVPString(""), apiUsername);
+			BasePayPalService service = new BasePayPalService(serviceName);
+			string resp = service.call("CancelPreapproval", CancelPreapprovalRequest.toNVPString(""), apiUsername);
 
 			NVPUtil util = new NVPUtil();
 			return new CancelPreapprovalResponse(util.parseNVPString(resp), "");
@@ -37,7 +45,8 @@ namespace PayPal.AdaptivePayments {
 		 */
 		public ConfirmPreapprovalResponse ConfirmPreapproval(ConfirmPreapprovalRequest ConfirmPreapprovalRequest, string apiUsername) 
 		{
-			string resp = call("ConfirmPreapproval", ConfirmPreapprovalRequest.toNVPString(""), apiUsername);
+			BasePayPalService service = new BasePayPalService(serviceName);
+			string resp = service.call("ConfirmPreapproval", ConfirmPreapprovalRequest.toNVPString(""), apiUsername);
 
 			NVPUtil util = new NVPUtil();
 			return new ConfirmPreapprovalResponse(util.parseNVPString(resp), "");
@@ -52,7 +61,8 @@ namespace PayPal.AdaptivePayments {
 		 */
 		public ConvertCurrencyResponse ConvertCurrency(ConvertCurrencyRequest ConvertCurrencyRequest, string apiUsername) 
 		{
-			string resp = call("ConvertCurrency", ConvertCurrencyRequest.toNVPString(""), apiUsername);
+			BasePayPalService service = new BasePayPalService(serviceName);
+			string resp = service.call("ConvertCurrency", ConvertCurrencyRequest.toNVPString(""), apiUsername);
 
 			NVPUtil util = new NVPUtil();
 			return new ConvertCurrencyResponse(util.parseNVPString(resp), "");
@@ -67,7 +77,8 @@ namespace PayPal.AdaptivePayments {
 		 */
 		public ExecutePaymentResponse ExecutePayment(ExecutePaymentRequest ExecutePaymentRequest, string apiUsername) 
 		{
-			string resp = call("ExecutePayment", ExecutePaymentRequest.toNVPString(""), apiUsername);
+			BasePayPalService service = new BasePayPalService(serviceName);
+			string resp = service.call("ExecutePayment", ExecutePaymentRequest.toNVPString(""), apiUsername);
 
 			NVPUtil util = new NVPUtil();
 			return new ExecutePaymentResponse(util.parseNVPString(resp), "");
@@ -82,7 +93,8 @@ namespace PayPal.AdaptivePayments {
 		 */
 		public GetAllowedFundingSourcesResponse GetAllowedFundingSources(GetAllowedFundingSourcesRequest GetAllowedFundingSourcesRequest, string apiUsername) 
 		{
-			string resp = call("GetAllowedFundingSources", GetAllowedFundingSourcesRequest.toNVPString(""), apiUsername);
+			BasePayPalService service = new BasePayPalService(serviceName);
+			string resp = service.call("GetAllowedFundingSources", GetAllowedFundingSourcesRequest.toNVPString(""), apiUsername);
 
 			NVPUtil util = new NVPUtil();
 			return new GetAllowedFundingSourcesResponse(util.parseNVPString(resp), "");
@@ -97,7 +109,8 @@ namespace PayPal.AdaptivePayments {
 		 */
 		public GetPaymentOptionsResponse GetPaymentOptions(GetPaymentOptionsRequest GetPaymentOptionsRequest, string apiUsername) 
 		{
-			string resp = call("GetPaymentOptions", GetPaymentOptionsRequest.toNVPString(""), apiUsername);
+			BasePayPalService service = new BasePayPalService(serviceName);
+			string resp = service.call("GetPaymentOptions", GetPaymentOptionsRequest.toNVPString(""), apiUsername);
 
 			NVPUtil util = new NVPUtil();
 			return new GetPaymentOptionsResponse(util.parseNVPString(resp), "");
@@ -112,7 +125,8 @@ namespace PayPal.AdaptivePayments {
 		 */
 		public PaymentDetailsResponse PaymentDetails(PaymentDetailsRequest PaymentDetailsRequest, string apiUsername) 
 		{
-			string resp = call("PaymentDetails", PaymentDetailsRequest.toNVPString(""), apiUsername);
+			BasePayPalService service = new BasePayPalService(serviceName);
+			string resp = service.call("PaymentDetails", PaymentDetailsRequest.toNVPString(""), apiUsername);
 
 			NVPUtil util = new NVPUtil();
 			return new PaymentDetailsResponse(util.parseNVPString(resp), "");
@@ -127,7 +141,8 @@ namespace PayPal.AdaptivePayments {
 		 */
 		public PayResponse Pay(PayRequest PayRequest, string apiUsername) 
 		{
-			string resp = call("Pay", PayRequest.toNVPString(""), apiUsername);
+			BasePayPalService service = new BasePayPalService(serviceName);
+			string resp = service.call("Pay", PayRequest.toNVPString(""), apiUsername);
 
 			NVPUtil util = new NVPUtil();
 			return new PayResponse(util.parseNVPString(resp), "");
@@ -142,7 +157,8 @@ namespace PayPal.AdaptivePayments {
 		 */
 		public PreapprovalDetailsResponse PreapprovalDetails(PreapprovalDetailsRequest PreapprovalDetailsRequest, string apiUsername) 
 		{
-			string resp = call("PreapprovalDetails", PreapprovalDetailsRequest.toNVPString(""), apiUsername);
+			BasePayPalService service = new BasePayPalService(serviceName);
+			string resp = service.call("PreapprovalDetails", PreapprovalDetailsRequest.toNVPString(""), apiUsername);
 
 			NVPUtil util = new NVPUtil();
 			return new PreapprovalDetailsResponse(util.parseNVPString(resp), "");
@@ -157,7 +173,8 @@ namespace PayPal.AdaptivePayments {
 		 */
 		public PreapprovalResponse Preapproval(PreapprovalRequest PreapprovalRequest, string apiUsername) 
 		{
-			string resp = call("Preapproval", PreapprovalRequest.toNVPString(""), apiUsername);
+			BasePayPalService service = new BasePayPalService(serviceName);
+			string resp = service.call("Preapproval", PreapprovalRequest.toNVPString(""), apiUsername);
 
 			NVPUtil util = new NVPUtil();
 			return new PreapprovalResponse(util.parseNVPString(resp), "");
@@ -172,7 +189,8 @@ namespace PayPal.AdaptivePayments {
 		 */
 		public RefundResponse Refund(RefundRequest RefundRequest, string apiUsername) 
 		{
-			string resp = call("Refund", RefundRequest.toNVPString(""), apiUsername);
+			BasePayPalService service = new BasePayPalService(serviceName);
+			string resp = service.call("Refund", RefundRequest.toNVPString(""), apiUsername);
 
 			NVPUtil util = new NVPUtil();
 			return new RefundResponse(util.parseNVPString(resp), "");
@@ -187,7 +205,8 @@ namespace PayPal.AdaptivePayments {
 		 */
 		public SetPaymentOptionsResponse SetPaymentOptions(SetPaymentOptionsRequest SetPaymentOptionsRequest, string apiUsername) 
 		{
-			string resp = call("SetPaymentOptions", SetPaymentOptionsRequest.toNVPString(""), apiUsername);
+			BasePayPalService service = new BasePayPalService(serviceName);
+			string resp = service.call("SetPaymentOptions", SetPaymentOptionsRequest.toNVPString(""), apiUsername);
 
 			NVPUtil util = new NVPUtil();
 			return new SetPaymentOptionsResponse(util.parseNVPString(resp), "");
@@ -202,7 +221,8 @@ namespace PayPal.AdaptivePayments {
 		 */
 		public GetFundingPlansResponse GetFundingPlans(GetFundingPlansRequest GetFundingPlansRequest, string apiUsername) 
 		{
-			string resp = call("GetFundingPlans", GetFundingPlansRequest.toNVPString(""), apiUsername);
+			BasePayPalService service = new BasePayPalService(serviceName);
+			string resp = service.call("GetFundingPlans", GetFundingPlansRequest.toNVPString(""), apiUsername);
 
 			NVPUtil util = new NVPUtil();
 			return new GetFundingPlansResponse(util.parseNVPString(resp), "");
@@ -217,7 +237,8 @@ namespace PayPal.AdaptivePayments {
 		 */
 		public GetAvailableShippingAddressesResponse GetAvailableShippingAddresses(GetAvailableShippingAddressesRequest GetAvailableShippingAddressesRequest, string apiUsername) 
 		{
-			string resp = call("GetAvailableShippingAddresses", GetAvailableShippingAddressesRequest.toNVPString(""), apiUsername);
+			BasePayPalService service = new BasePayPalService(serviceName);
+			string resp = service.call("GetAvailableShippingAddresses", GetAvailableShippingAddressesRequest.toNVPString(""), apiUsername);
 
 			NVPUtil util = new NVPUtil();
 			return new GetAvailableShippingAddressesResponse(util.parseNVPString(resp), "");
@@ -232,7 +253,8 @@ namespace PayPal.AdaptivePayments {
 		 */
 		public GetShippingAddressesResponse GetShippingAddresses(GetShippingAddressesRequest GetShippingAddressesRequest, string apiUsername) 
 		{
-			string resp = call("GetShippingAddresses", GetShippingAddressesRequest.toNVPString(""), apiUsername);
+			BasePayPalService service = new BasePayPalService(serviceName);
+			string resp = service.call("GetShippingAddresses", GetShippingAddressesRequest.toNVPString(""), apiUsername);
 
 			NVPUtil util = new NVPUtil();
 			return new GetShippingAddressesResponse(util.parseNVPString(resp), "");
@@ -247,7 +269,8 @@ namespace PayPal.AdaptivePayments {
 		 */
 		public GetUserLimitsResponse GetUserLimits(GetUserLimitsRequest GetUserLimitsRequest, string apiUsername) 
 		{
-			string resp = call("GetUserLimits", GetUserLimitsRequest.toNVPString(""), apiUsername);
+			BasePayPalService service = new BasePayPalService(serviceName);
+			string resp = service.call("GetUserLimits", GetUserLimitsRequest.toNVPString(""), apiUsername);
 
 			NVPUtil util = new NVPUtil();
 			return new GetUserLimitsResponse(util.parseNVPString(resp), "");

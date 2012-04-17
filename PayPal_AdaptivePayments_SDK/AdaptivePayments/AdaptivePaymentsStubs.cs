@@ -11,21 +11,21 @@ namespace PayPal.AdaptivePayments.Model {
 public class EnumUtils{
 public static string getDescription(Enum value){
 string description="";DescriptionAttribute[] attributes = (DescriptionAttribute[])value.GetType().GetField(value.ToString()).GetCustomAttributes(typeof(DescriptionAttribute), false);
-            if (attributes.Length > 0)
-            {
-                description= attributes[0].Description;
-            }
+			            if (attributes.Length > 0)
+			            {
+			                description= attributes[0].Description;
+			            }
 return description;
 }
 public static object getValue(String value,Type enumType){
 string[] names = Enum.GetNames(enumType);
-            foreach (string name in names)
-            {
-                if (getDescription((Enum)Enum.Parse(enumType, name)).Equals(value))
-                {
-                    return Enum.Parse(enumType, name);
-                }
-            }
+			            foreach (string name in names)
+			            {
+			                if (getDescription((Enum)Enum.Parse(enumType, name)).Equals(value))
+			                {
+			                    return Enum.Parse(enumType, name);
+			                }
+			            }
 return null;
 		}
 }
@@ -156,12 +156,15 @@ return null;
 
 	 public AddressList(Dictionary<string, string> map, string prefix) {
 			string key = "";
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "address" + '(' + i + ")";
 				if (map.ContainsKey(key + ".addresseeName")) {
 					this.address.Add( new Address(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
@@ -351,12 +354,15 @@ return null;
 			if (map.ContainsKey(key + ".timestamp")) {
 				this.responseEnvelope = new ResponseEnvelope(map, key + '.');
 			}
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "error" + '(' + i + ")";
 				if (map.ContainsKey(key + ".errorId")) {
 					this.error.Add( new ErrorData(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
@@ -582,12 +588,15 @@ return null;
 			if (map.ContainsKey(key + ".timestamp")) {
 				this.responseEnvelope = new ResponseEnvelope(map, key + '.');
 			}
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "error" + '(' + i + ")";
 				if (map.ContainsKey(key + ".errorId")) {
 					this.error.Add( new ErrorData(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
@@ -732,12 +741,15 @@ return null;
 			if (map.ContainsKey(key)) {
 				this.estimatedAmountTable = new CurrencyConversionTable(map, key + '.');
 			}
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "error" + '(' + i + ")";
 				if (map.ContainsKey(key + ".errorId")) {
 					this.error.Add( new ErrorData(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
@@ -887,12 +899,15 @@ return null;
 
 	 public CurrencyConversionTable(Dictionary<string, string> map, string prefix) {
 			string key = "";
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "currencyConversionList" + '(' + i + ")";
 				if (map.ContainsKey(key + ".baseAmount(0).code")) {
 					this.currencyConversionList.Add( new CurrencyConversionList(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
@@ -930,12 +945,15 @@ return null;
 
 	 public CurrencyList(Dictionary<string, string> map, string prefix) {
 			string key = "";
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "currency" + '(' + i + ")";
 				if (map.ContainsKey(key + ".code")) {
 					this.currency.Add( new CurrencyType(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
@@ -1217,12 +1235,15 @@ return null;
 			if (map.ContainsKey(key)) {
 				this.exceptionId = map[key];
 			}
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "parameter" + '(' + i + ")";
 				if (map.ContainsKey(key + ".name")) {
 					this.parameter.Add( new ErrorParameter(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
@@ -1243,12 +1264,15 @@ return null;
 
 	 public ErrorList(Dictionary<string, string> map, string prefix) {
 			string key = "";
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "error" + '(' + i + ")";
 				if (map.ContainsKey(key + ".errorId")) {
 					this.error.Add( new ErrorData(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
@@ -1430,12 +1454,15 @@ return null;
 			if (map.ContainsKey(key)) {
 				this.payErrorList = new PayErrorList(map, key + '.');
 			}
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "error" + '(' + i + ")";
 				if (map.ContainsKey(key + ".errorId")) {
 					this.error.Add( new ErrorData(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
@@ -1472,12 +1499,15 @@ return null;
 			if (map.ContainsKey(key + ".timestamp")) {
 				this.responseEnvelope = new ResponseEnvelope(map, key + '.');
 			}
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "error" + '(' + i + ")";
 				if (map.ContainsKey(key + ".errorId")) {
 					this.error.Add( new ErrorData(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
@@ -1605,12 +1635,15 @@ return null;
 			if (map.ContainsKey(key + ".from(0).code")) {
 				this.currencyConversion = new CurrencyConversion(map, key + '.');
 			}
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "charge" + '(' + i + ")";
 				if (map.ContainsKey(key + ".charge(0).code")) {
 					this.charge.Add( new FundingPlanCharge(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
@@ -1806,12 +1839,15 @@ return null;
 
 	 public FundingTypeList(Dictionary<string, string> map, string prefix) {
 			string key = "";
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "fundingTypeInfo" + '(' + i + ")";
 				if (map.ContainsKey(key)) {
 					this.fundingTypeInfo.Add( new FundingTypeInfo(map, key) ); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
@@ -1905,18 +1941,24 @@ return null;
 			if (map.ContainsKey(key + ".timestamp")) {
 				this.responseEnvelope = new ResponseEnvelope(map, key + '.');
 			}
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "fundingSource" + '(' + i + ")";
 				if (map.ContainsKey(key + ".lastFourOfAccountNumber")) {
 					this.fundingSource.Add( new FundingSource(map, key + '.')); 
 				}
-			}
-			for (int i = 0; i < 10; i++) {
+		else break;
+		i++;
+		}
+		int i=0;
+		while(true) {
 				key = prefix + "error" + '(' + i + ")";
 				if (map.ContainsKey(key + ".errorId")) {
 					this.error.Add( new ErrorData(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
@@ -2016,18 +2058,24 @@ return null;
 			if (map.ContainsKey(key + ".timestamp")) {
 				this.responseEnvelope = new ResponseEnvelope(map, key + '.');
 			}
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "availableAddress" + '(' + i + ")";
 				if (map.ContainsKey(key + ".addresseeName")) {
 					this.availableAddress.Add( new Address(map, key + '.')); 
 				}
-			}
-			for (int i = 0; i < 10; i++) {
+		else break;
+		i++;
+		}
+		int i=0;
+		while(true) {
 				key = prefix + "error" + '(' + i + ")";
 				if (map.ContainsKey(key + ".errorId")) {
 					this.error.Add( new ErrorData(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
@@ -2121,18 +2169,24 @@ return null;
 			if (map.ContainsKey(key + ".timestamp")) {
 				this.responseEnvelope = new ResponseEnvelope(map, key + '.');
 			}
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "fundingPlan" + '(' + i + ")";
 				if (map.ContainsKey(key + ".fundingPlanId")) {
 					this.fundingPlan.Add( new FundingPlan(map, key + '.')); 
 				}
-			}
-			for (int i = 0; i < 10; i++) {
+		else break;
+		i++;
+		}
+		int i=0;
+		while(true) {
 				key = prefix + "error" + '(' + i + ")";
 				if (map.ContainsKey(key + ".errorId")) {
 					this.error.Add( new ErrorData(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
@@ -2282,18 +2336,24 @@ return null;
 			if (map.ContainsKey(key + ".requireShippingAddressSelection")) {
 				this.senderOptions = new SenderOptions(map, key + '.');
 			}
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "receiverOptions" + '(' + i + ")";
 				if (map.ContainsKey(key + ".description")) {
 					this.receiverOptions.Add( new ReceiverOptions(map, key + '.')); 
 				}
-			}
-			for (int i = 0; i < 10; i++) {
+		else break;
+		i++;
+		}
+		int i=0;
+		while(true) {
 				key = prefix + "error" + '(' + i + ")";
 				if (map.ContainsKey(key + ".errorId")) {
 					this.error.Add( new ErrorData(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
@@ -2397,12 +2457,15 @@ return null;
 			if (map.ContainsKey(key + ".addresseeName")) {
 				this.selectedAddress = new Address(map, key + '.');
 			}
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "error" + '(' + i + ")";
 				if (map.ContainsKey(key + ".errorId")) {
 					this.error.Add( new ErrorData(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
@@ -2557,22 +2620,28 @@ return null;
 			if (map.ContainsKey(key + ".timestamp")) {
 				this.responseEnvelope = new ResponseEnvelope(map, key + '.');
 			}
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "userLimit" + '(' + i + ")";
 				if (map.ContainsKey(key + ".limitType")) {
 					this.userLimit.Add( new UserLimit(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 			key = prefix + "warningDataList";
 			if (map.ContainsKey(key + ".warningData(0).warningId")) {
 				this.warningDataList = new WarningDataList(map, key + '.');
 			}
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "error" + '(' + i + ")";
 				if (map.ContainsKey(key + ".errorId")) {
 					this.error.Add( new ErrorData(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
@@ -2844,12 +2913,15 @@ return null;
 
 	 public InvoiceData(Dictionary<string, string> map, string prefix) {
 			string key = "";
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "item" + '(' + i + ")";
 				if (map.ContainsKey(key + ".name")) {
 					this.item.Add( new InvoiceItem(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 			key = prefix + "totalTax";
 			if (map.ContainsKey(key)) {
 				this.totalTax = System.Convert.ToDecimal( map[key] );
@@ -3021,12 +3093,15 @@ return null;
 
 	 public PayErrorList(Dictionary<string, string> map, string prefix) {
 			string key = "";
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "payError" + '(' + i + ")";
 				if (map.ContainsKey(key + ".receiver(0).amount")) {
 					this.payError.Add( new PayError(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
@@ -3370,12 +3445,15 @@ return null;
 			if (map.ContainsKey(key + ".fundingPlanId")) {
 				this.defaultFundingPlan = new FundingPlan(map, key + '.');
 			}
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "error" + '(' + i + ")";
 				if (map.ContainsKey(key + ".errorId")) {
 					this.error.Add( new ErrorData(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
@@ -3710,12 +3788,15 @@ return null;
 			if (map.ContainsKey(key)) {
 				this.sender = new SenderIdentifier(map, key);
 			}
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "error" + '(' + i + ")";
 				if (map.ContainsKey(key + ".errorId")) {
 					this.error.Add( new ErrorData(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
@@ -3862,12 +3943,15 @@ return null;
 
 	 public PaymentInfoList(Dictionary<string, string> map, string prefix) {
 			string key = "";
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "paymentInfo" + '(' + i + ")";
 				if (map.ContainsKey(key + ".transactionId")) {
 					this.paymentInfo.Add( new PaymentInfo(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
@@ -4386,12 +4470,15 @@ return null;
 			if (map.ContainsKey(key)) {
 				this.displayMaxTotalAmount = System.Convert.ToBoolean( map[key] );
 			}
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "error" + '(' + i + ")";
 				if (map.ContainsKey(key + ".errorId")) {
 					this.error.Add( new ErrorData(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
@@ -4731,12 +4818,15 @@ return null;
 			if (map.ContainsKey(key)) {
 				this.preapprovalKey = map[key];
 			}
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "error" + '(' + i + ")";
 				if (map.ContainsKey(key + ".errorId")) {
 					this.error.Add( new ErrorData(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
@@ -4891,7 +4981,7 @@ return null;
 	 * The sender identifier type contains information
 	 * to identify a PayPal account.
 	 */
-	public partial class ReceiverIdentifier : AccountIdentifier {
+	public partial class ReceiverIdentifier :AccountIdentifier{
 
 		public ReceiverIdentifier() {
 		}
@@ -5218,12 +5308,15 @@ sb.Append(base.toNVPString(prefix));
 
 	 public RefundInfoList(Dictionary<string, string> map, string prefix) {
 			string key = "";
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "refundInfo" + '(' + i + ")";
 				if (map.ContainsKey(key + ".receiver(0).amount")) {
 					this.refundInfo.Add( new RefundInfo(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
@@ -5389,12 +5482,15 @@ sb.Append(base.toNVPString(prefix));
 			if (map.ContainsKey(key + ".refundInfo(0).refundStatus")) {
 				this.refundInfoList = new RefundInfoList(map, key + '.');
 			}
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "error" + '(' + i + ")";
 				if (map.ContainsKey(key + ".errorId")) {
 					this.error.Add( new ErrorData(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
@@ -5535,7 +5631,7 @@ sb.Append(base.toNVPString(prefix));
 	 * The sender identifier type contains information
 	 * to identify a PayPal account.
 	 */
-	public partial class SenderIdentifier : AccountIdentifier {
+	public partial class SenderIdentifier :AccountIdentifier{
 
 		private bool? useCredentialsField;
 		public bool? useCredentials {
@@ -5773,12 +5869,15 @@ sb.Append(base.toNVPString(prefix));
 			if (map.ContainsKey(key + ".timestamp")) {
 				this.responseEnvelope = new ResponseEnvelope(map, key + '.');
 			}
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "error" + '(' + i + ")";
 				if (map.ContainsKey(key + ".errorId")) {
 					this.error.Add( new ErrorData(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
@@ -5878,12 +5977,15 @@ sb.Append(base.toNVPString(prefix));
 
 	 public WarningDataList(Dictionary<string, string> map, string prefix) {
 			string key = "";
-			for (int i = 0; i < 10; i++) {
+		int i=0;
+		while(true) {
 				key = prefix + "warningData" + '(' + i + ")";
 				if (map.ContainsKey(key + ".warningId")) {
 					this.warningData.Add( new WarningData(map, key + '.')); 
 				}
-			}
+		else break;
+		i++;
+		}
 		}
 	}
 
