@@ -1,11 +1,11 @@
 
-
-PayPal Adaptive Payments C# SDK - 0.6.88
+PayPal Adaptive Payments C# SDK - 0.7.88
 ----------------------------------------
 
 Release Date - 11-Apr-2012
 
 	- wsdl update vesion 88.0
+	- Fix for incorrect Permissions header (X-PP-AUTHORIZATION)
 	
 PayPal Adaptive Payments C# SDK - 0.6.86
 ----------------------------------------
