@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdaptivePayments\AdaptivePaymentsService.cs" />
-    <Compile Include="AdaptivePayments\AdaptivePaymentsStubs.cs" />
+    <Compile Include="AdaptivePayments\PayPalAdaptivePaymentsModel.cs" />
     <Compile Include="BasePayPalService.cs" />
     <Compile Include="Authentication\AuthenticationHandler.cs" />
     <Compile Include="Exception\ConfigException.cs" />
