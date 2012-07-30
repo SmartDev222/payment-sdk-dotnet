@@ -18,7 +18,6 @@ namespace PayPal.AdaptivePayments {
 		}
 
 		/**	
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public CancelPreapprovalResponse CancelPreapproval(CancelPreapprovalRequest CancelPreapprovalRequest, string apiUsername)
@@ -29,7 +28,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 	 
 	 	/** 
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public CancelPreapprovalResponse CancelPreapproval(CancelPreapprovalRequest CancelPreapprovalRequest)
@@ -38,7 +36,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 
 		/**	
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public ConfirmPreapprovalResponse ConfirmPreapproval(ConfirmPreapprovalRequest ConfirmPreapprovalRequest, string apiUsername)
@@ -49,7 +46,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 	 
 	 	/** 
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public ConfirmPreapprovalResponse ConfirmPreapproval(ConfirmPreapprovalRequest ConfirmPreapprovalRequest)
@@ -58,7 +54,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 
 		/**	
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public ConvertCurrencyResponse ConvertCurrency(ConvertCurrencyRequest ConvertCurrencyRequest, string apiUsername)
@@ -69,7 +64,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 	 
 	 	/** 
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public ConvertCurrencyResponse ConvertCurrency(ConvertCurrencyRequest ConvertCurrencyRequest)
@@ -78,7 +72,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 
 		/**	
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public ExecutePaymentResponse ExecutePayment(ExecutePaymentRequest ExecutePaymentRequest, string apiUsername)
@@ -89,7 +82,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 	 
 	 	/** 
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public ExecutePaymentResponse ExecutePayment(ExecutePaymentRequest ExecutePaymentRequest)
@@ -98,7 +90,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 
 		/**	
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public GetAllowedFundingSourcesResponse GetAllowedFundingSources(GetAllowedFundingSourcesRequest GetAllowedFundingSourcesRequest, string apiUsername)
@@ -109,7 +100,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 	 
 	 	/** 
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public GetAllowedFundingSourcesResponse GetAllowedFundingSources(GetAllowedFundingSourcesRequest GetAllowedFundingSourcesRequest)
@@ -118,7 +108,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 
 		/**	
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public GetPaymentOptionsResponse GetPaymentOptions(GetPaymentOptionsRequest GetPaymentOptionsRequest, string apiUsername)
@@ -129,7 +118,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 	 
 	 	/** 
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public GetPaymentOptionsResponse GetPaymentOptions(GetPaymentOptionsRequest GetPaymentOptionsRequest)
@@ -138,7 +126,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 
 		/**	
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public PaymentDetailsResponse PaymentDetails(PaymentDetailsRequest PaymentDetailsRequest, string apiUsername)
@@ -149,7 +136,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 	 
 	 	/** 
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public PaymentDetailsResponse PaymentDetails(PaymentDetailsRequest PaymentDetailsRequest)
@@ -158,7 +144,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 
 		/**	
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public PayResponse Pay(PayRequest PayRequest, string apiUsername)
@@ -169,7 +154,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 	 
 	 	/** 
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public PayResponse Pay(PayRequest PayRequest)
@@ -178,7 +162,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 
 		/**	
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public PreapprovalDetailsResponse PreapprovalDetails(PreapprovalDetailsRequest PreapprovalDetailsRequest, string apiUsername)
@@ -189,7 +172,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 	 
 	 	/** 
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public PreapprovalDetailsResponse PreapprovalDetails(PreapprovalDetailsRequest PreapprovalDetailsRequest)
@@ -198,7 +180,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 
 		/**	
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public PreapprovalResponse Preapproval(PreapprovalRequest PreapprovalRequest, string apiUsername)
@@ -209,7 +190,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 	 
 	 	/** 
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public PreapprovalResponse Preapproval(PreapprovalRequest PreapprovalRequest)
@@ -218,7 +198,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 
 		/**	
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public RefundResponse Refund(RefundRequest RefundRequest, string apiUsername)
@@ -229,7 +208,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 	 
 	 	/** 
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public RefundResponse Refund(RefundRequest RefundRequest)
@@ -238,7 +216,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 
 		/**	
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public SetPaymentOptionsResponse SetPaymentOptions(SetPaymentOptionsRequest SetPaymentOptionsRequest, string apiUsername)
@@ -249,7 +226,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 	 
 	 	/** 
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public SetPaymentOptionsResponse SetPaymentOptions(SetPaymentOptionsRequest SetPaymentOptionsRequest)
@@ -258,7 +234,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 
 		/**	
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public GetFundingPlansResponse GetFundingPlans(GetFundingPlansRequest GetFundingPlansRequest, string apiUsername)
@@ -269,7 +244,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 	 
 	 	/** 
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public GetFundingPlansResponse GetFundingPlans(GetFundingPlansRequest GetFundingPlansRequest)
@@ -278,7 +252,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 
 		/**	
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public GetAvailableShippingAddressesResponse GetAvailableShippingAddresses(GetAvailableShippingAddressesRequest GetAvailableShippingAddressesRequest, string apiUsername)
@@ -289,7 +262,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 	 
 	 	/** 
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public GetAvailableShippingAddressesResponse GetAvailableShippingAddresses(GetAvailableShippingAddressesRequest GetAvailableShippingAddressesRequest)
@@ -298,7 +270,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 
 		/**	
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public GetShippingAddressesResponse GetShippingAddresses(GetShippingAddressesRequest GetShippingAddressesRequest, string apiUsername)
@@ -309,7 +280,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 	 
 	 	/** 
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public GetShippingAddressesResponse GetShippingAddresses(GetShippingAddressesRequest GetShippingAddressesRequest)
@@ -318,7 +288,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 
 		/**	
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public GetUserLimitsResponse GetUserLimits(GetUserLimitsRequest GetUserLimitsRequest, string apiUsername)
@@ -329,7 +298,6 @@ namespace PayPal.AdaptivePayments {
 	 	}
 	 
 	 	/** 
-          *The Method does not have any comments, this is
           *AUTO_GENERATED
 	 	  */
 	 	public GetUserLimitsResponse GetUserLimits(GetUserLimitsRequest GetUserLimitsRequest)

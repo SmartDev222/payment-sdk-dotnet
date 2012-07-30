@@ -956,7 +956,8 @@ namespace AdaptivePaymentsSampleApp
                 foreach(ReceiverOptions option in resp.receiverOptions)
                 {
                     keyResponseParams.Add("Receiver option " + idx, option.description);
-                    keyResponseParams.Add("Receiver email " + idx, option.receiver.email);
+                    if(option.receiver.email != null)
+                        keyResponseParams.Add("Receiver email " + idx, option.receiver.email);
                     idx++;
                 }
                 if(resp.displayOptions != null) 

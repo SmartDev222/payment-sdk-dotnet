@@ -1,7 +1,0 @@
-C:\Documents and Settings\lvairamani\Desktop\SDKs\AdaptivePayments\PayPal_AdaptivePayments_SDK\obj\Debug\ResolveAssemblyReference.cache
-C:\Documents and Settings\lvairamani\Desktop\SDKs\AdaptivePayments\PayPal_AdaptivePayments_SDK\bin\Debug\PayPal_AdaptivePayments_SDK.dll
-C:\Documents and Settings\lvairamani\Desktop\SDKs\AdaptivePayments\PayPal_AdaptivePayments_SDK\bin\Debug\PayPal_AdaptivePayments_SDK.pdb
-C:\Documents and Settings\lvairamani\Desktop\SDKs\AdaptivePayments\PayPal_AdaptivePayments_SDK\bin\Debug\log4net.dll
-C:\Documents and Settings\lvairamani\Desktop\SDKs\AdaptivePayments\PayPal_AdaptivePayments_SDK\bin\Debug\log4net.xml
-C:\Documents and Settings\lvairamani\Desktop\SDKs\AdaptivePayments\PayPal_AdaptivePayments_SDK\obj\Debug\PayPal_AdaptivePayments_SDK.dll
-C:\Documents and Settings\lvairamani\Desktop\SDKs\AdaptivePayments\PayPal_AdaptivePayments_SDK\obj\Debug\PayPal_AdaptivePayments_SDK.pdb
