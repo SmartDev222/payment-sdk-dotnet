@@ -206,7 +206,7 @@ namespace AdaptivePaymentsSampleApp
                 }
             }
             displayResponse(context, "Pay", keyResponseParams, service.getLastRequest(), service.getLastResponse(), 
-                resp.error, redirectUrl);            
+                resp.error, redirectUrl, resp);            
         }
 
         /// <summary>
@@ -249,7 +249,7 @@ namespace AdaptivePaymentsSampleApp
                 keyResponseParams.Add("Sender email", resp.senderEmail);
             }
             displayResponse(context, "PaymentDetails", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
-                resp.error, redirectUrl);
+                resp.error, redirectUrl, resp);
         }
 
         /// <summary>
@@ -346,7 +346,7 @@ namespace AdaptivePaymentsSampleApp
                 keyResponseParams.Add("Preapproval key", resp.preapprovalKey);
             }
             displayResponse(context, "Preapproval", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
-                resp.error, redirectUrl);
+                resp.error, redirectUrl, resp);
         }
 
 
@@ -390,7 +390,7 @@ namespace AdaptivePaymentsSampleApp
                 keyResponseParams.Add("Maximum amount (across all payments)", resp.maxTotalAmountOfAllPayments.ToString());                
             }
             displayResponse(context, "PreapprovalDetails", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
-                resp.error, redirectUrl);
+                resp.error, redirectUrl, resp);
         }
 
         /// <summary>
@@ -425,7 +425,7 @@ namespace AdaptivePaymentsSampleApp
                 //nothing to add
             }
             displayResponse(context, "CancelPreapproval", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
-                resp.error, redirectUrl);
+                resp.error, redirectUrl, resp);
         }
 
         /// <summary>
@@ -465,7 +465,7 @@ namespace AdaptivePaymentsSampleApp
                 //nothing to add
             }
             displayResponse(context, "ConfirmPreapproval", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
-                resp.error, redirectUrl);
+                resp.error, redirectUrl, resp);
         }
 
 
@@ -556,7 +556,7 @@ namespace AdaptivePaymentsSampleApp
                 }
             }
             displayResponse(context, "Refund", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
-                resp.error, redirectUrl);
+                resp.error, redirectUrl, resp);
         }
 
 
@@ -626,7 +626,7 @@ namespace AdaptivePaymentsSampleApp
                 }
             }
             displayResponse(context, "ConvertCurrency", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
-                resp.error, redirectUrl);
+                resp.error, redirectUrl, resp);
         }
 
         /// <summary>
@@ -667,7 +667,7 @@ namespace AdaptivePaymentsSampleApp
                 }                
             }
             displayResponse(context, "GetAllowedFundingSources", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
-                resp.error, redirectUrl);
+                resp.error, redirectUrl, resp);
         }
 
 
@@ -709,7 +709,7 @@ namespace AdaptivePaymentsSampleApp
                 }
             }
             displayResponse(context, "GetFundingPlans", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
-                resp.error, redirectUrl);
+                resp.error, redirectUrl, resp);
         }
 
 
@@ -755,7 +755,7 @@ namespace AdaptivePaymentsSampleApp
                 }
             }
             displayResponse(context, "GetShippingAddresses", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
-                resp.error, redirectUrl);
+                resp.error, redirectUrl, resp);
         }
 
         /// <summary>
@@ -801,7 +801,7 @@ namespace AdaptivePaymentsSampleApp
                 }
             }
             displayResponse(context, "GetAvailableShippingAddresses", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
-                resp.error, redirectUrl);
+                resp.error, redirectUrl, resp);
         }
 
         /// <summary>
@@ -920,7 +920,7 @@ namespace AdaptivePaymentsSampleApp
             // Display response values. 
             Dictionary<string, string> keyResponseParams = new Dictionary<string, string>();            
             displayResponse(context, "SetPaymentOptions", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
-                resp.error, null);
+                resp.error, null, resp);
         }
 
         /// <summary>
@@ -969,7 +969,7 @@ namespace AdaptivePaymentsSampleApp
                 keyResponseParams.Add("Shipping address Id", resp.shippingAddressId);
             }
             displayResponse(context, "GetPaymentOptions", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
-                resp.error, redirectUrl);
+                resp.error, redirectUrl, resp);
         }
 
         /// <summary>
@@ -1004,7 +1004,7 @@ namespace AdaptivePaymentsSampleApp
                 keyResponseParams.Add("Payment exeucution status", resp.paymentExecStatus);
             }
             displayResponse(context, "ExecutePayment", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
-                resp.error, redirectUrl);
+                resp.error, redirectUrl, resp);
         }
 
         /// <summary>
@@ -1063,7 +1063,7 @@ namespace AdaptivePaymentsSampleApp
                 }
             }
             displayResponse(context, "GetAvailableShippingAddresses", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
-                resp.error, redirectUrl);
+                resp.error, redirectUrl, resp);
         }
 
 
@@ -1078,9 +1078,10 @@ namespace AdaptivePaymentsSampleApp
         /// <param name="errorMessages"></param>
         /// <param name="redirectUrl"></param>
         private void displayResponse(HttpContext context, string apiName, Dictionary<string, string> responseValues, 
-            string requestPayload, string responsePayload, List<ErrorData> errorMessages, string redirectUrl)
+            string requestPayload, string responsePayload, List<ErrorData> errorMessages, string redirectUrl, Object responseObject)
         {
-
+            context.Items["responseObject"] = responseObject;
+            context.Items["responsePayload"] = responsePayload;
             context.Response.Write("<html><head><title>");
             context.Response.Write("PayPal Adaptive Payments - " + apiName);
             context.Response.Write("</title><link rel='stylesheet' href='Content/sdk.css' type='text/css'/></head><body>");

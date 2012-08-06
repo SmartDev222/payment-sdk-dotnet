@@ -24,7 +24,8 @@ namespace PayPal.AdaptivePayments {
 	 	{
 			string resp = call("CancelPreapproval", CancelPreapprovalRequest.toNVPString(""), apiUsername);
 			NVPUtil util = new NVPUtil();
-			return new CancelPreapprovalResponse(util.parseNVPString(resp), "");
+			return CancelPreapprovalResponse.createInstance(util.parseNVPString(resp), "", -1);
+			
 	 	}
 	 
 	 	/** 
@@ -42,7 +43,8 @@ namespace PayPal.AdaptivePayments {
 	 	{
 			string resp = call("ConfirmPreapproval", ConfirmPreapprovalRequest.toNVPString(""), apiUsername);
 			NVPUtil util = new NVPUtil();
-			return new ConfirmPreapprovalResponse(util.parseNVPString(resp), "");
+			return ConfirmPreapprovalResponse.createInstance(util.parseNVPString(resp), "", -1);
+			
 	 	}
 	 
 	 	/** 
@@ -60,7 +62,8 @@ namespace PayPal.AdaptivePayments {
 	 	{
 			string resp = call("ConvertCurrency", ConvertCurrencyRequest.toNVPString(""), apiUsername);
 			NVPUtil util = new NVPUtil();
-			return new ConvertCurrencyResponse(util.parseNVPString(resp), "");
+			return ConvertCurrencyResponse.createInstance(util.parseNVPString(resp), "", -1);
+			
 	 	}
 	 
 	 	/** 
@@ -78,7 +81,8 @@ namespace PayPal.AdaptivePayments {
 	 	{
 			string resp = call("ExecutePayment", ExecutePaymentRequest.toNVPString(""), apiUsername);
 			NVPUtil util = new NVPUtil();
-			return new ExecutePaymentResponse(util.parseNVPString(resp), "");
+			return ExecutePaymentResponse.createInstance(util.parseNVPString(resp), "", -1);
+			
 	 	}
 	 
 	 	/** 
@@ -96,7 +100,8 @@ namespace PayPal.AdaptivePayments {
 	 	{
 			string resp = call("GetAllowedFundingSources", GetAllowedFundingSourcesRequest.toNVPString(""), apiUsername);
 			NVPUtil util = new NVPUtil();
-			return new GetAllowedFundingSourcesResponse(util.parseNVPString(resp), "");
+			return GetAllowedFundingSourcesResponse.createInstance(util.parseNVPString(resp), "", -1);
+			
 	 	}
 	 
 	 	/** 
@@ -114,7 +119,8 @@ namespace PayPal.AdaptivePayments {
 	 	{
 			string resp = call("GetPaymentOptions", GetPaymentOptionsRequest.toNVPString(""), apiUsername);
 			NVPUtil util = new NVPUtil();
-			return new GetPaymentOptionsResponse(util.parseNVPString(resp), "");
+			return GetPaymentOptionsResponse.createInstance(util.parseNVPString(resp), "", -1);
+			
 	 	}
 	 
 	 	/** 
@@ -132,7 +138,8 @@ namespace PayPal.AdaptivePayments {
 	 	{
 			string resp = call("PaymentDetails", PaymentDetailsRequest.toNVPString(""), apiUsername);
 			NVPUtil util = new NVPUtil();
-			return new PaymentDetailsResponse(util.parseNVPString(resp), "");
+			return PaymentDetailsResponse.createInstance(util.parseNVPString(resp), "", -1);
+			
 	 	}
 	 
 	 	/** 
@@ -150,7 +157,8 @@ namespace PayPal.AdaptivePayments {
 	 	{
 			string resp = call("Pay", PayRequest.toNVPString(""), apiUsername);
 			NVPUtil util = new NVPUtil();
-			return new PayResponse(util.parseNVPString(resp), "");
+			return PayResponse.createInstance(util.parseNVPString(resp), "", -1);
+			
 	 	}
 	 
 	 	/** 
@@ -168,7 +176,8 @@ namespace PayPal.AdaptivePayments {
 	 	{
 			string resp = call("PreapprovalDetails", PreapprovalDetailsRequest.toNVPString(""), apiUsername);
 			NVPUtil util = new NVPUtil();
-			return new PreapprovalDetailsResponse(util.parseNVPString(resp), "");
+			return PreapprovalDetailsResponse.createInstance(util.parseNVPString(resp), "", -1);
+			
 	 	}
 	 
 	 	/** 
@@ -186,7 +195,8 @@ namespace PayPal.AdaptivePayments {
 	 	{
 			string resp = call("Preapproval", PreapprovalRequest.toNVPString(""), apiUsername);
 			NVPUtil util = new NVPUtil();
-			return new PreapprovalResponse(util.parseNVPString(resp), "");
+			return PreapprovalResponse.createInstance(util.parseNVPString(resp), "", -1);
+			
 	 	}
 	 
 	 	/** 
@@ -204,7 +214,8 @@ namespace PayPal.AdaptivePayments {
 	 	{
 			string resp = call("Refund", RefundRequest.toNVPString(""), apiUsername);
 			NVPUtil util = new NVPUtil();
-			return new RefundResponse(util.parseNVPString(resp), "");
+			return RefundResponse.createInstance(util.parseNVPString(resp), "", -1);
+			
 	 	}
 	 
 	 	/** 
@@ -222,7 +233,8 @@ namespace PayPal.AdaptivePayments {
 	 	{
 			string resp = call("SetPaymentOptions", SetPaymentOptionsRequest.toNVPString(""), apiUsername);
 			NVPUtil util = new NVPUtil();
-			return new SetPaymentOptionsResponse(util.parseNVPString(resp), "");
+			return SetPaymentOptionsResponse.createInstance(util.parseNVPString(resp), "", -1);
+			
 	 	}
 	 
 	 	/** 
@@ -240,7 +252,8 @@ namespace PayPal.AdaptivePayments {
 	 	{
 			string resp = call("GetFundingPlans", GetFundingPlansRequest.toNVPString(""), apiUsername);
 			NVPUtil util = new NVPUtil();
-			return new GetFundingPlansResponse(util.parseNVPString(resp), "");
+			return GetFundingPlansResponse.createInstance(util.parseNVPString(resp), "", -1);
+			
 	 	}
 	 
 	 	/** 
@@ -258,7 +271,8 @@ namespace PayPal.AdaptivePayments {
 	 	{
 			string resp = call("GetAvailableShippingAddresses", GetAvailableShippingAddressesRequest.toNVPString(""), apiUsername);
 			NVPUtil util = new NVPUtil();
-			return new GetAvailableShippingAddressesResponse(util.parseNVPString(resp), "");
+			return GetAvailableShippingAddressesResponse.createInstance(util.parseNVPString(resp), "", -1);
+			
 	 	}
 	 
 	 	/** 
@@ -276,7 +290,8 @@ namespace PayPal.AdaptivePayments {
 	 	{
 			string resp = call("GetShippingAddresses", GetShippingAddressesRequest.toNVPString(""), apiUsername);
 			NVPUtil util = new NVPUtil();
-			return new GetShippingAddressesResponse(util.parseNVPString(resp), "");
+			return GetShippingAddressesResponse.createInstance(util.parseNVPString(resp), "", -1);
+			
 	 	}
 	 
 	 	/** 
@@ -294,7 +309,8 @@ namespace PayPal.AdaptivePayments {
 	 	{
 			string resp = call("GetUserLimits", GetUserLimitsRequest.toNVPString(""), apiUsername);
 			NVPUtil util = new NVPUtil();
-			return new GetUserLimitsResponse(util.parseNVPString(resp), "");
+			return GetUserLimitsResponse.createInstance(util.parseNVPString(resp), "", -1);
+			
 	 	}
 	 
 	 	/** 

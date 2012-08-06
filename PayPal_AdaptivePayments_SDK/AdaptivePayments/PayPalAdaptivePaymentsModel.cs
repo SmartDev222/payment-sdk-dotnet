@@ -103,20 +103,39 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-		public AccountIdentifier(Dictionary<string, string> map, string prefix)
+
+		public static AccountIdentifier createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
+			AccountIdentifier accountIdentifier = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
 			key = prefix + "email";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.email = map[key];
+				accountIdentifier = (accountIdentifier == null) ? new AccountIdentifier() : accountIdentifier;
+				accountIdentifier.email = map[key];
 			}
-			key = prefix + "phone";
-			if(map.ContainsKey(key + ".countryCode"))
+			PhoneNumberType phone =  PhoneNumberType.createInstance(map, prefix + "phone", -1);
+			if (phone != null)
 			{
-				this.phone = new PhoneNumberType(map, key + ".");
+				accountIdentifier = (accountIdentifier == null) ? new AccountIdentifier() : accountIdentifier;
+				accountIdentifier.phone = phone;
 			}
+			return accountIdentifier;
 		}
 		
 	}
@@ -256,45 +275,69 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public BaseAddress(Dictionary<string, string> map, string prefix)
+
+		public static BaseAddress createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "line1";
-			if(map.ContainsKey(key))
+			BaseAddress baseAddress = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.line1 = map[key];
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			key = prefix + "line1";
+			if (map.ContainsKey(key))
+			{
+				baseAddress = (baseAddress == null) ? new BaseAddress() : baseAddress;
+				baseAddress.line1 = map[key];
 			}
 			key = prefix + "line2";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.line2 = map[key];
+				baseAddress = (baseAddress == null) ? new BaseAddress() : baseAddress;
+				baseAddress.line2 = map[key];
 			}
 			key = prefix + "city";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.city = map[key];
+				baseAddress = (baseAddress == null) ? new BaseAddress() : baseAddress;
+				baseAddress.city = map[key];
 			}
 			key = prefix + "state";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.state = map[key];
+				baseAddress = (baseAddress == null) ? new BaseAddress() : baseAddress;
+				baseAddress.state = map[key];
 			}
 			key = prefix + "postalCode";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.postalCode = map[key];
+				baseAddress = (baseAddress == null) ? new BaseAddress() : baseAddress;
+				baseAddress.postalCode = map[key];
 			}
 			key = prefix + "countryCode";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.countryCode = map[key];
+				baseAddress = (baseAddress == null) ? new BaseAddress() : baseAddress;
+				baseAddress.countryCode = map[key];
 			}
 			key = prefix + "type";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.type = map[key];
+				baseAddress = (baseAddress == null) ? new BaseAddress() : baseAddress;
+				baseAddress.type = map[key];
 			}
+			return baseAddress;
 		}
 		
 	}
@@ -562,20 +605,39 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-		public CurrencyType(Dictionary<string, string> map, string prefix)
+
+		public static CurrencyType createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "code";
-			if(map.ContainsKey(key))
+			CurrencyType currencyType = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.code = map[key];
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			key = prefix + "code";
+			if (map.ContainsKey(key))
+			{
+				currencyType = (currencyType == null) ? new CurrencyType() : currencyType;
+				currencyType.code = map[key];
 			}
 			key = prefix + "amount";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.amount = System.Convert.ToDecimal(map[key]);
+				currencyType = (currencyType == null) ? new CurrencyType() : currencyType;
+				currencyType.amount = System.Convert.ToDecimal(map[key]);
 			}
+			return currencyType;
 		}
 		
 	}
@@ -733,57 +795,84 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public ErrorData(Dictionary<string, string> map, string prefix)
+
+		public static ErrorData createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "errorId";
-			if(map.ContainsKey(key))
+			ErrorData errorData = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.errorId = System.Convert.ToInt32(map[key]);
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			key = prefix + "errorId";
+			if (map.ContainsKey(key))
+			{
+				errorData = (errorData == null) ? new ErrorData() : errorData;
+				errorData.errorId = System.Convert.ToInt32(map[key]);
 			}
 			key = prefix + "domain";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.domain = map[key];
+				errorData = (errorData == null) ? new ErrorData() : errorData;
+				errorData.domain = map[key];
 			}
 			key = prefix + "subdomain";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.subdomain = map[key];
+				errorData = (errorData == null) ? new ErrorData() : errorData;
+				errorData.subdomain = map[key];
 			}
 			key = prefix + "severity";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.severity = (ErrorSeverity)EnumUtils.getValue(map[key],typeof(ErrorSeverity));;
+				errorData = (errorData == null) ? new ErrorData() : errorData;
+				errorData.severity = (ErrorSeverity)EnumUtils.getValue(map[key],typeof(ErrorSeverity));;
 			}
 			key = prefix + "category";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.category = (ErrorCategory)EnumUtils.getValue(map[key],typeof(ErrorCategory));;
+				errorData = (errorData == null) ? new ErrorData() : errorData;
+				errorData.category = (ErrorCategory)EnumUtils.getValue(map[key],typeof(ErrorCategory));;
 			}
 			key = prefix + "message";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.message = map[key];
+				errorData = (errorData == null) ? new ErrorData() : errorData;
+				errorData.message = map[key];
 			}
 			key = prefix + "exceptionId";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.exceptionId = map[key];
+				errorData = (errorData == null) ? new ErrorData() : errorData;
+				errorData.exceptionId = map[key];
 			}
 			i = 0;
-			while(true){
-				key = prefix + "parameter" + "(" + i + ")";
-				if(map.ContainsKey(key))
+			while(true)
+			{
+				ErrorParameter parameter =  ErrorParameter.createInstance(map, prefix + "parameter", i);
+				if (parameter != null)
 				{
-					this.parameter.Add(new ErrorParameter(map, key));
-				} else
+					errorData = (errorData == null) ? new ErrorData() : errorData;
+					errorData.parameter.Add(parameter);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return errorData;
 		}
 		
 	}
@@ -838,20 +927,39 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public ErrorParameter(Dictionary<string, string> map, string prefix)
+
+		public static ErrorParameter createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + ".name";
-			if(map.ContainsKey(key))
+			ErrorParameter errorParameter = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.name = map[key];
-			}
-			key = prefix ;
-			if(map.ContainsKey(key))
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
 			{
-				this.value = map[key];
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
 			}
+			key = prefix + "name";
+			if (map.ContainsKey(key))
+			{
+				errorParameter = (errorParameter == null) ? new ErrorParameter() : errorParameter;
+				errorParameter.name = map[key];
+			}
+			key = prefix.Substring(0, prefix.Length - 1);
+			if (map.ContainsKey(key))
+			{
+				errorParameter = (errorParameter == null) ? new ErrorParameter() : errorParameter;
+				errorParameter.value = map[key];
+			}
+			return errorParameter;
 		}
 		
 	}
@@ -907,27 +1015,48 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public FaultMessage(Dictionary<string, string> map, string prefix)
+
+		public static FaultMessage createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "responseEnvelope";
-			if(map.ContainsKey(key + ".timestamp"))
+			FaultMessage faultMessage = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.responseEnvelope = new ResponseEnvelope(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
+			{
+				faultMessage = (faultMessage == null) ? new FaultMessage() : faultMessage;
+				faultMessage.responseEnvelope = responseEnvelope;
 			}
 			i = 0;
-			while(true){
-				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".errorId"))
+			while(true)
+			{
+				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				if (error != null)
 				{
-					this.error.Add(new ErrorData(map, key + "."));
-				} else
+					faultMessage = (faultMessage == null) ? new FaultMessage() : faultMessage;
+					faultMessage.error.Add(error);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return faultMessage;
 		}
 		
 	}
@@ -1024,25 +1153,45 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-		public PhoneNumberType(Dictionary<string, string> map, string prefix)
+
+		public static PhoneNumberType createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "countryCode";
-			if(map.ContainsKey(key))
+			PhoneNumberType phoneNumberType = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.countryCode = map[key];
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			key = prefix + "countryCode";
+			if (map.ContainsKey(key))
+			{
+				phoneNumberType = (phoneNumberType == null) ? new PhoneNumberType() : phoneNumberType;
+				phoneNumberType.countryCode = map[key];
 			}
 			key = prefix + "phoneNumber";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.phoneNumber = map[key];
+				phoneNumberType = (phoneNumberType == null) ? new PhoneNumberType() : phoneNumberType;
+				phoneNumberType.phoneNumber = map[key];
 			}
 			key = prefix + "extension";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.extension = map[key];
+				phoneNumberType = (phoneNumberType == null) ? new PhoneNumberType() : phoneNumberType;
+				phoneNumberType.extension = map[key];
 			}
+			return phoneNumberType;
 		}
 		
 	}
@@ -1206,30 +1355,51 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public ResponseEnvelope(Dictionary<string, string> map, string prefix)
+
+		public static ResponseEnvelope createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "timestamp";
-			if(map.ContainsKey(key))
+			ResponseEnvelope responseEnvelope = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.timestamp = map[key];
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			key = prefix + "timestamp";
+			if (map.ContainsKey(key))
+			{
+				responseEnvelope = (responseEnvelope == null) ? new ResponseEnvelope() : responseEnvelope;
+				responseEnvelope.timestamp = map[key];
 			}
 			key = prefix + "ack";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.ack = (AckCode)EnumUtils.getValue(map[key],typeof(AckCode));;
+				responseEnvelope = (responseEnvelope == null) ? new ResponseEnvelope() : responseEnvelope;
+				responseEnvelope.ack = (AckCode)EnumUtils.getValue(map[key],typeof(AckCode));;
 			}
 			key = prefix + "correlationId";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.correlationId = map[key];
+				responseEnvelope = (responseEnvelope == null) ? new ResponseEnvelope() : responseEnvelope;
+				responseEnvelope.correlationId = map[key];
 			}
 			key = prefix + "build";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.build = map[key];
+				responseEnvelope = (responseEnvelope == null) ? new ResponseEnvelope() : responseEnvelope;
+				responseEnvelope.build = map[key];
 			}
+			return responseEnvelope;
 		}
 		
 	}
@@ -1372,25 +1542,45 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public Address(Dictionary<string, string> map, string prefix)
+
+		public static Address createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "addresseeName";
-			if(map.ContainsKey(key))
+			Address address = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.addresseeName = map[key];
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
 			}
-			key = prefix + "baseAddress";
-			if(map.ContainsKey(key + ".line1"))
+			key = prefix + "addresseeName";
+			if (map.ContainsKey(key))
 			{
-				this.baseAddress = new BaseAddress(map, key + ".");
+				address = (address == null) ? new Address() : address;
+				address.addresseeName = map[key];
+			}
+			BaseAddress baseAddress =  BaseAddress.createInstance(map, prefix + "baseAddress", -1);
+			if (baseAddress != null)
+			{
+				address = (address == null) ? new Address() : address;
+				address.baseAddress = baseAddress;
 			}
 			key = prefix + "addressId";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.addressId = map[key];
+				address = (address == null) ? new Address() : address;
+				address.addressId = map[key];
 			}
+			return address;
 		}
 		
 	}
@@ -1428,22 +1618,42 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public AddressList(Dictionary<string, string> map, string prefix)
+
+		public static AddressList createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			i = 0;
-			while(true){
-				key = prefix + "address" + "(" + i + ")";
-				if(map.ContainsKey(key + ".baseAddress.line1"))
+			AddressList addressList = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
 				{
-					this.address.Add(new Address(map, key + "."));
-				} else
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			i = 0;
+			while(true)
+			{
+				Address address =  Address.createInstance(map, prefix + "address", i);
+				if (address != null)
+				{
+					addressList = (addressList == null) ? new AddressList() : addressList;
+					addressList.address.Add(address);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return addressList;
 		}
 		
 	}
@@ -1553,20 +1763,39 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public CurrencyConversionList(Dictionary<string, string> map, string prefix)
+
+		public static CurrencyConversionList createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "baseAmount";
-			if(map.ContainsKey(key + ".code"))
+			CurrencyConversionList currencyConversionList = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.baseAmount = new CurrencyType(map, key + ".");
-			}
-			key = prefix + "currencyList";
-			if(map.ContainsKey(key + ".currency(0).code"))
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
 			{
-				this.currencyList = new CurrencyList(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
 			}
+			CurrencyType baseAmount =  CurrencyType.createInstance(map, prefix + "baseAmount", -1);
+			if (baseAmount != null)
+			{
+				currencyConversionList = (currencyConversionList == null) ? new CurrencyConversionList() : currencyConversionList;
+				currencyConversionList.baseAmount = baseAmount;
+			}
+			CurrencyList currencyList =  CurrencyList.createInstance(map, prefix + "currencyList", -1);
+			if (currencyList != null)
+			{
+				currencyConversionList = (currencyConversionList == null) ? new CurrencyConversionList() : currencyConversionList;
+				currencyConversionList.currencyList = currencyList;
+			}
+			return currencyConversionList;
 		}
 		
 	}
@@ -1605,22 +1834,42 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public CurrencyConversionTable(Dictionary<string, string> map, string prefix)
+
+		public static CurrencyConversionTable createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			i = 0;
-			while(true){
-				key = prefix + "currencyConversionList" + "(" + i + ")";
-				if(map.ContainsKey(key + ".baseAmount.code"))
+			CurrencyConversionTable currencyConversionTable = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
 				{
-					this.currencyConversionList.Add(new CurrencyConversionList(map, key + "."));
-				} else
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			i = 0;
+			while(true)
+			{
+				CurrencyConversionList currencyConversionList =  CurrencyConversionList.createInstance(map, prefix + "currencyConversionList", i);
+				if (currencyConversionList != null)
+				{
+					currencyConversionTable = (currencyConversionTable == null) ? new CurrencyConversionTable() : currencyConversionTable;
+					currencyConversionTable.currencyConversionList.Add(currencyConversionList);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return currencyConversionTable;
 		}
 		
 	}
@@ -1678,22 +1927,42 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-		public CurrencyList(Dictionary<string, string> map, string prefix)
+
+		public static CurrencyList createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			i = 0;
-			while(true){
-				key = prefix + "currency" + "(" + i + ")";
-				if(map.ContainsKey(key + ".code"))
+			CurrencyList currencyList = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
 				{
-					this.currency.Add(new CurrencyType(map, key + "."));
-				} else
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			i = 0;
+			while(true)
+			{
+				CurrencyType currency =  CurrencyType.createInstance(map, prefix + "currency", i);
+				if (currency != null)
+				{
+					currencyList = (currencyList == null) ? new CurrencyList() : currencyList;
+					currencyList.currency.Add(currency);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return currencyList;
 		}
 		
 	}
@@ -1804,30 +2073,51 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-		public DisplayOptions(Dictionary<string, string> map, string prefix)
+
+		public static DisplayOptions createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "emailHeaderImageUrl";
-			if(map.ContainsKey(key))
+			DisplayOptions displayOptions = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.emailHeaderImageUrl = map[key];
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			key = prefix + "emailHeaderImageUrl";
+			if (map.ContainsKey(key))
+			{
+				displayOptions = (displayOptions == null) ? new DisplayOptions() : displayOptions;
+				displayOptions.emailHeaderImageUrl = map[key];
 			}
 			key = prefix + "emailMarketingImageUrl";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.emailMarketingImageUrl = map[key];
+				displayOptions = (displayOptions == null) ? new DisplayOptions() : displayOptions;
+				displayOptions.emailMarketingImageUrl = map[key];
 			}
 			key = prefix + "headerImageUrl";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.headerImageUrl = map[key];
+				displayOptions = (displayOptions == null) ? new DisplayOptions() : displayOptions;
+				displayOptions.headerImageUrl = map[key];
 			}
 			key = prefix + "businessName";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.businessName = map[key];
+				displayOptions = (displayOptions == null) ? new DisplayOptions() : displayOptions;
+				displayOptions.businessName = map[key];
 			}
+			return displayOptions;
 		}
 		
 	}
@@ -1865,22 +2155,42 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public ErrorList(Dictionary<string, string> map, string prefix)
+
+		public static ErrorList createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			i = 0;
-			while(true){
-				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".errorId"))
+			ErrorList errorList = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
 				{
-					this.error.Add(new ErrorData(map, key + "."));
-				} else
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			i = 0;
+			while(true)
+			{
+				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				if (error != null)
+				{
+					errorList = (errorList == null) ? new ErrorList() : errorList;
+					errorList.error.Add(error);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return errorList;
 		}
 		
 	}
@@ -1928,15 +2238,33 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-		public FundingConstraint(Dictionary<string, string> map, string prefix)
+
+		public static FundingConstraint createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "allowedFundingType";
-			if(map.ContainsKey(key + ".fundingTypeInfo(0).fundingType"))
+			FundingConstraint fundingConstraint = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.allowedFundingType = new FundingTypeList(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
 			}
+			FundingTypeList allowedFundingType =  FundingTypeList.createInstance(map, prefix + "allowedFundingType", -1);
+			if (allowedFundingType != null)
+			{
+				fundingConstraint = (fundingConstraint == null) ? new FundingConstraint() : fundingConstraint;
+				fundingConstraint.allowedFundingType = allowedFundingType;
+			}
+			return fundingConstraint;
 		}
 		
 	}
@@ -1990,15 +2318,33 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-		public FundingTypeInfo(Dictionary<string, string> map, string prefix)
+
+		public static FundingTypeInfo createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "fundingType";
-			if(map.ContainsKey(key))
+			FundingTypeInfo fundingTypeInfo = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.fundingType = map[key];
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
 			}
+			key = prefix + "fundingType";
+			if (map.ContainsKey(key))
+			{
+				fundingTypeInfo = (fundingTypeInfo == null) ? new FundingTypeInfo() : fundingTypeInfo;
+				fundingTypeInfo.fundingType = map[key];
+			}
+			return fundingTypeInfo;
 		}
 		
 	}
@@ -2056,22 +2402,42 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-		public FundingTypeList(Dictionary<string, string> map, string prefix)
+
+		public static FundingTypeList createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			i = 0;
-			while(true){
-				key = prefix + "fundingTypeInfo" + "(" + i + ")";
-				if(map.ContainsKey(key+".fundingType"))
+			FundingTypeList fundingTypeList = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
 				{
-					this.fundingTypeInfo.Add(new FundingTypeInfo(map, key + "."));
-				} else
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			i = 0;
+			while(true)
+			{
+				FundingTypeInfo fundingTypeInfo =  FundingTypeInfo.createInstance(map, prefix + "fundingTypeInfo", i);
+				if (fundingTypeInfo != null)
+				{
+					fundingTypeList = (fundingTypeList == null) ? new FundingTypeList() : fundingTypeList;
+					fundingTypeList.fundingTypeInfo.Add(fundingTypeInfo);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return fundingTypeList;
 		}
 		
 	}
@@ -2143,25 +2509,45 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public CurrencyConversion(Dictionary<string, string> map, string prefix)
+
+		public static CurrencyConversion createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "from";
-			if(map.ContainsKey(key + ".code"))
+			CurrencyConversion currencyConversion = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.from = new CurrencyType(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
 			}
-			key = prefix + "to";
-			if(map.ContainsKey(key + ".code"))
+			CurrencyType from =  CurrencyType.createInstance(map, prefix + "from", -1);
+			if (from != null)
 			{
-				this.to = new CurrencyType(map, key + ".");
+				currencyConversion = (currencyConversion == null) ? new CurrencyConversion() : currencyConversion;
+				currencyConversion.from = from;
+			}
+			CurrencyType to =  CurrencyType.createInstance(map, prefix + "to", -1);
+			if (to != null)
+			{
+				currencyConversion = (currencyConversion == null) ? new CurrencyConversion() : currencyConversion;
+				currencyConversion.to = to;
 			}
 			key = prefix + "exchangeRate";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.exchangeRate = System.Convert.ToDecimal(map[key]);
+				currencyConversion = (currencyConversion == null) ? new CurrencyConversion() : currencyConversion;
+				currencyConversion.exchangeRate = System.Convert.ToDecimal(map[key]);
 			}
+			return currencyConversion;
 		}
 		
 	}
@@ -2267,35 +2653,57 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public FundingSource(Dictionary<string, string> map, string prefix)
+
+		public static FundingSource createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "lastFourOfAccountNumber";
-			if(map.ContainsKey(key))
+			FundingSource fundingSource = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.lastFourOfAccountNumber = map[key];
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			key = prefix + "lastFourOfAccountNumber";
+			if (map.ContainsKey(key))
+			{
+				fundingSource = (fundingSource == null) ? new FundingSource() : fundingSource;
+				fundingSource.lastFourOfAccountNumber = map[key];
 			}
 			key = prefix + "type";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.type = map[key];
+				fundingSource = (fundingSource == null) ? new FundingSource() : fundingSource;
+				fundingSource.type = map[key];
 			}
 			key = prefix + "displayName";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.displayName = map[key];
+				fundingSource = (fundingSource == null) ? new FundingSource() : fundingSource;
+				fundingSource.displayName = map[key];
 			}
 			key = prefix + "fundingSourceId";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.fundingSourceId = map[key];
+				fundingSource = (fundingSource == null) ? new FundingSource() : fundingSource;
+				fundingSource.fundingSourceId = map[key];
 			}
 			key = prefix + "allowed";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.allowed = System.Convert.ToBoolean(map[key]);
+				fundingSource = (fundingSource == null) ? new FundingSource() : fundingSource;
+				fundingSource.allowed = System.Convert.ToBoolean(map[key]);
 			}
+			return fundingSource;
 		}
 		
 	}
@@ -2350,20 +2758,39 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public FundingPlanCharge(Dictionary<string, string> map, string prefix)
+
+		public static FundingPlanCharge createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "charge";
-			if(map.ContainsKey(key + ".code"))
+			FundingPlanCharge fundingPlanCharge = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.charge = new CurrencyType(map, key + ".");
-			}
-			key = prefix + "fundingSource";
-			if(map.ContainsKey(key + ".type"))
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
 			{
-				this.fundingSource = new FundingSource(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
 			}
+			CurrencyType charge =  CurrencyType.createInstance(map, prefix + "charge", -1);
+			if (charge != null)
+			{
+				fundingPlanCharge = (fundingPlanCharge == null) ? new FundingPlanCharge() : fundingPlanCharge;
+				fundingPlanCharge.charge = charge;
+			}
+			FundingSource fundingSource =  FundingSource.createInstance(map, prefix + "fundingSource", -1);
+			if (fundingSource != null)
+			{
+				fundingPlanCharge = (fundingPlanCharge == null) ? new FundingPlanCharge() : fundingPlanCharge;
+				fundingPlanCharge.fundingSource = fundingSource;
+			}
+			return fundingPlanCharge;
 		}
 		
 	}
@@ -2487,47 +2914,72 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public FundingPlan(Dictionary<string, string> map, string prefix)
+
+		public static FundingPlan createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
+			FundingPlan fundingPlan = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
 			key = prefix + "fundingPlanId";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.fundingPlanId = map[key];
+				fundingPlan = (fundingPlan == null) ? new FundingPlan() : fundingPlan;
+				fundingPlan.fundingPlanId = map[key];
 			}
-			key = prefix + "fundingAmount";
-			if(map.ContainsKey(key + ".code"))
+			CurrencyType fundingAmount =  CurrencyType.createInstance(map, prefix + "fundingAmount", -1);
+			if (fundingAmount != null)
 			{
-				this.fundingAmount = new CurrencyType(map, key + ".");
+				fundingPlan = (fundingPlan == null) ? new FundingPlan() : fundingPlan;
+				fundingPlan.fundingAmount = fundingAmount;
 			}
-			key = prefix + "backupFundingSource";
-			if(map.ContainsKey(key + ".type"))
+			FundingSource backupFundingSource =  FundingSource.createInstance(map, prefix + "backupFundingSource", -1);
+			if (backupFundingSource != null)
 			{
-				this.backupFundingSource = new FundingSource(map, key + ".");
+				fundingPlan = (fundingPlan == null) ? new FundingPlan() : fundingPlan;
+				fundingPlan.backupFundingSource = backupFundingSource;
 			}
-			key = prefix + "senderFees";
-			if(map.ContainsKey(key + ".code"))
+			CurrencyType senderFees =  CurrencyType.createInstance(map, prefix + "senderFees", -1);
+			if (senderFees != null)
 			{
-				this.senderFees = new CurrencyType(map, key + ".");
+				fundingPlan = (fundingPlan == null) ? new FundingPlan() : fundingPlan;
+				fundingPlan.senderFees = senderFees;
 			}
-			key = prefix + "currencyConversion";
-			if(map.ContainsKey(key + ".from.code"))
+			CurrencyConversion currencyConversion =  CurrencyConversion.createInstance(map, prefix + "currencyConversion", -1);
+			if (currencyConversion != null)
 			{
-				this.currencyConversion = new CurrencyConversion(map, key + ".");
+				fundingPlan = (fundingPlan == null) ? new FundingPlan() : fundingPlan;
+				fundingPlan.currencyConversion = currencyConversion;
 			}
 			i = 0;
-			while(true){
-				key = prefix + "charge" + "(" + i + ")";
-				if(map.ContainsKey(key + ".charge.code"))
+			while(true)
+			{
+				FundingPlanCharge charge =  FundingPlanCharge.createInstance(map, prefix + "charge", i);
+				if (charge != null)
 				{
-					this.charge.Add(new FundingPlanCharge(map, key + "."));
-				} else
+					fundingPlan = (fundingPlan == null) ? new FundingPlan() : fundingPlan;
+					fundingPlan.charge.Add(charge);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return fundingPlan;
 		}
 		
 	}
@@ -2578,15 +3030,33 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-		public InitiatingEntity(Dictionary<string, string> map, string prefix)
+
+		public static InitiatingEntity createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "institutionCustomer";
-			if(map.ContainsKey(key + ".institutionId"))
+			InitiatingEntity initiatingEntity = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.institutionCustomer = new InstitutionCustomer(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
 			}
+			InstitutionCustomer institutionCustomer =  InstitutionCustomer.createInstance(map, prefix + "institutionCustomer", -1);
+			if (institutionCustomer != null)
+			{
+				initiatingEntity = (initiatingEntity == null) ? new InitiatingEntity() : initiatingEntity;
+				initiatingEntity.institutionCustomer = institutionCustomer;
+			}
+			return initiatingEntity;
 		}
 		
 	}
@@ -2771,45 +3241,69 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-		public InstitutionCustomer(Dictionary<string, string> map, string prefix)
+
+		public static InstitutionCustomer createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "institutionId";
-			if(map.ContainsKey(key))
+			InstitutionCustomer institutionCustomer = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.institutionId = map[key];
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			key = prefix + "institutionId";
+			if (map.ContainsKey(key))
+			{
+				institutionCustomer = (institutionCustomer == null) ? new InstitutionCustomer() : institutionCustomer;
+				institutionCustomer.institutionId = map[key];
 			}
 			key = prefix + "firstName";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.firstName = map[key];
+				institutionCustomer = (institutionCustomer == null) ? new InstitutionCustomer() : institutionCustomer;
+				institutionCustomer.firstName = map[key];
 			}
 			key = prefix + "lastName";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.lastName = map[key];
+				institutionCustomer = (institutionCustomer == null) ? new InstitutionCustomer() : institutionCustomer;
+				institutionCustomer.lastName = map[key];
 			}
 			key = prefix + "displayName";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.displayName = map[key];
+				institutionCustomer = (institutionCustomer == null) ? new InstitutionCustomer() : institutionCustomer;
+				institutionCustomer.displayName = map[key];
 			}
 			key = prefix + "institutionCustomerId";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.institutionCustomerId = map[key];
+				institutionCustomer = (institutionCustomer == null) ? new InstitutionCustomer() : institutionCustomer;
+				institutionCustomer.institutionCustomerId = map[key];
 			}
 			key = prefix + "countryCode";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.countryCode = map[key];
+				institutionCustomer = (institutionCustomer == null) ? new InstitutionCustomer() : institutionCustomer;
+				institutionCustomer.countryCode = map[key];
 			}
 			key = prefix + "email";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.email = map[key];
+				institutionCustomer = (institutionCustomer == null) ? new InstitutionCustomer() : institutionCustomer;
+				institutionCustomer.email = map[key];
 			}
+			return institutionCustomer;
 		}
 		
 	}
@@ -2940,35 +3434,57 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-		public InvoiceItem(Dictionary<string, string> map, string prefix)
+
+		public static InvoiceItem createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "name";
-			if(map.ContainsKey(key))
+			InvoiceItem invoiceItem = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.name = map[key];
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			key = prefix + "name";
+			if (map.ContainsKey(key))
+			{
+				invoiceItem = (invoiceItem == null) ? new InvoiceItem() : invoiceItem;
+				invoiceItem.name = map[key];
 			}
 			key = prefix + "identifier";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.identifier = map[key];
+				invoiceItem = (invoiceItem == null) ? new InvoiceItem() : invoiceItem;
+				invoiceItem.identifier = map[key];
 			}
 			key = prefix + "price";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.price = System.Convert.ToDecimal(map[key]);
+				invoiceItem = (invoiceItem == null) ? new InvoiceItem() : invoiceItem;
+				invoiceItem.price = System.Convert.ToDecimal(map[key]);
 			}
 			key = prefix + "itemPrice";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.itemPrice = System.Convert.ToDecimal(map[key]);
+				invoiceItem = (invoiceItem == null) ? new InvoiceItem() : invoiceItem;
+				invoiceItem.itemPrice = System.Convert.ToDecimal(map[key]);
 			}
 			key = prefix + "itemCount";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.itemCount = System.Convert.ToInt32(map[key]);
+				invoiceItem = (invoiceItem == null) ? new InvoiceItem() : invoiceItem;
+				invoiceItem.itemCount = System.Convert.ToInt32(map[key]);
 			}
+			return invoiceItem;
 		}
 		
 	}
@@ -3062,32 +3578,54 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-		public InvoiceData(Dictionary<string, string> map, string prefix)
+
+		public static InvoiceData createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			i = 0;
-			while(true){
-				key = prefix + "item" + "(" + i + ")";
-				if(map.ContainsKey(key+".name"))
+			InvoiceData invoiceData = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
 				{
-					this.item.Add(new InvoiceItem(map, key + "."));
-				} else
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			i = 0;
+			while(true)
+			{
+				InvoiceItem item =  InvoiceItem.createInstance(map, prefix + "item", i);
+				if (item != null)
+				{
+					invoiceData = (invoiceData == null) ? new InvoiceData() : invoiceData;
+					invoiceData.item.Add(item);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
 			key = prefix + "totalTax";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.totalTax = System.Convert.ToDecimal(map[key]);
+				invoiceData = (invoiceData == null) ? new InvoiceData() : invoiceData;
+				invoiceData.totalTax = System.Convert.ToDecimal(map[key]);
 			}
 			key = prefix + "totalShipping";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.totalShipping = System.Convert.ToDecimal(map[key]);
+				invoiceData = (invoiceData == null) ? new InvoiceData() : invoiceData;
+				invoiceData.totalShipping = System.Convert.ToDecimal(map[key]);
 			}
+			return invoiceData;
 		}
 		
 	}
@@ -3143,20 +3681,39 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public PayError(Dictionary<string, string> map, string prefix)
+
+		public static PayError createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "receiver";
-			if(map.ContainsKey(key + ".amount"))
+			PayError payError = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.receiver = new Receiver(map, key + ".");
-			}
-			key = prefix + "error";
-			if(map.ContainsKey(key + ".errorId"))
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
 			{
-				this.error = new ErrorData(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
 			}
+			Receiver receiver =  Receiver.createInstance(map, prefix + "receiver", -1);
+			if (receiver != null)
+			{
+				payError = (payError == null) ? new PayError() : payError;
+				payError.receiver = receiver;
+			}
+			ErrorData error =  ErrorData.createInstance(map, prefix + "error", -1);
+			if (error != null)
+			{
+				payError = (payError == null) ? new PayError() : payError;
+				payError.error = error;
+			}
+			return payError;
 		}
 		
 	}
@@ -3194,22 +3751,42 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public PayErrorList(Dictionary<string, string> map, string prefix)
+
+		public static PayErrorList createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			i = 0;
-			while(true){
-				key = prefix + "payError" + "(" + i + ")";
-				if(map.ContainsKey(key + ".receiver.amount"))
+			PayErrorList payErrorList = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
 				{
-					this.payError.Add(new PayError(map, key + "."));
-				} else
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			i = 0;
+			while(true)
+			{
+				PayError payError =  PayError.createInstance(map, prefix + "payError", i);
+				if (payError != null)
+				{
+					payErrorList = (payErrorList == null) ? new PayErrorList() : payErrorList;
+					payErrorList.payError.Add(payError);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return payErrorList;
 		}
 		
 	}
@@ -3369,50 +3946,75 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public PaymentInfo(Dictionary<string, string> map, string prefix)
+
+		public static PaymentInfo createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "transactionId";
-			if(map.ContainsKey(key))
+			PaymentInfo paymentInfo = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.transactionId = map[key];
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			key = prefix + "transactionId";
+			if (map.ContainsKey(key))
+			{
+				paymentInfo = (paymentInfo == null) ? new PaymentInfo() : paymentInfo;
+				paymentInfo.transactionId = map[key];
 			}
 			key = prefix + "transactionStatus";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.transactionStatus = map[key];
+				paymentInfo = (paymentInfo == null) ? new PaymentInfo() : paymentInfo;
+				paymentInfo.transactionStatus = map[key];
 			}
-			key = prefix + "receiver";
-			if(map.ContainsKey(key + ".amount"))
+			Receiver receiver =  Receiver.createInstance(map, prefix + "receiver", -1);
+			if (receiver != null)
 			{
-				this.receiver = new Receiver(map, key + ".");
+				paymentInfo = (paymentInfo == null) ? new PaymentInfo() : paymentInfo;
+				paymentInfo.receiver = receiver;
 			}
 			key = prefix + "refundedAmount";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.refundedAmount = System.Convert.ToDecimal(map[key]);
+				paymentInfo = (paymentInfo == null) ? new PaymentInfo() : paymentInfo;
+				paymentInfo.refundedAmount = System.Convert.ToDecimal(map[key]);
 			}
 			key = prefix + "pendingRefund";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.pendingRefund = System.Convert.ToBoolean(map[key]);
+				paymentInfo = (paymentInfo == null) ? new PaymentInfo() : paymentInfo;
+				paymentInfo.pendingRefund = System.Convert.ToBoolean(map[key]);
 			}
 			key = prefix + "senderTransactionId";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.senderTransactionId = map[key];
+				paymentInfo = (paymentInfo == null) ? new PaymentInfo() : paymentInfo;
+				paymentInfo.senderTransactionId = map[key];
 			}
 			key = prefix + "senderTransactionStatus";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.senderTransactionStatus = map[key];
+				paymentInfo = (paymentInfo == null) ? new PaymentInfo() : paymentInfo;
+				paymentInfo.senderTransactionStatus = map[key];
 			}
 			key = prefix + "pendingReason";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.pendingReason = map[key];
+				paymentInfo = (paymentInfo == null) ? new PaymentInfo() : paymentInfo;
+				paymentInfo.pendingReason = map[key];
 			}
+			return paymentInfo;
 		}
 		
 	}
@@ -3450,22 +4052,42 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public PaymentInfoList(Dictionary<string, string> map, string prefix)
+
+		public static PaymentInfoList createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			i = 0;
-			while(true){
-				key = prefix + "paymentInfo" + "(" + i + ")";
-				if(map.ContainsKey(key + ".receiver.amount"))
+			PaymentInfoList paymentInfoList = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
 				{
-					this.paymentInfo.Add(new PaymentInfo(map, key + "."));
-				} else
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			i = 0;
+			while(true)
+			{
+				PaymentInfo paymentInfo =  PaymentInfo.createInstance(map, prefix + "paymentInfo", i);
+				if (paymentInfo != null)
+				{
+					paymentInfoList = (paymentInfoList == null) ? new PaymentInfoList() : paymentInfoList;
+					paymentInfoList.paymentInfo.Add(paymentInfo);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return paymentInfoList;
 		}
 		
 	}
@@ -3649,45 +4271,69 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-		public Receiver(Dictionary<string, string> map, string prefix)
+
+		public static Receiver createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "amount";
-			if(map.ContainsKey(key))
+			Receiver receiver = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.amount = System.Convert.ToDecimal(map[key]);
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			key = prefix + "amount";
+			if (map.ContainsKey(key))
+			{
+				receiver = (receiver == null) ? new Receiver() : receiver;
+				receiver.amount = System.Convert.ToDecimal(map[key]);
 			}
 			key = prefix + "email";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.email = map[key];
+				receiver = (receiver == null) ? new Receiver() : receiver;
+				receiver.email = map[key];
 			}
-			key = prefix + "phone";
-			if(map.ContainsKey(key + ".countryCode"))
+			PhoneNumberType phone =  PhoneNumberType.createInstance(map, prefix + "phone", -1);
+			if (phone != null)
 			{
-				this.phone = new PhoneNumberType(map, key + ".");
+				receiver = (receiver == null) ? new Receiver() : receiver;
+				receiver.phone = phone;
 			}
 			key = prefix + "primary";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.primary = System.Convert.ToBoolean(map[key]);
+				receiver = (receiver == null) ? new Receiver() : receiver;
+				receiver.primary = System.Convert.ToBoolean(map[key]);
 			}
 			key = prefix + "invoiceId";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.invoiceId = map[key];
+				receiver = (receiver == null) ? new Receiver() : receiver;
+				receiver.invoiceId = map[key];
 			}
 			key = prefix + "paymentType";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.paymentType = map[key];
+				receiver = (receiver == null) ? new Receiver() : receiver;
+				receiver.paymentType = map[key];
 			}
 			key = prefix + "paymentSubType";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.paymentSubType = map[key];
+				receiver = (receiver == null) ? new Receiver() : receiver;
+				receiver.paymentSubType = map[key];
 			}
+			return receiver;
 		}
 		
 	}
@@ -3770,10 +4416,34 @@ namespace PayPal.AdaptivePayments.Model
 			sb.Append(base.toNVPString(prefix));
 			return sb.ToString();
 		}
-		public ReceiverIdentifier(Dictionary<string, string> map, string prefix) : base(map, prefix)
+
+		public static ReceiverIdentifier createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
+			ReceiverIdentifier receiverIdentifier = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			AccountIdentifier accountIdentifier = AccountIdentifier.createInstance(map, prefix, index);
+			if (accountIdentifier != null)
+			{
+				receiverIdentifier = (receiverIdentifier == null) ? new ReceiverIdentifier() : receiverIdentifier;
+				receiverIdentifier.email = accountIdentifier.email;
+				receiverIdentifier.phone = accountIdentifier.phone;
+			}
+			return receiverIdentifier;
 		}
 		
 	}
@@ -3914,35 +4584,57 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-		public ReceiverOptions(Dictionary<string, string> map, string prefix)
+
+		public static ReceiverOptions createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "description";
-			if(map.ContainsKey(key))
+			ReceiverOptions receiverOptions = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.description = map[key];
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			key = prefix + "description";
+			if (map.ContainsKey(key))
+			{
+				receiverOptions = (receiverOptions == null) ? new ReceiverOptions() : receiverOptions;
+				receiverOptions.description = map[key];
 			}
 			key = prefix + "customId";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.customId = map[key];
+				receiverOptions = (receiverOptions == null) ? new ReceiverOptions() : receiverOptions;
+				receiverOptions.customId = map[key];
 			}
-			key = prefix + "invoiceData";
-			if(map.ContainsKey(key+".item(0).name"))
+			InvoiceData invoiceData =  InvoiceData.createInstance(map, prefix + "invoiceData", -1);
+			if (invoiceData != null)
 			{
-				this.invoiceData = new InvoiceData(map, key + ".");
+				receiverOptions = (receiverOptions == null) ? new ReceiverOptions() : receiverOptions;
+				receiverOptions.invoiceData = invoiceData;
 			}
-			key = prefix + "receiver";
-            if (map.ContainsKey(key + ".email") || map.ContainsKey(key + ".phone.countryCode"))
+			ReceiverIdentifier receiver =  ReceiverIdentifier.createInstance(map, prefix + "receiver", -1);
+			if (receiver != null)
 			{
-				this.receiver = new ReceiverIdentifier(map, key + ".");
+				receiverOptions = (receiverOptions == null) ? new ReceiverOptions() : receiverOptions;
+				receiverOptions.receiver = receiver;
 			}
 			key = prefix + "referrerCode";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.referrerCode = map[key];
+				receiverOptions = (receiverOptions == null) ? new ReceiverOptions() : receiverOptions;
+				receiverOptions.referrerCode = map[key];
 			}
+			return receiverOptions;
 		}
 		
 	}
@@ -4134,60 +4826,87 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public RefundInfo(Dictionary<string, string> map, string prefix)
+
+		public static RefundInfo createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "receiver";
-			if(map.ContainsKey(key + ".amount"))
+			RefundInfo refundInfo = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.receiver = new Receiver(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			Receiver receiver =  Receiver.createInstance(map, prefix + "receiver", -1);
+			if (receiver != null)
+			{
+				refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
+				refundInfo.receiver = receiver;
 			}
 			key = prefix + "refundStatus";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.refundStatus = map[key];
+				refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
+				refundInfo.refundStatus = map[key];
 			}
 			key = prefix + "refundNetAmount";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.refundNetAmount = System.Convert.ToDecimal(map[key]);
+				refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
+				refundInfo.refundNetAmount = System.Convert.ToDecimal(map[key]);
 			}
 			key = prefix + "refundFeeAmount";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.refundFeeAmount = System.Convert.ToDecimal(map[key]);
+				refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
+				refundInfo.refundFeeAmount = System.Convert.ToDecimal(map[key]);
 			}
 			key = prefix + "refundGrossAmount";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.refundGrossAmount = System.Convert.ToDecimal(map[key]);
+				refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
+				refundInfo.refundGrossAmount = System.Convert.ToDecimal(map[key]);
 			}
 			key = prefix + "totalOfAllRefunds";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.totalOfAllRefunds = System.Convert.ToDecimal(map[key]);
+				refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
+				refundInfo.totalOfAllRefunds = System.Convert.ToDecimal(map[key]);
 			}
 			key = prefix + "refundHasBecomeFull";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.refundHasBecomeFull = System.Convert.ToBoolean(map[key]);
+				refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
+				refundInfo.refundHasBecomeFull = System.Convert.ToBoolean(map[key]);
 			}
 			key = prefix + "encryptedRefundTransactionId";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.encryptedRefundTransactionId = map[key];
+				refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
+				refundInfo.encryptedRefundTransactionId = map[key];
 			}
 			key = prefix + "refundTransactionStatus";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.refundTransactionStatus = map[key];
+				refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
+				refundInfo.refundTransactionStatus = map[key];
 			}
-			key = prefix + "errorList";
-			if(map.ContainsKey(key + ".error(0).errorId"))
+			ErrorList errorList =  ErrorList.createInstance(map, prefix + "errorList", -1);
+			if (errorList != null)
 			{
-				this.errorList = new ErrorList(map, key + ".");
+				refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
+				refundInfo.errorList = errorList;
 			}
+			return refundInfo;
 		}
 		
 	}
@@ -4225,22 +4944,42 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public RefundInfoList(Dictionary<string, string> map, string prefix)
+
+		public static RefundInfoList createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			i = 0;
-			while(true){
-				key = prefix + "refundInfo" + "(" + i + ")";
-				if(map.ContainsKey(key + ".receiver.amount"))
+			RefundInfoList refundInfoList = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
 				{
-					this.refundInfo.Add(new RefundInfo(map, key + "."));
-				} else
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			i = 0;
+			while(true)
+			{
+				RefundInfo refundInfo =  RefundInfo.createInstance(map, prefix + "refundInfo", i);
+				if (refundInfo != null)
+				{
+					refundInfoList = (refundInfoList == null) ? new RefundInfoList() : refundInfoList;
+					refundInfoList.refundInfo.Add(refundInfo);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return refundInfoList;
 		}
 		
 	}
@@ -4308,20 +5047,39 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-		public SenderOptions(Dictionary<string, string> map, string prefix)
+
+		public static SenderOptions createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "requireShippingAddressSelection";
-			if(map.ContainsKey(key))
+			SenderOptions senderOptions = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.requireShippingAddressSelection = System.Convert.ToBoolean(map[key]);
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			key = prefix + "requireShippingAddressSelection";
+			if (map.ContainsKey(key))
+			{
+				senderOptions = (senderOptions == null) ? new SenderOptions() : senderOptions;
+				senderOptions.requireShippingAddressSelection = System.Convert.ToBoolean(map[key]);
 			}
 			key = prefix + "referrerCode";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.referrerCode = map[key];
+				senderOptions = (senderOptions == null) ? new SenderOptions() : senderOptions;
+				senderOptions.referrerCode = map[key];
 			}
+			return senderOptions;
 		}
 		
 	}
@@ -4370,15 +5128,40 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-		public SenderIdentifier(Dictionary<string, string> map, string prefix) : base(map, prefix)
+
+		public static SenderIdentifier createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "useCredentials";
-			if(map.ContainsKey(key))
+			SenderIdentifier senderIdentifier = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.useCredentials = System.Convert.ToBoolean(map[key]);
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
 			}
+			AccountIdentifier accountIdentifier = AccountIdentifier.createInstance(map, prefix, index);
+			if (accountIdentifier != null)
+			{
+				senderIdentifier = (senderIdentifier == null) ? new SenderIdentifier() : senderIdentifier;
+				senderIdentifier.email = accountIdentifier.email;
+				senderIdentifier.phone = accountIdentifier.phone;
+			}
+			key = prefix + "useCredentials";
+			if (map.ContainsKey(key))
+			{
+				senderIdentifier = (senderIdentifier == null) ? new SenderIdentifier() : senderIdentifier;
+				senderIdentifier.useCredentials = System.Convert.ToBoolean(map[key]);
+			}
+			return senderIdentifier;
 		}
 		
 	}
@@ -4433,20 +5216,39 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public UserLimit(Dictionary<string, string> map, string prefix)
+
+		public static UserLimit createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
+			UserLimit userLimit = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
 			key = prefix + "limitType";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.limitType = map[key];
+				userLimit = (userLimit == null) ? new UserLimit() : userLimit;
+				userLimit.limitType = map[key];
 			}
-			key = prefix + "limitAmount";
-			if(map.ContainsKey(key + ".code"))
+			CurrencyType limitAmount =  CurrencyType.createInstance(map, prefix + "limitAmount", -1);
+			if (limitAmount != null)
 			{
-				this.limitAmount = new CurrencyType(map, key + ".");
+				userLimit = (userLimit == null) ? new UserLimit() : userLimit;
+				userLimit.limitAmount = limitAmount;
 			}
+			return userLimit;
 		}
 		
 	}
@@ -4502,20 +5304,39 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public WarningData(Dictionary<string, string> map, string prefix)
+
+		public static WarningData createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "warningId";
-			if(map.ContainsKey(key))
+			WarningData warningData = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.warningId = System.Convert.ToInt32(map[key]);
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			key = prefix + "warningId";
+			if (map.ContainsKey(key))
+			{
+				warningData = (warningData == null) ? new WarningData() : warningData;
+				warningData.warningId = System.Convert.ToInt32(map[key]);
 			}
 			key = prefix + "message";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.message = map[key];
+				warningData = (warningData == null) ? new WarningData() : warningData;
+				warningData.message = map[key];
 			}
+			return warningData;
 		}
 		
 	}
@@ -4553,22 +5374,42 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public WarningDataList(Dictionary<string, string> map, string prefix)
+
+		public static WarningDataList createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			i = 0;
-			while(true){
-				key = prefix + "warningData" + "(" + i + ")";
-				if(map.ContainsKey(key+".warningId"))
+			WarningDataList warningDataList = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
 				{
-					this.warningData.Add(new WarningData(map, key));
-				} else
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			i = 0;
+			while(true)
+			{
+				WarningData warningData =  WarningData.createInstance(map, prefix + "warningData", i);
+				if (warningData != null)
+				{
+					warningDataList = (warningDataList == null) ? new WarningDataList() : warningDataList;
+					warningDataList.warningData.Add(warningData);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return warningDataList;
 		}
 		
 	}
@@ -4697,27 +5538,48 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public CancelPreapprovalResponse(Dictionary<string, string> map, string prefix)
+
+		public static CancelPreapprovalResponse createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "responseEnvelope";
-			if(map.ContainsKey(key + ".timestamp"))
+			CancelPreapprovalResponse cancelPreapprovalResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.responseEnvelope = new ResponseEnvelope(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
+			{
+				cancelPreapprovalResponse = (cancelPreapprovalResponse == null) ? new CancelPreapprovalResponse() : cancelPreapprovalResponse;
+				cancelPreapprovalResponse.responseEnvelope = responseEnvelope;
 			}
 			i = 0;
-			while(true){
-				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".errorId"))
+			while(true)
+			{
+				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				if (error != null)
 				{
-					this.error.Add(new ErrorData(map, key + "."));
-				} else
+					cancelPreapprovalResponse = (cancelPreapprovalResponse == null) ? new CancelPreapprovalResponse() : cancelPreapprovalResponse;
+					cancelPreapprovalResponse.error.Add(error);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return cancelPreapprovalResponse;
 		}
 		
 	}
@@ -4888,27 +5750,48 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public ConfirmPreapprovalResponse(Dictionary<string, string> map, string prefix)
+
+		public static ConfirmPreapprovalResponse createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "responseEnvelope";
-			if(map.ContainsKey(key + ".timestamp"))
+			ConfirmPreapprovalResponse confirmPreapprovalResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.responseEnvelope = new ResponseEnvelope(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
+			{
+				confirmPreapprovalResponse = (confirmPreapprovalResponse == null) ? new ConfirmPreapprovalResponse() : confirmPreapprovalResponse;
+				confirmPreapprovalResponse.responseEnvelope = responseEnvelope;
 			}
 			i = 0;
-			while(true){
-				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".errorId"))
+			while(true)
+			{
+				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				if (error != null)
 				{
-					this.error.Add(new ErrorData(map, key + "."));
-				} else
+					confirmPreapprovalResponse = (confirmPreapprovalResponse == null) ? new ConfirmPreapprovalResponse() : confirmPreapprovalResponse;
+					confirmPreapprovalResponse.error.Add(error);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return confirmPreapprovalResponse;
 		}
 		
 	}
@@ -5122,32 +6005,54 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public ConvertCurrencyResponse(Dictionary<string, string> map, string prefix)
+
+		public static ConvertCurrencyResponse createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "responseEnvelope";
-			if(map.ContainsKey(key + ".timestamp"))
+			ConvertCurrencyResponse convertCurrencyResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.responseEnvelope = new ResponseEnvelope(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
 			}
-			key = prefix + "estimatedAmountTable";
-			if(map.ContainsKey(key + ".currencyConversionList(0).baseAmount.code"))
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
 			{
-				this.estimatedAmountTable = new CurrencyConversionTable(map, key + ".");
+				convertCurrencyResponse = (convertCurrencyResponse == null) ? new ConvertCurrencyResponse() : convertCurrencyResponse;
+				convertCurrencyResponse.responseEnvelope = responseEnvelope;
+			}
+			CurrencyConversionTable estimatedAmountTable =  CurrencyConversionTable.createInstance(map, prefix + "estimatedAmountTable", -1);
+			if (estimatedAmountTable != null)
+			{
+				convertCurrencyResponse = (convertCurrencyResponse == null) ? new ConvertCurrencyResponse() : convertCurrencyResponse;
+				convertCurrencyResponse.estimatedAmountTable = estimatedAmountTable;
 			}
 			i = 0;
-			while(true){
-				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".errorId"))
+			while(true)
+			{
+				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				if (error != null)
 				{
-					this.error.Add(new ErrorData(map, key + "."));
-				} else
+					convertCurrencyResponse = (convertCurrencyResponse == null) ? new ConvertCurrencyResponse() : convertCurrencyResponse;
+					convertCurrencyResponse.error.Add(error);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return convertCurrencyResponse;
 		}
 		
 	}
@@ -5352,37 +6257,60 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public ExecutePaymentResponse(Dictionary<string, string> map, string prefix)
+
+		public static ExecutePaymentResponse createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "responseEnvelope";
-			if(map.ContainsKey(key + ".timestamp"))
+			ExecutePaymentResponse executePaymentResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.responseEnvelope = new ResponseEnvelope(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
+			{
+				executePaymentResponse = (executePaymentResponse == null) ? new ExecutePaymentResponse() : executePaymentResponse;
+				executePaymentResponse.responseEnvelope = responseEnvelope;
 			}
 			key = prefix + "paymentExecStatus";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.paymentExecStatus = map[key];
+				executePaymentResponse = (executePaymentResponse == null) ? new ExecutePaymentResponse() : executePaymentResponse;
+				executePaymentResponse.paymentExecStatus = map[key];
 			}
-			key = prefix + "payErrorList";
-			if(map.ContainsKey(key + ".payError(0).receiver.amount"))
+			PayErrorList payErrorList =  PayErrorList.createInstance(map, prefix + "payErrorList", -1);
+			if (payErrorList != null)
 			{
-				this.payErrorList = new PayErrorList(map, key + ".");
+				executePaymentResponse = (executePaymentResponse == null) ? new ExecutePaymentResponse() : executePaymentResponse;
+				executePaymentResponse.payErrorList = payErrorList;
 			}
 			i = 0;
-			while(true){
-				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".errorId"))
+			while(true)
+			{
+				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				if (error != null)
 				{
-					this.error.Add(new ErrorData(map, key + "."));
-				} else
+					executePaymentResponse = (executePaymentResponse == null) ? new ExecutePaymentResponse() : executePaymentResponse;
+					executePaymentResponse.error.Add(error);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return executePaymentResponse;
 		}
 		
 	}
@@ -5530,39 +6458,63 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public GetAllowedFundingSourcesResponse(Dictionary<string, string> map, string prefix)
+
+		public static GetAllowedFundingSourcesResponse createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "responseEnvelope";
-			if(map.ContainsKey(key + ".timestamp"))
+			GetAllowedFundingSourcesResponse getAllowedFundingSourcesResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.responseEnvelope = new ResponseEnvelope(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
+			{
+				getAllowedFundingSourcesResponse = (getAllowedFundingSourcesResponse == null) ? new GetAllowedFundingSourcesResponse() : getAllowedFundingSourcesResponse;
+				getAllowedFundingSourcesResponse.responseEnvelope = responseEnvelope;
 			}
 			i = 0;
-			while(true){
-				key = prefix + "fundingSource" + "(" + i + ")";
-				if(map.ContainsKey(key + ".type"))
+			while(true)
+			{
+				FundingSource fundingSource =  FundingSource.createInstance(map, prefix + "fundingSource", i);
+				if (fundingSource != null)
 				{
-					this.fundingSource.Add(new FundingSource(map, key + "."));
-				} else
+					getAllowedFundingSourcesResponse = (getAllowedFundingSourcesResponse == null) ? new GetAllowedFundingSourcesResponse() : getAllowedFundingSourcesResponse;
+					getAllowedFundingSourcesResponse.fundingSource.Add(fundingSource);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
 			i = 0;
-			while(true){
-				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".errorId"))
+			while(true)
+			{
+				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				if (error != null)
 				{
-					this.error.Add(new ErrorData(map, key + "."));
-				} else
+					getAllowedFundingSourcesResponse = (getAllowedFundingSourcesResponse == null) ? new GetAllowedFundingSourcesResponse() : getAllowedFundingSourcesResponse;
+					getAllowedFundingSourcesResponse.error.Add(error);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return getAllowedFundingSourcesResponse;
 		}
 		
 	}
@@ -5776,59 +6728,87 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public GetPaymentOptionsResponse(Dictionary<string, string> map, string prefix)
+
+		public static GetPaymentOptionsResponse createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "responseEnvelope";
-			if(map.ContainsKey(key + ".timestamp"))
+			GetPaymentOptionsResponse getPaymentOptionsResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.responseEnvelope = new ResponseEnvelope(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
 			}
-			key = prefix + "initiatingEntity";
-			if(map.ContainsKey(key + ".institutionCustomer.institutionId"))
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
 			{
-				this.initiatingEntity = new InitiatingEntity(map, key + ".");
+				getPaymentOptionsResponse = (getPaymentOptionsResponse == null) ? new GetPaymentOptionsResponse() : getPaymentOptionsResponse;
+				getPaymentOptionsResponse.responseEnvelope = responseEnvelope;
 			}
-			key = prefix + "displayOptions";
-            if (map.ContainsKey(key + ".emailHeaderImageUrl") || map.ContainsKey(key + ".emailMarketingImageUrl") || map.ContainsKey(key + ".headerImageUrl") || map.ContainsKey(key + ".businessName"))
+			InitiatingEntity initiatingEntity =  InitiatingEntity.createInstance(map, prefix + "initiatingEntity", -1);
+			if (initiatingEntity != null)
 			{
-                this.displayOptions = new DisplayOptions(map, key + ".");
+				getPaymentOptionsResponse = (getPaymentOptionsResponse == null) ? new GetPaymentOptionsResponse() : getPaymentOptionsResponse;
+				getPaymentOptionsResponse.initiatingEntity = initiatingEntity;
+			}
+			DisplayOptions displayOptions =  DisplayOptions.createInstance(map, prefix + "displayOptions", -1);
+			if (displayOptions != null)
+			{
+				getPaymentOptionsResponse = (getPaymentOptionsResponse == null) ? new GetPaymentOptionsResponse() : getPaymentOptionsResponse;
+				getPaymentOptionsResponse.displayOptions = displayOptions;
 			}
 			key = prefix + "shippingAddressId";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.shippingAddressId = map[key];
+				getPaymentOptionsResponse = (getPaymentOptionsResponse == null) ? new GetPaymentOptionsResponse() : getPaymentOptionsResponse;
+				getPaymentOptionsResponse.shippingAddressId = map[key];
 			}
-			key = prefix + "senderOptions";
-            if (map.ContainsKey(key + ".requireShippingAddressSelection") || map.ContainsKey(key + ".referrerCode"))
+			SenderOptions senderOptions =  SenderOptions.createInstance(map, prefix + "senderOptions", -1);
+			if (senderOptions != null)
 			{
-                this.senderOptions = new SenderOptions(map, key + ".");
+				getPaymentOptionsResponse = (getPaymentOptionsResponse == null) ? new GetPaymentOptionsResponse() : getPaymentOptionsResponse;
+				getPaymentOptionsResponse.senderOptions = senderOptions;
 			}
 			i = 0;
-			while(true){
-				key = prefix + "receiverOptions" + "(" + i + ")";
-                if (map.ContainsKey(key + ".description"))
+			while(true)
+			{
+				ReceiverOptions receiverOptions =  ReceiverOptions.createInstance(map, prefix + "receiverOptions", i);
+				if (receiverOptions != null)
 				{
-					this.receiverOptions.Add(new ReceiverOptions(map, key + "."));
-				} else
+					getPaymentOptionsResponse = (getPaymentOptionsResponse == null) ? new GetPaymentOptionsResponse() : getPaymentOptionsResponse;
+					getPaymentOptionsResponse.receiverOptions.Add(receiverOptions);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
 			i = 0;
-			while(true){
-				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".errorId"))
+			while(true)
+			{
+				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				if (error != null)
 				{
-					this.error.Add(new ErrorData(map, key + "."));
-				} else
+					getPaymentOptionsResponse = (getPaymentOptionsResponse == null) ? new GetPaymentOptionsResponse() : getPaymentOptionsResponse;
+					getPaymentOptionsResponse.error.Add(error);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return getPaymentOptionsResponse;
 		}
 		
 	}
@@ -6273,107 +7253,144 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public PaymentDetailsResponse(Dictionary<string, string> map, string prefix)
+
+		public static PaymentDetailsResponse createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "responseEnvelope";
-			if(map.ContainsKey(key + ".timestamp"))
+			PaymentDetailsResponse paymentDetailsResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.responseEnvelope = new ResponseEnvelope(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
+			{
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.responseEnvelope = responseEnvelope;
 			}
 			key = prefix + "cancelUrl";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.cancelUrl = map[key];
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.cancelUrl = map[key];
 			}
 			key = prefix + "currencyCode";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.currencyCode = map[key];
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.currencyCode = map[key];
 			}
 			key = prefix + "ipnNotificationUrl";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.ipnNotificationUrl = map[key];
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.ipnNotificationUrl = map[key];
 			}
 			key = prefix + "memo";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.memo = map[key];
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.memo = map[key];
 			}
-			key = prefix + "paymentInfoList";
-			if(map.ContainsKey(key + ".paymentInfo(0).receiver.amount"))
+			PaymentInfoList paymentInfoList =  PaymentInfoList.createInstance(map, prefix + "paymentInfoList", -1);
+			if (paymentInfoList != null)
 			{
-				this.paymentInfoList = new PaymentInfoList(map, key + ".");
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.paymentInfoList = paymentInfoList;
 			}
 			key = prefix + "returnUrl";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.returnUrl = map[key];
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.returnUrl = map[key];
 			}
 			key = prefix + "senderEmail";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.senderEmail = map[key];
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.senderEmail = map[key];
 			}
 			key = prefix + "status";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.status = map[key];
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.status = map[key];
 			}
 			key = prefix + "trackingId";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.trackingId = map[key];
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.trackingId = map[key];
 			}
 			key = prefix + "payKey";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.payKey = map[key];
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.payKey = map[key];
 			}
 			key = prefix + "actionType";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.actionType = map[key];
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.actionType = map[key];
 			}
 			key = prefix + "feesPayer";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.feesPayer = map[key];
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.feesPayer = map[key];
 			}
 			key = prefix + "reverseAllParallelPaymentsOnError";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.reverseAllParallelPaymentsOnError = System.Convert.ToBoolean(map[key]);
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.reverseAllParallelPaymentsOnError = System.Convert.ToBoolean(map[key]);
 			}
 			key = prefix + "preapprovalKey";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.preapprovalKey = map[key];
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.preapprovalKey = map[key];
 			}
-			key = prefix + "fundingConstraint";
-			if(map.ContainsKey(key + ".allowedFundingType.fundingTypeInfo(0).fundingType"))
+			FundingConstraint fundingConstraint =  FundingConstraint.createInstance(map, prefix + "fundingConstraint", -1);
+			if (fundingConstraint != null)
 			{
-				this.fundingConstraint = new FundingConstraint(map, key + ".");
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.fundingConstraint = fundingConstraint;
 			}
-			key = prefix + "sender";
-            if (map.ContainsKey(key + ".useCredentials"))
+			SenderIdentifier sender =  SenderIdentifier.createInstance(map, prefix + "sender", -1);
+			if (sender != null)
 			{
-				this.sender = new SenderIdentifier(map, key + ".");
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.sender = sender;
 			}
 			i = 0;
-			while(true){
-				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".errorId"))
+			while(true)
+			{
+				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				if (error != null)
 				{
-					this.error.Add(new ErrorData(map, key + "."));
-				} else
+					paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+					paymentDetailsResponse.error.Add(error);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return paymentDetailsResponse;
 		}
 		
 	}
@@ -6896,47 +7913,72 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public PayResponse(Dictionary<string, string> map, string prefix)
+
+		public static PayResponse createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "responseEnvelope";
-			if(map.ContainsKey(key + ".timestamp"))
+			PayResponse payResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.responseEnvelope = new ResponseEnvelope(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
+			{
+				payResponse = (payResponse == null) ? new PayResponse() : payResponse;
+				payResponse.responseEnvelope = responseEnvelope;
 			}
 			key = prefix + "payKey";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.payKey = map[key];
+				payResponse = (payResponse == null) ? new PayResponse() : payResponse;
+				payResponse.payKey = map[key];
 			}
 			key = prefix + "paymentExecStatus";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.paymentExecStatus = map[key];
+				payResponse = (payResponse == null) ? new PayResponse() : payResponse;
+				payResponse.paymentExecStatus = map[key];
 			}
-			key = prefix + "payErrorList";
-			if(map.ContainsKey(key + ".payError(0).receiver.amount"))
+			PayErrorList payErrorList =  PayErrorList.createInstance(map, prefix + "payErrorList", -1);
+			if (payErrorList != null)
 			{
-				this.payErrorList = new PayErrorList(map, key + ".");
+				payResponse = (payResponse == null) ? new PayResponse() : payResponse;
+				payResponse.payErrorList = payErrorList;
 			}
-			key = prefix + "defaultFundingPlan";
-			if(map.ContainsKey(key + ".fundingPlanId"))
+			FundingPlan defaultFundingPlan =  FundingPlan.createInstance(map, prefix + "defaultFundingPlan", -1);
+			if (defaultFundingPlan != null)
 			{
-				this.defaultFundingPlan = new FundingPlan(map, key + ".");
+				payResponse = (payResponse == null) ? new PayResponse() : payResponse;
+				payResponse.defaultFundingPlan = defaultFundingPlan;
 			}
 			i = 0;
-			while(true){
-				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".errorId"))
+			while(true)
+			{
+				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				if (error != null)
 				{
-					this.error.Add(new ErrorData(map, key + "."));
-				} else
+					payResponse = (payResponse == null) ? new PayResponse() : payResponse;
+					payResponse.error.Add(error);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return payResponse;
 		}
 		
 	}
@@ -7512,152 +8554,198 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public PreapprovalDetailsResponse(Dictionary<string, string> map, string prefix)
+
+		public static PreapprovalDetailsResponse createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "responseEnvelope";
-			if(map.ContainsKey(key + ".timestamp"))
+			PreapprovalDetailsResponse preapprovalDetailsResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.responseEnvelope = new ResponseEnvelope(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
+			{
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.responseEnvelope = responseEnvelope;
 			}
 			key = prefix + "approved";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.approved = System.Convert.ToBoolean(map[key]);
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.approved = System.Convert.ToBoolean(map[key]);
 			}
 			key = prefix + "cancelUrl";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.cancelUrl = map[key];
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.cancelUrl = map[key];
 			}
 			key = prefix + "curPayments";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.curPayments = System.Convert.ToInt32(map[key]);
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.curPayments = System.Convert.ToInt32(map[key]);
 			}
 			key = prefix + "curPaymentsAmount";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.curPaymentsAmount = System.Convert.ToDecimal(map[key]);
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.curPaymentsAmount = System.Convert.ToDecimal(map[key]);
 			}
 			key = prefix + "curPeriodAttempts";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.curPeriodAttempts = System.Convert.ToInt32(map[key]);
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.curPeriodAttempts = System.Convert.ToInt32(map[key]);
 			}
 			key = prefix + "curPeriodEndingDate";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.curPeriodEndingDate = map[key];
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.curPeriodEndingDate = map[key];
 			}
 			key = prefix + "currencyCode";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.currencyCode = map[key];
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.currencyCode = map[key];
 			}
 			key = prefix + "dateOfMonth";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.dateOfMonth = System.Convert.ToInt32(map[key]);
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.dateOfMonth = System.Convert.ToInt32(map[key]);
 			}
 			key = prefix + "dayOfWeek";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.dayOfWeek = (DayOfWeek)EnumUtils.getValue(map[key],typeof(DayOfWeek));;
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.dayOfWeek = (DayOfWeek)EnumUtils.getValue(map[key],typeof(DayOfWeek));;
 			}
 			key = prefix + "endingDate";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.endingDate = map[key];
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.endingDate = map[key];
 			}
 			key = prefix + "maxAmountPerPayment";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.maxAmountPerPayment = System.Convert.ToDecimal(map[key]);
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.maxAmountPerPayment = System.Convert.ToDecimal(map[key]);
 			}
 			key = prefix + "maxNumberOfPayments";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.maxNumberOfPayments = System.Convert.ToInt32(map[key]);
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.maxNumberOfPayments = System.Convert.ToInt32(map[key]);
 			}
 			key = prefix + "maxNumberOfPaymentsPerPeriod";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.maxNumberOfPaymentsPerPeriod = System.Convert.ToInt32(map[key]);
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.maxNumberOfPaymentsPerPeriod = System.Convert.ToInt32(map[key]);
 			}
 			key = prefix + "maxTotalAmountOfAllPayments";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.maxTotalAmountOfAllPayments = System.Convert.ToDecimal(map[key]);
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.maxTotalAmountOfAllPayments = System.Convert.ToDecimal(map[key]);
 			}
 			key = prefix + "paymentPeriod";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.paymentPeriod = map[key];
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.paymentPeriod = map[key];
 			}
 			key = prefix + "pinType";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.pinType = map[key];
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.pinType = map[key];
 			}
 			key = prefix + "returnUrl";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.returnUrl = map[key];
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.returnUrl = map[key];
 			}
 			key = prefix + "senderEmail";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.senderEmail = map[key];
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.senderEmail = map[key];
 			}
 			key = prefix + "memo";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.memo = map[key];
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.memo = map[key];
 			}
 			key = prefix + "startingDate";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.startingDate = map[key];
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.startingDate = map[key];
 			}
 			key = prefix + "status";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.status = map[key];
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.status = map[key];
 			}
 			key = prefix + "ipnNotificationUrl";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.ipnNotificationUrl = map[key];
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.ipnNotificationUrl = map[key];
 			}
-			key = prefix + "addressList";
-			if(map.ContainsKey(key + ".address(0).baseAddress.line1"))
+			AddressList addressList =  AddressList.createInstance(map, prefix + "addressList", -1);
+			if (addressList != null)
 			{
-				this.addressList = new AddressList(map, key + ".");
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.addressList = addressList;
 			}
 			key = prefix + "feesPayer";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.feesPayer = map[key];
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.feesPayer = map[key];
 			}
 			key = prefix + "displayMaxTotalAmount";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.displayMaxTotalAmount = System.Convert.ToBoolean(map[key]);
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.displayMaxTotalAmount = System.Convert.ToBoolean(map[key]);
 			}
 			i = 0;
-			while(true){
-				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".errorId"))
+			while(true)
+			{
+				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				if (error != null)
 				{
-					this.error.Add(new ErrorData(map, key + "."));
-				} else
+					preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+					preapprovalDetailsResponse.error.Add(error);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return preapprovalDetailsResponse;
 		}
 		
 	}
@@ -8189,32 +9277,54 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public PreapprovalResponse(Dictionary<string, string> map, string prefix)
+
+		public static PreapprovalResponse createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "responseEnvelope";
-			if(map.ContainsKey(key + ".timestamp"))
+			PreapprovalResponse preapprovalResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.responseEnvelope = new ResponseEnvelope(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
+			{
+				preapprovalResponse = (preapprovalResponse == null) ? new PreapprovalResponse() : preapprovalResponse;
+				preapprovalResponse.responseEnvelope = responseEnvelope;
 			}
 			key = prefix + "preapprovalKey";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.preapprovalKey = map[key];
+				preapprovalResponse = (preapprovalResponse == null) ? new PreapprovalResponse() : preapprovalResponse;
+				preapprovalResponse.preapprovalKey = map[key];
 			}
 			i = 0;
-			while(true){
-				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".errorId"))
+			while(true)
+			{
+				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				if (error != null)
 				{
-					this.error.Add(new ErrorData(map, key + "."));
-				} else
+					preapprovalResponse = (preapprovalResponse == null) ? new PreapprovalResponse() : preapprovalResponse;
+					preapprovalResponse.error.Add(error);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return preapprovalResponse;
 		}
 		
 	}
@@ -8464,37 +9574,60 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public RefundResponse(Dictionary<string, string> map, string prefix)
+
+		public static RefundResponse createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "responseEnvelope";
-			if(map.ContainsKey(key + ".timestamp"))
+			RefundResponse refundResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.responseEnvelope = new ResponseEnvelope(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
+			{
+				refundResponse = (refundResponse == null) ? new RefundResponse() : refundResponse;
+				refundResponse.responseEnvelope = responseEnvelope;
 			}
 			key = prefix + "currencyCode";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.currencyCode = map[key];
+				refundResponse = (refundResponse == null) ? new RefundResponse() : refundResponse;
+				refundResponse.currencyCode = map[key];
 			}
-			key = prefix + "refundInfoList";
-			if(map.ContainsKey(key + ".refundInfo(0).receiver.amount"))
+			RefundInfoList refundInfoList =  RefundInfoList.createInstance(map, prefix + "refundInfoList", -1);
+			if (refundInfoList != null)
 			{
-				this.refundInfoList = new RefundInfoList(map, key + ".");
+				refundResponse = (refundResponse == null) ? new RefundResponse() : refundResponse;
+				refundResponse.refundInfoList = refundInfoList;
 			}
 			i = 0;
-			while(true){
-				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".errorId"))
+			while(true)
+			{
+				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				if (error != null)
 				{
-					this.error.Add(new ErrorData(map, key + "."));
-				} else
+					refundResponse = (refundResponse == null) ? new RefundResponse() : refundResponse;
+					refundResponse.error.Add(error);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return refundResponse;
 		}
 		
 	}
@@ -8735,27 +9868,48 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public SetPaymentOptionsResponse(Dictionary<string, string> map, string prefix)
+
+		public static SetPaymentOptionsResponse createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "responseEnvelope";
-			if(map.ContainsKey(key + ".timestamp"))
+			SetPaymentOptionsResponse setPaymentOptionsResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.responseEnvelope = new ResponseEnvelope(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
+			{
+				setPaymentOptionsResponse = (setPaymentOptionsResponse == null) ? new SetPaymentOptionsResponse() : setPaymentOptionsResponse;
+				setPaymentOptionsResponse.responseEnvelope = responseEnvelope;
 			}
 			i = 0;
-			while(true){
-				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".errorId"))
+			while(true)
+			{
+				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				if (error != null)
 				{
-					this.error.Add(new ErrorData(map, key + "."));
-				} else
+					setPaymentOptionsResponse = (setPaymentOptionsResponse == null) ? new SetPaymentOptionsResponse() : setPaymentOptionsResponse;
+					setPaymentOptionsResponse.error.Add(error);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return setPaymentOptionsResponse;
 		}
 		
 	}
@@ -8903,39 +10057,63 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public GetFundingPlansResponse(Dictionary<string, string> map, string prefix)
+
+		public static GetFundingPlansResponse createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "responseEnvelope";
-			if(map.ContainsKey(key + ".timestamp"))
+			GetFundingPlansResponse getFundingPlansResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.responseEnvelope = new ResponseEnvelope(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
+			{
+				getFundingPlansResponse = (getFundingPlansResponse == null) ? new GetFundingPlansResponse() : getFundingPlansResponse;
+				getFundingPlansResponse.responseEnvelope = responseEnvelope;
 			}
 			i = 0;
-			while(true){
-				key = prefix + "fundingPlan" + "(" + i + ")";
-				if(map.ContainsKey(key + ".fundingPlanId"))
+			while(true)
+			{
+				FundingPlan fundingPlan =  FundingPlan.createInstance(map, prefix + "fundingPlan", i);
+				if (fundingPlan != null)
 				{
-					this.fundingPlan.Add(new FundingPlan(map, key + "."));
-				} else
+					getFundingPlansResponse = (getFundingPlansResponse == null) ? new GetFundingPlansResponse() : getFundingPlansResponse;
+					getFundingPlansResponse.fundingPlan.Add(fundingPlan);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
 			i = 0;
-			while(true){
-				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".errorId"))
+			while(true)
+			{
+				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				if (error != null)
 				{
-					this.error.Add(new ErrorData(map, key + "."));
-				} else
+					getFundingPlansResponse = (getFundingPlansResponse == null) ? new GetFundingPlansResponse() : getFundingPlansResponse;
+					getFundingPlansResponse.error.Add(error);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return getFundingPlansResponse;
 		}
 		
 	}
@@ -9082,39 +10260,63 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public GetAvailableShippingAddressesResponse(Dictionary<string, string> map, string prefix)
+
+		public static GetAvailableShippingAddressesResponse createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "responseEnvelope";
-			if(map.ContainsKey(key + ".timestamp"))
+			GetAvailableShippingAddressesResponse getAvailableShippingAddressesResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.responseEnvelope = new ResponseEnvelope(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
+			{
+				getAvailableShippingAddressesResponse = (getAvailableShippingAddressesResponse == null) ? new GetAvailableShippingAddressesResponse() : getAvailableShippingAddressesResponse;
+				getAvailableShippingAddressesResponse.responseEnvelope = responseEnvelope;
 			}
 			i = 0;
-			while(true){
-				key = prefix + "availableAddress" + "(" + i + ")";
-				if(map.ContainsKey(key + ".baseAddress.line1"))
+			while(true)
+			{
+				Address availableAddress =  Address.createInstance(map, prefix + "availableAddress", i);
+				if (availableAddress != null)
 				{
-					this.availableAddress.Add(new Address(map, key + "."));
-				} else
+					getAvailableShippingAddressesResponse = (getAvailableShippingAddressesResponse == null) ? new GetAvailableShippingAddressesResponse() : getAvailableShippingAddressesResponse;
+					getAvailableShippingAddressesResponse.availableAddress.Add(availableAddress);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
 			i = 0;
-			while(true){
-				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".errorId"))
+			while(true)
+			{
+				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				if (error != null)
 				{
-					this.error.Add(new ErrorData(map, key + "."));
-				} else
+					getAvailableShippingAddressesResponse = (getAvailableShippingAddressesResponse == null) ? new GetAvailableShippingAddressesResponse() : getAvailableShippingAddressesResponse;
+					getAvailableShippingAddressesResponse.error.Add(error);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return getAvailableShippingAddressesResponse;
 		}
 		
 	}
@@ -9261,32 +10463,54 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public GetShippingAddressesResponse(Dictionary<string, string> map, string prefix)
+
+		public static GetShippingAddressesResponse createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "responseEnvelope";
-			if(map.ContainsKey(key + ".timestamp"))
+			GetShippingAddressesResponse getShippingAddressesResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.responseEnvelope = new ResponseEnvelope(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
 			}
-			key = prefix + "selectedAddress";
-			if(map.ContainsKey(key + ".baseAddress.line1"))
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
 			{
-				this.selectedAddress = new Address(map, key + ".");
+				getShippingAddressesResponse = (getShippingAddressesResponse == null) ? new GetShippingAddressesResponse() : getShippingAddressesResponse;
+				getShippingAddressesResponse.responseEnvelope = responseEnvelope;
+			}
+			Address selectedAddress =  Address.createInstance(map, prefix + "selectedAddress", -1);
+			if (selectedAddress != null)
+			{
+				getShippingAddressesResponse = (getShippingAddressesResponse == null) ? new GetShippingAddressesResponse() : getShippingAddressesResponse;
+				getShippingAddressesResponse.selectedAddress = selectedAddress;
 			}
 			i = 0;
-			while(true){
-				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".errorId"))
+			while(true)
+			{
+				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				if (error != null)
 				{
-					this.error.Add(new ErrorData(map, key + "."));
-				} else
+					getShippingAddressesResponse = (getShippingAddressesResponse == null) ? new GetShippingAddressesResponse() : getShippingAddressesResponse;
+					getShippingAddressesResponse.error.Add(error);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return getShippingAddressesResponse;
 		}
 		
 	}
@@ -9519,44 +10743,69 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public GetUserLimitsResponse(Dictionary<string, string> map, string prefix)
+
+		public static GetUserLimitsResponse createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "responseEnvelope";
-			if(map.ContainsKey(key + ".timestamp"))
+			GetUserLimitsResponse getUserLimitsResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.responseEnvelope = new ResponseEnvelope(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
+			{
+				getUserLimitsResponse = (getUserLimitsResponse == null) ? new GetUserLimitsResponse() : getUserLimitsResponse;
+				getUserLimitsResponse.responseEnvelope = responseEnvelope;
 			}
 			i = 0;
-			while(true){
-				key = prefix + "userLimit" + "(" + i + ")";
-				if(map.ContainsKey(key + ".limitType"))
+			while(true)
+			{
+				UserLimit userLimit =  UserLimit.createInstance(map, prefix + "userLimit", i);
+				if (userLimit != null)
 				{
-					this.userLimit.Add(new UserLimit(map, key + "."));
-				} else
+					getUserLimitsResponse = (getUserLimitsResponse == null) ? new GetUserLimitsResponse() : getUserLimitsResponse;
+					getUserLimitsResponse.userLimit.Add(userLimit);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
-			key = prefix + "warningDataList";
-            if (map.ContainsKey(key + ".warningData(0).warningId"))
+			WarningDataList warningDataList =  WarningDataList.createInstance(map, prefix + "warningDataList", -1);
+			if (warningDataList != null)
 			{
-				this.warningDataList = new WarningDataList(map, key);
+				getUserLimitsResponse = (getUserLimitsResponse == null) ? new GetUserLimitsResponse() : getUserLimitsResponse;
+				getUserLimitsResponse.warningDataList = warningDataList;
 			}
 			i = 0;
-			while(true){
-				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".errorId"))
+			while(true)
+			{
+				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				if (error != null)
 				{
-					this.error.Add(new ErrorData(map, key + "."));
-				} else
+					getUserLimitsResponse = (getUserLimitsResponse == null) ? new GetUserLimitsResponse() : getUserLimitsResponse;
+					getUserLimitsResponse.error.Add(error);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return getUserLimitsResponse;
 		}
 		
 	}
