@@ -41,7 +41,7 @@
 					</div>
 				</div>
 				<div class="params">
-					<div class="param_name">Preapproval key *</div>
+					<div class="param_name">Currency Code *</div>
 					<div class="param_value">
 						<input name="currencyCode" id="currencyCode" value="USD" />
 					</div>

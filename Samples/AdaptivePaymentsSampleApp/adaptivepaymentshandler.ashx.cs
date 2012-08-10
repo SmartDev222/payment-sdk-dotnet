@@ -344,6 +344,8 @@ namespace AdaptivePaymentsSampleApp
                 !(resp.responseEnvelope.ack == AckCode.FAILUREWITHWARNING))
             {
                 keyResponseParams.Add("Preapproval key", resp.preapprovalKey);
+				redirectUrl = ConfigurationManager.AppSettings["PAYPAL_REDIRECT_URL"]
+                                     + "_ap-preapproval&preapprovalkey=" + resp.pareapprovalKey;
             }
             displayResponse(context, "Preapproval", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
                 resp.error, redirectUrl, resp);
@@ -1062,7 +1064,7 @@ namespace AdaptivePaymentsSampleApp
                     idx++;
                 }
             }
-            displayResponse(context, "GetAvailableShippingAddresses", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
+            displayResponse(context, "GetUserLimits", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
                 resp.error, redirectUrl, resp);
         }
 
