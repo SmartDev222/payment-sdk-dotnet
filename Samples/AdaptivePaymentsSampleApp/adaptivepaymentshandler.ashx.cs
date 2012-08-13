@@ -345,7 +345,7 @@ namespace AdaptivePaymentsSampleApp
             {
                 keyResponseParams.Add("Preapproval key", resp.preapprovalKey);
 				redirectUrl = ConfigurationManager.AppSettings["PAYPAL_REDIRECT_URL"]
-                                     + "_ap-preapproval&preapprovalkey=" + resp.pareapprovalKey;
+                                     + "_ap-preapproval&preapprovalkey=" + resp.preapprovalKey;
             }
             displayResponse(context, "Preapproval", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
                 resp.error, redirectUrl, resp);
