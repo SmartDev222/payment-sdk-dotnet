@@ -117,6 +117,7 @@
 								<option>PERSONAL</option>
 								<option>CASHADVANCE</option>
 								<option>DIGITALGOODS</option>
+								<option>BANK_MANAGED_WITHDRAWAL</option>
 							</select>
 						</td>
 						<td>
