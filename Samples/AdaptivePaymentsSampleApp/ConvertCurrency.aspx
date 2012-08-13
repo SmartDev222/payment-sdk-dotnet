@@ -31,6 +31,10 @@
 						<td><input type="text" name="currencyCode" id="currencyCode_0" value="EUR" /></td>
 						<td><input type="text" name="currencyAmount" id="currencyAmount_0" value="10.0" /></td>
 					</tr>
+					<tr>
+						<td><input type="text" name="currencyCode" id="currencyCode_1" value="GBP" /></td>
+						<td><input type="text" name="currencyAmount" id="currencyAmount_1" value="20.0" /></td>
+					</tr>
 				</table>
 				<div class="input_header">Convert to currency</div>
 				<table class="params">

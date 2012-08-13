@@ -145,6 +145,10 @@ namespace AdaptivePaymentsSampleApp
                                 parameters["cancelUrl"], parameters["currencyCode"], 
                                 receiverList, parameters["returnUrl"]);
             // set optional parameters
+            if (parameters["preapprovalKey"] != "")
+                req.preapprovalKey = parameters["preapprovalKey"];
+            if (parameters["feesPayer"] != "")
+                req.feesPayer = parameters["feesPayer"];
             if (parameters["reverseAllParallelPaymentsOnError"] != "")
                 req.reverseAllParallelPaymentsOnError = 
                     Boolean.Parse(parameters["reverseAllParallelPaymentsOnError"]);
@@ -195,8 +199,11 @@ namespace AdaptivePaymentsSampleApp
             if ( !(resp.responseEnvelope.ack == AckCode.FAILURE) && 
                 !(resp.responseEnvelope.ack == AckCode.FAILUREWITHWARNING) )
             {
-                redirectUrl = ConfigurationManager.AppSettings["PAYPAL_REDIRECT_URL"]
-                                     + "_ap-payment&paykey=" + resp.payKey;
+                if (resp.paymentExecStatus != "COMPLETED")
+                {
+                    redirectUrl = ConfigurationManager.AppSettings["PAYPAL_REDIRECT_URL"]
+                                         + "_ap-payment&paykey=" + resp.payKey;
+                }
                 keyResponseParams.Add("Pay key", resp.payKey);
                 keyResponseParams.Add("Payment execution status", resp.paymentExecStatus);
                 if (resp.defaultFundingPlan != null && resp.defaultFundingPlan.senderFees != null)
@@ -623,6 +630,15 @@ namespace AdaptivePaymentsSampleApp
                     {
                         keyResponseParams.Add("Base amount " + idx,
                             list.baseAmount.amount + " " + list.baseAmount.code);
+                        if(list.currencyList != null ) {
+                            int cidx = 1;
+                            foreach(CurrencyType c in list.currencyList.currency)
+                            {
+                                keyResponseParams.Add( idx + " Conversion amount " + cidx,
+                                    c.amount + " " + c.code);
+                                cidx++;
+                            }
+                        }
                         idx++;
                     }
                 }
