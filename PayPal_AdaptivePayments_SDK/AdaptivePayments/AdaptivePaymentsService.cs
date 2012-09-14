@@ -8,7 +8,7 @@ namespace PayPal.AdaptivePayments {
 	public partial class AdaptivePaymentsService : BasePayPalService {
 
 		// Service Version
-		private static string ServiceVersion = "1.8.0";
+		private static string ServiceVersion = "1.8.1";
 
 		// Service Name
 		private static string ServiceName = "AdaptivePayments";

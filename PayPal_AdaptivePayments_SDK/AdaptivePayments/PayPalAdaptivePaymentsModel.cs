@@ -5088,6 +5088,107 @@ namespace PayPal.AdaptivePayments.Model
 
 
 	/**
+      *Details about the payer's tax info passed in by the merchant
+      *or partner. 
+      */
+	public partial class TaxIdDetails	
+	{
+
+		/**
+          *
+		  */
+		private string taxIdField;
+		public string taxId
+		{
+			get
+			{
+				return this.taxIdField;
+			}
+			set
+			{
+				this.taxIdField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private string taxIdTypeField;
+		public string taxIdType
+		{
+			get
+			{
+				return this.taxIdTypeField;
+			}
+			set
+			{
+				this.taxIdTypeField = value;
+			}
+		}
+		
+
+		/**
+	 	  * Default Constructor
+	 	  */
+	 	public TaxIdDetails(){
+		}
+
+
+		public string toNVPString(string prefix)
+		{
+			StringBuilder sb = new StringBuilder();
+			if (this.taxId != null)
+			{
+					sb.Append(prefix).Append("taxId").Append("=").Append(HttpUtility.UrlEncode(this.taxId, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.taxIdType != null)
+			{
+					sb.Append(prefix).Append("taxIdType").Append("=").Append(HttpUtility.UrlEncode(this.taxIdType, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			return sb.ToString();
+		}
+
+		public static TaxIdDetails createInstance(Dictionary<string, string> map, string prefix, int index)
+		{
+			TaxIdDetails taxIdDetails = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			key = prefix + "taxId";
+			if (map.ContainsKey(key))
+			{
+				taxIdDetails = (taxIdDetails == null) ? new TaxIdDetails() : taxIdDetails;
+				taxIdDetails.taxId = map[key];
+			}
+			key = prefix + "taxIdType";
+			if (map.ContainsKey(key))
+			{
+				taxIdDetails = (taxIdDetails == null) ? new TaxIdDetails() : taxIdDetails;
+				taxIdDetails.taxIdType = map[key];
+			}
+			return taxIdDetails;
+		}
+		
+	}
+
+
+
+
+	/**
       *The sender identifier type contains information to identify
       *a PayPal account. 
       */
@@ -5112,6 +5213,23 @@ namespace PayPal.AdaptivePayments.Model
 		
 
 		/**
+          *
+		  */
+		private TaxIdDetails taxIdDetailsField;
+		public TaxIdDetails taxIdDetails
+		{
+			get
+			{
+				return this.taxIdDetailsField;
+			}
+			set
+			{
+				this.taxIdDetailsField = value;
+			}
+		}
+		
+
+		/**
 	 	  * Default Constructor
 	 	  */
 	 	public SenderIdentifier(){
@@ -5125,6 +5243,11 @@ namespace PayPal.AdaptivePayments.Model
 			if (this.useCredentials != null)
 			{
 					sb.Append(prefix).Append("useCredentials").Append("=").Append(this.useCredentials).Append("&");
+			}
+			if (this.taxIdDetails != null)
+			{
+					string newPrefix = prefix + "taxIdDetails" + ".";
+					sb.Append(this.taxIdDetailsField.toNVPString(newPrefix));
 			}
 			return sb.ToString();
 		}
@@ -5160,6 +5283,12 @@ namespace PayPal.AdaptivePayments.Model
 			{
 				senderIdentifier = (senderIdentifier == null) ? new SenderIdentifier() : senderIdentifier;
 				senderIdentifier.useCredentials = System.Convert.ToBoolean(map[key]);
+			}
+			TaxIdDetails taxIdDetails =  TaxIdDetails.createInstance(map, prefix + "taxIdDetails", -1);
+			if (taxIdDetails != null)
+			{
+				senderIdentifier = (senderIdentifier == null) ? new SenderIdentifier() : senderIdentifier;
+				senderIdentifier.taxIdDetails = taxIdDetails;
 			}
 			return senderIdentifier;
 		}
