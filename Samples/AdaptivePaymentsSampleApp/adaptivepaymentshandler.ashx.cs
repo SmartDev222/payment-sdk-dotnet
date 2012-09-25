@@ -144,6 +144,25 @@ namespace AdaptivePaymentsSampleApp
             PayRequest req = new PayRequest(new RequestEnvelope("en_US"), parameters["actionType"], 
                                 parameters["cancelUrl"], parameters["currencyCode"], 
                                 receiverList, parameters["returnUrl"]);
+
+            //Fix for release
+            if (parameters["ipnNotificationUrl"] != "")
+            {
+                req.ipnNotificationUrl = parameters["ipnNotificationUrl"];
+            }  
+            if (parameters["memo"] != "")
+            {
+                req.memo = parameters["memo"];
+            }
+            if (parameters["pin"] != "")
+            {
+                req.pin = parameters["pin"];
+            }
+            if (parameters["preapprovalKey"] != "")
+            {
+                req.preapprovalKey = parameters["preapprovalKey"];
+            }
+
             // set optional parameters
             if (parameters["reverseAllParallelPaymentsOnError"] != "")
                 req.reverseAllParallelPaymentsOnError = 
@@ -908,6 +927,7 @@ namespace AdaptivePaymentsSampleApp
                         item.itemCount = Int32.Parse(itemCount[j]);
                     receiverOption.invoiceData.item.Add(item);
                 }
+
                 if (parameters["totalTax"] != "")
                     receiverOption.invoiceData.totalTax = Decimal.Parse(parameters["totalTax"]);
                 if (parameters["totalShipping"] != "")
@@ -1016,8 +1036,10 @@ namespace AdaptivePaymentsSampleApp
         private void ExecutePayment(HttpContext context)
         {
             NameValueCollection parameters = context.Request.Params;
-            ExecutePaymentRequest req = new ExecutePaymentRequest(
-                    new RequestEnvelope("en_US"), parameters["payKey"]);
+            ExecutePaymentRequest req = new ExecutePaymentRequest(new RequestEnvelope("en_US"), parameters["payKey"]);
+
+            //Fix for release
+            req.fundingPlanId = parameters["fundingPlanId"];
 
             // All set. Fire the request            
             AdaptivePaymentsService service = new AdaptivePaymentsService();
