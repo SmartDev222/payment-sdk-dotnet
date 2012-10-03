@@ -1,3 +1,4 @@
+using System.Xml;
 using PayPal;
 using PayPal.Authentication;
 using PayPal.Util;
@@ -20,305 +21,305 @@ namespace PayPal.AdaptivePayments {
 		/**	
           *AUTO_GENERATED
 	 	  */
-	 	public CancelPreapprovalResponse CancelPreapproval(CancelPreapprovalRequest CancelPreapprovalRequest, string apiUsername)
+	 	public CancelPreapprovalResponse CancelPreapproval(CancelPreapprovalRequest cancelPreapprovalRequest, string apiUserName)
 	 	{
-			string resp = call("CancelPreapproval", CancelPreapprovalRequest.toNVPString(""), apiUsername);
+			string response = Call("CancelPreapproval", cancelPreapprovalRequest.ToNVPString(""), apiUserName);
 			NVPUtil util = new NVPUtil();
-			return CancelPreapprovalResponse.createInstance(util.parseNVPString(resp), "", -1);
+			return CancelPreapprovalResponse.CreateInstance(util.ParseNVPString(response), "", -1);
 			
 	 	}
 	 
 	 	/** 
           *AUTO_GENERATED
 	 	  */
-	 	public CancelPreapprovalResponse CancelPreapproval(CancelPreapprovalRequest CancelPreapprovalRequest)
+	 	public CancelPreapprovalResponse CancelPreapproval(CancelPreapprovalRequest cancelPreapprovalRequest)
 	 	{
-	 		return CancelPreapproval(CancelPreapprovalRequest, null);
+	 		return CancelPreapproval(cancelPreapprovalRequest, null);
 	 	}
 
 		/**	
           *AUTO_GENERATED
 	 	  */
-	 	public ConfirmPreapprovalResponse ConfirmPreapproval(ConfirmPreapprovalRequest ConfirmPreapprovalRequest, string apiUsername)
+	 	public ConfirmPreapprovalResponse ConfirmPreapproval(ConfirmPreapprovalRequest confirmPreapprovalRequest, string apiUserName)
 	 	{
-			string resp = call("ConfirmPreapproval", ConfirmPreapprovalRequest.toNVPString(""), apiUsername);
+			string response = Call("ConfirmPreapproval", confirmPreapprovalRequest.ToNVPString(""), apiUserName);
 			NVPUtil util = new NVPUtil();
-			return ConfirmPreapprovalResponse.createInstance(util.parseNVPString(resp), "", -1);
+			return ConfirmPreapprovalResponse.CreateInstance(util.ParseNVPString(response), "", -1);
 			
 	 	}
 	 
 	 	/** 
           *AUTO_GENERATED
 	 	  */
-	 	public ConfirmPreapprovalResponse ConfirmPreapproval(ConfirmPreapprovalRequest ConfirmPreapprovalRequest)
+	 	public ConfirmPreapprovalResponse ConfirmPreapproval(ConfirmPreapprovalRequest confirmPreapprovalRequest)
 	 	{
-	 		return ConfirmPreapproval(ConfirmPreapprovalRequest, null);
+	 		return ConfirmPreapproval(confirmPreapprovalRequest, null);
 	 	}
 
 		/**	
           *AUTO_GENERATED
 	 	  */
-	 	public ConvertCurrencyResponse ConvertCurrency(ConvertCurrencyRequest ConvertCurrencyRequest, string apiUsername)
+	 	public ConvertCurrencyResponse ConvertCurrency(ConvertCurrencyRequest convertCurrencyRequest, string apiUserName)
 	 	{
-			string resp = call("ConvertCurrency", ConvertCurrencyRequest.toNVPString(""), apiUsername);
+			string response = Call("ConvertCurrency", convertCurrencyRequest.ToNVPString(""), apiUserName);
 			NVPUtil util = new NVPUtil();
-			return ConvertCurrencyResponse.createInstance(util.parseNVPString(resp), "", -1);
+			return ConvertCurrencyResponse.CreateInstance(util.ParseNVPString(response), "", -1);
 			
 	 	}
 	 
 	 	/** 
           *AUTO_GENERATED
 	 	  */
-	 	public ConvertCurrencyResponse ConvertCurrency(ConvertCurrencyRequest ConvertCurrencyRequest)
+	 	public ConvertCurrencyResponse ConvertCurrency(ConvertCurrencyRequest convertCurrencyRequest)
 	 	{
-	 		return ConvertCurrency(ConvertCurrencyRequest, null);
+	 		return ConvertCurrency(convertCurrencyRequest, null);
 	 	}
 
 		/**	
           *AUTO_GENERATED
 	 	  */
-	 	public ExecutePaymentResponse ExecutePayment(ExecutePaymentRequest ExecutePaymentRequest, string apiUsername)
+	 	public ExecutePaymentResponse ExecutePayment(ExecutePaymentRequest executePaymentRequest, string apiUserName)
 	 	{
-			string resp = call("ExecutePayment", ExecutePaymentRequest.toNVPString(""), apiUsername);
+			string response = Call("ExecutePayment", executePaymentRequest.ToNVPString(""), apiUserName);
 			NVPUtil util = new NVPUtil();
-			return ExecutePaymentResponse.createInstance(util.parseNVPString(resp), "", -1);
+			return ExecutePaymentResponse.CreateInstance(util.ParseNVPString(response), "", -1);
 			
 	 	}
 	 
 	 	/** 
           *AUTO_GENERATED
 	 	  */
-	 	public ExecutePaymentResponse ExecutePayment(ExecutePaymentRequest ExecutePaymentRequest)
+	 	public ExecutePaymentResponse ExecutePayment(ExecutePaymentRequest executePaymentRequest)
 	 	{
-	 		return ExecutePayment(ExecutePaymentRequest, null);
+	 		return ExecutePayment(executePaymentRequest, null);
 	 	}
 
 		/**	
           *AUTO_GENERATED
 	 	  */
-	 	public GetAllowedFundingSourcesResponse GetAllowedFundingSources(GetAllowedFundingSourcesRequest GetAllowedFundingSourcesRequest, string apiUsername)
+	 	public GetAllowedFundingSourcesResponse GetAllowedFundingSources(GetAllowedFundingSourcesRequest getAllowedFundingSourcesRequest, string apiUserName)
 	 	{
-			string resp = call("GetAllowedFundingSources", GetAllowedFundingSourcesRequest.toNVPString(""), apiUsername);
+			string response = Call("GetAllowedFundingSources", getAllowedFundingSourcesRequest.ToNVPString(""), apiUserName);
 			NVPUtil util = new NVPUtil();
-			return GetAllowedFundingSourcesResponse.createInstance(util.parseNVPString(resp), "", -1);
+			return GetAllowedFundingSourcesResponse.CreateInstance(util.ParseNVPString(response), "", -1);
 			
 	 	}
 	 
 	 	/** 
           *AUTO_GENERATED
 	 	  */
-	 	public GetAllowedFundingSourcesResponse GetAllowedFundingSources(GetAllowedFundingSourcesRequest GetAllowedFundingSourcesRequest)
+	 	public GetAllowedFundingSourcesResponse GetAllowedFundingSources(GetAllowedFundingSourcesRequest getAllowedFundingSourcesRequest)
 	 	{
-	 		return GetAllowedFundingSources(GetAllowedFundingSourcesRequest, null);
+	 		return GetAllowedFundingSources(getAllowedFundingSourcesRequest, null);
 	 	}
 
 		/**	
           *AUTO_GENERATED
 	 	  */
-	 	public GetPaymentOptionsResponse GetPaymentOptions(GetPaymentOptionsRequest GetPaymentOptionsRequest, string apiUsername)
+	 	public GetPaymentOptionsResponse GetPaymentOptions(GetPaymentOptionsRequest getPaymentOptionsRequest, string apiUserName)
 	 	{
-			string resp = call("GetPaymentOptions", GetPaymentOptionsRequest.toNVPString(""), apiUsername);
+			string response = Call("GetPaymentOptions", getPaymentOptionsRequest.ToNVPString(""), apiUserName);
 			NVPUtil util = new NVPUtil();
-			return GetPaymentOptionsResponse.createInstance(util.parseNVPString(resp), "", -1);
+			return GetPaymentOptionsResponse.CreateInstance(util.ParseNVPString(response), "", -1);
 			
 	 	}
 	 
 	 	/** 
           *AUTO_GENERATED
 	 	  */
-	 	public GetPaymentOptionsResponse GetPaymentOptions(GetPaymentOptionsRequest GetPaymentOptionsRequest)
+	 	public GetPaymentOptionsResponse GetPaymentOptions(GetPaymentOptionsRequest getPaymentOptionsRequest)
 	 	{
-	 		return GetPaymentOptions(GetPaymentOptionsRequest, null);
+	 		return GetPaymentOptions(getPaymentOptionsRequest, null);
 	 	}
 
 		/**	
           *AUTO_GENERATED
 	 	  */
-	 	public PaymentDetailsResponse PaymentDetails(PaymentDetailsRequest PaymentDetailsRequest, string apiUsername)
+	 	public PaymentDetailsResponse PaymentDetails(PaymentDetailsRequest paymentDetailsRequest, string apiUserName)
 	 	{
-			string resp = call("PaymentDetails", PaymentDetailsRequest.toNVPString(""), apiUsername);
+			string response = Call("PaymentDetails", paymentDetailsRequest.ToNVPString(""), apiUserName);
 			NVPUtil util = new NVPUtil();
-			return PaymentDetailsResponse.createInstance(util.parseNVPString(resp), "", -1);
+			return PaymentDetailsResponse.CreateInstance(util.ParseNVPString(response), "", -1);
 			
 	 	}
 	 
 	 	/** 
           *AUTO_GENERATED
 	 	  */
-	 	public PaymentDetailsResponse PaymentDetails(PaymentDetailsRequest PaymentDetailsRequest)
+	 	public PaymentDetailsResponse PaymentDetails(PaymentDetailsRequest paymentDetailsRequest)
 	 	{
-	 		return PaymentDetails(PaymentDetailsRequest, null);
+	 		return PaymentDetails(paymentDetailsRequest, null);
 	 	}
 
 		/**	
           *AUTO_GENERATED
 	 	  */
-	 	public PayResponse Pay(PayRequest PayRequest, string apiUsername)
+	 	public PayResponse Pay(PayRequest payRequest, string apiUserName)
 	 	{
-			string resp = call("Pay", PayRequest.toNVPString(""), apiUsername);
+			string response = Call("Pay", payRequest.ToNVPString(""), apiUserName);
 			NVPUtil util = new NVPUtil();
-			return PayResponse.createInstance(util.parseNVPString(resp), "", -1);
+			return PayResponse.CreateInstance(util.ParseNVPString(response), "", -1);
 			
 	 	}
 	 
 	 	/** 
           *AUTO_GENERATED
 	 	  */
-	 	public PayResponse Pay(PayRequest PayRequest)
+	 	public PayResponse Pay(PayRequest payRequest)
 	 	{
-	 		return Pay(PayRequest, null);
+	 		return Pay(payRequest, null);
 	 	}
 
 		/**	
           *AUTO_GENERATED
 	 	  */
-	 	public PreapprovalDetailsResponse PreapprovalDetails(PreapprovalDetailsRequest PreapprovalDetailsRequest, string apiUsername)
+	 	public PreapprovalDetailsResponse PreapprovalDetails(PreapprovalDetailsRequest preapprovalDetailsRequest, string apiUserName)
 	 	{
-			string resp = call("PreapprovalDetails", PreapprovalDetailsRequest.toNVPString(""), apiUsername);
+			string response = Call("PreapprovalDetails", preapprovalDetailsRequest.ToNVPString(""), apiUserName);
 			NVPUtil util = new NVPUtil();
-			return PreapprovalDetailsResponse.createInstance(util.parseNVPString(resp), "", -1);
+			return PreapprovalDetailsResponse.CreateInstance(util.ParseNVPString(response), "", -1);
 			
 	 	}
 	 
 	 	/** 
           *AUTO_GENERATED
 	 	  */
-	 	public PreapprovalDetailsResponse PreapprovalDetails(PreapprovalDetailsRequest PreapprovalDetailsRequest)
+	 	public PreapprovalDetailsResponse PreapprovalDetails(PreapprovalDetailsRequest preapprovalDetailsRequest)
 	 	{
-	 		return PreapprovalDetails(PreapprovalDetailsRequest, null);
+	 		return PreapprovalDetails(preapprovalDetailsRequest, null);
 	 	}
 
 		/**	
           *AUTO_GENERATED
 	 	  */
-	 	public PreapprovalResponse Preapproval(PreapprovalRequest PreapprovalRequest, string apiUsername)
+	 	public PreapprovalResponse Preapproval(PreapprovalRequest preapprovalRequest, string apiUserName)
 	 	{
-			string resp = call("Preapproval", PreapprovalRequest.toNVPString(""), apiUsername);
+			string response = Call("Preapproval", preapprovalRequest.ToNVPString(""), apiUserName);
 			NVPUtil util = new NVPUtil();
-			return PreapprovalResponse.createInstance(util.parseNVPString(resp), "", -1);
+			return PreapprovalResponse.CreateInstance(util.ParseNVPString(response), "", -1);
 			
 	 	}
 	 
 	 	/** 
           *AUTO_GENERATED
 	 	  */
-	 	public PreapprovalResponse Preapproval(PreapprovalRequest PreapprovalRequest)
+	 	public PreapprovalResponse Preapproval(PreapprovalRequest preapprovalRequest)
 	 	{
-	 		return Preapproval(PreapprovalRequest, null);
+	 		return Preapproval(preapprovalRequest, null);
 	 	}
 
 		/**	
           *AUTO_GENERATED
 	 	  */
-	 	public RefundResponse Refund(RefundRequest RefundRequest, string apiUsername)
+	 	public RefundResponse Refund(RefundRequest refundRequest, string apiUserName)
 	 	{
-			string resp = call("Refund", RefundRequest.toNVPString(""), apiUsername);
+			string response = Call("Refund", refundRequest.ToNVPString(""), apiUserName);
 			NVPUtil util = new NVPUtil();
-			return RefundResponse.createInstance(util.parseNVPString(resp), "", -1);
+			return RefundResponse.CreateInstance(util.ParseNVPString(response), "", -1);
 			
 	 	}
 	 
 	 	/** 
           *AUTO_GENERATED
 	 	  */
-	 	public RefundResponse Refund(RefundRequest RefundRequest)
+	 	public RefundResponse Refund(RefundRequest refundRequest)
 	 	{
-	 		return Refund(RefundRequest, null);
+	 		return Refund(refundRequest, null);
 	 	}
 
 		/**	
           *AUTO_GENERATED
 	 	  */
-	 	public SetPaymentOptionsResponse SetPaymentOptions(SetPaymentOptionsRequest SetPaymentOptionsRequest, string apiUsername)
+	 	public SetPaymentOptionsResponse SetPaymentOptions(SetPaymentOptionsRequest setPaymentOptionsRequest, string apiUserName)
 	 	{
-			string resp = call("SetPaymentOptions", SetPaymentOptionsRequest.toNVPString(""), apiUsername);
+			string response = Call("SetPaymentOptions", setPaymentOptionsRequest.ToNVPString(""), apiUserName);
 			NVPUtil util = new NVPUtil();
-			return SetPaymentOptionsResponse.createInstance(util.parseNVPString(resp), "", -1);
+			return SetPaymentOptionsResponse.CreateInstance(util.ParseNVPString(response), "", -1);
 			
 	 	}
 	 
 	 	/** 
           *AUTO_GENERATED
 	 	  */
-	 	public SetPaymentOptionsResponse SetPaymentOptions(SetPaymentOptionsRequest SetPaymentOptionsRequest)
+	 	public SetPaymentOptionsResponse SetPaymentOptions(SetPaymentOptionsRequest setPaymentOptionsRequest)
 	 	{
-	 		return SetPaymentOptions(SetPaymentOptionsRequest, null);
+	 		return SetPaymentOptions(setPaymentOptionsRequest, null);
 	 	}
 
 		/**	
           *AUTO_GENERATED
 	 	  */
-	 	public GetFundingPlansResponse GetFundingPlans(GetFundingPlansRequest GetFundingPlansRequest, string apiUsername)
+	 	public GetFundingPlansResponse GetFundingPlans(GetFundingPlansRequest getFundingPlansRequest, string apiUserName)
 	 	{
-			string resp = call("GetFundingPlans", GetFundingPlansRequest.toNVPString(""), apiUsername);
+			string response = Call("GetFundingPlans", getFundingPlansRequest.ToNVPString(""), apiUserName);
 			NVPUtil util = new NVPUtil();
-			return GetFundingPlansResponse.createInstance(util.parseNVPString(resp), "", -1);
+			return GetFundingPlansResponse.CreateInstance(util.ParseNVPString(response), "", -1);
 			
 	 	}
 	 
 	 	/** 
           *AUTO_GENERATED
 	 	  */
-	 	public GetFundingPlansResponse GetFundingPlans(GetFundingPlansRequest GetFundingPlansRequest)
+	 	public GetFundingPlansResponse GetFundingPlans(GetFundingPlansRequest getFundingPlansRequest)
 	 	{
-	 		return GetFundingPlans(GetFundingPlansRequest, null);
+	 		return GetFundingPlans(getFundingPlansRequest, null);
 	 	}
 
 		/**	
           *AUTO_GENERATED
 	 	  */
-	 	public GetAvailableShippingAddressesResponse GetAvailableShippingAddresses(GetAvailableShippingAddressesRequest GetAvailableShippingAddressesRequest, string apiUsername)
+	 	public GetAvailableShippingAddressesResponse GetAvailableShippingAddresses(GetAvailableShippingAddressesRequest getAvailableShippingAddressesRequest, string apiUserName)
 	 	{
-			string resp = call("GetAvailableShippingAddresses", GetAvailableShippingAddressesRequest.toNVPString(""), apiUsername);
+			string response = Call("GetAvailableShippingAddresses", getAvailableShippingAddressesRequest.ToNVPString(""), apiUserName);
 			NVPUtil util = new NVPUtil();
-			return GetAvailableShippingAddressesResponse.createInstance(util.parseNVPString(resp), "", -1);
+			return GetAvailableShippingAddressesResponse.CreateInstance(util.ParseNVPString(response), "", -1);
 			
 	 	}
 	 
 	 	/** 
           *AUTO_GENERATED
 	 	  */
-	 	public GetAvailableShippingAddressesResponse GetAvailableShippingAddresses(GetAvailableShippingAddressesRequest GetAvailableShippingAddressesRequest)
+	 	public GetAvailableShippingAddressesResponse GetAvailableShippingAddresses(GetAvailableShippingAddressesRequest getAvailableShippingAddressesRequest)
 	 	{
-	 		return GetAvailableShippingAddresses(GetAvailableShippingAddressesRequest, null);
+	 		return GetAvailableShippingAddresses(getAvailableShippingAddressesRequest, null);
 	 	}
 
 		/**	
           *AUTO_GENERATED
 	 	  */
-	 	public GetShippingAddressesResponse GetShippingAddresses(GetShippingAddressesRequest GetShippingAddressesRequest, string apiUsername)
+	 	public GetShippingAddressesResponse GetShippingAddresses(GetShippingAddressesRequest getShippingAddressesRequest, string apiUserName)
 	 	{
-			string resp = call("GetShippingAddresses", GetShippingAddressesRequest.toNVPString(""), apiUsername);
+			string response = Call("GetShippingAddresses", getShippingAddressesRequest.ToNVPString(""), apiUserName);
 			NVPUtil util = new NVPUtil();
-			return GetShippingAddressesResponse.createInstance(util.parseNVPString(resp), "", -1);
+			return GetShippingAddressesResponse.CreateInstance(util.ParseNVPString(response), "", -1);
 			
 	 	}
 	 
 	 	/** 
           *AUTO_GENERATED
 	 	  */
-	 	public GetShippingAddressesResponse GetShippingAddresses(GetShippingAddressesRequest GetShippingAddressesRequest)
+	 	public GetShippingAddressesResponse GetShippingAddresses(GetShippingAddressesRequest getShippingAddressesRequest)
 	 	{
-	 		return GetShippingAddresses(GetShippingAddressesRequest, null);
+	 		return GetShippingAddresses(getShippingAddressesRequest, null);
 	 	}
 
 		/**	
           *AUTO_GENERATED
 	 	  */
-	 	public GetUserLimitsResponse GetUserLimits(GetUserLimitsRequest GetUserLimitsRequest, string apiUsername)
+	 	public GetUserLimitsResponse GetUserLimits(GetUserLimitsRequest getUserLimitsRequest, string apiUserName)
 	 	{
-			string resp = call("GetUserLimits", GetUserLimitsRequest.toNVPString(""), apiUsername);
+			string response = Call("GetUserLimits", getUserLimitsRequest.ToNVPString(""), apiUserName);
 			NVPUtil util = new NVPUtil();
-			return GetUserLimitsResponse.createInstance(util.parseNVPString(resp), "", -1);
+			return GetUserLimitsResponse.CreateInstance(util.ParseNVPString(response), "", -1);
 			
 	 	}
 	 
 	 	/** 
           *AUTO_GENERATED
 	 	  */
-	 	public GetUserLimitsResponse GetUserLimits(GetUserLimitsRequest GetUserLimitsRequest)
+	 	public GetUserLimitsResponse GetUserLimits(GetUserLimitsRequest getUserLimitsRequest)
 	 	{
-	 		return GetUserLimits(GetUserLimitsRequest, null);
+	 		return GetUserLimits(getUserLimitsRequest, null);
 	 	}
 	}
 }

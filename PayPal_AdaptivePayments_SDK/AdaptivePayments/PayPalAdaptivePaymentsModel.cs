@@ -4,19 +4,20 @@
   */
 using System;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Xml;
 using System.Collections;
-using System.ComponentModel;
 using System.Collections.Generic;
+using System.ComponentModel;
 using PayPal.Util;
 
 namespace PayPal.AdaptivePayments.Model
 {
 
-	public class EnumUtils
+	public static class EnumUtils
 	{
-		public static string getDescription(Enum value)
+		public static string GetDescription(Enum value)
 		{
 			string description = "";
 			DescriptionAttribute[] attributes = (DescriptionAttribute[])value.GetType().GetField(value.ToString()).GetCustomAttributes(typeof(DescriptionAttribute), false);
@@ -27,12 +28,12 @@ namespace PayPal.AdaptivePayments.Model
 			return description;
 		}
 		
-		public static object getValue(String value,Type enumType)
+		public static object GetValue(string value,Type enumType)
 		{
 			string[] names = Enum.GetNames(enumType);
 			foreach(string name in names)
             {
-            	if (getDescription((Enum)Enum.Parse(enumType, name)).Equals(value))
+            	if (GetDescription((Enum)Enum.Parse(enumType, name)).Equals(value))
             	{
 					return Enum.Parse(enumType, name);
 				}
@@ -45,8 +46,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *
       */
-	public partial class AccountIdentifier	
-	{
+	public partial class AccountIdentifier	{
 
 		/**
           *
@@ -89,7 +89,7 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.email != null)
@@ -99,12 +99,12 @@ namespace PayPal.AdaptivePayments.Model
 			if (this.phone != null)
 			{
 					string newPrefix = prefix + "phone" + ".";
-					sb.Append(this.phoneField.toNVPString(newPrefix));
+					sb.Append(this.phoneField.ToNVPString(newPrefix));
 			}
 			return sb.ToString();
 		}
 
-		public static AccountIdentifier createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static AccountIdentifier CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			AccountIdentifier accountIdentifier = null;
 			string key;
@@ -129,7 +129,7 @@ namespace PayPal.AdaptivePayments.Model
 				accountIdentifier = (accountIdentifier == null) ? new AccountIdentifier() : accountIdentifier;
 				accountIdentifier.email = map[key];
 			}
-			PhoneNumberType phone =  PhoneNumberType.createInstance(map, prefix + "phone", -1);
+			PhoneNumberType phone =  PhoneNumberType.CreateInstance(map, prefix + "phone", -1);
 			if (phone != null)
 			{
 				accountIdentifier = (accountIdentifier == null) ? new AccountIdentifier() : accountIdentifier;
@@ -137,7 +137,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return accountIdentifier;
 		}
-		
 	}
 
 
@@ -146,8 +145,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *
       */
-	public partial class BaseAddress	
-	{
+	public partial class BaseAddress	{
 
 		/**
           *
@@ -276,7 +274,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static BaseAddress createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static BaseAddress CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			BaseAddress baseAddress = null;
 			string key;
@@ -339,7 +337,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return baseAddress;
 		}
-		
 	}
 
 
@@ -349,8 +346,7 @@ namespace PayPal.AdaptivePayments.Model
       *Details about the end user of the application invoking this
       *service. 
       */
-	public partial class ClientDetailsType	
-	{
+	public partial class ClientDetailsType	{
 
 		/**
           *
@@ -495,7 +491,7 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.ipAddress != null)
@@ -540,8 +536,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *
       */
-	public partial class CurrencyType	
-	{
+	public partial class CurrencyType	{
 
 		/**
           *
@@ -592,7 +587,7 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.code != null)
@@ -606,7 +601,7 @@ namespace PayPal.AdaptivePayments.Model
 			return sb.ToString();
 		}
 
-		public static CurrencyType createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static CurrencyType CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			CurrencyType currencyType = null;
 			string key;
@@ -639,7 +634,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return currencyType;
 		}
-		
 	}
 
 
@@ -649,8 +643,7 @@ namespace PayPal.AdaptivePayments.Model
       *This type contains the detailed error information resulting
       *from the service operation. 
       */
-	public partial class ErrorData	
-	{
+	public partial class ErrorData	{
 
 		/**
           *
@@ -796,7 +789,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static ErrorData createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static ErrorData CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ErrorData errorData = null;
 			string key;
@@ -837,13 +830,13 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				errorData = (errorData == null) ? new ErrorData() : errorData;
-				errorData.severity = (ErrorSeverity)EnumUtils.getValue(map[key],typeof(ErrorSeverity));;
+				errorData.severity = (ErrorSeverity)EnumUtils.GetValue(map[key],typeof(ErrorSeverity));
 			}
 			key = prefix + "category";
 			if (map.ContainsKey(key))
 			{
 				errorData = (errorData == null) ? new ErrorData() : errorData;
-				errorData.category = (ErrorCategory)EnumUtils.getValue(map[key],typeof(ErrorCategory));;
+				errorData.category = (ErrorCategory)EnumUtils.GetValue(map[key],typeof(ErrorCategory));
 			}
 			key = prefix + "message";
 			if (map.ContainsKey(key))
@@ -860,7 +853,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				ErrorParameter parameter =  ErrorParameter.createInstance(map, prefix + "parameter", i);
+				ErrorParameter parameter =  ErrorParameter.CreateInstance(map, prefix + "parameter", i);
 				if (parameter != null)
 				{
 					errorData = (errorData == null) ? new ErrorData() : errorData;
@@ -874,7 +867,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return errorData;
 		}
-		
 	}
 
 
@@ -883,8 +875,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *
       */
-	public partial class ErrorParameter	
-	{
+	public partial class ErrorParameter	{
 
 		/**
           *
@@ -928,7 +919,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static ErrorParameter createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static ErrorParameter CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ErrorParameter errorParameter = null;
 			string key;
@@ -961,7 +952,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return errorParameter;
 		}
-		
 	}
 
 
@@ -971,8 +961,7 @@ namespace PayPal.AdaptivePayments.Model
       *This specifies a fault, encapsulating error data, with
       *specific error codes. 
       */
-	public partial class FaultMessage	
-	{
+	public partial class FaultMessage	{
 
 		/**
           *
@@ -1016,7 +1005,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static FaultMessage createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static FaultMessage CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			FaultMessage faultMessage = null;
 			string key;
@@ -1035,7 +1024,7 @@ namespace PayPal.AdaptivePayments.Model
 					prefix = prefix + ".";
 				}
 			}
-			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
 			if (responseEnvelope != null)
 			{
 				faultMessage = (faultMessage == null) ? new FaultMessage() : faultMessage;
@@ -1044,7 +1033,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
 				if (error != null)
 				{
 					faultMessage = (faultMessage == null) ? new FaultMessage() : faultMessage;
@@ -1058,7 +1047,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return faultMessage;
 		}
-		
 	}
 
 
@@ -1067,8 +1055,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *
       */
-	public partial class PhoneNumberType	
-	{
+	public partial class PhoneNumberType	{
 
 		/**
           *
@@ -1136,7 +1123,7 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.countryCode != null)
@@ -1154,7 +1141,7 @@ namespace PayPal.AdaptivePayments.Model
 			return sb.ToString();
 		}
 
-		public static PhoneNumberType createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static PhoneNumberType CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			PhoneNumberType phoneNumberType = null;
 			string key;
@@ -1193,7 +1180,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return phoneNumberType;
 		}
-		
 	}
 
 
@@ -1203,8 +1189,7 @@ namespace PayPal.AdaptivePayments.Model
       *This specifies the list of parameters with every request to
       *the service. 
       */
-	public partial class RequestEnvelope	
-	{
+	public partial class RequestEnvelope	{
 
 		/**
           *
@@ -1254,12 +1239,12 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.detailLevel != null)
 			{
-					sb.Append(prefix).Append("detailLevel").Append("=").Append(EnumUtils.getDescription(detailLevel));
+					sb.Append(prefix).Append("detailLevel").Append("=").Append(EnumUtils.GetDescription(detailLevel));
 					sb.Append("&");
 			}
 			if (this.errorLanguage != null)
@@ -1277,8 +1262,7 @@ namespace PayPal.AdaptivePayments.Model
       *This specifies a list of parameters with every response from
       *a service. 
       */
-	public partial class ResponseEnvelope	
-	{
+	public partial class ResponseEnvelope	{
 
 		/**
           *
@@ -1356,7 +1340,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static ResponseEnvelope createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static ResponseEnvelope CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ResponseEnvelope responseEnvelope = null;
 			string key;
@@ -1385,7 +1369,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				responseEnvelope = (responseEnvelope == null) ? new ResponseEnvelope() : responseEnvelope;
-				responseEnvelope.ack = (AckCode)EnumUtils.getValue(map[key],typeof(AckCode));;
+				responseEnvelope.ack = (AckCode)EnumUtils.GetValue(map[key],typeof(AckCode));
 			}
 			key = prefix + "correlationId";
 			if (map.ContainsKey(key))
@@ -1401,7 +1385,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return responseEnvelope;
 		}
-		
 	}
 
 
@@ -1416,6 +1399,7 @@ namespace PayPal.AdaptivePayments.Model
       * an application level acknowledgment element.
       * 
       */
+    [Serializable]
 	public enum AckCode {
 		[Description("Success")]SUCCESS,	
 		[Description("Failure")]FAILURE,	
@@ -1430,6 +1414,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *
       */
+    [Serializable]
 	public enum DayOfWeek {
 		[Description("NO_DAY_SPECIFIED")]NODAYSPECIFIED,	
 		[Description("SUNDAY")]SUNDAY,	
@@ -1448,6 +1433,7 @@ namespace PayPal.AdaptivePayments.Model
       * DetailLevelCodeType
       * 
       */
+    [Serializable]
 	public enum DetailLevelCode {
 		[Description("ReturnAll")]RETURNALL	
 	}
@@ -1458,6 +1444,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *
       */
+    [Serializable]
 	public enum ErrorCategory {
 		[Description("System")]SYSTEM,	
 		[Description("Application")]APPLICATION,	
@@ -1470,6 +1457,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *
       */
+    [Serializable]
 	public enum ErrorSeverity {
 		[Description("Error")]ERROR,	
 		[Description("Warning")]WARNING	
@@ -1481,8 +1469,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *
       */
-	public partial class Address	
-	{
+	public partial class Address	{
 
 		/**
           *
@@ -1543,7 +1530,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static Address createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static Address CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			Address address = null;
 			string key;
@@ -1568,7 +1555,7 @@ namespace PayPal.AdaptivePayments.Model
 				address = (address == null) ? new Address() : address;
 				address.addresseeName = map[key];
 			}
-			BaseAddress baseAddress =  BaseAddress.createInstance(map, prefix + "baseAddress", -1);
+			BaseAddress baseAddress =  BaseAddress.CreateInstance(map, prefix + "baseAddress", -1);
 			if (baseAddress != null)
 			{
 				address = (address == null) ? new Address() : address;
@@ -1582,7 +1569,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return address;
 		}
-		
 	}
 
 
@@ -1591,8 +1577,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *
       */
-	public partial class AddressList	
-	{
+	public partial class AddressList	{
 
 		/**
           *
@@ -1619,7 +1604,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static AddressList createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static AddressList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			AddressList addressList = null;
 			string key;
@@ -1641,7 +1626,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				Address address =  Address.createInstance(map, prefix + "address", i);
+				Address address =  Address.CreateInstance(map, prefix + "address", i);
 				if (address != null)
 				{
 					addressList = (addressList == null) ? new AddressList() : addressList;
@@ -1655,7 +1640,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return addressList;
 		}
-		
 	}
 
 
@@ -1664,8 +1648,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *A list of ISO currency codes. 
       */
-	public partial class CurrencyCodeList	
-	{
+	public partial class CurrencyCodeList	{
 
 		/**
           *
@@ -1698,7 +1681,7 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			for (int i = 0; i < this.currencyCode.Count; i++)
@@ -1719,8 +1702,7 @@ namespace PayPal.AdaptivePayments.Model
       *A list of estimated currency conversions for a base
       *currency. 
       */
-	public partial class CurrencyConversionList	
-	{
+	public partial class CurrencyConversionList	{
 
 		/**
           *
@@ -1764,7 +1746,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static CurrencyConversionList createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static CurrencyConversionList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			CurrencyConversionList currencyConversionList = null;
 			string key;
@@ -1783,13 +1765,13 @@ namespace PayPal.AdaptivePayments.Model
 					prefix = prefix + ".";
 				}
 			}
-			CurrencyType baseAmount =  CurrencyType.createInstance(map, prefix + "baseAmount", -1);
+			CurrencyType baseAmount =  CurrencyType.CreateInstance(map, prefix + "baseAmount", -1);
 			if (baseAmount != null)
 			{
 				currencyConversionList = (currencyConversionList == null) ? new CurrencyConversionList() : currencyConversionList;
 				currencyConversionList.baseAmount = baseAmount;
 			}
-			CurrencyList currencyList =  CurrencyList.createInstance(map, prefix + "currencyList", -1);
+			CurrencyList currencyList =  CurrencyList.CreateInstance(map, prefix + "currencyList", -1);
 			if (currencyList != null)
 			{
 				currencyConversionList = (currencyConversionList == null) ? new CurrencyConversionList() : currencyConversionList;
@@ -1797,7 +1779,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return currencyConversionList;
 		}
-		
 	}
 
 
@@ -1807,8 +1788,7 @@ namespace PayPal.AdaptivePayments.Model
       *A table that contains a list of estimated currency
       *conversions for a base currency in each row. 
       */
-	public partial class CurrencyConversionTable	
-	{
+	public partial class CurrencyConversionTable	{
 
 		/**
           *
@@ -1835,7 +1815,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static CurrencyConversionTable createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static CurrencyConversionTable CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			CurrencyConversionTable currencyConversionTable = null;
 			string key;
@@ -1857,7 +1837,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				CurrencyConversionList currencyConversionList =  CurrencyConversionList.createInstance(map, prefix + "currencyConversionList", i);
+				CurrencyConversionList currencyConversionList =  CurrencyConversionList.CreateInstance(map, prefix + "currencyConversionList", i);
 				if (currencyConversionList != null)
 				{
 					currencyConversionTable = (currencyConversionTable == null) ? new CurrencyConversionTable() : currencyConversionTable;
@@ -1871,7 +1851,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return currencyConversionTable;
 		}
-		
 	}
 
 
@@ -1880,8 +1859,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *A list of ISO currencies. 
       */
-	public partial class CurrencyList	
-	{
+	public partial class CurrencyList	{
 
 		/**
           *
@@ -1914,7 +1892,7 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			for (int i = 0; i < this.currency.Count; i++)
@@ -1922,13 +1900,13 @@ namespace PayPal.AdaptivePayments.Model
 				if (this.currency[i] != null)
 				{
 					string newPrefix = prefix + "currency" + "(" + i + ").";
-					sb.Append(this.currency[i].toNVPString(newPrefix));
+					sb.Append(this.currency[i].ToNVPString(newPrefix));
 				}
 			}
 			return sb.ToString();
 		}
 
-		public static CurrencyList createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static CurrencyList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			CurrencyList currencyList = null;
 			string key;
@@ -1950,7 +1928,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				CurrencyType currency =  CurrencyType.createInstance(map, prefix + "currency", i);
+				CurrencyType currency =  CurrencyType.CreateInstance(map, prefix + "currency", i);
 				if (currency != null)
 				{
 					currencyList = (currencyList == null) ? new CurrencyList() : currencyList;
@@ -1964,7 +1942,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return currencyList;
 		}
-		
 	}
 
 
@@ -1974,8 +1951,7 @@ namespace PayPal.AdaptivePayments.Model
       *Customizable options that a client application can specify
       *for display purposes. 
       */
-	public partial class DisplayOptions	
-	{
+	public partial class DisplayOptions	{
 
 		/**
           *
@@ -2052,7 +2028,7 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.emailHeaderImageUrl != null)
@@ -2074,7 +2050,7 @@ namespace PayPal.AdaptivePayments.Model
 			return sb.ToString();
 		}
 
-		public static DisplayOptions createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static DisplayOptions CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			DisplayOptions displayOptions = null;
 			string key;
@@ -2119,7 +2095,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return displayOptions;
 		}
-		
 	}
 
 
@@ -2128,8 +2103,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *
       */
-	public partial class ErrorList	
-	{
+	public partial class ErrorList	{
 
 		/**
           *
@@ -2156,7 +2130,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static ErrorList createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static ErrorList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ErrorList errorList = null;
 			string key;
@@ -2178,7 +2152,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
 				if (error != null)
 				{
 					errorList = (errorList == null) ? new ErrorList() : errorList;
@@ -2192,7 +2166,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return errorList;
 		}
-		
 	}
 
 
@@ -2201,8 +2174,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *
       */
-	public partial class FundingConstraint	
-	{
+	public partial class FundingConstraint	{
 
 		/**
           *
@@ -2228,18 +2200,18 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.allowedFundingType != null)
 			{
 					string newPrefix = prefix + "allowedFundingType" + ".";
-					sb.Append(this.allowedFundingTypeField.toNVPString(newPrefix));
+					sb.Append(this.allowedFundingTypeField.ToNVPString(newPrefix));
 			}
 			return sb.ToString();
 		}
 
-		public static FundingConstraint createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static FundingConstraint CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			FundingConstraint fundingConstraint = null;
 			string key;
@@ -2258,7 +2230,7 @@ namespace PayPal.AdaptivePayments.Model
 					prefix = prefix + ".";
 				}
 			}
-			FundingTypeList allowedFundingType =  FundingTypeList.createInstance(map, prefix + "allowedFundingType", -1);
+			FundingTypeList allowedFundingType =  FundingTypeList.CreateInstance(map, prefix + "allowedFundingType", -1);
 			if (allowedFundingType != null)
 			{
 				fundingConstraint = (fundingConstraint == null) ? new FundingConstraint() : fundingConstraint;
@@ -2266,7 +2238,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return fundingConstraint;
 		}
-		
 	}
 
 
@@ -2275,8 +2246,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *FundingTypeInfo represents one allowed funding type. 
       */
-	public partial class FundingTypeInfo	
-	{
+	public partial class FundingTypeInfo	{
 
 		/**
           *
@@ -2309,7 +2279,7 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.fundingType != null)
@@ -2319,7 +2289,7 @@ namespace PayPal.AdaptivePayments.Model
 			return sb.ToString();
 		}
 
-		public static FundingTypeInfo createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static FundingTypeInfo CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			FundingTypeInfo fundingTypeInfo = null;
 			string key;
@@ -2346,7 +2316,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return fundingTypeInfo;
 		}
-		
 	}
 
 
@@ -2355,8 +2324,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *
       */
-	public partial class FundingTypeList	
-	{
+	public partial class FundingTypeList	{
 
 		/**
           *
@@ -2389,7 +2357,7 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			for (int i = 0; i < this.fundingTypeInfo.Count; i++)
@@ -2397,13 +2365,13 @@ namespace PayPal.AdaptivePayments.Model
 				if (this.fundingTypeInfo[i] != null)
 				{
 					string newPrefix = prefix + "fundingTypeInfo" + "(" + i + ").";
-					sb.Append(this.fundingTypeInfo[i].toNVPString(newPrefix));
+					sb.Append(this.fundingTypeInfo[i].ToNVPString(newPrefix));
 				}
 			}
 			return sb.ToString();
 		}
 
-		public static FundingTypeList createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static FundingTypeList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			FundingTypeList fundingTypeList = null;
 			string key;
@@ -2425,7 +2393,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				FundingTypeInfo fundingTypeInfo =  FundingTypeInfo.createInstance(map, prefix + "fundingTypeInfo", i);
+				FundingTypeInfo fundingTypeInfo =  FundingTypeInfo.CreateInstance(map, prefix + "fundingTypeInfo", i);
 				if (fundingTypeInfo != null)
 				{
 					fundingTypeList = (fundingTypeList == null) ? new FundingTypeList() : fundingTypeList;
@@ -2439,7 +2407,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return fundingTypeList;
 		}
-		
 	}
 
 
@@ -2448,8 +2415,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *Describes the conversion between 2 currencies. 
       */
-	public partial class CurrencyConversion	
-	{
+	public partial class CurrencyConversion	{
 
 		/**
           *
@@ -2510,7 +2476,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static CurrencyConversion createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static CurrencyConversion CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			CurrencyConversion currencyConversion = null;
 			string key;
@@ -2529,13 +2495,13 @@ namespace PayPal.AdaptivePayments.Model
 					prefix = prefix + ".";
 				}
 			}
-			CurrencyType from =  CurrencyType.createInstance(map, prefix + "from", -1);
+			CurrencyType from =  CurrencyType.CreateInstance(map, prefix + "from", -1);
 			if (from != null)
 			{
 				currencyConversion = (currencyConversion == null) ? new CurrencyConversion() : currencyConversion;
 				currencyConversion.from = from;
 			}
-			CurrencyType to =  CurrencyType.createInstance(map, prefix + "to", -1);
+			CurrencyType to =  CurrencyType.CreateInstance(map, prefix + "to", -1);
 			if (to != null)
 			{
 				currencyConversion = (currencyConversion == null) ? new CurrencyConversion() : currencyConversion;
@@ -2549,7 +2515,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return currencyConversion;
 		}
-		
 	}
 
 
@@ -2558,8 +2523,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *Funding source information. 
       */
-	public partial class FundingSource	
-	{
+	public partial class FundingSource	{
 
 		/**
           *
@@ -2654,7 +2618,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static FundingSource createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static FundingSource CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			FundingSource fundingSource = null;
 			string key;
@@ -2705,7 +2669,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return fundingSource;
 		}
-		
 	}
 
 
@@ -2714,8 +2677,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *Amount to be charged to a particular funding source. 
       */
-	public partial class FundingPlanCharge	
-	{
+	public partial class FundingPlanCharge	{
 
 		/**
           *
@@ -2759,7 +2721,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static FundingPlanCharge createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static FundingPlanCharge CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			FundingPlanCharge fundingPlanCharge = null;
 			string key;
@@ -2778,13 +2740,13 @@ namespace PayPal.AdaptivePayments.Model
 					prefix = prefix + ".";
 				}
 			}
-			CurrencyType charge =  CurrencyType.createInstance(map, prefix + "charge", -1);
+			CurrencyType charge =  CurrencyType.CreateInstance(map, prefix + "charge", -1);
 			if (charge != null)
 			{
 				fundingPlanCharge = (fundingPlanCharge == null) ? new FundingPlanCharge() : fundingPlanCharge;
 				fundingPlanCharge.charge = charge;
 			}
-			FundingSource fundingSource =  FundingSource.createInstance(map, prefix + "fundingSource", -1);
+			FundingSource fundingSource =  FundingSource.CreateInstance(map, prefix + "fundingSource", -1);
 			if (fundingSource != null)
 			{
 				fundingPlanCharge = (fundingPlanCharge == null) ? new FundingPlanCharge() : fundingPlanCharge;
@@ -2792,7 +2754,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return fundingPlanCharge;
 		}
-		
 	}
 
 
@@ -2802,8 +2763,7 @@ namespace PayPal.AdaptivePayments.Model
       *FundingPlan describes the funding sources to be used for a
       *specific payment. 
       */
-	public partial class FundingPlan	
-	{
+	public partial class FundingPlan	{
 
 		/**
           *
@@ -2915,7 +2875,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static FundingPlan createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static FundingPlan CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			FundingPlan fundingPlan = null;
 			string key;
@@ -2940,25 +2900,25 @@ namespace PayPal.AdaptivePayments.Model
 				fundingPlan = (fundingPlan == null) ? new FundingPlan() : fundingPlan;
 				fundingPlan.fundingPlanId = map[key];
 			}
-			CurrencyType fundingAmount =  CurrencyType.createInstance(map, prefix + "fundingAmount", -1);
+			CurrencyType fundingAmount =  CurrencyType.CreateInstance(map, prefix + "fundingAmount", -1);
 			if (fundingAmount != null)
 			{
 				fundingPlan = (fundingPlan == null) ? new FundingPlan() : fundingPlan;
 				fundingPlan.fundingAmount = fundingAmount;
 			}
-			FundingSource backupFundingSource =  FundingSource.createInstance(map, prefix + "backupFundingSource", -1);
+			FundingSource backupFundingSource =  FundingSource.CreateInstance(map, prefix + "backupFundingSource", -1);
 			if (backupFundingSource != null)
 			{
 				fundingPlan = (fundingPlan == null) ? new FundingPlan() : fundingPlan;
 				fundingPlan.backupFundingSource = backupFundingSource;
 			}
-			CurrencyType senderFees =  CurrencyType.createInstance(map, prefix + "senderFees", -1);
+			CurrencyType senderFees =  CurrencyType.CreateInstance(map, prefix + "senderFees", -1);
 			if (senderFees != null)
 			{
 				fundingPlan = (fundingPlan == null) ? new FundingPlan() : fundingPlan;
 				fundingPlan.senderFees = senderFees;
 			}
-			CurrencyConversion currencyConversion =  CurrencyConversion.createInstance(map, prefix + "currencyConversion", -1);
+			CurrencyConversion currencyConversion =  CurrencyConversion.CreateInstance(map, prefix + "currencyConversion", -1);
 			if (currencyConversion != null)
 			{
 				fundingPlan = (fundingPlan == null) ? new FundingPlan() : fundingPlan;
@@ -2967,7 +2927,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				FundingPlanCharge charge =  FundingPlanCharge.createInstance(map, prefix + "charge", i);
+				FundingPlanCharge charge =  FundingPlanCharge.CreateInstance(map, prefix + "charge", i);
 				if (charge != null)
 				{
 					fundingPlan = (fundingPlan == null) ? new FundingPlan() : fundingPlan;
@@ -2981,7 +2941,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return fundingPlan;
 		}
-		
 	}
 
 
@@ -2993,8 +2952,7 @@ namespace PayPal.AdaptivePayments.Model
       *initiator can simply be an institution or a customer of the
       *institution. 
       */
-	public partial class InitiatingEntity	
-	{
+	public partial class InitiatingEntity	{
 
 		/**
           *
@@ -3020,18 +2978,18 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.institutionCustomer != null)
 			{
 					string newPrefix = prefix + "institutionCustomer" + ".";
-					sb.Append(this.institutionCustomerField.toNVPString(newPrefix));
+					sb.Append(this.institutionCustomerField.ToNVPString(newPrefix));
 			}
 			return sb.ToString();
 		}
 
-		public static InitiatingEntity createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static InitiatingEntity CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			InitiatingEntity initiatingEntity = null;
 			string key;
@@ -3050,7 +3008,7 @@ namespace PayPal.AdaptivePayments.Model
 					prefix = prefix + ".";
 				}
 			}
-			InstitutionCustomer institutionCustomer =  InstitutionCustomer.createInstance(map, prefix + "institutionCustomer", -1);
+			InstitutionCustomer institutionCustomer =  InstitutionCustomer.CreateInstance(map, prefix + "institutionCustomer", -1);
 			if (institutionCustomer != null)
 			{
 				initiatingEntity = (initiatingEntity == null) ? new InitiatingEntity() : initiatingEntity;
@@ -3058,7 +3016,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return initiatingEntity;
 		}
-		
 	}
 
 
@@ -3067,8 +3024,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *The customer of the initiating institution 
       */
-	public partial class InstitutionCustomer	
-	{
+	public partial class InstitutionCustomer	{
 
 		/**
           *
@@ -3208,7 +3164,7 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.institutionId != null)
@@ -3242,7 +3198,7 @@ namespace PayPal.AdaptivePayments.Model
 			return sb.ToString();
 		}
 
-		public static InstitutionCustomer createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static InstitutionCustomer CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			InstitutionCustomer institutionCustomer = null;
 			string key;
@@ -3305,7 +3261,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return institutionCustomer;
 		}
-		
 	}
 
 
@@ -3314,8 +3269,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *Describes an individual item for an invoice. 
       */
-	public partial class InvoiceItem	
-	{
+	public partial class InvoiceItem	{
 
 		/**
           *
@@ -3409,7 +3363,7 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.name != null)
@@ -3435,7 +3389,7 @@ namespace PayPal.AdaptivePayments.Model
 			return sb.ToString();
 		}
 
-		public static InvoiceItem createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static InvoiceItem CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			InvoiceItem invoiceItem = null;
 			string key;
@@ -3486,7 +3440,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return invoiceItem;
 		}
-		
 	}
 
 
@@ -3496,8 +3449,7 @@ namespace PayPal.AdaptivePayments.Model
       *Describes a payment for a particular receiver (merchant),
       *contains list of additional per item details. 
       */
-	public partial class InvoiceData	
-	{
+	public partial class InvoiceData	{
 
 		/**
           *
@@ -3557,7 +3509,7 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			for (int i = 0; i < this.item.Count; i++)
@@ -3565,7 +3517,7 @@ namespace PayPal.AdaptivePayments.Model
 				if (this.item[i] != null)
 				{
 					string newPrefix = prefix + "item" + "(" + i + ").";
-					sb.Append(this.item[i].toNVPString(newPrefix));
+					sb.Append(this.item[i].ToNVPString(newPrefix));
 				}
 			}
 			if (this.totalTax != null)
@@ -3579,7 +3531,7 @@ namespace PayPal.AdaptivePayments.Model
 			return sb.ToString();
 		}
 
-		public static InvoiceData createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static InvoiceData CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			InvoiceData invoiceData = null;
 			string key;
@@ -3601,7 +3553,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				InvoiceItem item =  InvoiceItem.createInstance(map, prefix + "item", i);
+				InvoiceItem item =  InvoiceItem.CreateInstance(map, prefix + "item", i);
 				if (item != null)
 				{
 					invoiceData = (invoiceData == null) ? new InvoiceData() : invoiceData;
@@ -3627,7 +3579,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return invoiceData;
 		}
-		
 	}
 
 
@@ -3637,8 +3588,7 @@ namespace PayPal.AdaptivePayments.Model
       *The error that resulted from an attempt to make a payment to
       *a receiver. 
       */
-	public partial class PayError	
-	{
+	public partial class PayError	{
 
 		/**
           *
@@ -3682,7 +3632,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static PayError createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static PayError CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			PayError payError = null;
 			string key;
@@ -3701,13 +3651,13 @@ namespace PayPal.AdaptivePayments.Model
 					prefix = prefix + ".";
 				}
 			}
-			Receiver receiver =  Receiver.createInstance(map, prefix + "receiver", -1);
+			Receiver receiver =  Receiver.CreateInstance(map, prefix + "receiver", -1);
 			if (receiver != null)
 			{
 				payError = (payError == null) ? new PayError() : payError;
 				payError.receiver = receiver;
 			}
-			ErrorData error =  ErrorData.createInstance(map, prefix + "error", -1);
+			ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", -1);
 			if (error != null)
 			{
 				payError = (payError == null) ? new PayError() : payError;
@@ -3715,7 +3665,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return payError;
 		}
-		
 	}
 
 
@@ -3724,8 +3673,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *
       */
-	public partial class PayErrorList	
-	{
+	public partial class PayErrorList	{
 
 		/**
           *
@@ -3752,7 +3700,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static PayErrorList createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static PayErrorList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			PayErrorList payErrorList = null;
 			string key;
@@ -3774,7 +3722,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				PayError payError =  PayError.createInstance(map, prefix + "payError", i);
+				PayError payError =  PayError.CreateInstance(map, prefix + "payError", i);
 				if (payError != null)
 				{
 					payErrorList = (payErrorList == null) ? new PayErrorList() : payErrorList;
@@ -3788,7 +3736,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return payErrorList;
 		}
-		
 	}
 
 
@@ -3800,8 +3747,7 @@ namespace PayPal.AdaptivePayments.Model
       *has not yet completed, there will not be any transaction
       *details. 
       */
-	public partial class PaymentInfo	
-	{
+	public partial class PaymentInfo	{
 
 		/**
           *
@@ -3947,7 +3893,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static PaymentInfo createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static PaymentInfo CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			PaymentInfo paymentInfo = null;
 			string key;
@@ -3978,7 +3924,7 @@ namespace PayPal.AdaptivePayments.Model
 				paymentInfo = (paymentInfo == null) ? new PaymentInfo() : paymentInfo;
 				paymentInfo.transactionStatus = map[key];
 			}
-			Receiver receiver =  Receiver.createInstance(map, prefix + "receiver", -1);
+			Receiver receiver =  Receiver.CreateInstance(map, prefix + "receiver", -1);
 			if (receiver != null)
 			{
 				paymentInfo = (paymentInfo == null) ? new PaymentInfo() : paymentInfo;
@@ -4016,7 +3962,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return paymentInfo;
 		}
-		
 	}
 
 
@@ -4025,8 +3970,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *
       */
-	public partial class PaymentInfoList	
-	{
+	public partial class PaymentInfoList	{
 
 		/**
           *
@@ -4053,7 +3997,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static PaymentInfoList createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static PaymentInfoList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			PaymentInfoList paymentInfoList = null;
 			string key;
@@ -4075,7 +4019,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				PaymentInfo paymentInfo =  PaymentInfo.createInstance(map, prefix + "paymentInfo", i);
+				PaymentInfo paymentInfo =  PaymentInfo.CreateInstance(map, prefix + "paymentInfo", i);
 				if (paymentInfo != null)
 				{
 					paymentInfoList = (paymentInfoList == null) ? new PaymentInfoList() : paymentInfoList;
@@ -4089,7 +4033,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return paymentInfoList;
 		}
-		
 	}
 
 
@@ -4101,8 +4044,7 @@ namespace PayPal.AdaptivePayments.Model
       *in a chained split payment. A primary receiver should not be
       *specified when making a single or parallel split payment. 
       */
-	public partial class Receiver	
-	{
+	public partial class Receiver	{
 
 		/**
           *
@@ -4237,7 +4179,7 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.amount != null)
@@ -4251,7 +4193,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (this.phone != null)
 			{
 					string newPrefix = prefix + "phone" + ".";
-					sb.Append(this.phoneField.toNVPString(newPrefix));
+					sb.Append(this.phoneField.ToNVPString(newPrefix));
 			}
 			if (this.primary != null)
 			{
@@ -4272,7 +4214,7 @@ namespace PayPal.AdaptivePayments.Model
 			return sb.ToString();
 		}
 
-		public static Receiver createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static Receiver CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			Receiver receiver = null;
 			string key;
@@ -4303,7 +4245,7 @@ namespace PayPal.AdaptivePayments.Model
 				receiver = (receiver == null) ? new Receiver() : receiver;
 				receiver.email = map[key];
 			}
-			PhoneNumberType phone =  PhoneNumberType.createInstance(map, prefix + "phone", -1);
+			PhoneNumberType phone =  PhoneNumberType.CreateInstance(map, prefix + "phone", -1);
 			if (phone != null)
 			{
 				receiver = (receiver == null) ? new Receiver() : receiver;
@@ -4335,7 +4277,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return receiver;
 		}
-		
 	}
 
 
@@ -4344,8 +4285,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *
       */
-	public partial class ReceiverList	
-	{
+	public partial class ReceiverList	{
 
 		/**
           *
@@ -4378,7 +4318,7 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			for (int i = 0; i < this.receiver.Count; i++)
@@ -4386,7 +4326,7 @@ namespace PayPal.AdaptivePayments.Model
 				if (this.receiver[i] != null)
 				{
 					string newPrefix = prefix + "receiver" + "(" + i + ").";
-					sb.Append(this.receiver[i].toNVPString(newPrefix));
+					sb.Append(this.receiver[i].ToNVPString(newPrefix));
 				}
 			}
 			return sb.ToString();
@@ -4400,8 +4340,7 @@ namespace PayPal.AdaptivePayments.Model
       *The sender identifier type contains information to identify
       *a PayPal account. 
       */
-	public partial class ReceiverIdentifier : AccountIdentifier	
-	{
+	public partial class ReceiverIdentifier : AccountIdentifier	{
 
 		/**
 	 	  * Default Constructor
@@ -4410,14 +4349,14 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
-			sb.Append(base.toNVPString(prefix));
+			sb.Append(base.ToNVPString(prefix));
 			return sb.ToString();
 		}
 
-		public static ReceiverIdentifier createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static ReceiverIdentifier CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ReceiverIdentifier receiverIdentifier = null;
 			string key;
@@ -4436,7 +4375,7 @@ namespace PayPal.AdaptivePayments.Model
 					prefix = prefix + ".";
 				}
 			}
-			AccountIdentifier accountIdentifier = AccountIdentifier.createInstance(map, prefix, index);
+			AccountIdentifier accountIdentifier = AccountIdentifier.CreateInstance(map, prefix, index);
 			if (accountIdentifier != null)
 			{
 				receiverIdentifier = (receiverIdentifier == null) ? new ReceiverIdentifier() : receiverIdentifier;
@@ -4445,7 +4384,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return receiverIdentifier;
 		}
-		
 	}
 
 
@@ -4455,8 +4393,7 @@ namespace PayPal.AdaptivePayments.Model
       *Options that apply to the receiver of a payment, allows
       *setting additional details for payment using invoice. 
       */
-	public partial class ReceiverOptions	
-	{
+	public partial class ReceiverOptions	{
 
 		/**
           *
@@ -4557,7 +4494,7 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.description != null)
@@ -4571,12 +4508,12 @@ namespace PayPal.AdaptivePayments.Model
 			if (this.invoiceData != null)
 			{
 					string newPrefix = prefix + "invoiceData" + ".";
-					sb.Append(this.invoiceDataField.toNVPString(newPrefix));
+					sb.Append(this.invoiceDataField.ToNVPString(newPrefix));
 			}
 			if (this.receiver != null)
 			{
 					string newPrefix = prefix + "receiver" + ".";
-					sb.Append(this.receiverField.toNVPString(newPrefix));
+					sb.Append(this.receiverField.ToNVPString(newPrefix));
 			}
 			if (this.referrerCode != null)
 			{
@@ -4585,7 +4522,7 @@ namespace PayPal.AdaptivePayments.Model
 			return sb.ToString();
 		}
 
-		public static ReceiverOptions createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static ReceiverOptions CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ReceiverOptions receiverOptions = null;
 			string key;
@@ -4616,13 +4553,13 @@ namespace PayPal.AdaptivePayments.Model
 				receiverOptions = (receiverOptions == null) ? new ReceiverOptions() : receiverOptions;
 				receiverOptions.customId = map[key];
 			}
-			InvoiceData invoiceData =  InvoiceData.createInstance(map, prefix + "invoiceData", -1);
+			InvoiceData invoiceData =  InvoiceData.CreateInstance(map, prefix + "invoiceData", -1);
 			if (invoiceData != null)
 			{
 				receiverOptions = (receiverOptions == null) ? new ReceiverOptions() : receiverOptions;
 				receiverOptions.invoiceData = invoiceData;
 			}
-			ReceiverIdentifier receiver =  ReceiverIdentifier.createInstance(map, prefix + "receiver", -1);
+			ReceiverIdentifier receiver =  ReceiverIdentifier.CreateInstance(map, prefix + "receiver", -1);
 			if (receiver != null)
 			{
 				receiverOptions = (receiverOptions == null) ? new ReceiverOptions() : receiverOptions;
@@ -4636,7 +4573,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return receiverOptions;
 		}
-		
 	}
 
 
@@ -4646,8 +4582,7 @@ namespace PayPal.AdaptivePayments.Model
       *RefundInfo represents the refund attempt made to a Receiver
       *of a PayRequest. 
       */
-	public partial class RefundInfo	
-	{
+	public partial class RefundInfo	{
 
 		/**
           *
@@ -4827,7 +4762,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static RefundInfo createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static RefundInfo CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			RefundInfo refundInfo = null;
 			string key;
@@ -4846,7 +4781,7 @@ namespace PayPal.AdaptivePayments.Model
 					prefix = prefix + ".";
 				}
 			}
-			Receiver receiver =  Receiver.createInstance(map, prefix + "receiver", -1);
+			Receiver receiver =  Receiver.CreateInstance(map, prefix + "receiver", -1);
 			if (receiver != null)
 			{
 				refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
@@ -4900,7 +4835,7 @@ namespace PayPal.AdaptivePayments.Model
 				refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
 				refundInfo.refundTransactionStatus = map[key];
 			}
-			ErrorList errorList =  ErrorList.createInstance(map, prefix + "errorList", -1);
+			ErrorList errorList =  ErrorList.CreateInstance(map, prefix + "errorList", -1);
 			if (errorList != null)
 			{
 				refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
@@ -4908,7 +4843,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return refundInfo;
 		}
-		
 	}
 
 
@@ -4917,8 +4851,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *
       */
-	public partial class RefundInfoList	
-	{
+	public partial class RefundInfoList	{
 
 		/**
           *
@@ -4945,7 +4878,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static RefundInfoList createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static RefundInfoList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			RefundInfoList refundInfoList = null;
 			string key;
@@ -4967,7 +4900,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				RefundInfo refundInfo =  RefundInfo.createInstance(map, prefix + "refundInfo", i);
+				RefundInfo refundInfo =  RefundInfo.CreateInstance(map, prefix + "refundInfo", i);
 				if (refundInfo != null)
 				{
 					refundInfoList = (refundInfoList == null) ? new RefundInfoList() : refundInfoList;
@@ -4981,7 +4914,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return refundInfoList;
 		}
-		
 	}
 
 
@@ -4990,8 +4922,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *Options that apply to the sender of a payment. 
       */
-	public partial class SenderOptions	
-	{
+	public partial class SenderOptions	{
 
 		/**
           *
@@ -5034,7 +4965,7 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.requireShippingAddressSelection != null)
@@ -5048,7 +4979,7 @@ namespace PayPal.AdaptivePayments.Model
 			return sb.ToString();
 		}
 
-		public static SenderOptions createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static SenderOptions CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			SenderOptions senderOptions = null;
 			string key;
@@ -5081,7 +5012,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return senderOptions;
 		}
-		
 	}
 
 
@@ -5091,8 +5021,7 @@ namespace PayPal.AdaptivePayments.Model
       *Details about the payer's tax info passed in by the merchant
       *or partner. 
       */
-	public partial class TaxIdDetails	
-	{
+	public partial class TaxIdDetails	{
 
 		/**
           *
@@ -5135,7 +5064,7 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.taxId != null)
@@ -5149,7 +5078,7 @@ namespace PayPal.AdaptivePayments.Model
 			return sb.ToString();
 		}
 
-		public static TaxIdDetails createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static TaxIdDetails CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			TaxIdDetails taxIdDetails = null;
 			string key;
@@ -5182,7 +5111,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return taxIdDetails;
 		}
-		
 	}
 
 
@@ -5192,8 +5120,7 @@ namespace PayPal.AdaptivePayments.Model
       *The sender identifier type contains information to identify
       *a PayPal account. 
       */
-	public partial class SenderIdentifier : AccountIdentifier	
-	{
+	public partial class SenderIdentifier : AccountIdentifier	{
 
 		/**
           *
@@ -5236,10 +5163,10 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
-			sb.Append(base.toNVPString(prefix));
+			sb.Append(base.ToNVPString(prefix));
 			if (this.useCredentials != null)
 			{
 					sb.Append(prefix).Append("useCredentials").Append("=").Append(this.useCredentials).Append("&");
@@ -5247,12 +5174,12 @@ namespace PayPal.AdaptivePayments.Model
 			if (this.taxIdDetails != null)
 			{
 					string newPrefix = prefix + "taxIdDetails" + ".";
-					sb.Append(this.taxIdDetailsField.toNVPString(newPrefix));
+					sb.Append(this.taxIdDetailsField.ToNVPString(newPrefix));
 			}
 			return sb.ToString();
 		}
 
-		public static SenderIdentifier createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static SenderIdentifier CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			SenderIdentifier senderIdentifier = null;
 			string key;
@@ -5271,7 +5198,7 @@ namespace PayPal.AdaptivePayments.Model
 					prefix = prefix + ".";
 				}
 			}
-			AccountIdentifier accountIdentifier = AccountIdentifier.createInstance(map, prefix, index);
+			AccountIdentifier accountIdentifier = AccountIdentifier.CreateInstance(map, prefix, index);
 			if (accountIdentifier != null)
 			{
 				senderIdentifier = (senderIdentifier == null) ? new SenderIdentifier() : senderIdentifier;
@@ -5284,7 +5211,7 @@ namespace PayPal.AdaptivePayments.Model
 				senderIdentifier = (senderIdentifier == null) ? new SenderIdentifier() : senderIdentifier;
 				senderIdentifier.useCredentials = System.Convert.ToBoolean(map[key]);
 			}
-			TaxIdDetails taxIdDetails =  TaxIdDetails.createInstance(map, prefix + "taxIdDetails", -1);
+			TaxIdDetails taxIdDetails =  TaxIdDetails.CreateInstance(map, prefix + "taxIdDetails", -1);
 			if (taxIdDetails != null)
 			{
 				senderIdentifier = (senderIdentifier == null) ? new SenderIdentifier() : senderIdentifier;
@@ -5292,7 +5219,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return senderIdentifier;
 		}
-		
 	}
 
 
@@ -5301,8 +5227,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *
       */
-	public partial class UserLimit	
-	{
+	public partial class UserLimit	{
 
 		/**
           *
@@ -5346,7 +5271,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static UserLimit createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static UserLimit CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			UserLimit userLimit = null;
 			string key;
@@ -5371,7 +5296,7 @@ namespace PayPal.AdaptivePayments.Model
 				userLimit = (userLimit == null) ? new UserLimit() : userLimit;
 				userLimit.limitType = map[key];
 			}
-			CurrencyType limitAmount =  CurrencyType.createInstance(map, prefix + "limitAmount", -1);
+			CurrencyType limitAmount =  CurrencyType.CreateInstance(map, prefix + "limitAmount", -1);
 			if (limitAmount != null)
 			{
 				userLimit = (userLimit == null) ? new UserLimit() : userLimit;
@@ -5379,7 +5304,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return userLimit;
 		}
-		
 	}
 
 
@@ -5389,8 +5313,7 @@ namespace PayPal.AdaptivePayments.Model
       *This type contains the detailed warning information
       *resulting from the service operation. 
       */
-	public partial class WarningData	
-	{
+	public partial class WarningData	{
 
 		/**
           *
@@ -5434,7 +5357,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static WarningData createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static WarningData CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			WarningData warningData = null;
 			string key;
@@ -5467,7 +5390,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return warningData;
 		}
-		
 	}
 
 
@@ -5476,8 +5398,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *
       */
-	public partial class WarningDataList	
-	{
+	public partial class WarningDataList	{
 
 		/**
           *
@@ -5504,7 +5425,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static WarningDataList createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static WarningDataList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			WarningDataList warningDataList = null;
 			string key;
@@ -5526,7 +5447,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				WarningData warningData =  WarningData.createInstance(map, prefix + "warningData", i);
+				WarningData warningData =  WarningData.CreateInstance(map, prefix + "warningData", i);
 				if (warningData != null)
 				{
 					warningDataList = (warningDataList == null) ? new WarningDataList() : warningDataList;
@@ -5540,7 +5461,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return warningDataList;
 		}
-		
 	}
 
 
@@ -5549,8 +5469,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *The request to cancel a Preapproval. 
       */
-	public partial class CancelPreapprovalRequest	
-	{
+	public partial class CancelPreapprovalRequest	{
 
 		/**
           *
@@ -5601,13 +5520,13 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.requestEnvelope != null)
 			{
 					string newPrefix = prefix + "requestEnvelope" + ".";
-					sb.Append(this.requestEnvelopeField.toNVPString(newPrefix));
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
 			}
 			if (this.preapprovalKey != null)
 			{
@@ -5623,8 +5542,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *The result of the CancelPreapprovalRequest. 
       */
-	public partial class CancelPreapprovalResponse	
-	{
+	public partial class CancelPreapprovalResponse	{
 
 		/**
           *
@@ -5668,7 +5586,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static CancelPreapprovalResponse createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static CancelPreapprovalResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			CancelPreapprovalResponse cancelPreapprovalResponse = null;
 			string key;
@@ -5687,7 +5605,7 @@ namespace PayPal.AdaptivePayments.Model
 					prefix = prefix + ".";
 				}
 			}
-			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
 			if (responseEnvelope != null)
 			{
 				cancelPreapprovalResponse = (cancelPreapprovalResponse == null) ? new CancelPreapprovalResponse() : cancelPreapprovalResponse;
@@ -5696,7 +5614,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
 				if (error != null)
 				{
 					cancelPreapprovalResponse = (cancelPreapprovalResponse == null) ? new CancelPreapprovalResponse() : cancelPreapprovalResponse;
@@ -5710,7 +5628,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return cancelPreapprovalResponse;
 		}
-		
 	}
 
 
@@ -5719,8 +5636,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *The request to confirm a Preapproval. 
       */
-	public partial class ConfirmPreapprovalRequest	
-	{
+	public partial class ConfirmPreapprovalRequest	{
 
 		/**
           *
@@ -5805,13 +5721,13 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.requestEnvelope != null)
 			{
 					string newPrefix = prefix + "requestEnvelope" + ".";
-					sb.Append(this.requestEnvelopeField.toNVPString(newPrefix));
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
 			}
 			if (this.preapprovalKey != null)
 			{
@@ -5835,8 +5751,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *The result of the ConfirmPreapprovalRequest. 
       */
-	public partial class ConfirmPreapprovalResponse	
-	{
+	public partial class ConfirmPreapprovalResponse	{
 
 		/**
           *
@@ -5880,7 +5795,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static ConfirmPreapprovalResponse createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static ConfirmPreapprovalResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ConfirmPreapprovalResponse confirmPreapprovalResponse = null;
 			string key;
@@ -5899,7 +5814,7 @@ namespace PayPal.AdaptivePayments.Model
 					prefix = prefix + ".";
 				}
 			}
-			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
 			if (responseEnvelope != null)
 			{
 				confirmPreapprovalResponse = (confirmPreapprovalResponse == null) ? new ConfirmPreapprovalResponse() : confirmPreapprovalResponse;
@@ -5908,7 +5823,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
 				if (error != null)
 				{
 					confirmPreapprovalResponse = (confirmPreapprovalResponse == null) ? new ConfirmPreapprovalResponse() : confirmPreapprovalResponse;
@@ -5922,7 +5837,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return confirmPreapprovalResponse;
 		}
-		
 	}
 
 
@@ -5932,8 +5846,7 @@ namespace PayPal.AdaptivePayments.Model
       *A request to convert one or more currencies into their
       *estimated values in other currencies. 
       */
-	public partial class ConvertCurrencyRequest	
-	{
+	public partial class ConvertCurrencyRequest	{
 
 		/**
           *
@@ -6036,23 +5949,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.requestEnvelope != null)
 			{
 					string newPrefix = prefix + "requestEnvelope" + ".";
-					sb.Append(this.requestEnvelopeField.toNVPString(newPrefix));
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
 			}
 			if (this.baseAmountList != null)
 			{
 					string newPrefix = prefix + "baseAmountList" + ".";
-					sb.Append(this.baseAmountListField.toNVPString(newPrefix));
+					sb.Append(this.baseAmountListField.ToNVPString(newPrefix));
 			}
 			if (this.convertToCurrencyList != null)
 			{
 					string newPrefix = prefix + "convertToCurrencyList" + ".";
-					sb.Append(this.convertToCurrencyListField.toNVPString(newPrefix));
+					sb.Append(this.convertToCurrencyListField.ToNVPString(newPrefix));
 			}
 			if (this.countryCode != null)
 			{
@@ -6073,8 +5986,7 @@ namespace PayPal.AdaptivePayments.Model
       *A response that contains a table of estimated converted
       *currencies based on the Convert Currency Request. 
       */
-	public partial class ConvertCurrencyResponse	
-	{
+	public partial class ConvertCurrencyResponse	{
 
 		/**
           *
@@ -6135,7 +6047,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static ConvertCurrencyResponse createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static ConvertCurrencyResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ConvertCurrencyResponse convertCurrencyResponse = null;
 			string key;
@@ -6154,13 +6066,13 @@ namespace PayPal.AdaptivePayments.Model
 					prefix = prefix + ".";
 				}
 			}
-			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
 			if (responseEnvelope != null)
 			{
 				convertCurrencyResponse = (convertCurrencyResponse == null) ? new ConvertCurrencyResponse() : convertCurrencyResponse;
 				convertCurrencyResponse.responseEnvelope = responseEnvelope;
 			}
-			CurrencyConversionTable estimatedAmountTable =  CurrencyConversionTable.createInstance(map, prefix + "estimatedAmountTable", -1);
+			CurrencyConversionTable estimatedAmountTable =  CurrencyConversionTable.CreateInstance(map, prefix + "estimatedAmountTable", -1);
 			if (estimatedAmountTable != null)
 			{
 				convertCurrencyResponse = (convertCurrencyResponse == null) ? new ConvertCurrencyResponse() : convertCurrencyResponse;
@@ -6169,7 +6081,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
 				if (error != null)
 				{
 					convertCurrencyResponse = (convertCurrencyResponse == null) ? new ConvertCurrencyResponse() : convertCurrencyResponse;
@@ -6183,7 +6095,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return convertCurrencyResponse;
 		}
-		
 	}
 
 
@@ -6192,8 +6103,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *The request to execute the payment request. 
       */
-	public partial class ExecutePaymentRequest	
-	{
+	public partial class ExecutePaymentRequest	{
 
 		/**
           *
@@ -6278,13 +6188,13 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.requestEnvelope != null)
 			{
 					string newPrefix = prefix + "requestEnvelope" + ".";
-					sb.Append(this.requestEnvelopeField.toNVPString(newPrefix));
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
 			}
 			if (this.payKey != null)
 			{
@@ -6308,8 +6218,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *The result of a payment execution. 
       */
-	public partial class ExecutePaymentResponse	
-	{
+	public partial class ExecutePaymentResponse	{
 
 		/**
           *
@@ -6387,7 +6296,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static ExecutePaymentResponse createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static ExecutePaymentResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ExecutePaymentResponse executePaymentResponse = null;
 			string key;
@@ -6406,7 +6315,7 @@ namespace PayPal.AdaptivePayments.Model
 					prefix = prefix + ".";
 				}
 			}
-			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
 			if (responseEnvelope != null)
 			{
 				executePaymentResponse = (executePaymentResponse == null) ? new ExecutePaymentResponse() : executePaymentResponse;
@@ -6418,7 +6327,7 @@ namespace PayPal.AdaptivePayments.Model
 				executePaymentResponse = (executePaymentResponse == null) ? new ExecutePaymentResponse() : executePaymentResponse;
 				executePaymentResponse.paymentExecStatus = map[key];
 			}
-			PayErrorList payErrorList =  PayErrorList.createInstance(map, prefix + "payErrorList", -1);
+			PayErrorList payErrorList =  PayErrorList.CreateInstance(map, prefix + "payErrorList", -1);
 			if (payErrorList != null)
 			{
 				executePaymentResponse = (executePaymentResponse == null) ? new ExecutePaymentResponse() : executePaymentResponse;
@@ -6427,7 +6336,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
 				if (error != null)
 				{
 					executePaymentResponse = (executePaymentResponse == null) ? new ExecutePaymentResponse() : executePaymentResponse;
@@ -6441,7 +6350,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return executePaymentResponse;
 		}
-		
 	}
 
 
@@ -6451,8 +6359,7 @@ namespace PayPal.AdaptivePayments.Model
       *The request to get the allowed funding sources available for
       *a preapproval. 
       */
-	public partial class GetAllowedFundingSourcesRequest	
-	{
+	public partial class GetAllowedFundingSourcesRequest	{
 
 		/**
           *
@@ -6503,13 +6410,13 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.requestEnvelope != null)
 			{
 					string newPrefix = prefix + "requestEnvelope" + ".";
-					sb.Append(this.requestEnvelopeField.toNVPString(newPrefix));
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
 			}
 			if (this.key != null)
 			{
@@ -6526,8 +6433,7 @@ namespace PayPal.AdaptivePayments.Model
       *The response to get the backup funding sources available for
       *a preapproval. 
       */
-	public partial class GetAllowedFundingSourcesResponse	
-	{
+	public partial class GetAllowedFundingSourcesResponse	{
 
 		/**
           *
@@ -6588,7 +6494,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static GetAllowedFundingSourcesResponse createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static GetAllowedFundingSourcesResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			GetAllowedFundingSourcesResponse getAllowedFundingSourcesResponse = null;
 			string key;
@@ -6607,7 +6513,7 @@ namespace PayPal.AdaptivePayments.Model
 					prefix = prefix + ".";
 				}
 			}
-			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
 			if (responseEnvelope != null)
 			{
 				getAllowedFundingSourcesResponse = (getAllowedFundingSourcesResponse == null) ? new GetAllowedFundingSourcesResponse() : getAllowedFundingSourcesResponse;
@@ -6616,7 +6522,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				FundingSource fundingSource =  FundingSource.createInstance(map, prefix + "fundingSource", i);
+				FundingSource fundingSource =  FundingSource.CreateInstance(map, prefix + "fundingSource", i);
 				if (fundingSource != null)
 				{
 					getAllowedFundingSourcesResponse = (getAllowedFundingSourcesResponse == null) ? new GetAllowedFundingSourcesResponse() : getAllowedFundingSourcesResponse;
@@ -6631,7 +6537,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
 				if (error != null)
 				{
 					getAllowedFundingSourcesResponse = (getAllowedFundingSourcesResponse == null) ? new GetAllowedFundingSourcesResponse() : getAllowedFundingSourcesResponse;
@@ -6645,7 +6551,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return getAllowedFundingSourcesResponse;
 		}
-		
 	}
 
 
@@ -6654,8 +6559,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *The request to get the options of a payment request. 
       */
-	public partial class GetPaymentOptionsRequest	
-	{
+	public partial class GetPaymentOptionsRequest	{
 
 		/**
           *
@@ -6706,13 +6610,13 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.requestEnvelope != null)
 			{
 					string newPrefix = prefix + "requestEnvelope" + ".";
-					sb.Append(this.requestEnvelopeField.toNVPString(newPrefix));
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
 			}
 			if (this.payKey != null)
 			{
@@ -6728,8 +6632,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *The response message for the GetPaymentOption request 
       */
-	public partial class GetPaymentOptionsResponse	
-	{
+	public partial class GetPaymentOptionsResponse	{
 
 		/**
           *
@@ -6858,7 +6761,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static GetPaymentOptionsResponse createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static GetPaymentOptionsResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			GetPaymentOptionsResponse getPaymentOptionsResponse = null;
 			string key;
@@ -6877,19 +6780,19 @@ namespace PayPal.AdaptivePayments.Model
 					prefix = prefix + ".";
 				}
 			}
-			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
 			if (responseEnvelope != null)
 			{
 				getPaymentOptionsResponse = (getPaymentOptionsResponse == null) ? new GetPaymentOptionsResponse() : getPaymentOptionsResponse;
 				getPaymentOptionsResponse.responseEnvelope = responseEnvelope;
 			}
-			InitiatingEntity initiatingEntity =  InitiatingEntity.createInstance(map, prefix + "initiatingEntity", -1);
+			InitiatingEntity initiatingEntity =  InitiatingEntity.CreateInstance(map, prefix + "initiatingEntity", -1);
 			if (initiatingEntity != null)
 			{
 				getPaymentOptionsResponse = (getPaymentOptionsResponse == null) ? new GetPaymentOptionsResponse() : getPaymentOptionsResponse;
 				getPaymentOptionsResponse.initiatingEntity = initiatingEntity;
 			}
-			DisplayOptions displayOptions =  DisplayOptions.createInstance(map, prefix + "displayOptions", -1);
+			DisplayOptions displayOptions =  DisplayOptions.CreateInstance(map, prefix + "displayOptions", -1);
 			if (displayOptions != null)
 			{
 				getPaymentOptionsResponse = (getPaymentOptionsResponse == null) ? new GetPaymentOptionsResponse() : getPaymentOptionsResponse;
@@ -6901,7 +6804,7 @@ namespace PayPal.AdaptivePayments.Model
 				getPaymentOptionsResponse = (getPaymentOptionsResponse == null) ? new GetPaymentOptionsResponse() : getPaymentOptionsResponse;
 				getPaymentOptionsResponse.shippingAddressId = map[key];
 			}
-			SenderOptions senderOptions =  SenderOptions.createInstance(map, prefix + "senderOptions", -1);
+			SenderOptions senderOptions =  SenderOptions.CreateInstance(map, prefix + "senderOptions", -1);
 			if (senderOptions != null)
 			{
 				getPaymentOptionsResponse = (getPaymentOptionsResponse == null) ? new GetPaymentOptionsResponse() : getPaymentOptionsResponse;
@@ -6910,7 +6813,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				ReceiverOptions receiverOptions =  ReceiverOptions.createInstance(map, prefix + "receiverOptions", i);
+				ReceiverOptions receiverOptions =  ReceiverOptions.CreateInstance(map, prefix + "receiverOptions", i);
 				if (receiverOptions != null)
 				{
 					getPaymentOptionsResponse = (getPaymentOptionsResponse == null) ? new GetPaymentOptionsResponse() : getPaymentOptionsResponse;
@@ -6925,7 +6828,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
 				if (error != null)
 				{
 					getPaymentOptionsResponse = (getPaymentOptionsResponse == null) ? new GetPaymentOptionsResponse() : getPaymentOptionsResponse;
@@ -6939,7 +6842,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return getPaymentOptionsResponse;
 		}
-		
 	}
 
 
@@ -6950,8 +6852,7 @@ namespace PayPal.AdaptivePayments.Model
       *PaymentDetailsRequest can be made with either a payKey,
       *trackingId, or a transactionId of the PayRequest. 
       */
-	public partial class PaymentDetailsRequest	
-	{
+	public partial class PaymentDetailsRequest	{
 
 		/**
           *
@@ -7035,13 +6936,13 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.requestEnvelope != null)
 			{
 					string newPrefix = prefix + "requestEnvelope" + ".";
-					sb.Append(this.requestEnvelopeField.toNVPString(newPrefix));
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
 			}
 			if (this.payKey != null)
 			{
@@ -7066,8 +6967,7 @@ namespace PayPal.AdaptivePayments.Model
       *The details of the PayRequest as specified in the Pay
       *operation. 
       */
-	public partial class PaymentDetailsResponse	
-	{
+	public partial class PaymentDetailsResponse	{
 
 		/**
           *
@@ -7383,7 +7283,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static PaymentDetailsResponse createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static PaymentDetailsResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			PaymentDetailsResponse paymentDetailsResponse = null;
 			string key;
@@ -7402,7 +7302,7 @@ namespace PayPal.AdaptivePayments.Model
 					prefix = prefix + ".";
 				}
 			}
-			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
 			if (responseEnvelope != null)
 			{
 				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
@@ -7432,7 +7332,7 @@ namespace PayPal.AdaptivePayments.Model
 				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
 				paymentDetailsResponse.memo = map[key];
 			}
-			PaymentInfoList paymentInfoList =  PaymentInfoList.createInstance(map, prefix + "paymentInfoList", -1);
+			PaymentInfoList paymentInfoList =  PaymentInfoList.CreateInstance(map, prefix + "paymentInfoList", -1);
 			if (paymentInfoList != null)
 			{
 				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
@@ -7492,13 +7392,13 @@ namespace PayPal.AdaptivePayments.Model
 				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
 				paymentDetailsResponse.preapprovalKey = map[key];
 			}
-			FundingConstraint fundingConstraint =  FundingConstraint.createInstance(map, prefix + "fundingConstraint", -1);
+			FundingConstraint fundingConstraint =  FundingConstraint.CreateInstance(map, prefix + "fundingConstraint", -1);
 			if (fundingConstraint != null)
 			{
 				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
 				paymentDetailsResponse.fundingConstraint = fundingConstraint;
 			}
-			SenderIdentifier sender =  SenderIdentifier.createInstance(map, prefix + "sender", -1);
+			SenderIdentifier sender =  SenderIdentifier.CreateInstance(map, prefix + "sender", -1);
 			if (sender != null)
 			{
 				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
@@ -7507,7 +7407,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
 				if (error != null)
 				{
 					paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
@@ -7521,7 +7421,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return paymentDetailsResponse;
 		}
-		
 	}
 
 
@@ -7531,8 +7430,7 @@ namespace PayPal.AdaptivePayments.Model
       *The PayRequest contains the payment instructions to make
       *from sender to receivers. 
       */
-	public partial class PayRequest	
-	{
+	public partial class PayRequest	{
 
 		/**
           *
@@ -7842,18 +7740,18 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.requestEnvelope != null)
 			{
 					string newPrefix = prefix + "requestEnvelope" + ".";
-					sb.Append(this.requestEnvelopeField.toNVPString(newPrefix));
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
 			}
 			if (this.clientDetails != null)
 			{
 					string newPrefix = prefix + "clientDetails" + ".";
-					sb.Append(this.clientDetailsField.toNVPString(newPrefix));
+					sb.Append(this.clientDetailsField.ToNVPString(newPrefix));
 			}
 			if (this.actionType != null)
 			{
@@ -7890,7 +7788,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (this.receiverList != null)
 			{
 					string newPrefix = prefix + "receiverList" + ".";
-					sb.Append(this.receiverListField.toNVPString(newPrefix));
+					sb.Append(this.receiverListField.ToNVPString(newPrefix));
 			}
 			if (this.reverseAllParallelPaymentsOnError != null)
 			{
@@ -7911,12 +7809,12 @@ namespace PayPal.AdaptivePayments.Model
 			if (this.fundingConstraint != null)
 			{
 					string newPrefix = prefix + "fundingConstraint" + ".";
-					sb.Append(this.fundingConstraintField.toNVPString(newPrefix));
+					sb.Append(this.fundingConstraintField.ToNVPString(newPrefix));
 			}
 			if (this.sender != null)
 			{
 					string newPrefix = prefix + "sender" + ".";
-					sb.Append(this.senderField.toNVPString(newPrefix));
+					sb.Append(this.senderField.ToNVPString(newPrefix));
 			}
 			return sb.ToString();
 		}
@@ -7930,8 +7828,7 @@ namespace PayPal.AdaptivePayments.Model
       *The payKey and execution status of the request should always
       *be provided. 
       */
-	public partial class PayResponse	
-	{
+	public partial class PayResponse	{
 
 		/**
           *
@@ -8043,7 +7940,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static PayResponse createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static PayResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			PayResponse payResponse = null;
 			string key;
@@ -8062,7 +7959,7 @@ namespace PayPal.AdaptivePayments.Model
 					prefix = prefix + ".";
 				}
 			}
-			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
 			if (responseEnvelope != null)
 			{
 				payResponse = (payResponse == null) ? new PayResponse() : payResponse;
@@ -8080,13 +7977,13 @@ namespace PayPal.AdaptivePayments.Model
 				payResponse = (payResponse == null) ? new PayResponse() : payResponse;
 				payResponse.paymentExecStatus = map[key];
 			}
-			PayErrorList payErrorList =  PayErrorList.createInstance(map, prefix + "payErrorList", -1);
+			PayErrorList payErrorList =  PayErrorList.CreateInstance(map, prefix + "payErrorList", -1);
 			if (payErrorList != null)
 			{
 				payResponse = (payResponse == null) ? new PayResponse() : payResponse;
 				payResponse.payErrorList = payErrorList;
 			}
-			FundingPlan defaultFundingPlan =  FundingPlan.createInstance(map, prefix + "defaultFundingPlan", -1);
+			FundingPlan defaultFundingPlan =  FundingPlan.CreateInstance(map, prefix + "defaultFundingPlan", -1);
 			if (defaultFundingPlan != null)
 			{
 				payResponse = (payResponse == null) ? new PayResponse() : payResponse;
@@ -8095,7 +7992,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
 				if (error != null)
 				{
 					payResponse = (payResponse == null) ? new PayResponse() : payResponse;
@@ -8109,7 +8006,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return payResponse;
 		}
-		
 	}
 
 
@@ -8118,8 +8014,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *The request to look up the details of a Preapproval. 
       */
-	public partial class PreapprovalDetailsRequest	
-	{
+	public partial class PreapprovalDetailsRequest	{
 
 		/**
           *
@@ -8187,13 +8082,13 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.requestEnvelope != null)
 			{
 					string newPrefix = prefix + "requestEnvelope" + ".";
-					sb.Append(this.requestEnvelopeField.toNVPString(newPrefix));
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
 			}
 			if (this.preapprovalKey != null)
 			{
@@ -8214,8 +8109,7 @@ namespace PayPal.AdaptivePayments.Model
       *The details of the Preapproval as specified in the
       *Preapproval operation. 
       */
-	public partial class PreapprovalDetailsResponse	
-	{
+	public partial class PreapprovalDetailsResponse	{
 
 		/**
           *
@@ -8684,7 +8578,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static PreapprovalDetailsResponse createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static PreapprovalDetailsResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			PreapprovalDetailsResponse preapprovalDetailsResponse = null;
 			string key;
@@ -8703,7 +8597,7 @@ namespace PayPal.AdaptivePayments.Model
 					prefix = prefix + ".";
 				}
 			}
-			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
 			if (responseEnvelope != null)
 			{
 				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
@@ -8761,7 +8655,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
-				preapprovalDetailsResponse.dayOfWeek = (DayOfWeek)EnumUtils.getValue(map[key],typeof(DayOfWeek));;
+				preapprovalDetailsResponse.dayOfWeek = (DayOfWeek)EnumUtils.GetValue(map[key],typeof(DayOfWeek));
 			}
 			key = prefix + "endingDate";
 			if (map.ContainsKey(key))
@@ -8841,7 +8735,7 @@ namespace PayPal.AdaptivePayments.Model
 				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
 				preapprovalDetailsResponse.ipnNotificationUrl = map[key];
 			}
-			AddressList addressList =  AddressList.createInstance(map, prefix + "addressList", -1);
+			AddressList addressList =  AddressList.CreateInstance(map, prefix + "addressList", -1);
 			if (addressList != null)
 			{
 				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
@@ -8862,7 +8756,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
 				if (error != null)
 				{
 					preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
@@ -8876,7 +8770,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return preapprovalDetailsResponse;
 		}
-		
 	}
 
 
@@ -8888,8 +8781,7 @@ namespace PayPal.AdaptivePayments.Model
       *the API caller (the service invoker) to make payment(s) on
       *the the sender's behalf with various limitations defined. 
       */
-	public partial class PreapprovalRequest	
-	{
+	public partial class PreapprovalRequest	{
 
 		/**
           *
@@ -9249,18 +9141,18 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.requestEnvelope != null)
 			{
 					string newPrefix = prefix + "requestEnvelope" + ".";
-					sb.Append(this.requestEnvelopeField.toNVPString(newPrefix));
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
 			}
 			if (this.clientDetails != null)
 			{
 					string newPrefix = prefix + "clientDetails" + ".";
-					sb.Append(this.clientDetailsField.toNVPString(newPrefix));
+					sb.Append(this.clientDetailsField.ToNVPString(newPrefix));
 			}
 			if (this.cancelUrl != null)
 			{
@@ -9276,7 +9168,7 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			if (this.dayOfWeek != null)
 			{
-					sb.Append(prefix).Append("dayOfWeek").Append("=").Append(EnumUtils.getDescription(dayOfWeek));
+					sb.Append(prefix).Append("dayOfWeek").Append("=").Append(EnumUtils.GetDescription(dayOfWeek));
 					sb.Append("&");
 			}
 			if (this.endingDate != null)
@@ -9345,8 +9237,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *The result of the PreapprovalRequest is a preapprovalKey. 
       */
-	public partial class PreapprovalResponse	
-	{
+	public partial class PreapprovalResponse	{
 
 		/**
           *
@@ -9407,7 +9298,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static PreapprovalResponse createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static PreapprovalResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			PreapprovalResponse preapprovalResponse = null;
 			string key;
@@ -9426,7 +9317,7 @@ namespace PayPal.AdaptivePayments.Model
 					prefix = prefix + ".";
 				}
 			}
-			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
 			if (responseEnvelope != null)
 			{
 				preapprovalResponse = (preapprovalResponse == null) ? new PreapprovalResponse() : preapprovalResponse;
@@ -9441,7 +9332,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
 				if (error != null)
 				{
 					preapprovalResponse = (preapprovalResponse == null) ? new PreapprovalResponse() : preapprovalResponse;
@@ -9455,7 +9346,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return preapprovalResponse;
 		}
-		
 	}
 
 
@@ -9467,8 +9357,7 @@ namespace PayPal.AdaptivePayments.Model
       *transaction belonging to a payKey, a tracking id, or a
       *specific receiver of a payKey. 
       */
-	public partial class RefundRequest	
-	{
+	public partial class RefundRequest	{
 
 		/**
           *
@@ -9586,13 +9475,13 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.requestEnvelope != null)
 			{
 					string newPrefix = prefix + "requestEnvelope" + ".";
-					sb.Append(this.requestEnvelopeField.toNVPString(newPrefix));
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
 			}
 			if (this.currencyCode != null)
 			{
@@ -9613,7 +9502,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (this.receiverList != null)
 			{
 					string newPrefix = prefix + "receiverList" + ".";
-					sb.Append(this.receiverListField.toNVPString(newPrefix));
+					sb.Append(this.receiverListField.ToNVPString(newPrefix));
 			}
 			return sb.ToString();
 		}
@@ -9625,8 +9514,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *The result of a Refund request. 
       */
-	public partial class RefundResponse	
-	{
+	public partial class RefundResponse	{
 
 		/**
           *
@@ -9704,7 +9592,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static RefundResponse createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static RefundResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			RefundResponse refundResponse = null;
 			string key;
@@ -9723,7 +9611,7 @@ namespace PayPal.AdaptivePayments.Model
 					prefix = prefix + ".";
 				}
 			}
-			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
 			if (responseEnvelope != null)
 			{
 				refundResponse = (refundResponse == null) ? new RefundResponse() : refundResponse;
@@ -9735,7 +9623,7 @@ namespace PayPal.AdaptivePayments.Model
 				refundResponse = (refundResponse == null) ? new RefundResponse() : refundResponse;
 				refundResponse.currencyCode = map[key];
 			}
-			RefundInfoList refundInfoList =  RefundInfoList.createInstance(map, prefix + "refundInfoList", -1);
+			RefundInfoList refundInfoList =  RefundInfoList.CreateInstance(map, prefix + "refundInfoList", -1);
 			if (refundInfoList != null)
 			{
 				refundResponse = (refundResponse == null) ? new RefundResponse() : refundResponse;
@@ -9744,7 +9632,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
 				if (error != null)
 				{
 					refundResponse = (refundResponse == null) ? new RefundResponse() : refundResponse;
@@ -9758,7 +9646,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return refundResponse;
 		}
-		
 	}
 
 
@@ -9767,8 +9654,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *The request to set the options of a payment request. 
       */
-	public partial class SetPaymentOptionsRequest	
-	{
+	public partial class SetPaymentOptionsRequest	{
 
 		/**
           *
@@ -9904,13 +9790,13 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.requestEnvelope != null)
 			{
 					string newPrefix = prefix + "requestEnvelope" + ".";
-					sb.Append(this.requestEnvelopeField.toNVPString(newPrefix));
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
 			}
 			if (this.payKey != null)
 			{
@@ -9919,12 +9805,12 @@ namespace PayPal.AdaptivePayments.Model
 			if (this.initiatingEntity != null)
 			{
 					string newPrefix = prefix + "initiatingEntity" + ".";
-					sb.Append(this.initiatingEntityField.toNVPString(newPrefix));
+					sb.Append(this.initiatingEntityField.ToNVPString(newPrefix));
 			}
 			if (this.displayOptions != null)
 			{
 					string newPrefix = prefix + "displayOptions" + ".";
-					sb.Append(this.displayOptionsField.toNVPString(newPrefix));
+					sb.Append(this.displayOptionsField.ToNVPString(newPrefix));
 			}
 			if (this.shippingAddressId != null)
 			{
@@ -9933,14 +9819,14 @@ namespace PayPal.AdaptivePayments.Model
 			if (this.senderOptions != null)
 			{
 					string newPrefix = prefix + "senderOptions" + ".";
-					sb.Append(this.senderOptionsField.toNVPString(newPrefix));
+					sb.Append(this.senderOptionsField.ToNVPString(newPrefix));
 			}
 			for (int i = 0; i < this.receiverOptions.Count; i++)
 			{
 				if (this.receiverOptions[i] != null)
 				{
 					string newPrefix = prefix + "receiverOptions" + "(" + i + ").";
-					sb.Append(this.receiverOptions[i].toNVPString(newPrefix));
+					sb.Append(this.receiverOptions[i].ToNVPString(newPrefix));
 				}
 			}
 			return sb.ToString();
@@ -9953,8 +9839,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *The response message for the SetPaymentOption request 
       */
-	public partial class SetPaymentOptionsResponse	
-	{
+	public partial class SetPaymentOptionsResponse	{
 
 		/**
           *
@@ -9998,7 +9883,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static SetPaymentOptionsResponse createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static SetPaymentOptionsResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			SetPaymentOptionsResponse setPaymentOptionsResponse = null;
 			string key;
@@ -10017,7 +9902,7 @@ namespace PayPal.AdaptivePayments.Model
 					prefix = prefix + ".";
 				}
 			}
-			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
 			if (responseEnvelope != null)
 			{
 				setPaymentOptionsResponse = (setPaymentOptionsResponse == null) ? new SetPaymentOptionsResponse() : setPaymentOptionsResponse;
@@ -10026,7 +9911,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
 				if (error != null)
 				{
 					setPaymentOptionsResponse = (setPaymentOptionsResponse == null) ? new SetPaymentOptionsResponse() : setPaymentOptionsResponse;
@@ -10040,7 +9925,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return setPaymentOptionsResponse;
 		}
-		
 	}
 
 
@@ -10050,8 +9934,7 @@ namespace PayPal.AdaptivePayments.Model
       *The request to get the funding plans available for a
       *payment. 
       */
-	public partial class GetFundingPlansRequest	
-	{
+	public partial class GetFundingPlansRequest	{
 
 		/**
           *
@@ -10102,13 +9985,13 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.requestEnvelope != null)
 			{
 					string newPrefix = prefix + "requestEnvelope" + ".";
-					sb.Append(this.requestEnvelopeField.toNVPString(newPrefix));
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
 			}
 			if (this.payKey != null)
 			{
@@ -10125,8 +10008,7 @@ namespace PayPal.AdaptivePayments.Model
       *The response to get the funding plans available for a
       *payment. 
       */
-	public partial class GetFundingPlansResponse	
-	{
+	public partial class GetFundingPlansResponse	{
 
 		/**
           *
@@ -10187,7 +10069,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static GetFundingPlansResponse createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static GetFundingPlansResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			GetFundingPlansResponse getFundingPlansResponse = null;
 			string key;
@@ -10206,7 +10088,7 @@ namespace PayPal.AdaptivePayments.Model
 					prefix = prefix + ".";
 				}
 			}
-			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
 			if (responseEnvelope != null)
 			{
 				getFundingPlansResponse = (getFundingPlansResponse == null) ? new GetFundingPlansResponse() : getFundingPlansResponse;
@@ -10215,7 +10097,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				FundingPlan fundingPlan =  FundingPlan.createInstance(map, prefix + "fundingPlan", i);
+				FundingPlan fundingPlan =  FundingPlan.CreateInstance(map, prefix + "fundingPlan", i);
 				if (fundingPlan != null)
 				{
 					getFundingPlansResponse = (getFundingPlansResponse == null) ? new GetFundingPlansResponse() : getFundingPlansResponse;
@@ -10230,7 +10112,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
 				if (error != null)
 				{
 					getFundingPlansResponse = (getFundingPlansResponse == null) ? new GetFundingPlansResponse() : getFundingPlansResponse;
@@ -10244,7 +10126,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return getFundingPlansResponse;
 		}
-		
 	}
 
 
@@ -10253,8 +10134,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *The request to get the addresses available for a payment. 
       */
-	public partial class GetAvailableShippingAddressesRequest	
-	{
+	public partial class GetAvailableShippingAddressesRequest	{
 
 		/**
           *
@@ -10305,13 +10185,13 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.requestEnvelope != null)
 			{
 					string newPrefix = prefix + "requestEnvelope" + ".";
-					sb.Append(this.requestEnvelopeField.toNVPString(newPrefix));
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
 			}
 			if (this.key != null)
 			{
@@ -10328,8 +10208,7 @@ namespace PayPal.AdaptivePayments.Model
       *The response to get the shipping addresses available for a
       *payment. 
       */
-	public partial class GetAvailableShippingAddressesResponse	
-	{
+	public partial class GetAvailableShippingAddressesResponse	{
 
 		/**
           *
@@ -10390,7 +10269,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static GetAvailableShippingAddressesResponse createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static GetAvailableShippingAddressesResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			GetAvailableShippingAddressesResponse getAvailableShippingAddressesResponse = null;
 			string key;
@@ -10409,7 +10288,7 @@ namespace PayPal.AdaptivePayments.Model
 					prefix = prefix + ".";
 				}
 			}
-			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
 			if (responseEnvelope != null)
 			{
 				getAvailableShippingAddressesResponse = (getAvailableShippingAddressesResponse == null) ? new GetAvailableShippingAddressesResponse() : getAvailableShippingAddressesResponse;
@@ -10418,7 +10297,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				Address availableAddress =  Address.createInstance(map, prefix + "availableAddress", i);
+				Address availableAddress =  Address.CreateInstance(map, prefix + "availableAddress", i);
 				if (availableAddress != null)
 				{
 					getAvailableShippingAddressesResponse = (getAvailableShippingAddressesResponse == null) ? new GetAvailableShippingAddressesResponse() : getAvailableShippingAddressesResponse;
@@ -10433,7 +10312,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
 				if (error != null)
 				{
 					getAvailableShippingAddressesResponse = (getAvailableShippingAddressesResponse == null) ? new GetAvailableShippingAddressesResponse() : getAvailableShippingAddressesResponse;
@@ -10447,7 +10326,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return getAvailableShippingAddressesResponse;
 		}
-		
 	}
 
 
@@ -10456,8 +10334,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *The request to get the addresses available for a payment. 
       */
-	public partial class GetShippingAddressesRequest	
-	{
+	public partial class GetShippingAddressesRequest	{
 
 		/**
           *
@@ -10508,13 +10385,13 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.requestEnvelope != null)
 			{
 					string newPrefix = prefix + "requestEnvelope" + ".";
-					sb.Append(this.requestEnvelopeField.toNVPString(newPrefix));
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
 			}
 			if (this.key != null)
 			{
@@ -10531,8 +10408,7 @@ namespace PayPal.AdaptivePayments.Model
       *The response to get the shipping addresses available for a
       *payment. 
       */
-	public partial class GetShippingAddressesResponse	
-	{
+	public partial class GetShippingAddressesResponse	{
 
 		/**
           *
@@ -10593,7 +10469,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static GetShippingAddressesResponse createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static GetShippingAddressesResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			GetShippingAddressesResponse getShippingAddressesResponse = null;
 			string key;
@@ -10612,13 +10488,13 @@ namespace PayPal.AdaptivePayments.Model
 					prefix = prefix + ".";
 				}
 			}
-			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
 			if (responseEnvelope != null)
 			{
 				getShippingAddressesResponse = (getShippingAddressesResponse == null) ? new GetShippingAddressesResponse() : getShippingAddressesResponse;
 				getShippingAddressesResponse.responseEnvelope = responseEnvelope;
 			}
-			Address selectedAddress =  Address.createInstance(map, prefix + "selectedAddress", -1);
+			Address selectedAddress =  Address.CreateInstance(map, prefix + "selectedAddress", -1);
 			if (selectedAddress != null)
 			{
 				getShippingAddressesResponse = (getShippingAddressesResponse == null) ? new GetShippingAddressesResponse() : getShippingAddressesResponse;
@@ -10627,7 +10503,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
 				if (error != null)
 				{
 					getShippingAddressesResponse = (getShippingAddressesResponse == null) ? new GetShippingAddressesResponse() : getShippingAddressesResponse;
@@ -10641,7 +10517,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return getShippingAddressesResponse;
 		}
-		
 	}
 
 
@@ -10650,8 +10525,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *The request to get the remaining limits for a user 
       */
-	public partial class GetUserLimitsRequest	
-	{
+	public partial class GetUserLimitsRequest	{
 
 		/**
           *
@@ -10756,18 +10630,18 @@ namespace PayPal.AdaptivePayments.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.requestEnvelope != null)
 			{
 					string newPrefix = prefix + "requestEnvelope" + ".";
-					sb.Append(this.requestEnvelopeField.toNVPString(newPrefix));
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
 			}
 			if (this.user != null)
 			{
 					string newPrefix = prefix + "user" + ".";
-					sb.Append(this.userField.toNVPString(newPrefix));
+					sb.Append(this.userField.ToNVPString(newPrefix));
 			}
 			if (this.country != null)
 			{
@@ -10794,8 +10668,7 @@ namespace PayPal.AdaptivePayments.Model
 	/**
       *A response that contains a list of remaining limits 
       */
-	public partial class GetUserLimitsResponse	
-	{
+	public partial class GetUserLimitsResponse	{
 
 		/**
           *
@@ -10873,7 +10746,7 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-		public static GetUserLimitsResponse createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static GetUserLimitsResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			GetUserLimitsResponse getUserLimitsResponse = null;
 			string key;
@@ -10892,7 +10765,7 @@ namespace PayPal.AdaptivePayments.Model
 					prefix = prefix + ".";
 				}
 			}
-			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
 			if (responseEnvelope != null)
 			{
 				getUserLimitsResponse = (getUserLimitsResponse == null) ? new GetUserLimitsResponse() : getUserLimitsResponse;
@@ -10901,7 +10774,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				UserLimit userLimit =  UserLimit.createInstance(map, prefix + "userLimit", i);
+				UserLimit userLimit =  UserLimit.CreateInstance(map, prefix + "userLimit", i);
 				if (userLimit != null)
 				{
 					getUserLimitsResponse = (getUserLimitsResponse == null) ? new GetUserLimitsResponse() : getUserLimitsResponse;
@@ -10913,7 +10786,7 @@ namespace PayPal.AdaptivePayments.Model
 					break;
 				}
 			}
-			WarningDataList warningDataList =  WarningDataList.createInstance(map, prefix + "warningDataList", -1);
+			WarningDataList warningDataList =  WarningDataList.CreateInstance(map, prefix + "warningDataList", -1);
 			if (warningDataList != null)
 			{
 				getUserLimitsResponse = (getUserLimitsResponse == null) ? new GetUserLimitsResponse() : getUserLimitsResponse;
@@ -10922,7 +10795,7 @@ namespace PayPal.AdaptivePayments.Model
 			i = 0;
 			while(true)
 			{
-				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
 				if (error != null)
 				{
 					getUserLimitsResponse = (getUserLimitsResponse == null) ? new GetUserLimitsResponse() : getUserLimitsResponse;
@@ -10936,7 +10809,6 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return getUserLimitsResponse;
 		}
-		
 	}
 
 
