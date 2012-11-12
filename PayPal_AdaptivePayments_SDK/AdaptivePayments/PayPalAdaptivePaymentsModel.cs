@@ -4445,7 +4445,7 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			if (this.primary != null)
 			{
-					sb.Append(prefix).Append("primary").Append("=").Append(this.primary).Append("&");
+					sb.Append(prefix).Append("primary").Append("=").Append(this.primary.ToString().ToLower()).Append("&");
 			}
 			if (this.invoiceId != null)
 			{
@@ -5262,7 +5262,7 @@ namespace PayPal.AdaptivePayments.Model
 			StringBuilder sb = new StringBuilder();
 			if (this.requireShippingAddressSelection != null)
 			{
-					sb.Append(prefix).Append("requireShippingAddressSelection").Append("=").Append(this.requireShippingAddressSelection).Append("&");
+					sb.Append(prefix).Append("requireShippingAddressSelection").Append("=").Append(this.requireShippingAddressSelection.ToString().ToLower()).Append("&");
 			}
 			if (this.referrerCode != null)
 			{
@@ -5475,7 +5475,7 @@ namespace PayPal.AdaptivePayments.Model
 			sb.Append(base.ToNVPString(prefix));
 			if (this.useCredentials != null)
 			{
-					sb.Append(prefix).Append("useCredentials").Append("=").Append(this.useCredentials).Append("&");
+					sb.Append(prefix).Append("useCredentials").Append("=").Append(this.useCredentials.ToString().ToLower()).Append("&");
 			}
 			if (this.taxIdDetails != null)
 			{
@@ -8232,7 +8232,7 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			if (this.reverseAllParallelPaymentsOnError != null)
 			{
-					sb.Append(prefix).Append("reverseAllParallelPaymentsOnError").Append("=").Append(this.reverseAllParallelPaymentsOnError).Append("&");
+					sb.Append(prefix).Append("reverseAllParallelPaymentsOnError").Append("=").Append(this.reverseAllParallelPaymentsOnError.ToString().ToLower()).Append("&");
 			}
 			if (this.senderEmail != null)
 			{
@@ -8364,6 +8364,23 @@ namespace PayPal.AdaptivePayments.Model
 		/**
           *
 		  */
+		private WarningDataList warningDataListField;
+		public WarningDataList warningDataList
+		{
+			get
+			{
+				return this.warningDataListField;
+			}
+			set
+			{
+				this.warningDataListField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -8435,6 +8452,12 @@ namespace PayPal.AdaptivePayments.Model
 			{
 				payResponse = (payResponse == null) ? new PayResponse() : payResponse;
 				payResponse.defaultFundingPlan = defaultFundingPlan;
+			}
+			WarningDataList warningDataList =  WarningDataList.CreateInstance(map, prefix + "warningDataList", -1);
+			if (warningDataList != null)
+			{
+				payResponse = (payResponse == null) ? new PayResponse() : payResponse;
+				payResponse.warningDataList = warningDataList;
 			}
 			i = 0;
 			while(true)
@@ -8551,7 +8574,7 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			if (this.getBillingAddress != null)
 			{
-					sb.Append(prefix).Append("getBillingAddress").Append("=").Append(this.getBillingAddress).Append("&");
+					sb.Append(prefix).Append("getBillingAddress").Append("=").Append(this.getBillingAddress.ToString().ToLower()).Append("&");
 			}
 			return sb.ToString();
 		}
@@ -9592,6 +9615,23 @@ namespace PayPal.AdaptivePayments.Model
 		
 
 		/**
+          *
+		  */
+		private bool? requireInstantFundingSourceField;
+		public bool? requireInstantFundingSource
+		{
+			get
+			{
+				return this.requireInstantFundingSourceField;
+			}
+			set
+			{
+				this.requireInstantFundingSourceField = value;
+			}
+		}
+		
+
+		/**
 	 	  * Constructor with arguments
 	 	  */
 	 	public PreapprovalRequest(RequestEnvelope requestEnvelope, string cancelUrl, string currencyCode, string returnUrl, string startingDate)
@@ -9695,7 +9735,11 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			if (this.displayMaxTotalAmount != null)
 			{
-					sb.Append(prefix).Append("displayMaxTotalAmount").Append("=").Append(this.displayMaxTotalAmount).Append("&");
+					sb.Append(prefix).Append("displayMaxTotalAmount").Append("=").Append(this.displayMaxTotalAmount.ToString().ToLower()).Append("&");
+			}
+			if (this.requireInstantFundingSource != null)
+			{
+					sb.Append(prefix).Append("requireInstantFundingSource").Append("=").Append(this.requireInstantFundingSource.ToString().ToLower()).Append("&");
 			}
 			return sb.ToString();
 		}

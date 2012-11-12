@@ -12,7 +12,7 @@ namespace PayPal.AdaptivePayments
 	{
 
 		// Service Version
-		private const string ServiceVersion = "1.8.1";
+		private const string ServiceVersion = "1.8.2";
 
 		// Service Name
 		private const string ServiceName = "AdaptivePayments";
