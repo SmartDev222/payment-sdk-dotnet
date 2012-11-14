@@ -51,6 +51,7 @@
     <Compile Include="adaptivepaymentshandler.ashx.cs">
       <DependentUpon>adaptivepaymentshandler.ashx</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\Message.cs" />
     <Compile Include="CancelPreapproval.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>CancelPreapproval.aspx</DependentUpon>
@@ -176,6 +177,13 @@
       <DependentUpon>SetPaymentOptions.aspx</DependentUpon>
     </Compile>
     <Compile Include="SanityTest\DeserializationTestFilter.cs" />
+    <Compile Include="ShowError.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ShowError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShowError.aspx.designer.cs">
+      <DependentUpon>ShowError.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="adaptivepaymentshandler.ashx" />
@@ -203,6 +211,7 @@
     <None Include="README.md" />
     <Content Include="lib\PayPal_Core_SDK.dll" />
     <Content Include="SanityTest\Web.development.config" />
+    <Content Include="ShowError.aspx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\PayPal_AdaptivePayments_SDK\PayPal_AdaptivePayments_SDK.csproj">
