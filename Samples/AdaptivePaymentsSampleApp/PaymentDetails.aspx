@@ -6,13 +6,17 @@
 <head>
     <title>PayPal Adaptive Payments - Payment Details</title>
     <link rel="stylesheet" type="text/css" href="Content/sdk.css" />
+
     <script type="text/javascript" src="Content/jquery-1.3.2.min.js"></script>
+
     <script type="text/javascript" src="Content/sdk_functions.js"></script>
+
 </head>
 <body>
     <div id="wrapper">
         <div id="header">
-            <h3>Payment Details</h3>
+            <h3>
+                Payment Details</h3>
             <div id="apidetails">
                 Use the PaymentDetails API operation to obtain information about a payment. You
                 can identify the payment by your tracking ID, the PayPal transaction ID in an IPN
@@ -21,19 +25,22 @@
         <div id="request_form">
             <form method="post" action="adaptivepaymentshandler.ashx" runat="server">
                 <div class="params">
-                    <div class="param_name">Pay key</div>
+                    <div class="param_name">
+                        Pay key</div>
                     <div class="param_value">
                         <input name="payKey" id="payKey" value="AP-5S482348KH512131U" />
                     </div>
                 </div>
                 <div class="params">
-                    <div class="param_name">Transaction Id</div>
+                    <div class="param_name">
+                        Transaction Id</div>
                     <div class="param_value">
                         <input name="transactionId" id="transactionId" value="" />
                     </div>
                 </div>
                 <div class="params">
-                    <div class="param_name">Tracking Id</div>
+                    <div class="param_name">
+                        Tracking Id</div>
                     <div class="param_value">
                         <input name="trackingId" id="trackingId" value="" />
                     </div>

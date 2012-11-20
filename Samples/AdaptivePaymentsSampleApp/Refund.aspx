@@ -5,13 +5,17 @@
 <head>
     <title>PayPal Adaptive Payments - Refund</title>
     <link rel="stylesheet" type="text/css" href="Content/sdk.css" />
+
     <script type="text/javascript" src="Content/jquery-1.3.2.min.js"></script>
+
     <script type="text/javascript" src="Content/sdk_functions.js"></script>
+
 </head>
 <body>
     <div id="wrapper">
         <div id="header">
-            <h3>Refund</h3>
+            <h3>
+                Refund</h3>
             <div id="apidetails">
                 A request to make a refund based on various criteria. A refund can be made against
                 the entire payKey, an individual transaction belonging to a payKey, a tracking id,
@@ -20,40 +24,53 @@
         <div id="request_form">
             <form action="adaptivepaymentshandler.ashx" method="post" runat="server">
                 <div class="params">
-                    <div class="param_name">Currency code</div>
+                    <div class="param_name">
+                        Currency code</div>
                     <div class="param_value">
                         <input name="currencyCode" id="currencyCode" value="USD" />
                     </div>
                 </div>
                 <div class="params">
-                    <div class="param_name">Pay key</div>
+                    <div class="param_name">
+                        Pay key</div>
                     <div class="param_value">
                         <input name="payKey" id="payKey" value="" />
                     </div>
                 </div>
                 <div class="params">
-                    <div class="param_name">Transaction Id</div>
+                    <div class="param_name">
+                        Transaction Id</div>
                     <div class="param_value">
                         <input name="transactionId" id="transactionId" value="" />
                     </div>
                 </div>
                 <div class="params">
-                    <div class="param_name">Tracking id</div>
+                    <div class="param_name">
+                        Tracking id</div>
                     <div class="param_value">
                         <input name="trackingId" id="trackingId" value="" />
                     </div>
                 </div>
-                <div class="section_header">Receiver info</div>
+                <div class="section_header">
+                    Receiver info</div>
                 <table class="params" id="receiverTable">
                     <tr>
-                        <th></th>
-                        <th>Email *</th>
-                        <th>Amount *</th>
-                        <th>Phone number</th>
-                        <th>Primary receiver</th>
-                        <th>Invoice Id</th>
-                        <th>Payment type</th>
-                        <th>Payment subtype</th>
+                        <th>
+                        </th>
+                        <th>
+                            Email *</th>
+                        <th>
+                            Amount *</th>
+                        <th>
+                            Phone number</th>
+                        <th>
+                            Primary receiver</th>
+                        <th>
+                            Invoice Id</th>
+                        <th>
+                            Payment type</th>
+                        <th>
+                            Payment subtype</th>
                     </tr>
                     <tr id="receiverTable_0">
                         <td align="left">
@@ -99,7 +116,8 @@
                             <a onclick="cloneRow('receiverTable', 8)" id="addrow"><span>Add Receiver </span></a>
                         </td>
                         <td>
-                            <a onclick="deleteRow('receiverTable')" id="deleterow"><span>Delete Receiver</span> </a>
+                            <a onclick="deleteRow('receiverTable')" id="deleterow"><span>Delete Receiver</span>
+                            </a>
                         </td>
                     </tr>
                 </table>
