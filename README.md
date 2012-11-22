@@ -1,4 +1,4 @@
-This repository contains .NET SDK and samples for Adaptive Accounts API.
+This repository contains .NET SDK and samples for Adaptive Payments API.
 
 Prerequisites:
 --------------
@@ -41,13 +41,15 @@ Please refer to the sample web.config file in 'AdaptivePaymentsSampleApp' sample
 *	PayPal (Multiple) Accounts API credentials
 	•	apiUsername
 	•	apiPassword
-	•	apiSignature
 	•	applicationId
+	•	apiSignature
+	•	apiCertificate
+	•	privateKeyPassword
 
 Tools:
 ------
-*	log4net.dll - included in 'lib' folder in 'PayPal_AdaptivePayments_SDK' project
+*	log4net.dll - included in 'lib' folder in 'PayPal_AdaptiveAccounts_SDK' project
 	log4net is a tool to help output log statements to a variety of output targets.
 	
-*	jQuery JavaScript Library - included in 'Content' folder in 'AdaptivePaymentsSampleApp' sample application
+*	jQuery JavaScript Library - included in 'Content' folder in 'AdaptiveAccountsSampleApp' sample application
 	This is a fast and concise JavaScript Library that simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development.
