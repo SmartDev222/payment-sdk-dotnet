@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual Studio 2005
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayPal_AdaptivePayments_SDK", "PayPal_AdaptivePayments_SDK\PayPal_AdaptivePayments_SDK.csproj", "{1F5FF00B-CE0F-40B8-9BC4-7B5ED2087266}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdaptivePaymentsSampleApp", "Samples\AdaptivePaymentsSampleApp\AdaptivePaymentsSampleApp.csproj", "{AA2162C6-EC00-4903-8920-8B9652AAF685}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,10 +13,6 @@ Global
 		{1F5FF00B-CE0F-40B8-9BC4-7B5ED2087266}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F5FF00B-CE0F-40B8-9BC4-7B5ED2087266}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F5FF00B-CE0F-40B8-9BC4-7B5ED2087266}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AA2162C6-EC00-4903-8920-8B9652AAF685}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA2162C6-EC00-4903-8920-8B9652AAF685}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AA2162C6-EC00-4903-8920-8B9652AAF685}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AA2162C6-EC00-4903-8920-8B9652AAF685}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
