@@ -1,4 +1,4 @@
-This ASP.NET Web Application (C#) contains Adaptive Payments API based samples. 
+This ASP.NET Web Application (C#) contains PayPal Adaptive Payments API based samples. 
 
 Prerequisites:
 --------------
