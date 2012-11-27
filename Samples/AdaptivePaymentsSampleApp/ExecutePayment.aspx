@@ -34,7 +34,7 @@
                 </div>
                 <div class="params">
                     <div class="param_name">
-                        Funding plan Id</div>
+                        Funding plan Id *</div>
                     <div class="param_value">
                         <input name="fundingPlanId" id="fundingPlanId" value="" />
                     </div>

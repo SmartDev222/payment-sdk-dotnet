@@ -1124,7 +1124,7 @@ namespace AdaptivePaymentsSampleApp
                     idx++;
                 }
             }
-            displayResponse(context, "GetAvailableShippingAddresses", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
+            displayResponse(context, "GetUserLimits", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
                 resp.error, redirectUrl);
         }
 
