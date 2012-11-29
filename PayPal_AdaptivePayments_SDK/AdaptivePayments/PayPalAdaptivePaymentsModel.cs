@@ -48,9 +48,6 @@ namespace PayPal.AdaptivePayments.Model
       *
       */
 	public partial class AccountIdentifier	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.common";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -154,9 +151,6 @@ namespace PayPal.AdaptivePayments.Model
       *
       */
 	public partial class BaseAddress	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.common";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -362,9 +356,6 @@ namespace PayPal.AdaptivePayments.Model
       *service. 
       */
 	public partial class ClientDetailsType	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.common";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -559,9 +550,6 @@ namespace PayPal.AdaptivePayments.Model
       *
       */
 	public partial class CurrencyType	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.common";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -674,9 +662,6 @@ namespace PayPal.AdaptivePayments.Model
       *from the service operation. 
       */
 	public partial class ErrorData	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.common";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -913,9 +898,6 @@ namespace PayPal.AdaptivePayments.Model
       *
       */
 	public partial class ErrorParameter	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.common";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -1006,9 +988,6 @@ namespace PayPal.AdaptivePayments.Model
       *specific error codes. 
       */
 	public partial class FaultMessage	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.common";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -1107,9 +1086,6 @@ namespace PayPal.AdaptivePayments.Model
       *
       */
 	public partial class PhoneNumberType	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.common";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -1249,9 +1225,6 @@ namespace PayPal.AdaptivePayments.Model
       *the service. 
       */
 	public partial class RequestEnvelope	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.common";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -1330,9 +1303,6 @@ namespace PayPal.AdaptivePayments.Model
       *a service. 
       */
 	public partial class ResponseEnvelope	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.common";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -1544,9 +1514,6 @@ namespace PayPal.AdaptivePayments.Model
       *
       */
 	public partial class Address	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -1659,9 +1626,6 @@ namespace PayPal.AdaptivePayments.Model
       *
       */
 	public partial class AddressList	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -1737,9 +1701,6 @@ namespace PayPal.AdaptivePayments.Model
       *A list of ISO currency codes. 
       */
 	public partial class CurrencyCodeList	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -1799,9 +1760,6 @@ namespace PayPal.AdaptivePayments.Model
       *currency. 
       */
 	public partial class CurrencyConversionList	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -1892,9 +1850,6 @@ namespace PayPal.AdaptivePayments.Model
       *conversions for a base currency in each row. 
       */
 	public partial class CurrencyConversionTable	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -1970,9 +1925,6 @@ namespace PayPal.AdaptivePayments.Model
       *A list of ISO currencies. 
       */
 	public partial class CurrencyList	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -2070,9 +2022,6 @@ namespace PayPal.AdaptivePayments.Model
       *for display purposes. 
       */
 	public partial class DisplayOptions	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -2229,9 +2178,6 @@ namespace PayPal.AdaptivePayments.Model
       *
       */
 	public partial class ErrorList	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -2307,9 +2253,6 @@ namespace PayPal.AdaptivePayments.Model
       *
       */
 	public partial class FundingConstraint	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -2386,9 +2329,6 @@ namespace PayPal.AdaptivePayments.Model
       *FundingTypeInfo represents one allowed funding type. 
       */
 	public partial class FundingTypeInfo	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -2472,9 +2412,6 @@ namespace PayPal.AdaptivePayments.Model
       *
       */
 	public partial class FundingTypeList	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -2571,9 +2508,6 @@ namespace PayPal.AdaptivePayments.Model
       *Describes the conversion between 2 currencies. 
       */
 	public partial class CurrencyConversion	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -2686,9 +2620,6 @@ namespace PayPal.AdaptivePayments.Model
       *Funding source information. 
       */
 	public partial class FundingSource	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -2847,9 +2778,6 @@ namespace PayPal.AdaptivePayments.Model
       *Amount to be charged to a particular funding source. 
       */
 	public partial class FundingPlanCharge	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -2940,9 +2868,6 @@ namespace PayPal.AdaptivePayments.Model
       *specific payment. 
       */
 	public partial class FundingPlan	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -3136,9 +3061,6 @@ namespace PayPal.AdaptivePayments.Model
       *institution. 
       */
 	public partial class InitiatingEntity	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -3215,9 +3137,6 @@ namespace PayPal.AdaptivePayments.Model
       *The customer of the initiating institution 
       */
 	public partial class InstitutionCustomer	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -3468,9 +3387,6 @@ namespace PayPal.AdaptivePayments.Model
       *Describes an individual item for an invoice. 
       */
 	public partial class InvoiceItem	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -3655,9 +3571,6 @@ namespace PayPal.AdaptivePayments.Model
       *contains list of additional per item details. 
       */
 	public partial class InvoiceData	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -3801,9 +3714,6 @@ namespace PayPal.AdaptivePayments.Model
       *a receiver. 
       */
 	public partial class PayError	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -3893,9 +3803,6 @@ namespace PayPal.AdaptivePayments.Model
       *
       */
 	public partial class PayErrorList	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -3974,9 +3881,6 @@ namespace PayPal.AdaptivePayments.Model
       *details. 
       */
 	public partial class PaymentInfo	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -4204,9 +4108,6 @@ namespace PayPal.AdaptivePayments.Model
       *
       */
 	public partial class PaymentInfoList	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -4285,9 +4186,6 @@ namespace PayPal.AdaptivePayments.Model
       *specified when making a single or parallel split payment. 
       */
 	public partial class Receiver	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -4534,9 +4432,6 @@ namespace PayPal.AdaptivePayments.Model
       *
       */
 	public partial class ReceiverList	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -4597,9 +4492,6 @@ namespace PayPal.AdaptivePayments.Model
       *a PayPal account. 
       */
 	public partial class ReceiverIdentifier : AccountIdentifier	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -4657,9 +4549,6 @@ namespace PayPal.AdaptivePayments.Model
       *setting additional details for payment using invoice. 
       */
 	public partial class ReceiverOptions	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -4854,9 +4743,6 @@ namespace PayPal.AdaptivePayments.Model
       *of a PayRequest. 
       */
 	public partial class RefundInfo	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -5130,9 +5016,6 @@ namespace PayPal.AdaptivePayments.Model
       *
       */
 	public partial class RefundInfoList	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -5208,9 +5091,6 @@ namespace PayPal.AdaptivePayments.Model
       *Options that apply to the sender of a payment. 
       */
 	public partial class SenderOptions	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -5314,9 +5194,6 @@ namespace PayPal.AdaptivePayments.Model
       *or partner. 
       */
 	public partial class TaxIdDetails	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -5420,9 +5297,6 @@ namespace PayPal.AdaptivePayments.Model
       *a PayPal account. 
       */
 	public partial class SenderIdentifier : AccountIdentifier	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -5534,9 +5408,6 @@ namespace PayPal.AdaptivePayments.Model
       *
       */
 	public partial class UserLimit	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -5627,9 +5498,6 @@ namespace PayPal.AdaptivePayments.Model
       *resulting from the service operation. 
       */
 	public partial class WarningData	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -5719,9 +5587,6 @@ namespace PayPal.AdaptivePayments.Model
       *
       */
 	public partial class WarningDataList	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -5797,9 +5662,6 @@ namespace PayPal.AdaptivePayments.Model
       *The request to cancel a Preapproval. 
       */
 	public partial class CancelPreapprovalRequest	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -5878,9 +5740,6 @@ namespace PayPal.AdaptivePayments.Model
       *The result of the CancelPreapprovalRequest. 
       */
 	public partial class CancelPreapprovalResponse	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -5979,9 +5838,6 @@ namespace PayPal.AdaptivePayments.Model
       *The request to confirm a Preapproval. 
       */
 	public partial class ConfirmPreapprovalRequest	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -6102,9 +5958,6 @@ namespace PayPal.AdaptivePayments.Model
       *The result of the ConfirmPreapprovalRequest. 
       */
 	public partial class ConfirmPreapprovalResponse	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -6204,9 +6057,6 @@ namespace PayPal.AdaptivePayments.Model
       *estimated values in other currencies. 
       */
 	public partial class ConvertCurrencyRequest	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -6352,9 +6202,6 @@ namespace PayPal.AdaptivePayments.Model
       *currencies based on the Convert Currency Request. 
       */
 	public partial class ConvertCurrencyResponse	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -6476,9 +6323,6 @@ namespace PayPal.AdaptivePayments.Model
       *The request to execute the payment request. 
       */
 	public partial class ExecutePaymentRequest	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -6599,9 +6443,6 @@ namespace PayPal.AdaptivePayments.Model
       *The result of a payment execution. 
       */
 	public partial class ExecutePaymentResponse	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -6747,9 +6588,6 @@ namespace PayPal.AdaptivePayments.Model
       *a preapproval. 
       */
 	public partial class GetAllowedFundingSourcesRequest	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -6829,9 +6667,6 @@ namespace PayPal.AdaptivePayments.Model
       *a preapproval. 
       */
 	public partial class GetAllowedFundingSourcesResponse	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -6962,9 +6797,6 @@ namespace PayPal.AdaptivePayments.Model
       *The request to get the options of a payment request. 
       */
 	public partial class GetPaymentOptionsRequest	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -7043,9 +6875,6 @@ namespace PayPal.AdaptivePayments.Model
       *The response message for the GetPaymentOption request 
       */
 	public partial class GetPaymentOptionsResponse	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -7270,9 +7099,6 @@ namespace PayPal.AdaptivePayments.Model
       *trackingId, or a transactionId of the PayRequest. 
       */
 	public partial class PaymentDetailsRequest	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -7393,9 +7219,6 @@ namespace PayPal.AdaptivePayments.Model
       *operation. 
       */
 	public partial class PaymentDetailsResponse	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -7863,9 +7686,6 @@ namespace PayPal.AdaptivePayments.Model
       *from sender to receivers. 
       */
 	public partial class PayRequest	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -8269,9 +8089,6 @@ namespace PayPal.AdaptivePayments.Model
       *be provided. 
       */
 	public partial class PayResponse	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -8485,9 +8302,6 @@ namespace PayPal.AdaptivePayments.Model
       *The request to look up the details of a Preapproval. 
       */
 	public partial class PreapprovalDetailsRequest	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -8588,9 +8402,6 @@ namespace PayPal.AdaptivePayments.Model
       *Preapproval operation. 
       */
 	public partial class PreapprovalDetailsResponse	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -9267,9 +9078,6 @@ namespace PayPal.AdaptivePayments.Model
       *the the sender's behalf with various limitations defined. 
       */
 	public partial class PreapprovalRequest	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -9752,9 +9560,6 @@ namespace PayPal.AdaptivePayments.Model
       *The result of the PreapprovalRequest is a preapprovalKey. 
       */
 	public partial class PreapprovalResponse	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -9879,9 +9684,6 @@ namespace PayPal.AdaptivePayments.Model
       *specific receiver of a payKey. 
       */
 	public partial class RefundRequest	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -10044,9 +9846,6 @@ namespace PayPal.AdaptivePayments.Model
       *The result of a Refund request. 
       */
 	public partial class RefundResponse	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -10191,9 +9990,6 @@ namespace PayPal.AdaptivePayments.Model
       *The request to set the options of a payment request. 
       */
 	public partial class SetPaymentOptionsRequest	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -10384,9 +10180,6 @@ namespace PayPal.AdaptivePayments.Model
       *The response message for the SetPaymentOption request 
       */
 	public partial class SetPaymentOptionsResponse	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -10486,9 +10279,6 @@ namespace PayPal.AdaptivePayments.Model
       *payment. 
       */
 	public partial class GetFundingPlansRequest	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -10568,9 +10358,6 @@ namespace PayPal.AdaptivePayments.Model
       *payment. 
       */
 	public partial class GetFundingPlansResponse	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -10701,9 +10488,6 @@ namespace PayPal.AdaptivePayments.Model
       *The request to get the addresses available for a payment. 
       */
 	public partial class GetAvailableShippingAddressesRequest	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -10783,9 +10567,6 @@ namespace PayPal.AdaptivePayments.Model
       *payment. 
       */
 	public partial class GetAvailableShippingAddressesResponse	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -10916,9 +10697,6 @@ namespace PayPal.AdaptivePayments.Model
       *The request to get the addresses available for a payment. 
       */
 	public partial class GetShippingAddressesRequest	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -10998,9 +10776,6 @@ namespace PayPal.AdaptivePayments.Model
       *payment. 
       */
 	public partial class GetShippingAddressesResponse	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -11122,9 +10897,6 @@ namespace PayPal.AdaptivePayments.Model
       *The request to get the remaining limits for a user 
       */
 	public partial class GetUserLimitsRequest	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
@@ -11273,9 +11045,6 @@ namespace PayPal.AdaptivePayments.Model
       *A response that contains a list of remaining limits 
       */
 	public partial class GetUserLimitsResponse	{
-
-		// Namespace for the type
-		private const string NameSpace = "com.paypal.svcs.types.ap";
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
