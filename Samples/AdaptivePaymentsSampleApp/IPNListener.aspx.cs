@@ -46,9 +46,10 @@ namespace AdaptivePaymentsSampleApp
                                + "=========IPN Validation=========" + isIpnValidated);
                 }
             }
-            catch (IOException ex)
+            catch (System.Exception ex)
             {
                 logger.Debug("Exception in class " + this.GetType().Name + ": " + ex.Message);
+                return;
             }
         }
     }
