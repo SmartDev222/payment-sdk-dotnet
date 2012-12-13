@@ -133,6 +133,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="IPNListener.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>IPNListener.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IPNListener.aspx.designer.cs">
+      <DependentUpon>IPNListener.aspx</DependentUpon>
+    </Compile>
     <Compile Include="objectdumper.cs" />
     <Compile Include="Pay.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -210,6 +217,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
+    <Content Include="IPNListener.aspx" />
     <Content Include="lib\PayPal_AdaptivePayments_SDK.dll" />
     <Content Include="lib\PayPal_Core_SDK.dll" />
     <Content Include="SanityTest\Web.development.config" />
