@@ -216,6 +216,7 @@
     <Content Include="SetPaymentOptions.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="IPN-README.md" />
     <None Include="README.md" />
     <Content Include="IPNListener.aspx" />
     <Content Include="lib\PayPal_AdaptivePayments_SDK.dll" />
