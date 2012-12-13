@@ -14,9 +14,9 @@ IPN Configuration:
 * A utility class 'IPNMessage.cs' is provided in sdk-core-dotnet for IPN message validation
 
 
-IPN How to run?
+IPN Deployment:
 --------------
-* IPN Listener sample provided under the adaptivepayments-sdk-dotnet/Samples/AdaptivePaymentsSampleApp/IPNListener.aspx
+* IPN Listener - adaptivepayments-sdk-dotnet\Samples\AdaptivePaymentsSampleApp\IPNListener.aspx
 * Deploy IPN Listener sample in IIS and expose your server port using any third party 
   LocalTunneling software, so that the PayPal IPN call back can be received
 * Make a PayPal API call (Example: Pay request), setting the IPNNotificationUrl field of the API request class
@@ -97,4 +97,4 @@ IPN variables:
 
 IPN Reference :
 --------------
-* You can refer IPN getting started guide at [https://www.x.com/developers/paypal/documentation-tools/IPN/gs_IPN]
+* Please refer to 'Instant Payment Notification: Getting Started' at [https://www.x.com/developers/paypal/documentation-tools/IPN/gs_IPN]
