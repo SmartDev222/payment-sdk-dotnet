@@ -13,16 +13,16 @@ namespace PayPal.AdaptivePayments
 	{
 
 		// Service Version
-		private const string ServiceVersion = "1.8.1";
+		private const string ServiceVersion = "1.8.2";
 
 		// Service Name
 		private const string ServiceName = "AdaptivePayments";
 		
 		//SDK Name
-		private const string SDKName = "sdkname";
+		private const string SDKName = "adaptivepayments-dotnet-sdk";
 	
 		//SDK Version
-		private const string SDKVersion = "sdkversion";
+		private const string SDKVersion = "2.1.96";
 
 		public AdaptivePaymentsService() {}
 
