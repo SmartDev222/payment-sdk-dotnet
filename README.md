@@ -1,4 +1,4 @@
-This repository contains the PayPal Adaptive Payments SDK C#.NET Class Library Application and the AdaptivePaymentsSampleApp Sample ASP.NET C# Web Application.
+The repository contains the PayPal Adaptive Payments SDK C#.NET Class Library Application and the AdaptivePaymentsSampleApp Sample ASP.NET C# Web Application.
 
 
 SDK Integration
