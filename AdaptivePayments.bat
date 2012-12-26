@@ -1,3 +1,3 @@
-call "C:\Program Files (x86)\Microsoft Visual Studio 8\Common7\IDE\devenv.com" PayPal_AdaptivePayments_SDK\PayPal_AdaptivePayments_SDK.sln /build Release %1
+call "C:\Program Files (x86)\Microsoft Visual Studio 8\Common7\IDE\devenv.com" PayPalAdaptivePaymentsSDK\PayPalAdaptivePaymentsSDK.sln /build Release
 
-copy /Y PayPal_AdaptivePayments_SDK\bin\Release\PayPalAdaptivePaymentsSDK.dll Samples\AdaptivePaymentsSampleApp\lib\. 
+copy /Y PayPalAdaptivePaymentsSDK\bin\Release\PayPalAdaptivePaymentsSDK.dll Samples\AdaptivePaymentsSampleApp\lib\. 
