@@ -4,7 +4,7 @@ The PayPal Adaptive Payments SDK C#.NET Class Library project contains the PayPa
 Prerequisites
 -------------
 *	Visual Studio 2005 or higher
-*	NuGet.exe 2.2
+*	NuGet 2.2
 *	.NET Framework 4.0
 
 
