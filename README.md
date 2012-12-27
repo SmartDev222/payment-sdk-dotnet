@@ -5,7 +5,7 @@ SDK Integration
 ---------------
 *	Integrate the PayPal Adaptive Payments SDK with an ASP.NET Web Application
 
-*	Use NuGet to install the 'PayPal_AdaptivePayments_SDK' package 
+*	Use NuGet to install the 'PayPalAdaptivePaymentsSDK' package 
 
 *	The NuGet package installs the dependencies to the solution and automatically updates the project
 
@@ -13,7 +13,6 @@ SDK Integration
 	•	'log4net.dll'
 	•	'PayPalCoreSDK.dll'	
 	•	'PayPalAdaptivePaymentsSDK.dll'
-
 
 *	Namespaces:
 	•	PayPal
