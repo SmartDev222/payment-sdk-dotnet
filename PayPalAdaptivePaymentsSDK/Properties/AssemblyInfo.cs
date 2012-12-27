@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 [assembly: AssemblyTitle("PayPal Adaptive Payments SDK for .NET")]
 [assembly: AssemblyCompany("eBay Inc.")]
-[assembly: AssemblyProduct("PayPal_AdaptivePayments_SDK")]
+[assembly: AssemblyProduct("PayPalAdaptivePaymentsSDK")]
 [assembly: AssemblyCopyright("Copyright © eBay Inc., 2009-2012")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
