@@ -1,3 +1,9 @@
+Version 2.3.98 - February 12, 2013
+ 
+	- Updated IPN Listener in samples for IPN core class fix.
+	
+You can see source code of this release in github under https://github.com/paypal/adaptivepayments-sdk-dotnet/tree/v2.3.98.
+--------------------------------------------------------------------------------------------------
 Version 2.1.96 - December 14, 2012
  
 	- Added support for Instant Payment Notification (Refer IPN-README.md for more details)
