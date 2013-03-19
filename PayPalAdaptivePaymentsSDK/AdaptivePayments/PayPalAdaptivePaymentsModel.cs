@@ -1,7 +1,7 @@
-/**
-  * Stub objects for AdaptivePayments 
-  * AUTO_GENERATED_CODE 
-  */
+/*
+ * Stub objects for AdaptivePayments 
+ * AUTO_GENERATED_CODE 
+ */
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,8 +16,14 @@ using PayPal.Util;
 namespace PayPal.AdaptivePayments.Model
 {
 
+	/// <summary>
+	/// Utility class for Enums with descriptions
+	/// </summary>
 	public static class EnumUtils
 	{
+		/// <summary>
+		/// Get description for a give enum value
+		/// </summary>	
 		public static string GetDescription(Enum value)
 		{
 			string description = "";
@@ -29,6 +35,9 @@ namespace PayPal.AdaptivePayments.Model
 			return description;
 		}
 		
+		/// <summary>
+		/// Convert a string to an enum object
+		/// </summary>	
 		public static object GetValue(string value,Type enumType)
 		{
 			string[] names = Enum.GetNames(enumType);
@@ -44,17 +53,17 @@ namespace PayPal.AdaptivePayments.Model
 	}
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class AccountIdentifier	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string emailField;
 		public string email
 		{
@@ -69,9 +78,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private PhoneNumberType phoneField;
 		public PhoneNumberType phone
 		{
@@ -86,9 +95,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public AccountIdentifier()
 	 	{
 		}
@@ -108,7 +117,15 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new AccountIdentifier object created from the passed in NVP map
+	 	/// </returns>
 		public static AccountIdentifier CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			AccountIdentifier accountIdentifier = null;
@@ -147,17 +164,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class BaseAddress	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string line1Field;
 		public string line1
 		{
@@ -172,9 +189,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string line2Field;
 		public string line2
 		{
@@ -189,9 +206,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string cityField;
 		public string city
 		{
@@ -206,9 +223,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string stateField;
 		public string state
 		{
@@ -223,9 +240,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string postalCodeField;
 		public string postalCode
 		{
@@ -240,9 +257,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string countryCodeField;
 		public string countryCode
 		{
@@ -257,9 +274,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string typeField;
 		public string type
 		{
@@ -274,15 +291,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public BaseAddress()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new BaseAddress object created from the passed in NVP map
+	 	/// </returns>
 		public static BaseAddress CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			BaseAddress baseAddress = null;
@@ -351,18 +376,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *Details about the end user of the application invoking this
-      *service. 
-      */
+	/// <summary>
+	/// Details about the end user of the application invoking this
+	/// service. 
+    /// </summary>
 	public partial class ClientDetailsType	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string ipAddressField;
 		public string ipAddress
 		{
@@ -377,9 +402,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string deviceIdField;
 		public string deviceId
 		{
@@ -394,9 +419,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string applicationIdField;
 		public string applicationId
 		{
@@ -411,9 +436,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string modelField;
 		public string model
 		{
@@ -428,9 +453,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string geoLocationField;
 		public string geoLocation
 		{
@@ -445,9 +470,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string customerTypeField;
 		public string customerType
 		{
@@ -462,9 +487,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string partnerNameField;
 		public string partnerName
 		{
@@ -479,9 +504,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string customerIdField;
 		public string customerId
 		{
@@ -496,9 +521,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public ClientDetailsType()
 	 	{
 		}
@@ -546,17 +571,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class CurrencyType	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string codeField;
 		public string code
 		{
@@ -571,9 +596,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private decimal? amountField;
 		public decimal? amount
 		{
@@ -588,18 +613,18 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public CurrencyType(string code, decimal? amount)
 	 	{
 			this.code = code;
 			this.amount = amount;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public CurrencyType()
 	 	{
 		}
@@ -618,7 +643,15 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new CurrencyType object created from the passed in NVP map
+	 	/// </returns>
 		public static CurrencyType CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			CurrencyType currencyType = null;
@@ -657,18 +690,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *This type contains the detailed error information resulting
-      *from the service operation. 
-      */
+	/// <summary>
+	/// This type contains the detailed error information resulting
+	/// from the service operation. 
+    /// </summary>
 	public partial class ErrorData	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private int? errorIdField;
 		public int? errorId
 		{
@@ -683,9 +716,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string domainField;
 		public string domain
 		{
@@ -700,9 +733,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string subdomainField;
 		public string subdomain
 		{
@@ -717,9 +750,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ErrorSeverity? severityField;
 		public ErrorSeverity? severity
 		{
@@ -734,9 +767,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ErrorCategory? categoryField;
 		public ErrorCategory? category
 		{
@@ -751,9 +784,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string messageField;
 		public string message
 		{
@@ -768,9 +801,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string exceptionIdField;
 		public string exceptionId
 		{
@@ -785,9 +818,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorParameter> parameterField = new List<ErrorParameter>();
 		public List<ErrorParameter> parameter
 		{
@@ -802,15 +835,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public ErrorData()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new ErrorData object created from the passed in NVP map
+	 	/// </returns>
 		public static ErrorData CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ErrorData errorData = null;
@@ -894,17 +935,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class ErrorParameter	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string nameField;
 		public string name
 		{
@@ -919,9 +960,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string valueField;
 		public string value
 		{
@@ -936,15 +977,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public ErrorParameter()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new ErrorParameter object created from the passed in NVP map
+	 	/// </returns>
 		public static ErrorParameter CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ErrorParameter errorParameter = null;
@@ -983,18 +1032,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *This specifies a fault, encapsulating error data, with
-      *specific error codes. 
-      */
+	/// <summary>
+	/// This specifies a fault, encapsulating error data, with
+	/// specific error codes. 
+    /// </summary>
 	public partial class FaultMessage	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -1009,9 +1058,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -1026,15 +1075,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public FaultMessage()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new FaultMessage object created from the passed in NVP map
+	 	/// </returns>
 		public static FaultMessage CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			FaultMessage faultMessage = null;
@@ -1082,17 +1139,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class PhoneNumberType	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string countryCodeField;
 		public string countryCode
 		{
@@ -1107,9 +1164,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string phoneNumberField;
 		public string phoneNumber
 		{
@@ -1124,9 +1181,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string extensionField;
 		public string extension
 		{
@@ -1141,18 +1198,18 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public PhoneNumberType(string countryCode, string phoneNumber)
 	 	{
 			this.countryCode = countryCode;
 			this.phoneNumber = phoneNumber;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public PhoneNumberType()
 	 	{
 		}
@@ -1175,7 +1232,15 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new PhoneNumberType object created from the passed in NVP map
+	 	/// </returns>
 		public static PhoneNumberType CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			PhoneNumberType phoneNumberType = null;
@@ -1220,18 +1285,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *This specifies the list of parameters with every request to
-      *the service. 
-      */
+	/// <summary>
+	/// This specifies the list of parameters with every request to
+	/// the service. 
+    /// </summary>
 	public partial class RequestEnvelope	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private DetailLevelCode? detailLevelField;
 		public DetailLevelCode? detailLevel
 		{
@@ -1246,9 +1311,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string errorLanguageField;
 		public string errorLanguage
 		{
@@ -1263,17 +1328,17 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public RequestEnvelope(string errorLanguage)
 	 	{
 			this.errorLanguage = errorLanguage;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public RequestEnvelope()
 	 	{
 		}
@@ -1298,18 +1363,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *This specifies a list of parameters with every response from
-      *a service. 
-      */
+	/// <summary>
+	/// This specifies a list of parameters with every response from
+	/// a service. 
+    /// </summary>
 	public partial class ResponseEnvelope	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string timestampField;
 		public string timestamp
 		{
@@ -1324,9 +1389,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private AckCode? ackField;
 		public AckCode? ack
 		{
@@ -1341,9 +1406,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string correlationIdField;
 		public string correlationId
 		{
@@ -1358,9 +1423,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string buildField;
 		public string build
 		{
@@ -1375,15 +1440,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public ResponseEnvelope()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new ResponseEnvelope object created from the passed in NVP map
+	 	/// </returns>
 		public static ResponseEnvelope CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ResponseEnvelope responseEnvelope = null;
@@ -1434,15 +1507,15 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      * AckCodeType This code identifies the
-      * acknowledgment code types that could be used to
-      * communicate the status of processing a (request)
-      * message to an application. This code would be
-      * used as part of a response message that contains
-      * an application level acknowledgment element.
-      * 
-      */
+	/// <summary>
+	/// AckCodeType This code identifies the
+	///  acknowledgment code types that could be used to
+	///  communicate the status of processing a (request)
+	///  message to an application. This code would be
+	///  used as part of a response message that contains
+	///  an application level acknowledgment element.
+	///  
+	/// </summary>
     [Serializable]
 	public enum AckCode {
 		[Description("Success")]SUCCESS,	
@@ -1455,9 +1528,9 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+	/// </summary>
     [Serializable]
 	public enum DayOfWeek {
 		[Description("NO_DAY_SPECIFIED")]NODAYSPECIFIED,	
@@ -1473,10 +1546,10 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      * DetailLevelCodeType
-      * 
-      */
+	/// <summary>
+	/// DetailLevelCodeType
+	///  
+	/// </summary>
     [Serializable]
 	public enum DetailLevelCode {
 		[Description("ReturnAll")]RETURNALL	
@@ -1485,9 +1558,9 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+	/// </summary>
     [Serializable]
 	public enum ErrorCategory {
 		[Description("System")]SYSTEM,	
@@ -1498,9 +1571,9 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+	/// </summary>
     [Serializable]
 	public enum ErrorSeverity {
 		[Description("Error")]ERROR,	
@@ -1510,17 +1583,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class Address	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string addresseeNameField;
 		public string addresseeName
 		{
@@ -1535,9 +1608,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private BaseAddress baseAddressField;
 		public BaseAddress baseAddress
 		{
@@ -1552,9 +1625,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string addressIdField;
 		public string addressId
 		{
@@ -1569,15 +1642,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public Address()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new Address object created from the passed in NVP map
+	 	/// </returns>
 		public static Address CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			Address address = null;
@@ -1622,17 +1703,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class AddressList	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<Address> addressField = new List<Address>();
 		public List<Address> address
 		{
@@ -1647,15 +1728,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public AddressList()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new AddressList object created from the passed in NVP map
+	 	/// </returns>
 		public static AddressList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			AddressList addressList = null;
@@ -1697,17 +1786,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *A list of ISO currency codes. 
-      */
+	/// <summary>
+	/// A list of ISO currency codes. 
+    /// </summary>
 	public partial class CurrencyCodeList	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<string> currencyCodeField = new List<string>();
 		public List<string> currencyCode
 		{
@@ -1722,17 +1811,17 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public CurrencyCodeList(List<string> currencyCode)
 	 	{
 			this.currencyCode = currencyCode;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public CurrencyCodeList()
 	 	{
 		}
@@ -1755,18 +1844,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *A list of estimated currency conversions for a base
-      *currency. 
-      */
+	/// <summary>
+	/// A list of estimated currency conversions for a base
+	/// currency. 
+    /// </summary>
 	public partial class CurrencyConversionList	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private CurrencyType baseAmountField;
 		public CurrencyType baseAmount
 		{
@@ -1781,9 +1870,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private CurrencyList currencyListField;
 		public CurrencyList currencyList
 		{
@@ -1798,15 +1887,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public CurrencyConversionList()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new CurrencyConversionList object created from the passed in NVP map
+	 	/// </returns>
 		public static CurrencyConversionList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			CurrencyConversionList currencyConversionList = null;
@@ -1845,18 +1942,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *A table that contains a list of estimated currency
-      *conversions for a base currency in each row. 
-      */
+	/// <summary>
+	/// A table that contains a list of estimated currency
+	/// conversions for a base currency in each row. 
+    /// </summary>
 	public partial class CurrencyConversionTable	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<CurrencyConversionList> currencyConversionListField = new List<CurrencyConversionList>();
 		public List<CurrencyConversionList> currencyConversionList
 		{
@@ -1871,15 +1968,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public CurrencyConversionTable()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new CurrencyConversionTable object created from the passed in NVP map
+	 	/// </returns>
 		public static CurrencyConversionTable CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			CurrencyConversionTable currencyConversionTable = null;
@@ -1921,17 +2026,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *A list of ISO currencies. 
-      */
+	/// <summary>
+	/// A list of ISO currencies. 
+    /// </summary>
 	public partial class CurrencyList	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<CurrencyType> currencyField = new List<CurrencyType>();
 		public List<CurrencyType> currency
 		{
@@ -1946,17 +2051,17 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public CurrencyList(List<CurrencyType> currency)
 	 	{
 			this.currency = currency;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public CurrencyList()
 	 	{
 		}
@@ -1975,7 +2080,15 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new CurrencyList object created from the passed in NVP map
+	 	/// </returns>
 		public static CurrencyList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			CurrencyList currencyList = null;
@@ -2017,18 +2130,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *Customizable options that a client application can specify
-      *for display purposes. 
-      */
+	/// <summary>
+	/// Customizable options that a client application can specify
+	/// for display purposes. 
+    /// </summary>
 	public partial class DisplayOptions	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string emailHeaderImageUrlField;
 		public string emailHeaderImageUrl
 		{
@@ -2043,9 +2156,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string emailMarketingImageUrlField;
 		public string emailMarketingImageUrl
 		{
@@ -2060,9 +2173,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string headerImageUrlField;
 		public string headerImageUrl
 		{
@@ -2077,9 +2190,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string businessNameField;
 		public string businessName
 		{
@@ -2094,9 +2207,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public DisplayOptions()
 	 	{
 		}
@@ -2123,7 +2236,15 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new DisplayOptions object created from the passed in NVP map
+	 	/// </returns>
 		public static DisplayOptions CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			DisplayOptions displayOptions = null;
@@ -2174,17 +2295,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class ErrorList	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -2199,15 +2320,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public ErrorList()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new ErrorList object created from the passed in NVP map
+	 	/// </returns>
 		public static ErrorList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ErrorList errorList = null;
@@ -2249,17 +2378,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class FundingConstraint	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private FundingTypeList allowedFundingTypeField;
 		public FundingTypeList allowedFundingType
 		{
@@ -2274,9 +2403,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public FundingConstraint()
 	 	{
 		}
@@ -2292,7 +2421,15 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new FundingConstraint object created from the passed in NVP map
+	 	/// </returns>
 		public static FundingConstraint CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			FundingConstraint fundingConstraint = null;
@@ -2325,17 +2462,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *FundingTypeInfo represents one allowed funding type. 
-      */
+	/// <summary>
+	/// FundingTypeInfo represents one allowed funding type. 
+    /// </summary>
 	public partial class FundingTypeInfo	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string fundingTypeField;
 		public string fundingType
 		{
@@ -2350,17 +2487,17 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public FundingTypeInfo(string fundingType)
 	 	{
 			this.fundingType = fundingType;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public FundingTypeInfo()
 	 	{
 		}
@@ -2375,7 +2512,15 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new FundingTypeInfo object created from the passed in NVP map
+	 	/// </returns>
 		public static FundingTypeInfo CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			FundingTypeInfo fundingTypeInfo = null;
@@ -2408,17 +2553,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class FundingTypeList	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<FundingTypeInfo> fundingTypeInfoField = new List<FundingTypeInfo>();
 		public List<FundingTypeInfo> fundingTypeInfo
 		{
@@ -2433,17 +2578,17 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public FundingTypeList(List<FundingTypeInfo> fundingTypeInfo)
 	 	{
 			this.fundingTypeInfo = fundingTypeInfo;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public FundingTypeList()
 	 	{
 		}
@@ -2462,7 +2607,15 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new FundingTypeList object created from the passed in NVP map
+	 	/// </returns>
 		public static FundingTypeList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			FundingTypeList fundingTypeList = null;
@@ -2504,17 +2657,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *Describes the conversion between 2 currencies. 
-      */
+	/// <summary>
+	/// Describes the conversion between 2 currencies. 
+    /// </summary>
 	public partial class CurrencyConversion	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private CurrencyType fromField;
 		public CurrencyType from
 		{
@@ -2529,9 +2682,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private CurrencyType toField;
 		public CurrencyType to
 		{
@@ -2546,9 +2699,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private decimal? exchangeRateField;
 		public decimal? exchangeRate
 		{
@@ -2563,15 +2716,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public CurrencyConversion()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new CurrencyConversion object created from the passed in NVP map
+	 	/// </returns>
 		public static CurrencyConversion CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			CurrencyConversion currencyConversion = null;
@@ -2616,17 +2777,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *Funding source information. 
-      */
+	/// <summary>
+	/// Funding source information. 
+    /// </summary>
 	public partial class FundingSource	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string lastFourOfAccountNumberField;
 		public string lastFourOfAccountNumber
 		{
@@ -2641,9 +2802,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string typeField;
 		public string type
 		{
@@ -2658,9 +2819,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string displayNameField;
 		public string displayName
 		{
@@ -2675,9 +2836,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string fundingSourceIdField;
 		public string fundingSourceId
 		{
@@ -2692,9 +2853,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private bool? allowedField;
 		public bool? allowed
 		{
@@ -2709,15 +2870,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public FundingSource()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new FundingSource object created from the passed in NVP map
+	 	/// </returns>
 		public static FundingSource CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			FundingSource fundingSource = null;
@@ -2774,17 +2943,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *Amount to be charged to a particular funding source. 
-      */
+	/// <summary>
+	/// Amount to be charged to a particular funding source. 
+    /// </summary>
 	public partial class FundingPlanCharge	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private CurrencyType chargeField;
 		public CurrencyType charge
 		{
@@ -2799,9 +2968,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private FundingSource fundingSourceField;
 		public FundingSource fundingSource
 		{
@@ -2816,15 +2985,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public FundingPlanCharge()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new FundingPlanCharge object created from the passed in NVP map
+	 	/// </returns>
 		public static FundingPlanCharge CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			FundingPlanCharge fundingPlanCharge = null;
@@ -2863,18 +3040,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *FundingPlan describes the funding sources to be used for a
-      *specific payment. 
-      */
+	/// <summary>
+	/// FundingPlan describes the funding sources to be used for a
+	/// specific payment. 
+    /// </summary>
 	public partial class FundingPlan	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string fundingPlanIdField;
 		public string fundingPlanId
 		{
@@ -2889,9 +3066,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private CurrencyType fundingAmountField;
 		public CurrencyType fundingAmount
 		{
@@ -2906,9 +3083,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private FundingSource backupFundingSourceField;
 		public FundingSource backupFundingSource
 		{
@@ -2923,9 +3100,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private CurrencyType senderFeesField;
 		public CurrencyType senderFees
 		{
@@ -2940,9 +3117,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private CurrencyConversion currencyConversionField;
 		public CurrencyConversion currencyConversion
 		{
@@ -2957,9 +3134,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<FundingPlanCharge> chargeField = new List<FundingPlanCharge>();
 		public List<FundingPlanCharge> charge
 		{
@@ -2974,15 +3151,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public FundingPlan()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new FundingPlan object created from the passed in NVP map
+	 	/// </returns>
 		public static FundingPlan CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			FundingPlan fundingPlan = null;
@@ -3054,20 +3239,20 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *Details about the party that initiated this payment. The API
-      *user is making this payment on behalf of the initiator. The
-      *initiator can simply be an institution or a customer of the
-      *institution. 
-      */
+	/// <summary>
+	/// Details about the party that initiated this payment. The API
+	/// user is making this payment on behalf of the initiator. The
+	/// initiator can simply be an institution or a customer of the
+	/// institution. 
+    /// </summary>
 	public partial class InitiatingEntity	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private InstitutionCustomer institutionCustomerField;
 		public InstitutionCustomer institutionCustomer
 		{
@@ -3082,9 +3267,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public InitiatingEntity()
 	 	{
 		}
@@ -3100,7 +3285,15 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new InitiatingEntity object created from the passed in NVP map
+	 	/// </returns>
 		public static InitiatingEntity CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			InitiatingEntity initiatingEntity = null;
@@ -3133,17 +3326,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The customer of the initiating institution 
-      */
+	/// <summary>
+	/// The customer of the initiating institution 
+    /// </summary>
 	public partial class InstitutionCustomer	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string institutionIdField;
 		public string institutionId
 		{
@@ -3158,9 +3351,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string firstNameField;
 		public string firstName
 		{
@@ -3175,9 +3368,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string lastNameField;
 		public string lastName
 		{
@@ -3192,9 +3385,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string displayNameField;
 		public string displayName
 		{
@@ -3209,9 +3402,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string institutionCustomerIdField;
 		public string institutionCustomerId
 		{
@@ -3226,9 +3419,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string countryCodeField;
 		public string countryCode
 		{
@@ -3243,9 +3436,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string emailField;
 		public string email
 		{
@@ -3260,9 +3453,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public InstitutionCustomer(string institutionId, string firstName, string lastName, string displayName, string institutionCustomerId, string countryCode)
 	 	{
 			this.institutionId = institutionId;
@@ -3273,9 +3466,9 @@ namespace PayPal.AdaptivePayments.Model
 			this.countryCode = countryCode;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public InstitutionCustomer()
 	 	{
 		}
@@ -3314,7 +3507,15 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new InstitutionCustomer object created from the passed in NVP map
+	 	/// </returns>
 		public static InstitutionCustomer CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			InstitutionCustomer institutionCustomer = null;
@@ -3383,17 +3584,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *Describes an individual item for an invoice. 
-      */
+	/// <summary>
+	/// Describes an individual item for an invoice. 
+    /// </summary>
 	public partial class InvoiceItem	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string nameField;
 		public string name
 		{
@@ -3408,9 +3609,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string identifierField;
 		public string identifier
 		{
@@ -3425,9 +3626,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private decimal? priceField;
 		public decimal? price
 		{
@@ -3442,9 +3643,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private decimal? itemPriceField;
 		public decimal? itemPrice
 		{
@@ -3459,9 +3660,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private int? itemCountField;
 		public int? itemCount
 		{
@@ -3476,9 +3677,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public InvoiceItem()
 	 	{
 		}
@@ -3509,7 +3710,15 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new InvoiceItem object created from the passed in NVP map
+	 	/// </returns>
 		public static InvoiceItem CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			InvoiceItem invoiceItem = null;
@@ -3566,18 +3775,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *Describes a payment for a particular receiver (merchant),
-      *contains list of additional per item details. 
-      */
+	/// <summary>
+	/// Describes a payment for a particular receiver (merchant),
+	/// contains list of additional per item details. 
+    /// </summary>
 	public partial class InvoiceData	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<InvoiceItem> itemField = new List<InvoiceItem>();
 		public List<InvoiceItem> item
 		{
@@ -3592,9 +3801,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private decimal? totalTaxField;
 		public decimal? totalTax
 		{
@@ -3609,9 +3818,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private decimal? totalShippingField;
 		public decimal? totalShipping
 		{
@@ -3626,9 +3835,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public InvoiceData()
 	 	{
 		}
@@ -3655,7 +3864,15 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new InvoiceData object created from the passed in NVP map
+	 	/// </returns>
 		public static InvoiceData CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			InvoiceData invoiceData = null;
@@ -3709,18 +3926,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The error that resulted from an attempt to make a payment to
-      *a receiver. 
-      */
+	/// <summary>
+	/// The error that resulted from an attempt to make a payment to
+	/// a receiver. 
+    /// </summary>
 	public partial class PayError	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private Receiver receiverField;
 		public Receiver receiver
 		{
@@ -3735,9 +3952,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ErrorData errorField;
 		public ErrorData error
 		{
@@ -3752,15 +3969,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public PayError()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new PayError object created from the passed in NVP map
+	 	/// </returns>
 		public static PayError CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			PayError payError = null;
@@ -3799,17 +4024,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class PayErrorList	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<PayError> payErrorField = new List<PayError>();
 		public List<PayError> payError
 		{
@@ -3824,15 +4049,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public PayErrorList()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new PayErrorList object created from the passed in NVP map
+	 	/// </returns>
 		public static PayErrorList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			PayErrorList payErrorList = null;
@@ -3874,20 +4107,20 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *PaymentInfo represents the payment attempt made to a
-      *Receiver of a PayRequest. If the execution of the payment
-      *has not yet completed, there will not be any transaction
-      *details. 
-      */
+	/// <summary>
+	/// PaymentInfo represents the payment attempt made to a
+	/// Receiver of a PayRequest. If the execution of the payment
+	/// has not yet completed, there will not be any transaction
+	/// details. 
+    /// </summary>
 	public partial class PaymentInfo	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string transactionIdField;
 		public string transactionId
 		{
@@ -3902,9 +4135,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string transactionStatusField;
 		public string transactionStatus
 		{
@@ -3919,9 +4152,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private Receiver receiverField;
 		public Receiver receiver
 		{
@@ -3936,9 +4169,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private decimal? refundedAmountField;
 		public decimal? refundedAmount
 		{
@@ -3953,9 +4186,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private bool? pendingRefundField;
 		public bool? pendingRefund
 		{
@@ -3970,9 +4203,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string senderTransactionIdField;
 		public string senderTransactionId
 		{
@@ -3987,9 +4220,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string senderTransactionStatusField;
 		public string senderTransactionStatus
 		{
@@ -4004,9 +4237,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string pendingReasonField;
 		public string pendingReason
 		{
@@ -4021,15 +4254,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public PaymentInfo()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new PaymentInfo object created from the passed in NVP map
+	 	/// </returns>
 		public static PaymentInfo CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			PaymentInfo paymentInfo = null;
@@ -4104,17 +4345,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class PaymentInfoList	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<PaymentInfo> paymentInfoField = new List<PaymentInfo>();
 		public List<PaymentInfo> paymentInfo
 		{
@@ -4129,15 +4370,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public PaymentInfoList()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new PaymentInfoList object created from the passed in NVP map
+	 	/// </returns>
 		public static PaymentInfoList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			PaymentInfoList paymentInfoList = null;
@@ -4179,20 +4428,20 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *Receiver is the party where funds are transferred to. A
-      *primary receiver receives a payment directly from the sender
-      *in a chained split payment. A primary receiver should not be
-      *specified when making a single or parallel split payment. 
-      */
+	/// <summary>
+	/// Receiver is the party where funds are transferred to. A
+	/// primary receiver receives a payment directly from the sender
+	/// in a chained split payment. A primary receiver should not be
+	/// specified when making a single or parallel split payment. 
+    /// </summary>
 	public partial class Receiver	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private decimal? amountField;
 		public decimal? amount
 		{
@@ -4207,9 +4456,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string emailField;
 		public string email
 		{
@@ -4224,9 +4473,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private PhoneNumberType phoneField;
 		public PhoneNumberType phone
 		{
@@ -4241,9 +4490,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private bool? primaryField;
 		public bool? primary
 		{
@@ -4258,9 +4507,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string invoiceIdField;
 		public string invoiceId
 		{
@@ -4275,9 +4524,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string paymentTypeField;
 		public string paymentType
 		{
@@ -4292,9 +4541,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string paymentSubTypeField;
 		public string paymentSubType
 		{
@@ -4309,17 +4558,17 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public Receiver(decimal? amount)
 	 	{
 			this.amount = amount;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public Receiver()
 	 	{
 		}
@@ -4359,7 +4608,15 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new Receiver object created from the passed in NVP map
+	 	/// </returns>
 		public static Receiver CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			Receiver receiver = null;
@@ -4428,17 +4685,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class ReceiverList	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<Receiver> receiverField = new List<Receiver>();
 		public List<Receiver> receiver
 		{
@@ -4453,17 +4710,17 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public ReceiverList(List<Receiver> receiver)
 	 	{
 			this.receiver = receiver;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public ReceiverList()
 	 	{
 		}
@@ -4487,18 +4744,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The sender identifier type contains information to identify
-      *a PayPal account. 
-      */
+	/// <summary>
+	/// The sender identifier type contains information to identify
+	/// a PayPal account. 
+    /// </summary>
 	public partial class ReceiverIdentifier : AccountIdentifier	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public ReceiverIdentifier()
 	 	{
 		}
@@ -4510,7 +4767,15 @@ namespace PayPal.AdaptivePayments.Model
 			sb.Append(base.ToNVPString(prefix));
 			return sb.ToString();
 		}
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new ReceiverIdentifier object created from the passed in NVP map
+	 	/// </returns>
 		public static new ReceiverIdentifier CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ReceiverIdentifier receiverIdentifier = null;
@@ -4544,18 +4809,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *Options that apply to the receiver of a payment, allows
-      *setting additional details for payment using invoice. 
-      */
+	/// <summary>
+	/// Options that apply to the receiver of a payment, allows
+	/// setting additional details for payment using invoice. 
+    /// </summary>
 	public partial class ReceiverOptions	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string descriptionField;
 		public string description
 		{
@@ -4570,9 +4835,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string customIdField;
 		public string customId
 		{
@@ -4587,9 +4852,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private InvoiceData invoiceDataField;
 		public InvoiceData invoiceData
 		{
@@ -4604,9 +4869,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ReceiverIdentifier receiverField;
 		public ReceiverIdentifier receiver
 		{
@@ -4621,9 +4886,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string referrerCodeField;
 		public string referrerCode
 		{
@@ -4638,17 +4903,17 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public ReceiverOptions(ReceiverIdentifier receiver)
 	 	{
 			this.receiver = receiver;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public ReceiverOptions()
 	 	{
 		}
@@ -4681,7 +4946,15 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new ReceiverOptions object created from the passed in NVP map
+	 	/// </returns>
 		public static ReceiverOptions CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ReceiverOptions receiverOptions = null;
@@ -4738,18 +5011,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *RefundInfo represents the refund attempt made to a Receiver
-      *of a PayRequest. 
-      */
+	/// <summary>
+	/// RefundInfo represents the refund attempt made to a Receiver
+	/// of a PayRequest. 
+    /// </summary>
 	public partial class RefundInfo	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private Receiver receiverField;
 		public Receiver receiver
 		{
@@ -4764,9 +5037,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string refundStatusField;
 		public string refundStatus
 		{
@@ -4781,9 +5054,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private decimal? refundNetAmountField;
 		public decimal? refundNetAmount
 		{
@@ -4798,9 +5071,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private decimal? refundFeeAmountField;
 		public decimal? refundFeeAmount
 		{
@@ -4815,9 +5088,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private decimal? refundGrossAmountField;
 		public decimal? refundGrossAmount
 		{
@@ -4832,9 +5105,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private decimal? totalOfAllRefundsField;
 		public decimal? totalOfAllRefunds
 		{
@@ -4849,9 +5122,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private bool? refundHasBecomeFullField;
 		public bool? refundHasBecomeFull
 		{
@@ -4866,9 +5139,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string encryptedRefundTransactionIdField;
 		public string encryptedRefundTransactionId
 		{
@@ -4883,9 +5156,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string refundTransactionStatusField;
 		public string refundTransactionStatus
 		{
@@ -4900,9 +5173,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ErrorList errorListField;
 		public ErrorList errorList
 		{
@@ -4917,15 +5190,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public RefundInfo()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new RefundInfo object created from the passed in NVP map
+	 	/// </returns>
 		public static RefundInfo CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			RefundInfo refundInfo = null;
@@ -5012,17 +5293,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class RefundInfoList	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<RefundInfo> refundInfoField = new List<RefundInfo>();
 		public List<RefundInfo> refundInfo
 		{
@@ -5037,15 +5318,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public RefundInfoList()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new RefundInfoList object created from the passed in NVP map
+	 	/// </returns>
 		public static RefundInfoList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			RefundInfoList refundInfoList = null;
@@ -5087,17 +5376,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *Options that apply to the sender of a payment. 
-      */
+	/// <summary>
+	/// Options that apply to the sender of a payment. 
+    /// </summary>
 	public partial class SenderOptions	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private bool? requireShippingAddressSelectionField;
 		public bool? requireShippingAddressSelection
 		{
@@ -5112,9 +5401,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string referrerCodeField;
 		public string referrerCode
 		{
@@ -5129,9 +5418,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public SenderOptions()
 	 	{
 		}
@@ -5150,7 +5439,15 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new SenderOptions object created from the passed in NVP map
+	 	/// </returns>
 		public static SenderOptions CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			SenderOptions senderOptions = null;
@@ -5189,18 +5486,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *Details about the payer's tax info passed in by the merchant
-      *or partner. 
-      */
+	/// <summary>
+	/// Details about the payer's tax info passed in by the merchant
+	/// or partner. 
+    /// </summary>
 	public partial class TaxIdDetails	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string taxIdField;
 		public string taxId
 		{
@@ -5215,9 +5512,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string taxIdTypeField;
 		public string taxIdType
 		{
@@ -5232,9 +5529,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public TaxIdDetails()
 	 	{
 		}
@@ -5253,7 +5550,15 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new TaxIdDetails object created from the passed in NVP map
+	 	/// </returns>
 		public static TaxIdDetails CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			TaxIdDetails taxIdDetails = null;
@@ -5292,18 +5597,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The sender identifier type contains information to identify
-      *a PayPal account. 
-      */
+	/// <summary>
+	/// The sender identifier type contains information to identify
+	/// a PayPal account. 
+    /// </summary>
 	public partial class SenderIdentifier : AccountIdentifier	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private bool? useCredentialsField;
 		public bool? useCredentials
 		{
@@ -5318,9 +5623,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private TaxIdDetails taxIdDetailsField;
 		public TaxIdDetails taxIdDetails
 		{
@@ -5335,9 +5640,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public SenderIdentifier()
 	 	{
 		}
@@ -5358,7 +5663,15 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			return sb.ToString();
 		}
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new SenderIdentifier object created from the passed in NVP map
+	 	/// </returns>
 		public static new SenderIdentifier CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			SenderIdentifier senderIdentifier = null;
@@ -5404,17 +5717,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class UserLimit	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string limitTypeField;
 		public string limitType
 		{
@@ -5429,9 +5742,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private CurrencyType limitAmountField;
 		public CurrencyType limitAmount
 		{
@@ -5446,15 +5759,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public UserLimit()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new UserLimit object created from the passed in NVP map
+	 	/// </returns>
 		public static UserLimit CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			UserLimit userLimit = null;
@@ -5493,18 +5814,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *This type contains the detailed warning information
-      *resulting from the service operation. 
-      */
+	/// <summary>
+	/// This type contains the detailed warning information
+	/// resulting from the service operation. 
+    /// </summary>
 	public partial class WarningData	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private int? warningIdField;
 		public int? warningId
 		{
@@ -5519,9 +5840,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string messageField;
 		public string message
 		{
@@ -5536,15 +5857,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public WarningData()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new WarningData object created from the passed in NVP map
+	 	/// </returns>
 		public static WarningData CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			WarningData warningData = null;
@@ -5583,17 +5912,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class WarningDataList	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<WarningData> warningDataField = new List<WarningData>();
 		public List<WarningData> warningData
 		{
@@ -5608,15 +5937,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public WarningDataList()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new WarningDataList object created from the passed in NVP map
+	 	/// </returns>
 		public static WarningDataList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			WarningDataList warningDataList = null;
@@ -5658,17 +5995,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The request to cancel a Preapproval. 
-      */
+	/// <summary>
+	/// The request to cancel a Preapproval. 
+    /// </summary>
 	public partial class CancelPreapprovalRequest	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
 		{
@@ -5683,9 +6020,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string preapprovalKeyField;
 		public string preapprovalKey
 		{
@@ -5700,18 +6037,18 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public CancelPreapprovalRequest(RequestEnvelope requestEnvelope, string preapprovalKey)
 	 	{
 			this.requestEnvelope = requestEnvelope;
 			this.preapprovalKey = preapprovalKey;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public CancelPreapprovalRequest()
 	 	{
 		}
@@ -5736,17 +6073,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The result of the CancelPreapprovalRequest. 
-      */
+	/// <summary>
+	/// The result of the CancelPreapprovalRequest. 
+    /// </summary>
 	public partial class CancelPreapprovalResponse	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -5761,9 +6098,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -5778,15 +6115,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public CancelPreapprovalResponse()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new CancelPreapprovalResponse object created from the passed in NVP map
+	 	/// </returns>
 		public static CancelPreapprovalResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			CancelPreapprovalResponse cancelPreapprovalResponse = null;
@@ -5834,17 +6179,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The request to confirm a Preapproval. 
-      */
+	/// <summary>
+	/// The request to confirm a Preapproval. 
+    /// </summary>
 	public partial class ConfirmPreapprovalRequest	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
 		{
@@ -5859,9 +6204,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string preapprovalKeyField;
 		public string preapprovalKey
 		{
@@ -5876,9 +6221,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string fundingSourceIdField;
 		public string fundingSourceId
 		{
@@ -5893,9 +6238,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string pinField;
 		public string pin
 		{
@@ -5910,18 +6255,18 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public ConfirmPreapprovalRequest(RequestEnvelope requestEnvelope, string preapprovalKey)
 	 	{
 			this.requestEnvelope = requestEnvelope;
 			this.preapprovalKey = preapprovalKey;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public ConfirmPreapprovalRequest()
 	 	{
 		}
@@ -5954,17 +6299,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The result of the ConfirmPreapprovalRequest. 
-      */
+	/// <summary>
+	/// The result of the ConfirmPreapprovalRequest. 
+    /// </summary>
 	public partial class ConfirmPreapprovalResponse	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -5979,9 +6324,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -5996,15 +6341,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public ConfirmPreapprovalResponse()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new ConfirmPreapprovalResponse object created from the passed in NVP map
+	 	/// </returns>
 		public static ConfirmPreapprovalResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ConfirmPreapprovalResponse confirmPreapprovalResponse = null;
@@ -6052,18 +6405,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *A request to convert one or more currencies into their
-      *estimated values in other currencies. 
-      */
+	/// <summary>
+	/// A request to convert one or more currencies into their
+	/// estimated values in other currencies. 
+    /// </summary>
 	public partial class ConvertCurrencyRequest	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
 		{
@@ -6078,9 +6431,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private CurrencyList baseAmountListField;
 		public CurrencyList baseAmountList
 		{
@@ -6095,9 +6448,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private CurrencyCodeList convertToCurrencyListField;
 		public CurrencyCodeList convertToCurrencyList
 		{
@@ -6112,9 +6465,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string countryCodeField;
 		public string countryCode
 		{
@@ -6129,9 +6482,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string conversionTypeField;
 		public string conversionType
 		{
@@ -6146,9 +6499,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public ConvertCurrencyRequest(RequestEnvelope requestEnvelope, CurrencyList baseAmountList, CurrencyCodeList convertToCurrencyList)
 	 	{
 			this.requestEnvelope = requestEnvelope;
@@ -6156,9 +6509,9 @@ namespace PayPal.AdaptivePayments.Model
 			this.convertToCurrencyList = convertToCurrencyList;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public ConvertCurrencyRequest()
 	 	{
 		}
@@ -6197,18 +6550,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *A response that contains a table of estimated converted
-      *currencies based on the Convert Currency Request. 
-      */
+	/// <summary>
+	/// A response that contains a table of estimated converted
+	/// currencies based on the Convert Currency Request. 
+    /// </summary>
 	public partial class ConvertCurrencyResponse	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -6223,9 +6576,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private CurrencyConversionTable estimatedAmountTableField;
 		public CurrencyConversionTable estimatedAmountTable
 		{
@@ -6240,9 +6593,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -6257,15 +6610,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public ConvertCurrencyResponse()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new ConvertCurrencyResponse object created from the passed in NVP map
+	 	/// </returns>
 		public static ConvertCurrencyResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ConvertCurrencyResponse convertCurrencyResponse = null;
@@ -6319,17 +6680,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The request to execute the payment request. 
-      */
+	/// <summary>
+	/// The request to execute the payment request. 
+    /// </summary>
 	public partial class ExecutePaymentRequest	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
 		{
@@ -6344,9 +6705,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string payKeyField;
 		public string payKey
 		{
@@ -6361,9 +6722,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string actionTypeField;
 		public string actionType
 		{
@@ -6378,9 +6739,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string fundingPlanIdField;
 		public string fundingPlanId
 		{
@@ -6395,18 +6756,18 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public ExecutePaymentRequest(RequestEnvelope requestEnvelope, string payKey)
 	 	{
 			this.requestEnvelope = requestEnvelope;
 			this.payKey = payKey;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public ExecutePaymentRequest()
 	 	{
 		}
@@ -6439,17 +6800,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The result of a payment execution. 
-      */
+	/// <summary>
+	/// The result of a payment execution. 
+    /// </summary>
 	public partial class ExecutePaymentResponse	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -6464,9 +6825,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string paymentExecStatusField;
 		public string paymentExecStatus
 		{
@@ -6481,9 +6842,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private PayErrorList payErrorListField;
 		public PayErrorList payErrorList
 		{
@@ -6498,9 +6859,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -6515,15 +6876,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public ExecutePaymentResponse()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new ExecutePaymentResponse object created from the passed in NVP map
+	 	/// </returns>
 		public static ExecutePaymentResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ExecutePaymentResponse executePaymentResponse = null;
@@ -6583,18 +6952,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The request to get the allowed funding sources available for
-      *a preapproval. 
-      */
+	/// <summary>
+	/// The request to get the allowed funding sources available for
+	/// a preapproval. 
+    /// </summary>
 	public partial class GetAllowedFundingSourcesRequest	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
 		{
@@ -6609,9 +6978,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string keyField;
 		public string key
 		{
@@ -6626,18 +6995,18 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public GetAllowedFundingSourcesRequest(RequestEnvelope requestEnvelope, string key)
 	 	{
 			this.requestEnvelope = requestEnvelope;
 			this.key = key;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public GetAllowedFundingSourcesRequest()
 	 	{
 		}
@@ -6662,18 +7031,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The response to get the backup funding sources available for
-      *a preapproval. 
-      */
+	/// <summary>
+	/// The response to get the backup funding sources available for
+	/// a preapproval. 
+    /// </summary>
 	public partial class GetAllowedFundingSourcesResponse	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -6688,9 +7057,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<FundingSource> fundingSourceField = new List<FundingSource>();
 		public List<FundingSource> fundingSource
 		{
@@ -6705,9 +7074,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -6722,15 +7091,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public GetAllowedFundingSourcesResponse()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new GetAllowedFundingSourcesResponse object created from the passed in NVP map
+	 	/// </returns>
 		public static GetAllowedFundingSourcesResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			GetAllowedFundingSourcesResponse getAllowedFundingSourcesResponse = null;
@@ -6793,17 +7170,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The request to get the options of a payment request. 
-      */
+	/// <summary>
+	/// The request to get the options of a payment request. 
+    /// </summary>
 	public partial class GetPaymentOptionsRequest	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
 		{
@@ -6818,9 +7195,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string payKeyField;
 		public string payKey
 		{
@@ -6835,18 +7212,18 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public GetPaymentOptionsRequest(RequestEnvelope requestEnvelope, string payKey)
 	 	{
 			this.requestEnvelope = requestEnvelope;
 			this.payKey = payKey;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public GetPaymentOptionsRequest()
 	 	{
 		}
@@ -6871,17 +7248,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The response message for the GetPaymentOption request 
-      */
+	/// <summary>
+	/// The response message for the GetPaymentOption request 
+    /// </summary>
 	public partial class GetPaymentOptionsResponse	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -6896,9 +7273,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private InitiatingEntity initiatingEntityField;
 		public InitiatingEntity initiatingEntity
 		{
@@ -6913,9 +7290,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private DisplayOptions displayOptionsField;
 		public DisplayOptions displayOptions
 		{
@@ -6930,9 +7307,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string shippingAddressIdField;
 		public string shippingAddressId
 		{
@@ -6947,9 +7324,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private SenderOptions senderOptionsField;
 		public SenderOptions senderOptions
 		{
@@ -6964,9 +7341,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ReceiverOptions> receiverOptionsField = new List<ReceiverOptions>();
 		public List<ReceiverOptions> receiverOptions
 		{
@@ -6981,9 +7358,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -6998,15 +7375,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public GetPaymentOptionsResponse()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new GetPaymentOptionsResponse object created from the passed in NVP map
+	 	/// </returns>
 		public static GetPaymentOptionsResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			GetPaymentOptionsResponse getPaymentOptionsResponse = null;
@@ -7093,19 +7478,19 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The request to look up the details of a PayRequest. The
-      *PaymentDetailsRequest can be made with either a payKey,
-      *trackingId, or a transactionId of the PayRequest. 
-      */
+	/// <summary>
+	/// The request to look up the details of a PayRequest. The
+	/// PaymentDetailsRequest can be made with either a payKey,
+	/// trackingId, or a transactionId of the PayRequest. 
+    /// </summary>
 	public partial class PaymentDetailsRequest	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
 		{
@@ -7120,9 +7505,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string payKeyField;
 		public string payKey
 		{
@@ -7137,9 +7522,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string transactionIdField;
 		public string transactionId
 		{
@@ -7154,9 +7539,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string trackingIdField;
 		public string trackingId
 		{
@@ -7171,17 +7556,17 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public PaymentDetailsRequest(RequestEnvelope requestEnvelope)
 	 	{
 			this.requestEnvelope = requestEnvelope;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public PaymentDetailsRequest()
 	 	{
 		}
@@ -7214,18 +7599,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The details of the PayRequest as specified in the Pay
-      *operation. 
-      */
+	/// <summary>
+	/// The details of the PayRequest as specified in the Pay
+	/// operation. 
+    /// </summary>
 	public partial class PaymentDetailsResponse	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -7240,9 +7625,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string cancelUrlField;
 		public string cancelUrl
 		{
@@ -7257,9 +7642,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string currencyCodeField;
 		public string currencyCode
 		{
@@ -7274,9 +7659,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string ipnNotificationUrlField;
 		public string ipnNotificationUrl
 		{
@@ -7291,9 +7676,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string memoField;
 		public string memo
 		{
@@ -7308,9 +7693,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private PaymentInfoList paymentInfoListField;
 		public PaymentInfoList paymentInfoList
 		{
@@ -7325,9 +7710,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string returnUrlField;
 		public string returnUrl
 		{
@@ -7342,9 +7727,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string senderEmailField;
 		public string senderEmail
 		{
@@ -7359,9 +7744,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string statusField;
 		public string status
 		{
@@ -7376,9 +7761,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string trackingIdField;
 		public string trackingId
 		{
@@ -7393,9 +7778,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string payKeyField;
 		public string payKey
 		{
@@ -7410,9 +7795,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string actionTypeField;
 		public string actionType
 		{
@@ -7427,9 +7812,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string feesPayerField;
 		public string feesPayer
 		{
@@ -7444,9 +7829,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private bool? reverseAllParallelPaymentsOnErrorField;
 		public bool? reverseAllParallelPaymentsOnError
 		{
@@ -7461,9 +7846,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string preapprovalKeyField;
 		public string preapprovalKey
 		{
@@ -7478,9 +7863,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private FundingConstraint fundingConstraintField;
 		public FundingConstraint fundingConstraint
 		{
@@ -7495,9 +7880,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private SenderIdentifier senderField;
 		public SenderIdentifier sender
 		{
@@ -7512,9 +7897,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -7529,15 +7914,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public PaymentDetailsResponse()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new PaymentDetailsResponse object created from the passed in NVP map
+	 	/// </returns>
 		public static PaymentDetailsResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			PaymentDetailsResponse paymentDetailsResponse = null;
@@ -7681,18 +8074,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The PayRequest contains the payment instructions to make
-      *from sender to receivers. 
-      */
+	/// <summary>
+	/// The PayRequest contains the payment instructions to make
+	/// from sender to receivers. 
+    /// </summary>
 	public partial class PayRequest	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
 		{
@@ -7707,9 +8100,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ClientDetailsType clientDetailsField;
 		public ClientDetailsType clientDetails
 		{
@@ -7724,9 +8117,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string actionTypeField;
 		public string actionType
 		{
@@ -7741,9 +8134,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string cancelUrlField;
 		public string cancelUrl
 		{
@@ -7758,9 +8151,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string currencyCodeField;
 		public string currencyCode
 		{
@@ -7775,9 +8168,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string feesPayerField;
 		public string feesPayer
 		{
@@ -7792,9 +8185,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string ipnNotificationUrlField;
 		public string ipnNotificationUrl
 		{
@@ -7809,9 +8202,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string memoField;
 		public string memo
 		{
@@ -7826,9 +8219,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string pinField;
 		public string pin
 		{
@@ -7843,9 +8236,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string preapprovalKeyField;
 		public string preapprovalKey
 		{
@@ -7860,9 +8253,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ReceiverList receiverListField;
 		public ReceiverList receiverList
 		{
@@ -7877,9 +8270,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private bool? reverseAllParallelPaymentsOnErrorField;
 		public bool? reverseAllParallelPaymentsOnError
 		{
@@ -7894,9 +8287,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string senderEmailField;
 		public string senderEmail
 		{
@@ -7911,9 +8304,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string returnUrlField;
 		public string returnUrl
 		{
@@ -7928,9 +8321,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string trackingIdField;
 		public string trackingId
 		{
@@ -7945,9 +8338,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private FundingConstraint fundingConstraintField;
 		public FundingConstraint fundingConstraint
 		{
@@ -7962,9 +8355,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private SenderIdentifier senderField;
 		public SenderIdentifier sender
 		{
@@ -7979,9 +8372,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public PayRequest(RequestEnvelope requestEnvelope, string actionType, string cancelUrl, string currencyCode, ReceiverList receiverList, string returnUrl)
 	 	{
 			this.requestEnvelope = requestEnvelope;
@@ -7992,9 +8385,9 @@ namespace PayPal.AdaptivePayments.Model
 			this.returnUrl = returnUrl;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public PayRequest()
 	 	{
 		}
@@ -8083,19 +8476,19 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The PayResponse contains the result of the Pay operation.
-      *The payKey and execution status of the request should always
-      *be provided. 
-      */
+	/// <summary>
+	/// The PayResponse contains the result of the Pay operation.
+	/// The payKey and execution status of the request should always
+	/// be provided. 
+    /// </summary>
 	public partial class PayResponse	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -8110,9 +8503,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string payKeyField;
 		public string payKey
 		{
@@ -8127,9 +8520,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string paymentExecStatusField;
 		public string paymentExecStatus
 		{
@@ -8144,9 +8537,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private PayErrorList payErrorListField;
 		public PayErrorList payErrorList
 		{
@@ -8161,9 +8554,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private FundingPlan defaultFundingPlanField;
 		public FundingPlan defaultFundingPlan
 		{
@@ -8178,9 +8571,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private WarningDataList warningDataListField;
 		public WarningDataList warningDataList
 		{
@@ -8195,9 +8588,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -8212,15 +8605,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public PayResponse()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new PayResponse object created from the passed in NVP map
+	 	/// </returns>
 		public static PayResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			PayResponse payResponse = null;
@@ -8298,17 +8699,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The request to look up the details of a Preapproval. 
-      */
+	/// <summary>
+	/// The request to look up the details of a Preapproval. 
+    /// </summary>
 	public partial class PreapprovalDetailsRequest	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
 		{
@@ -8323,9 +8724,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string preapprovalKeyField;
 		public string preapprovalKey
 		{
@@ -8340,9 +8741,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private bool? getBillingAddressField;
 		public bool? getBillingAddress
 		{
@@ -8357,18 +8758,18 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public PreapprovalDetailsRequest(RequestEnvelope requestEnvelope, string preapprovalKey)
 	 	{
 			this.requestEnvelope = requestEnvelope;
 			this.preapprovalKey = preapprovalKey;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public PreapprovalDetailsRequest()
 	 	{
 		}
@@ -8397,18 +8798,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The details of the Preapproval as specified in the
-      *Preapproval operation. 
-      */
+	/// <summary>
+	/// The details of the Preapproval as specified in the
+	/// Preapproval operation. 
+    /// </summary>
 	public partial class PreapprovalDetailsResponse	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -8423,9 +8824,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private bool? approvedField;
 		public bool? approved
 		{
@@ -8440,9 +8841,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string cancelUrlField;
 		public string cancelUrl
 		{
@@ -8457,9 +8858,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private int? curPaymentsField;
 		public int? curPayments
 		{
@@ -8474,9 +8875,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private decimal? curPaymentsAmountField;
 		public decimal? curPaymentsAmount
 		{
@@ -8491,9 +8892,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private int? curPeriodAttemptsField;
 		public int? curPeriodAttempts
 		{
@@ -8508,9 +8909,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string curPeriodEndingDateField;
 		public string curPeriodEndingDate
 		{
@@ -8525,9 +8926,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string currencyCodeField;
 		public string currencyCode
 		{
@@ -8542,9 +8943,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private int? dateOfMonthField;
 		public int? dateOfMonth
 		{
@@ -8559,9 +8960,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private DayOfWeek? dayOfWeekField;
 		public DayOfWeek? dayOfWeek
 		{
@@ -8576,9 +8977,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string endingDateField;
 		public string endingDate
 		{
@@ -8593,9 +8994,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private decimal? maxAmountPerPaymentField;
 		public decimal? maxAmountPerPayment
 		{
@@ -8610,9 +9011,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private int? maxNumberOfPaymentsField;
 		public int? maxNumberOfPayments
 		{
@@ -8627,9 +9028,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private int? maxNumberOfPaymentsPerPeriodField;
 		public int? maxNumberOfPaymentsPerPeriod
 		{
@@ -8644,9 +9045,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private decimal? maxTotalAmountOfAllPaymentsField;
 		public decimal? maxTotalAmountOfAllPayments
 		{
@@ -8661,9 +9062,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string paymentPeriodField;
 		public string paymentPeriod
 		{
@@ -8678,9 +9079,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string pinTypeField;
 		public string pinType
 		{
@@ -8695,9 +9096,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string returnUrlField;
 		public string returnUrl
 		{
@@ -8712,9 +9113,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string senderEmailField;
 		public string senderEmail
 		{
@@ -8729,9 +9130,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string memoField;
 		public string memo
 		{
@@ -8746,9 +9147,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string startingDateField;
 		public string startingDate
 		{
@@ -8763,9 +9164,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string statusField;
 		public string status
 		{
@@ -8780,9 +9181,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string ipnNotificationUrlField;
 		public string ipnNotificationUrl
 		{
@@ -8797,9 +9198,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private AddressList addressListField;
 		public AddressList addressList
 		{
@@ -8814,9 +9215,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string feesPayerField;
 		public string feesPayer
 		{
@@ -8831,9 +9232,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private bool? displayMaxTotalAmountField;
 		public bool? displayMaxTotalAmount
 		{
@@ -8848,9 +9249,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -8865,15 +9266,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public PreapprovalDetailsResponse()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new PreapprovalDetailsResponse object created from the passed in NVP map
+	 	/// </returns>
 		public static PreapprovalDetailsResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			PreapprovalDetailsResponse preapprovalDetailsResponse = null;
@@ -9071,20 +9480,20 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *A request to create a Preapproval. A Preapproval is an
-      *agreement between a Paypal account holder (the sender) and
-      *the API caller (the service invoker) to make payment(s) on
-      *the the sender's behalf with various limitations defined. 
-      */
+	/// <summary>
+	/// A request to create a Preapproval. A Preapproval is an
+	/// agreement between a Paypal account holder (the sender) and
+	/// the API caller (the service invoker) to make payment(s) on
+	/// the the sender's behalf with various limitations defined. 
+    /// </summary>
 	public partial class PreapprovalRequest	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
 		{
@@ -9099,9 +9508,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ClientDetailsType clientDetailsField;
 		public ClientDetailsType clientDetails
 		{
@@ -9116,9 +9525,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string cancelUrlField;
 		public string cancelUrl
 		{
@@ -9133,9 +9542,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string currencyCodeField;
 		public string currencyCode
 		{
@@ -9150,9 +9559,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private int? dateOfMonthField;
 		public int? dateOfMonth
 		{
@@ -9167,9 +9576,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private DayOfWeek? dayOfWeekField;
 		public DayOfWeek? dayOfWeek
 		{
@@ -9184,9 +9593,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string endingDateField;
 		public string endingDate
 		{
@@ -9201,9 +9610,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private decimal? maxAmountPerPaymentField;
 		public decimal? maxAmountPerPayment
 		{
@@ -9218,9 +9627,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private int? maxNumberOfPaymentsField;
 		public int? maxNumberOfPayments
 		{
@@ -9235,9 +9644,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private int? maxNumberOfPaymentsPerPeriodField;
 		public int? maxNumberOfPaymentsPerPeriod
 		{
@@ -9252,9 +9661,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private decimal? maxTotalAmountOfAllPaymentsField;
 		public decimal? maxTotalAmountOfAllPayments
 		{
@@ -9269,9 +9678,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string paymentPeriodField;
 		public string paymentPeriod
 		{
@@ -9286,9 +9695,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string returnUrlField;
 		public string returnUrl
 		{
@@ -9303,9 +9712,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string memoField;
 		public string memo
 		{
@@ -9320,9 +9729,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string ipnNotificationUrlField;
 		public string ipnNotificationUrl
 		{
@@ -9337,9 +9746,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string senderEmailField;
 		public string senderEmail
 		{
@@ -9354,9 +9763,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string startingDateField;
 		public string startingDate
 		{
@@ -9371,9 +9780,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string pinTypeField;
 		public string pinType
 		{
@@ -9388,9 +9797,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string feesPayerField;
 		public string feesPayer
 		{
@@ -9405,9 +9814,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private bool? displayMaxTotalAmountField;
 		public bool? displayMaxTotalAmount
 		{
@@ -9422,9 +9831,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private bool? requireInstantFundingSourceField;
 		public bool? requireInstantFundingSource
 		{
@@ -9439,9 +9848,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public PreapprovalRequest(RequestEnvelope requestEnvelope, string cancelUrl, string currencyCode, string returnUrl, string startingDate)
 	 	{
 			this.requestEnvelope = requestEnvelope;
@@ -9451,9 +9860,9 @@ namespace PayPal.AdaptivePayments.Model
 			this.startingDate = startingDate;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public PreapprovalRequest()
 	 	{
 		}
@@ -9556,17 +9965,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The result of the PreapprovalRequest is a preapprovalKey. 
-      */
+	/// <summary>
+	/// The result of the PreapprovalRequest is a preapprovalKey. 
+    /// </summary>
 	public partial class PreapprovalResponse	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -9581,9 +9990,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string preapprovalKeyField;
 		public string preapprovalKey
 		{
@@ -9598,9 +10007,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -9615,15 +10024,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public PreapprovalResponse()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new PreapprovalResponse object created from the passed in NVP map
+	 	/// </returns>
 		public static PreapprovalResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			PreapprovalResponse preapprovalResponse = null;
@@ -9677,20 +10094,20 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *A request to make a refund based on various criteria. A
-      *refund can be made against the entire payKey, an individual
-      *transaction belonging to a payKey, a tracking id, or a
-      *specific receiver of a payKey. 
-      */
+	/// <summary>
+	/// A request to make a refund based on various criteria. A
+	/// refund can be made against the entire payKey, an individual
+	/// transaction belonging to a payKey, a tracking id, or a
+	/// specific receiver of a payKey. 
+    /// </summary>
 	public partial class RefundRequest	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
 		{
@@ -9705,9 +10122,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string currencyCodeField;
 		public string currencyCode
 		{
@@ -9722,9 +10139,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string payKeyField;
 		public string payKey
 		{
@@ -9739,9 +10156,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string transactionIdField;
 		public string transactionId
 		{
@@ -9756,9 +10173,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string trackingIdField;
 		public string trackingId
 		{
@@ -9773,9 +10190,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ReceiverList receiverListField;
 		public ReceiverList receiverList
 		{
@@ -9790,17 +10207,17 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public RefundRequest(RequestEnvelope requestEnvelope)
 	 	{
 			this.requestEnvelope = requestEnvelope;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public RefundRequest()
 	 	{
 		}
@@ -9842,17 +10259,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The result of a Refund request. 
-      */
+	/// <summary>
+	/// The result of a Refund request. 
+    /// </summary>
 	public partial class RefundResponse	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -9867,9 +10284,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string currencyCodeField;
 		public string currencyCode
 		{
@@ -9884,9 +10301,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private RefundInfoList refundInfoListField;
 		public RefundInfoList refundInfoList
 		{
@@ -9901,9 +10318,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -9918,15 +10335,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public RefundResponse()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new RefundResponse object created from the passed in NVP map
+	 	/// </returns>
 		public static RefundResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			RefundResponse refundResponse = null;
@@ -9986,17 +10411,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The request to set the options of a payment request. 
-      */
+	/// <summary>
+	/// The request to set the options of a payment request. 
+    /// </summary>
 	public partial class SetPaymentOptionsRequest	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
 		{
@@ -10011,9 +10436,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string payKeyField;
 		public string payKey
 		{
@@ -10028,9 +10453,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private InitiatingEntity initiatingEntityField;
 		public InitiatingEntity initiatingEntity
 		{
@@ -10045,9 +10470,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private DisplayOptions displayOptionsField;
 		public DisplayOptions displayOptions
 		{
@@ -10062,9 +10487,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string shippingAddressIdField;
 		public string shippingAddressId
 		{
@@ -10079,9 +10504,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private SenderOptions senderOptionsField;
 		public SenderOptions senderOptions
 		{
@@ -10096,9 +10521,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ReceiverOptions> receiverOptionsField = new List<ReceiverOptions>();
 		public List<ReceiverOptions> receiverOptions
 		{
@@ -10113,18 +10538,18 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public SetPaymentOptionsRequest(RequestEnvelope requestEnvelope, string payKey)
 	 	{
 			this.requestEnvelope = requestEnvelope;
 			this.payKey = payKey;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public SetPaymentOptionsRequest()
 	 	{
 		}
@@ -10176,17 +10601,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The response message for the SetPaymentOption request 
-      */
+	/// <summary>
+	/// The response message for the SetPaymentOption request 
+    /// </summary>
 	public partial class SetPaymentOptionsResponse	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -10201,9 +10626,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -10218,15 +10643,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public SetPaymentOptionsResponse()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new SetPaymentOptionsResponse object created from the passed in NVP map
+	 	/// </returns>
 		public static SetPaymentOptionsResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			SetPaymentOptionsResponse setPaymentOptionsResponse = null;
@@ -10274,18 +10707,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The request to get the funding plans available for a
-      *payment. 
-      */
+	/// <summary>
+	/// The request to get the funding plans available for a
+	/// payment. 
+    /// </summary>
 	public partial class GetFundingPlansRequest	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
 		{
@@ -10300,9 +10733,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string payKeyField;
 		public string payKey
 		{
@@ -10317,18 +10750,18 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public GetFundingPlansRequest(RequestEnvelope requestEnvelope, string payKey)
 	 	{
 			this.requestEnvelope = requestEnvelope;
 			this.payKey = payKey;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public GetFundingPlansRequest()
 	 	{
 		}
@@ -10353,18 +10786,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The response to get the funding plans available for a
-      *payment. 
-      */
+	/// <summary>
+	/// The response to get the funding plans available for a
+	/// payment. 
+    /// </summary>
 	public partial class GetFundingPlansResponse	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -10379,9 +10812,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<FundingPlan> fundingPlanField = new List<FundingPlan>();
 		public List<FundingPlan> fundingPlan
 		{
@@ -10396,9 +10829,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -10413,15 +10846,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public GetFundingPlansResponse()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new GetFundingPlansResponse object created from the passed in NVP map
+	 	/// </returns>
 		public static GetFundingPlansResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			GetFundingPlansResponse getFundingPlansResponse = null;
@@ -10484,17 +10925,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The request to get the addresses available for a payment. 
-      */
+	/// <summary>
+	/// The request to get the addresses available for a payment. 
+    /// </summary>
 	public partial class GetAvailableShippingAddressesRequest	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
 		{
@@ -10509,9 +10950,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string keyField;
 		public string key
 		{
@@ -10526,18 +10967,18 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public GetAvailableShippingAddressesRequest(RequestEnvelope requestEnvelope, string key)
 	 	{
 			this.requestEnvelope = requestEnvelope;
 			this.key = key;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public GetAvailableShippingAddressesRequest()
 	 	{
 		}
@@ -10562,18 +11003,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The response to get the shipping addresses available for a
-      *payment. 
-      */
+	/// <summary>
+	/// The response to get the shipping addresses available for a
+	/// payment. 
+    /// </summary>
 	public partial class GetAvailableShippingAddressesResponse	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -10588,9 +11029,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<Address> availableAddressField = new List<Address>();
 		public List<Address> availableAddress
 		{
@@ -10605,9 +11046,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -10622,15 +11063,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public GetAvailableShippingAddressesResponse()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new GetAvailableShippingAddressesResponse object created from the passed in NVP map
+	 	/// </returns>
 		public static GetAvailableShippingAddressesResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			GetAvailableShippingAddressesResponse getAvailableShippingAddressesResponse = null;
@@ -10693,17 +11142,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The request to get the addresses available for a payment. 
-      */
+	/// <summary>
+	/// The request to get the addresses available for a payment. 
+    /// </summary>
 	public partial class GetShippingAddressesRequest	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
 		{
@@ -10718,9 +11167,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string keyField;
 		public string key
 		{
@@ -10735,18 +11184,18 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public GetShippingAddressesRequest(RequestEnvelope requestEnvelope, string key)
 	 	{
 			this.requestEnvelope = requestEnvelope;
 			this.key = key;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public GetShippingAddressesRequest()
 	 	{
 		}
@@ -10771,18 +11220,18 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The response to get the shipping addresses available for a
-      *payment. 
-      */
+	/// <summary>
+	/// The response to get the shipping addresses available for a
+	/// payment. 
+    /// </summary>
 	public partial class GetShippingAddressesResponse	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -10797,9 +11246,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private Address selectedAddressField;
 		public Address selectedAddress
 		{
@@ -10814,9 +11263,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -10831,15 +11280,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public GetShippingAddressesResponse()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new GetShippingAddressesResponse object created from the passed in NVP map
+	 	/// </returns>
 		public static GetShippingAddressesResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			GetShippingAddressesResponse getShippingAddressesResponse = null;
@@ -10893,17 +11350,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *The request to get the remaining limits for a user 
-      */
+	/// <summary>
+	/// The request to get the remaining limits for a user 
+    /// </summary>
 	public partial class GetUserLimitsRequest	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
 		{
@@ -10918,9 +11375,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private AccountIdentifier userField;
 		public AccountIdentifier user
 		{
@@ -10935,9 +11392,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string countryField;
 		public string country
 		{
@@ -10952,9 +11409,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string currencyCodeField;
 		public string currencyCode
 		{
@@ -10969,9 +11426,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<string> limitTypeField = new List<string>();
 		public List<string> limitType
 		{
@@ -10986,9 +11443,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public GetUserLimitsRequest(RequestEnvelope requestEnvelope, AccountIdentifier user, string country, string currencyCode, List<string> limitType)
 	 	{
 			this.requestEnvelope = requestEnvelope;
@@ -10998,9 +11455,9 @@ namespace PayPal.AdaptivePayments.Model
 			this.limitType = limitType;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public GetUserLimitsRequest()
 	 	{
 		}
@@ -11041,17 +11498,17 @@ namespace PayPal.AdaptivePayments.Model
 
 
 
-	/**
-      *A response that contains a list of remaining limits 
-      */
+	/// <summary>
+	/// A response that contains a list of remaining limits 
+    /// </summary>
 	public partial class GetUserLimitsResponse	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -11066,9 +11523,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<UserLimit> userLimitField = new List<UserLimit>();
 		public List<UserLimit> userLimit
 		{
@@ -11083,9 +11540,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private WarningDataList warningDataListField;
 		public WarningDataList warningDataList
 		{
@@ -11100,9 +11557,9 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -11117,15 +11574,23 @@ namespace PayPal.AdaptivePayments.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public GetUserLimitsResponse()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new GetUserLimitsResponse object created from the passed in NVP map
+	 	/// </returns>
 		public static GetUserLimitsResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			GetUserLimitsResponse getUserLimitsResponse = null;
