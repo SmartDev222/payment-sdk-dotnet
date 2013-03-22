@@ -1,21 +1,24 @@
-IPN Overview:
-------------
+
+# Instant Payment Notifications (IPN)
+
+## Overview
+
 * PayPal Instant Payment Notification is a call back system that is initiated when a transaction is completed 
-  (Example: On successful payment transaction)
-* The transaction related IPN variables will be received on the call back URL specified in the request
+  (Example: On successful payment transaction).
+* The transaction related IPN variables will be received on the call back URL specified in the request.
 * The IPN variables have to be sent back to the PayPal system for validation, 
-  upon validation PayPal will send a response string "VERIFIED" or "INVALID"
-* PayPal would continuously resend IPN if a wrong IPN is sent
+  upon validation PayPal will send a response string that is either "VERIFIED" or "INVALID".
+* PayPal would continuously resend IPN until you acknowledge receipt of the IPN.
 
 
-IPN Configuration:
------------------
-* IPN endpoint URL is specified in 'Web.config' as 'IPNEndpoint'. This will be used for the IPN post back
-* A utility class 'IPNMessage.cs' is provided in sdk-core-dotnet for IPN message validation
+## Configuration
+
+* Configure the 'mode' parameter in your Web.Config file or pass in a dictionary containing the 'mode' parameter. See the SDK README file for more on configuration.
+* A utility class 'IPNMessage.cs' is provided in sdk-core-dotnet for IPN message validation.
 
 
-IPN Deployment:
---------------
+## Deployment
+
 * IPN Listener - adaptivepayments-sdk-dotnet\Samples\AdaptivePaymentsSampleApp\IPNListener.aspx
 * Deploy IPN Listener sample in IIS and expose your server port using any third party 
   LocalTunneling software, so that the PayPal IPN call back can be received
@@ -24,11 +27,10 @@ IPN Deployment:
 * The IPN call back from PayPal would be logged in the log file of the IPN sample
 
 
-IPN variables:
---------------
+## IPN variables
 
-[Transaction]
--------------
+### [Transaction]
+
 * transaction_type
 * action_type
 * transaction[n].amount
@@ -51,18 +53,18 @@ IPN variables:
 * reverse_all_parallel_payments_on_error 
 * log_default_shipping_address_in_transaction
 
-[BuyerInfo]
------------
+### [BuyerInfo]
+
 * sender_email
 * fees_payer
 * pin_type
 
-[DisputeResolution]
--------------------
+### [DisputeResolution]
+
 * reason_code
 
-[RecurringPayment]
-------------------
+### [RecurringPayment]
+
 * current_number_of_payments
 * current_period_attempts
 * current_total_amount_of_all_payments
@@ -76,8 +78,8 @@ IPN variables:
 * starting_date
 * payment_period
 
-[Paymentinfo]
--------------
+### [Paymentinfo]
+
 * pay_key
 * payment_request_date
 * preapproval_key
@@ -95,6 +97,6 @@ IPN variables:
 
 * For a full list of IPN variables you need to check the log file that the IPN Listener logs.    
 
-IPN Reference :
---------------
+## Reference
+
 * Please refer to 'Instant Payment Notification: Getting Started' at [https://www.x.com/developers/paypal/documentation-tools/IPN/gs_IPN]
