@@ -16,7 +16,7 @@ namespace PayPal.AdaptivePayments
 		/// <summary>
 		/// Service Version
 		/// </summary>
-		private const string ServiceVersion = "1.8.2";
+		private const string ServiceVersion = "1.8.4";
 
 		/// <summary>
 		/// Service Name
@@ -31,7 +31,7 @@ namespace PayPal.AdaptivePayments
 		/// <summary>
 		/// SDK Version
 		/// </summary>
-		private const string SDKVersion = "2.1.96";
+		private const string SDKVersion = "2.4.100";
 
 		/// <summary>
 		/// Default constructor for loading configuration from *.Config file
@@ -745,6 +745,50 @@ namespace PayPal.AdaptivePayments
 
 			NVPUtil util = new NVPUtil();
 			return GetUserLimitsResponse.CreateInstance(util.ParseNVPString(Call(apiCallPreHandler)), string.Empty, -1);
+			
+	 	}
+
+		/// <summary>
+		/// 
+	 	/// </summary>
+		///<param name="getPrePaymentDisclosureRequest"></param>
+		///<param name="apiUserName">API Username that you want to authenticate this call against. This username and the corresponding 3-token/certificate credentials must be available in Web.Config/App.Config</param>
+	 	public GetPrePaymentDisclosureResponse GetPrePaymentDisclosure(GetPrePaymentDisclosureRequest getPrePaymentDisclosureRequest, string apiUserName)
+	 	{	 		
+			IAPICallPreHandler apiCallPreHandler = new PlatformAPICallPreHandler(this.config, getPrePaymentDisclosureRequest.ToNVPString(string.Empty), ServiceName, "GetPrePaymentDisclosure", apiUserName, getAccessToken(), getAccessTokenSecret());
+	   	 	((PlatformAPICallPreHandler) apiCallPreHandler).SDKName = SDKName;
+			((PlatformAPICallPreHandler) apiCallPreHandler).SDKVersion = SDKVersion;
+			((PlatformAPICallPreHandler) apiCallPreHandler).PortName = "AdaptivePayments";
+			
+			NVPUtil util = new NVPUtil();
+			return GetPrePaymentDisclosureResponse.CreateInstance(util.ParseNVPString(Call(apiCallPreHandler)), string.Empty, -1);
+			
+	 	}
+	 
+	 	/// <summary> 
+		/// 
+	 	/// </summary>
+		///<param name="getPrePaymentDisclosureRequest"></param>
+	 	
+	 	public GetPrePaymentDisclosureResponse GetPrePaymentDisclosure(GetPrePaymentDisclosureRequest getPrePaymentDisclosureRequest)
+	 	{
+	 		return GetPrePaymentDisclosure(getPrePaymentDisclosureRequest,(string) null);
+	 	}
+	 	
+	 	/// <summary>
+		/// 
+	 	/// </summary>
+		///<param name="getPrePaymentDisclosureRequest"></param>
+		///<param name="credential">An explicit ICredential object that you want to authenticate this call against</param> 
+	 	public GetPrePaymentDisclosureResponse GetPrePaymentDisclosure(GetPrePaymentDisclosureRequest getPrePaymentDisclosureRequest, ICredential credential)
+	 	{	 			 		
+			IAPICallPreHandler apiCallPreHandler = new PlatformAPICallPreHandler(this.config, getPrePaymentDisclosureRequest.ToNVPString(string.Empty), ServiceName, "GetPrePaymentDisclosure", credential);
+	   	 	((PlatformAPICallPreHandler) apiCallPreHandler).SDKName = SDKName;
+			((PlatformAPICallPreHandler) apiCallPreHandler).SDKVersion = SDKVersion;
+			((PlatformAPICallPreHandler) apiCallPreHandler).PortName = "AdaptivePayments";
+
+			NVPUtil util = new NVPUtil();
+			return GetPrePaymentDisclosureResponse.CreateInstance(util.ParseNVPString(Call(apiCallPreHandler)), string.Empty, -1);
 			
 	 	}
 	}

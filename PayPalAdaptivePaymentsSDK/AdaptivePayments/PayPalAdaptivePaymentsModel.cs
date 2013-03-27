@@ -96,6 +96,23 @@ namespace PayPal.AdaptivePayments.Model
 		
 
 		/// <summary>
+		/// 
+		/// </summary>
+		private string accountIdField;
+		public string accountId
+		{
+			get
+			{
+				return this.accountIdField;
+			}
+			set
+			{
+				this.accountIdField = value;
+			}
+		}
+		
+
+		/// <summary>
 		/// Default Constructor
 	 	/// </summary>
 	 	public AccountIdentifier()
@@ -114,6 +131,10 @@ namespace PayPal.AdaptivePayments.Model
 			{
 					string newPrefix = prefix + "phone" + ".";
 					sb.Append(this.phoneField.ToNVPString(newPrefix));
+			}
+			if (this.accountId != null)
+			{
+					sb.Append(prefix).Append("accountId").Append("=").Append(HttpUtility.UrlEncode(this.accountId, BaseConstants.ENCODING_FORMAT)).Append("&");
 			}
 			return sb.ToString();
 		}
@@ -156,6 +177,12 @@ namespace PayPal.AdaptivePayments.Model
 			{
 				accountIdentifier = (accountIdentifier == null) ? new AccountIdentifier() : accountIdentifier;
 				accountIdentifier.phone = phone;
+			}
+			key = prefix + "accountId";
+			if (map.ContainsKey(key))
+			{
+				accountIdentifier = (accountIdentifier == null) ? new AccountIdentifier() : accountIdentifier;
+				accountIdentifier.accountId = map[key];
 			}
 			return accountIdentifier;
 		}
@@ -1578,6 +1605,19 @@ namespace PayPal.AdaptivePayments.Model
 	public enum ErrorSeverity {
 		[Description("Error")]ERROR,	
 		[Description("Warning")]WARNING	
+	}
+
+
+
+
+	/// <summary>
+	/// 
+	/// </summary>
+    [Serializable]
+	public enum Status {
+		[Description("RTR")]RTR,	
+		[Description("NON_RTR")]NONRTR,	
+		[Description("MISSING_RECEIVER_COUNTRY_INFORMATION")]MISSINGRECEIVERCOUNTRYINFORMATION	
 	}
 
 
@@ -4559,6 +4599,23 @@ namespace PayPal.AdaptivePayments.Model
 		
 
 		/// <summary>
+		/// 
+		/// </summary>
+		private string accountIdField;
+		public string accountId
+		{
+			get
+			{
+				return this.accountIdField;
+			}
+			set
+			{
+				this.accountIdField = value;
+			}
+		}
+		
+
+		/// <summary>
 		/// Constructor with arguments
 	 	/// </summary>
 	 	public Receiver(decimal? amount)
@@ -4605,6 +4662,10 @@ namespace PayPal.AdaptivePayments.Model
 			if (this.paymentSubType != null)
 			{
 					sb.Append(prefix).Append("paymentSubType").Append("=").Append(HttpUtility.UrlEncode(this.paymentSubType, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.accountId != null)
+			{
+					sb.Append(prefix).Append("accountId").Append("=").Append(HttpUtility.UrlEncode(this.accountId, BaseConstants.ENCODING_FORMAT)).Append("&");
 			}
 			return sb.ToString();
 		}
@@ -4677,6 +4738,12 @@ namespace PayPal.AdaptivePayments.Model
 			{
 				receiver = (receiver == null) ? new Receiver() : receiver;
 				receiver.paymentSubType = map[key];
+			}
+			key = prefix + "accountId";
+			if (map.ContainsKey(key))
+			{
+				receiver = (receiver == null) ? new Receiver() : receiver;
+				receiver.accountId = map[key];
 			}
 			return receiver;
 		}
@@ -4801,6 +4868,7 @@ namespace PayPal.AdaptivePayments.Model
 				receiverIdentifier = (receiverIdentifier == null) ? new ReceiverIdentifier() : receiverIdentifier;
 				receiverIdentifier.email = accountIdentifier.email;
 				receiverIdentifier.phone = accountIdentifier.phone;
+				receiverIdentifier.accountId = accountIdentifier.accountId;
 			}
 			return receiverIdentifier;
 		}
@@ -5697,6 +5765,7 @@ namespace PayPal.AdaptivePayments.Model
 				senderIdentifier = (senderIdentifier == null) ? new SenderIdentifier() : senderIdentifier;
 				senderIdentifier.email = accountIdentifier.email;
 				senderIdentifier.phone = accountIdentifier.phone;
+				senderIdentifier.accountId = accountIdentifier.accountId;
 			}
 			key = prefix + "useCredentials";
 			if (map.ContainsKey(key))
@@ -6801,6 +6870,211 @@ namespace PayPal.AdaptivePayments.Model
 
 
 	/// <summary>
+	/// Contains information related to Post Payment Disclosure
+	/// Details This contains 1.Receivers information 2.Funds
+	/// Avalibility Date 
+    /// </summary>
+	public partial class PostPaymentDisclosure	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private AccountIdentifier accountIdentifierField;
+		public AccountIdentifier accountIdentifier
+		{
+			get
+			{
+				return this.accountIdentifierField;
+			}
+			set
+			{
+				this.accountIdentifierField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string fundsAvailabilityDateField;
+		public string fundsAvailabilityDate
+		{
+			get
+			{
+				return this.fundsAvailabilityDateField;
+			}
+			set
+			{
+				this.fundsAvailabilityDateField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string fundsAvailabilityDateDisclaimerTextField;
+		public string fundsAvailabilityDateDisclaimerText
+		{
+			get
+			{
+				return this.fundsAvailabilityDateDisclaimerTextField;
+			}
+			set
+			{
+				this.fundsAvailabilityDateDisclaimerTextField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
+	 	public PostPaymentDisclosure()
+	 	{
+		}
+
+
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new PostPaymentDisclosure object created from the passed in NVP map
+	 	/// </returns>
+		public static PostPaymentDisclosure CreateInstance(Dictionary<string, string> map, string prefix, int index)
+		{
+			PostPaymentDisclosure postPaymentDisclosure = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			AccountIdentifier accountIdentifier =  AccountIdentifier.CreateInstance(map, prefix + "accountIdentifier", -1);
+			if (accountIdentifier != null)
+			{
+				postPaymentDisclosure = (postPaymentDisclosure == null) ? new PostPaymentDisclosure() : postPaymentDisclosure;
+				postPaymentDisclosure.accountIdentifier = accountIdentifier;
+			}
+			key = prefix + "fundsAvailabilityDate";
+			if (map.ContainsKey(key))
+			{
+				postPaymentDisclosure = (postPaymentDisclosure == null) ? new PostPaymentDisclosure() : postPaymentDisclosure;
+				postPaymentDisclosure.fundsAvailabilityDate = map[key];
+			}
+			key = prefix + "fundsAvailabilityDateDisclaimerText";
+			if (map.ContainsKey(key))
+			{
+				postPaymentDisclosure = (postPaymentDisclosure == null) ? new PostPaymentDisclosure() : postPaymentDisclosure;
+				postPaymentDisclosure.fundsAvailabilityDateDisclaimerText = map[key];
+			}
+			return postPaymentDisclosure;
+		}
+	}
+
+
+
+
+	/// <summary>
+	/// 
+    /// </summary>
+	public partial class PostPaymentDisclosureList	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private List<PostPaymentDisclosure> postPaymentDisclosureField = new List<PostPaymentDisclosure>();
+		public List<PostPaymentDisclosure> postPaymentDisclosure
+		{
+			get
+			{
+				return this.postPaymentDisclosureField;
+			}
+			set
+			{
+				this.postPaymentDisclosureField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
+	 	public PostPaymentDisclosureList()
+	 	{
+		}
+
+
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new PostPaymentDisclosureList object created from the passed in NVP map
+	 	/// </returns>
+		public static PostPaymentDisclosureList CreateInstance(Dictionary<string, string> map, string prefix, int index)
+		{
+			PostPaymentDisclosureList postPaymentDisclosureList = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			i = 0;
+			while(true)
+			{
+				PostPaymentDisclosure postPaymentDisclosure =  PostPaymentDisclosure.CreateInstance(map, prefix + "postPaymentDisclosure", i);
+				if (postPaymentDisclosure != null)
+				{
+					postPaymentDisclosureList = (postPaymentDisclosureList == null) ? new PostPaymentDisclosureList() : postPaymentDisclosureList;
+					postPaymentDisclosureList.postPaymentDisclosure.Add(postPaymentDisclosure);
+					i++;
+				} 
+				else
+				{
+					break;
+				}
+			}
+			return postPaymentDisclosureList;
+		}
+	}
+
+
+
+
+	/// <summary>
 	/// The result of a payment execution. 
     /// </summary>
 	public partial class ExecutePaymentResponse	{
@@ -6855,6 +7129,23 @@ namespace PayPal.AdaptivePayments.Model
 			set
 			{
 				this.payErrorListField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private PostPaymentDisclosureList postPaymentDisclosureListField;
+		public PostPaymentDisclosureList postPaymentDisclosureList
+		{
+			get
+			{
+				return this.postPaymentDisclosureListField;
+			}
+			set
+			{
+				this.postPaymentDisclosureListField = value;
 			}
 		}
 		
@@ -6929,6 +7220,12 @@ namespace PayPal.AdaptivePayments.Model
 			{
 				executePaymentResponse = (executePaymentResponse == null) ? new ExecutePaymentResponse() : executePaymentResponse;
 				executePaymentResponse.payErrorList = payErrorList;
+			}
+			PostPaymentDisclosureList postPaymentDisclosureList =  PostPaymentDisclosureList.CreateInstance(map, prefix + "postPaymentDisclosureList", -1);
+			if (postPaymentDisclosureList != null)
+			{
+				executePaymentResponse = (executePaymentResponse == null) ? new ExecutePaymentResponse() : executePaymentResponse;
+				executePaymentResponse.postPaymentDisclosureList = postPaymentDisclosureList;
 			}
 			i = 0;
 			while(true)
@@ -9252,6 +9549,23 @@ namespace PayPal.AdaptivePayments.Model
 		/// <summary>
 		/// 
 		/// </summary>
+		private SenderIdentifier senderField;
+		public SenderIdentifier sender
+		{
+			get
+			{
+				return this.senderField;
+			}
+			set
+			{
+				this.senderField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -9457,6 +9771,12 @@ namespace PayPal.AdaptivePayments.Model
 			{
 				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
 				preapprovalDetailsResponse.displayMaxTotalAmount = System.Convert.ToBoolean(map[key]);
+			}
+			SenderIdentifier sender =  SenderIdentifier.CreateInstance(map, prefix + "sender", -1);
+			if (sender != null)
+			{
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.sender = sender;
 			}
 			i = 0;
 			while(true)
@@ -9849,6 +10169,23 @@ namespace PayPal.AdaptivePayments.Model
 		
 
 		/// <summary>
+		/// 
+		/// </summary>
+		private SenderIdentifier senderField;
+		public SenderIdentifier sender
+		{
+			get
+			{
+				return this.senderField;
+			}
+			set
+			{
+				this.senderField = value;
+			}
+		}
+		
+
+		/// <summary>
 		/// Constructor with arguments
 	 	/// </summary>
 	 	public PreapprovalRequest(RequestEnvelope requestEnvelope, string cancelUrl, string currencyCode, string returnUrl, string startingDate)
@@ -9957,6 +10294,11 @@ namespace PayPal.AdaptivePayments.Model
 			if (this.requireInstantFundingSource != null)
 			{
 					sb.Append(prefix).Append("requireInstantFundingSource").Append("=").Append(this.requireInstantFundingSource.ToString().ToLower()).Append("&");
+			}
+			if (this.sender != null)
+			{
+					string newPrefix = prefix + "sender" + ".";
+					sb.Append(this.senderField.ToNVPString(newPrefix));
 			}
 			return sb.ToString();
 		}
@@ -11653,6 +11995,1117 @@ namespace PayPal.AdaptivePayments.Model
 				}
 			}
 			return getUserLimitsResponse;
+		}
+	}
+
+
+
+
+	/// <summary>
+	/// ReceiverInfo needs to be populate for the receiver who
+	/// doesn't have paypal account. 
+    /// </summary>
+	public partial class ReceiverInfo : AccountIdentifier	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string countryCodeField;
+		public string countryCode
+		{
+			get
+			{
+				return this.countryCodeField;
+			}
+			set
+			{
+				this.countryCodeField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string firstNameField;
+		public string firstName
+		{
+			get
+			{
+				return this.firstNameField;
+			}
+			set
+			{
+				this.firstNameField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string lastNameField;
+		public string lastName
+		{
+			get
+			{
+				return this.lastNameField;
+			}
+			set
+			{
+				this.lastNameField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
+	 	public ReceiverInfo()
+	 	{
+		}
+
+
+		public new string ToNVPString(string prefix)
+		{
+			StringBuilder sb = new StringBuilder();
+			sb.Append(base.ToNVPString(prefix));
+			if (this.countryCode != null)
+			{
+					sb.Append(prefix).Append("countryCode").Append("=").Append(HttpUtility.UrlEncode(this.countryCode, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.firstName != null)
+			{
+					sb.Append(prefix).Append("firstName").Append("=").Append(HttpUtility.UrlEncode(this.firstName, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.lastName != null)
+			{
+					sb.Append(prefix).Append("lastName").Append("=").Append(HttpUtility.UrlEncode(this.lastName, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			return sb.ToString();
+		}
+	}
+
+
+
+
+	/// <summary>
+	/// FeeDisclosure contains the information related to Fees and
+	/// taxes. 
+    /// </summary>
+	public partial class FeeDisclosure	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private CurrencyType feeField;
+		public CurrencyType fee
+		{
+			get
+			{
+				return this.feeField;
+			}
+			set
+			{
+				this.feeField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private CurrencyType taxesField;
+		public CurrencyType taxes
+		{
+			get
+			{
+				return this.taxesField;
+			}
+			set
+			{
+				this.taxesField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
+	 	public FeeDisclosure()
+	 	{
+		}
+
+
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new FeeDisclosure object created from the passed in NVP map
+	 	/// </returns>
+		public static FeeDisclosure CreateInstance(Dictionary<string, string> map, string prefix, int index)
+		{
+			FeeDisclosure feeDisclosure = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			CurrencyType fee =  CurrencyType.CreateInstance(map, prefix + "fee", -1);
+			if (fee != null)
+			{
+				feeDisclosure = (feeDisclosure == null) ? new FeeDisclosure() : feeDisclosure;
+				feeDisclosure.fee = fee;
+			}
+			CurrencyType taxes =  CurrencyType.CreateInstance(map, prefix + "taxes", -1);
+			if (taxes != null)
+			{
+				feeDisclosure = (feeDisclosure == null) ? new FeeDisclosure() : feeDisclosure;
+				feeDisclosure.taxes = taxes;
+			}
+			return feeDisclosure;
+		}
+	}
+
+
+
+
+	/// <summary>
+	/// SenderDisclosure contains the disclosure related to Sender 
+    /// </summary>
+	public partial class SenderDisclosure	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private CurrencyType amountToTransferField;
+		public CurrencyType amountToTransfer
+		{
+			get
+			{
+				return this.amountToTransferField;
+			}
+			set
+			{
+				this.amountToTransferField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private FeeDisclosure feeDisclosureField;
+		public FeeDisclosure feeDisclosure
+		{
+			get
+			{
+				return this.feeDisclosureField;
+			}
+			set
+			{
+				this.feeDisclosureField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private CurrencyType totalAmountToTransferField;
+		public CurrencyType totalAmountToTransfer
+		{
+			get
+			{
+				return this.totalAmountToTransferField;
+			}
+			set
+			{
+				this.totalAmountToTransferField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
+	 	public SenderDisclosure()
+	 	{
+		}
+
+
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new SenderDisclosure object created from the passed in NVP map
+	 	/// </returns>
+		public static SenderDisclosure CreateInstance(Dictionary<string, string> map, string prefix, int index)
+		{
+			SenderDisclosure senderDisclosure = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			CurrencyType amountToTransfer =  CurrencyType.CreateInstance(map, prefix + "amountToTransfer", -1);
+			if (amountToTransfer != null)
+			{
+				senderDisclosure = (senderDisclosure == null) ? new SenderDisclosure() : senderDisclosure;
+				senderDisclosure.amountToTransfer = amountToTransfer;
+			}
+			FeeDisclosure feeDisclosure =  FeeDisclosure.CreateInstance(map, prefix + "feeDisclosure", -1);
+			if (feeDisclosure != null)
+			{
+				senderDisclosure = (senderDisclosure == null) ? new SenderDisclosure() : senderDisclosure;
+				senderDisclosure.feeDisclosure = feeDisclosure;
+			}
+			CurrencyType totalAmountToTransfer =  CurrencyType.CreateInstance(map, prefix + "totalAmountToTransfer", -1);
+			if (totalAmountToTransfer != null)
+			{
+				senderDisclosure = (senderDisclosure == null) ? new SenderDisclosure() : senderDisclosure;
+				senderDisclosure.totalAmountToTransfer = totalAmountToTransfer;
+			}
+			return senderDisclosure;
+		}
+	}
+
+
+
+
+	/// <summary>
+	/// This holds the conversion rate from "Sender currency for one
+	/// bucks to equivalent value in the receivers currency" 
+    /// </summary>
+	public partial class ConversionRate	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string senderCurrencyField;
+		public string senderCurrency
+		{
+			get
+			{
+				return this.senderCurrencyField;
+			}
+			set
+			{
+				this.senderCurrencyField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string receiverCurrencyField;
+		public string receiverCurrency
+		{
+			get
+			{
+				return this.receiverCurrencyField;
+			}
+			set
+			{
+				this.receiverCurrencyField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private decimal? exchangeRateField;
+		public decimal? exchangeRate
+		{
+			get
+			{
+				return this.exchangeRateField;
+			}
+			set
+			{
+				this.exchangeRateField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
+	 	public ConversionRate()
+	 	{
+		}
+
+
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new ConversionRate object created from the passed in NVP map
+	 	/// </returns>
+		public static ConversionRate CreateInstance(Dictionary<string, string> map, string prefix, int index)
+		{
+			ConversionRate conversionRate = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			key = prefix + "senderCurrency";
+			if (map.ContainsKey(key))
+			{
+				conversionRate = (conversionRate == null) ? new ConversionRate() : conversionRate;
+				conversionRate.senderCurrency = map[key];
+			}
+			key = prefix + "receiverCurrency";
+			if (map.ContainsKey(key))
+			{
+				conversionRate = (conversionRate == null) ? new ConversionRate() : conversionRate;
+				conversionRate.receiverCurrency = map[key];
+			}
+			key = prefix + "exchangeRate";
+			if (map.ContainsKey(key))
+			{
+				conversionRate = (conversionRate == null) ? new ConversionRate() : conversionRate;
+				conversionRate.exchangeRate = System.Convert.ToDecimal(map[key]);
+			}
+			return conversionRate;
+		}
+	}
+
+
+
+
+	/// <summary>
+	/// ReceiverDisclosure contains the disclosure related to
+	/// Receiver/Receivers. 
+    /// </summary>
+	public partial class ReceiverDisclosure	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private AccountIdentifier accountIdentifierField;
+		public AccountIdentifier accountIdentifier
+		{
+			get
+			{
+				return this.accountIdentifierField;
+			}
+			set
+			{
+				this.accountIdentifierField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private CurrencyType amountReceivedFromSenderField;
+		public CurrencyType amountReceivedFromSender
+		{
+			get
+			{
+				return this.amountReceivedFromSenderField;
+			}
+			set
+			{
+				this.amountReceivedFromSenderField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string countryCodeField;
+		public string countryCode
+		{
+			get
+			{
+				return this.countryCodeField;
+			}
+			set
+			{
+				this.countryCodeField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private ConversionRate conversionRateField;
+		public ConversionRate conversionRate
+		{
+			get
+			{
+				return this.conversionRateField;
+			}
+			set
+			{
+				this.conversionRateField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private FeeDisclosure feeDisclosureField;
+		public FeeDisclosure feeDisclosure
+		{
+			get
+			{
+				return this.feeDisclosureField;
+			}
+			set
+			{
+				this.feeDisclosureField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private CurrencyType totalAmountReceivedField;
+		public CurrencyType totalAmountReceived
+		{
+			get
+			{
+				return this.totalAmountReceivedField;
+			}
+			set
+			{
+				this.totalAmountReceivedField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
+	 	public ReceiverDisclosure()
+	 	{
+		}
+
+
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new ReceiverDisclosure object created from the passed in NVP map
+	 	/// </returns>
+		public static ReceiverDisclosure CreateInstance(Dictionary<string, string> map, string prefix, int index)
+		{
+			ReceiverDisclosure receiverDisclosure = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			AccountIdentifier accountIdentifier =  AccountIdentifier.CreateInstance(map, prefix + "accountIdentifier", -1);
+			if (accountIdentifier != null)
+			{
+				receiverDisclosure = (receiverDisclosure == null) ? new ReceiverDisclosure() : receiverDisclosure;
+				receiverDisclosure.accountIdentifier = accountIdentifier;
+			}
+			CurrencyType amountReceivedFromSender =  CurrencyType.CreateInstance(map, prefix + "amountReceivedFromSender", -1);
+			if (amountReceivedFromSender != null)
+			{
+				receiverDisclosure = (receiverDisclosure == null) ? new ReceiverDisclosure() : receiverDisclosure;
+				receiverDisclosure.amountReceivedFromSender = amountReceivedFromSender;
+			}
+			key = prefix + "countryCode";
+			if (map.ContainsKey(key))
+			{
+				receiverDisclosure = (receiverDisclosure == null) ? new ReceiverDisclosure() : receiverDisclosure;
+				receiverDisclosure.countryCode = map[key];
+			}
+			ConversionRate conversionRate =  ConversionRate.CreateInstance(map, prefix + "conversionRate", -1);
+			if (conversionRate != null)
+			{
+				receiverDisclosure = (receiverDisclosure == null) ? new ReceiverDisclosure() : receiverDisclosure;
+				receiverDisclosure.conversionRate = conversionRate;
+			}
+			FeeDisclosure feeDisclosure =  FeeDisclosure.CreateInstance(map, prefix + "feeDisclosure", -1);
+			if (feeDisclosure != null)
+			{
+				receiverDisclosure = (receiverDisclosure == null) ? new ReceiverDisclosure() : receiverDisclosure;
+				receiverDisclosure.feeDisclosure = feeDisclosure;
+			}
+			CurrencyType totalAmountReceived =  CurrencyType.CreateInstance(map, prefix + "totalAmountReceived", -1);
+			if (totalAmountReceived != null)
+			{
+				receiverDisclosure = (receiverDisclosure == null) ? new ReceiverDisclosure() : receiverDisclosure;
+				receiverDisclosure.totalAmountReceived = totalAmountReceived;
+			}
+			return receiverDisclosure;
+		}
+	}
+
+
+
+
+	/// <summary>
+	/// 
+    /// </summary>
+	public partial class ReceiverDisclosureList	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private List<ReceiverDisclosure> receiverDisclosureField = new List<ReceiverDisclosure>();
+		public List<ReceiverDisclosure> receiverDisclosure
+		{
+			get
+			{
+				return this.receiverDisclosureField;
+			}
+			set
+			{
+				this.receiverDisclosureField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
+	 	public ReceiverDisclosureList()
+	 	{
+		}
+
+
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new ReceiverDisclosureList object created from the passed in NVP map
+	 	/// </returns>
+		public static ReceiverDisclosureList CreateInstance(Dictionary<string, string> map, string prefix, int index)
+		{
+			ReceiverDisclosureList receiverDisclosureList = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			i = 0;
+			while(true)
+			{
+				ReceiverDisclosure receiverDisclosure =  ReceiverDisclosure.CreateInstance(map, prefix + "receiverDisclosure", i);
+				if (receiverDisclosure != null)
+				{
+					receiverDisclosureList = (receiverDisclosureList == null) ? new ReceiverDisclosureList() : receiverDisclosureList;
+					receiverDisclosureList.receiverDisclosure.Add(receiverDisclosure);
+					i++;
+				} 
+				else
+				{
+					break;
+				}
+			}
+			return receiverDisclosureList;
+		}
+	}
+
+
+
+
+	/// <summary>
+	/// 
+    /// </summary>
+	public partial class ReceiverInfoList	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private List<ReceiverInfo> receiverInfoField = new List<ReceiverInfo>();
+		public List<ReceiverInfo> receiverInfo
+		{
+			get
+			{
+				return this.receiverInfoField;
+			}
+			set
+			{
+				this.receiverInfoField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
+	 	public ReceiverInfoList(List<ReceiverInfo> receiverInfo)
+	 	{
+			this.receiverInfo = receiverInfo;
+		}
+
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
+	 	public ReceiverInfoList()
+	 	{
+		}
+
+
+		public string ToNVPString(string prefix)
+		{
+			StringBuilder sb = new StringBuilder();
+			for (int i = 0; i < this.receiverInfo.Count; i++)
+			{
+				if (this.receiverInfo[i] != null)
+				{
+					string newPrefix = prefix + "receiverInfo" + "(" + i + ").";
+					sb.Append(this.receiverInfo[i].ToNVPString(newPrefix));
+				}
+			}
+			return sb.ToString();
+		}
+	}
+
+
+
+
+	/// <summary>
+	/// GetPrePaymentDisclosureRequest is used to get the PrePayment
+	/// Disclosure.; GetPrePaymentDisclosureRequest contains
+	/// following parameters payKey :The pay key that identifies the
+	/// payment for which you want to retrieve details. this is the
+	/// pay key returned in the PayResponse message.
+	/// receiverInfoList : This is an optional.This needs to be
+	/// provided in case of Unilateral scenario. receiverInfoList
+	/// has a list of ReceiverInfo type. List is provided here to
+	/// support in future for Parallel/Chained Payemnts. Each
+	/// ReceiverInfo has following variables firstName : firstName
+	/// of recipient.  lastName : lastName of recipient. 
+	/// countryCode : CountryCode of Recipient. 
+    /// </summary>
+	public partial class GetPrePaymentDisclosureRequest	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private RequestEnvelope requestEnvelopeField;
+		public RequestEnvelope requestEnvelope
+		{
+			get
+			{
+				return this.requestEnvelopeField;
+			}
+			set
+			{
+				this.requestEnvelopeField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string payKeyField;
+		public string payKey
+		{
+			get
+			{
+				return this.payKeyField;
+			}
+			set
+			{
+				this.payKeyField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private ReceiverInfoList receiverInfoListField;
+		public ReceiverInfoList receiverInfoList
+		{
+			get
+			{
+				return this.receiverInfoListField;
+			}
+			set
+			{
+				this.receiverInfoListField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
+	 	public GetPrePaymentDisclosureRequest(RequestEnvelope requestEnvelope, string payKey)
+	 	{
+			this.requestEnvelope = requestEnvelope;
+			this.payKey = payKey;
+		}
+
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
+	 	public GetPrePaymentDisclosureRequest()
+	 	{
+		}
+
+
+		public string ToNVPString(string prefix)
+		{
+			StringBuilder sb = new StringBuilder();
+			if (this.requestEnvelope != null)
+			{
+					string newPrefix = prefix + "requestEnvelope" + ".";
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
+			}
+			if (this.payKey != null)
+			{
+					sb.Append(prefix).Append("payKey").Append("=").Append(HttpUtility.UrlEncode(this.payKey, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.receiverInfoList != null)
+			{
+					string newPrefix = prefix + "receiverInfoList" + ".";
+					sb.Append(this.receiverInfoListField.ToNVPString(newPrefix));
+			}
+			return sb.ToString();
+		}
+	}
+
+
+
+
+	/// <summary>
+	/// GetPrePaymentDisclosureResponse contains the information
+	/// related to PrePayment disclosure. status : indicates the
+	/// status of response. If Status = RTR then it means that this
+	/// is RTR transaction. If Status = NON_RTR then it means that
+	/// this is non RTR transaction. If Status =
+	/// MISSING_RECEIVER_COUNTRY_INFORMATION then it means the
+	/// Receiver country information is not found in PayPal
+	/// database. So merchant has to call the API again with same
+	/// set of parameter along with Receiver country code.This is
+	/// useful in case of Unilateral scenario. where receiver is not
+	/// holding paypal account. feePayer:Indicates who has agreed to
+	/// Pay a Fee for the RTR transaction. Merchant can use this
+	/// information to decide who actually has to pay the fee .
+	/// senderDisclosure : This Variable Holds the disclosure
+	/// related to sender. receiverDisclosureList : This list
+	/// contains the disclosure information related to receivers.
+	/// Merchant can just parse the details what ever is avaliable
+	/// in the response and display the same to user. 
+    /// </summary>
+	public partial class GetPrePaymentDisclosureResponse	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private ResponseEnvelope responseEnvelopeField;
+		public ResponseEnvelope responseEnvelope
+		{
+			get
+			{
+				return this.responseEnvelopeField;
+			}
+			set
+			{
+				this.responseEnvelopeField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private Status? statusField;
+		public Status? status
+		{
+			get
+			{
+				return this.statusField;
+			}
+			set
+			{
+				this.statusField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string feesPayerField;
+		public string feesPayer
+		{
+			get
+			{
+				return this.feesPayerField;
+			}
+			set
+			{
+				this.feesPayerField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private SenderDisclosure senderDisclosureField;
+		public SenderDisclosure senderDisclosure
+		{
+			get
+			{
+				return this.senderDisclosureField;
+			}
+			set
+			{
+				this.senderDisclosureField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private ReceiverDisclosureList receiverDisclosureListField;
+		public ReceiverDisclosureList receiverDisclosureList
+		{
+			get
+			{
+				return this.receiverDisclosureListField;
+			}
+			set
+			{
+				this.receiverDisclosureListField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string disclaimerField;
+		public string disclaimer
+		{
+			get
+			{
+				return this.disclaimerField;
+			}
+			set
+			{
+				this.disclaimerField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private List<ErrorData> errorField = new List<ErrorData>();
+		public List<ErrorData> error
+		{
+			get
+			{
+				return this.errorField;
+			}
+			set
+			{
+				this.errorField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
+	 	public GetPrePaymentDisclosureResponse()
+	 	{
+		}
+
+
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new GetPrePaymentDisclosureResponse object created from the passed in NVP map
+	 	/// </returns>
+		public static GetPrePaymentDisclosureResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
+		{
+			GetPrePaymentDisclosureResponse getPrePaymentDisclosureResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
+			{
+				getPrePaymentDisclosureResponse = (getPrePaymentDisclosureResponse == null) ? new GetPrePaymentDisclosureResponse() : getPrePaymentDisclosureResponse;
+				getPrePaymentDisclosureResponse.responseEnvelope = responseEnvelope;
+			}
+			key = prefix + "status";
+			if (map.ContainsKey(key))
+			{
+				getPrePaymentDisclosureResponse = (getPrePaymentDisclosureResponse == null) ? new GetPrePaymentDisclosureResponse() : getPrePaymentDisclosureResponse;
+				getPrePaymentDisclosureResponse.status = (Status)EnumUtils.GetValue(map[key],typeof(Status));
+			}
+			key = prefix + "feesPayer";
+			if (map.ContainsKey(key))
+			{
+				getPrePaymentDisclosureResponse = (getPrePaymentDisclosureResponse == null) ? new GetPrePaymentDisclosureResponse() : getPrePaymentDisclosureResponse;
+				getPrePaymentDisclosureResponse.feesPayer = map[key];
+			}
+			SenderDisclosure senderDisclosure =  SenderDisclosure.CreateInstance(map, prefix + "senderDisclosure", -1);
+			if (senderDisclosure != null)
+			{
+				getPrePaymentDisclosureResponse = (getPrePaymentDisclosureResponse == null) ? new GetPrePaymentDisclosureResponse() : getPrePaymentDisclosureResponse;
+				getPrePaymentDisclosureResponse.senderDisclosure = senderDisclosure;
+			}
+			ReceiverDisclosureList receiverDisclosureList =  ReceiverDisclosureList.CreateInstance(map, prefix + "receiverDisclosureList", -1);
+			if (receiverDisclosureList != null)
+			{
+				getPrePaymentDisclosureResponse = (getPrePaymentDisclosureResponse == null) ? new GetPrePaymentDisclosureResponse() : getPrePaymentDisclosureResponse;
+				getPrePaymentDisclosureResponse.receiverDisclosureList = receiverDisclosureList;
+			}
+			key = prefix + "disclaimer";
+			if (map.ContainsKey(key))
+			{
+				getPrePaymentDisclosureResponse = (getPrePaymentDisclosureResponse == null) ? new GetPrePaymentDisclosureResponse() : getPrePaymentDisclosureResponse;
+				getPrePaymentDisclosureResponse.disclaimer = map[key];
+			}
+			i = 0;
+			while(true)
+			{
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
+				if (error != null)
+				{
+					getPrePaymentDisclosureResponse = (getPrePaymentDisclosureResponse == null) ? new GetPrePaymentDisclosureResponse() : getPrePaymentDisclosureResponse;
+					getPrePaymentDisclosureResponse.error.Add(error);
+					i++;
+				} 
+				else
+				{
+					break;
+				}
+			}
+			return getPrePaymentDisclosureResponse;
 		}
 	}
 
