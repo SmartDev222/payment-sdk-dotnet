@@ -8854,6 +8854,40 @@ namespace PayPal.AdaptivePayments.Model
 		/// <summary>
 		/// 
 		/// </summary>
+		private PaymentInfoList paymentInfoListField;
+		public PaymentInfoList paymentInfoList
+		{
+			get
+			{
+				return this.paymentInfoListField;
+			}
+			set
+			{
+				this.paymentInfoListField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private SenderIdentifier senderField;
+		public SenderIdentifier sender
+		{
+			get
+			{
+				return this.senderField;
+			}
+			set
+			{
+				this.senderField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
 		private FundingPlan defaultFundingPlanField;
 		public FundingPlan defaultFundingPlan
 		{
@@ -8961,6 +8995,18 @@ namespace PayPal.AdaptivePayments.Model
 			{
 				payResponse = (payResponse == null) ? new PayResponse() : payResponse;
 				payResponse.payErrorList = payErrorList;
+			}
+			PaymentInfoList paymentInfoList =  PaymentInfoList.CreateInstance(map, prefix + "paymentInfoList", -1);
+			if (paymentInfoList != null)
+			{
+				payResponse = (payResponse == null) ? new PayResponse() : payResponse;
+				payResponse.paymentInfoList = paymentInfoList;
+			}
+			SenderIdentifier sender =  SenderIdentifier.CreateInstance(map, prefix + "sender", -1);
+			if (sender != null)
+			{
+				payResponse = (payResponse == null) ? new PayResponse() : payResponse;
+				payResponse.sender = sender;
 			}
 			FundingPlan defaultFundingPlan =  FundingPlan.CreateInstance(map, prefix + "defaultFundingPlan", -1);
 			if (defaultFundingPlan != null)
