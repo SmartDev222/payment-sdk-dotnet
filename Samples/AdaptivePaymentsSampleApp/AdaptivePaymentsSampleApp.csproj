@@ -60,6 +60,7 @@
     <Compile Include="CancelPreapproval.aspx.designer.cs">
       <DependentUpon>CancelPreapproval.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Configuration.cs" />
     <Compile Include="ConfirmPreapproval.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>ConfirmPreapproval.aspx</DependentUpon>
