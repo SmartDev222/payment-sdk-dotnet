@@ -1,15 +1,9 @@
 using System;
-using System.Data;
-using System.Web;
-using System.Collections;
-using System.Web.Services;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using PayPal;
-using PayPal.Exception;
-using PayPal.Util;
-using PayPal.AdaptivePayments;
 using System.Configuration;
+using System.Web;
+using PayPal.AdaptivePayments;
 using PayPal.AdaptivePayments.Model;
 
 namespace AdaptivePaymentsSampleApp
@@ -17,14 +11,12 @@ namespace AdaptivePaymentsSampleApp
     /// <summary>
     /// Summary description for codebehindclassname
     /// </summary>
-
     public class adaptivepaymentshandler : IHttpHandler
     {
-
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/html";
-            String strCall = context.Request.Params["AdaptivePaymentsBtn"];
+            string strCall = context.Request.Params["AdaptivePaymentsBtn"];
 
             if (strCall.Equals("Pay"))
             {
@@ -147,23 +139,23 @@ namespace AdaptivePaymentsSampleApp
             for (int i = 0; i < amt.Length; i++)
             {
                 Receiver rec = new Receiver(Decimal.Parse(amt[i]));
-                if(receiverEmail[i] != "")
+                if(receiverEmail[i] != string.Empty)
                     rec.email = receiverEmail[i];
-                if (phoneCountry[i] != "" && phoneNumber[i] != "")
+                if (phoneCountry[i] != string.Empty && phoneNumber[i] != string.Empty)
                 {
                     rec.phone = new PhoneNumberType(phoneCountry[i], phoneNumber[i]);
-                    if (phoneExtn[i] != "")
+                    if (phoneExtn[i] != string.Empty)
                     {
                         rec.phone.extension = phoneExtn[i];
                     }
                 }
-                if (primaryReceiver[i] != "")
+                if (primaryReceiver[i] != string.Empty)
                     rec.primary = Boolean.Parse(primaryReceiver[i]);
-                if (invoiceId[i] != "")
+                if (invoiceId[i] != string.Empty)
                     rec.invoiceId = invoiceId[i];
-                if (paymentType[i] != "")
+                if (paymentType[i] != string.Empty)
                     rec.paymentType = paymentType[i];
-                if (paymentSubType[i] != "")
+                if (paymentSubType[i] != string.Empty)
                     rec.paymentSubType = paymentSubType[i];
                 receiverList.receiver.Add(rec);
             }  
@@ -173,26 +165,26 @@ namespace AdaptivePaymentsSampleApp
                                 receiverList, parameters["returnUrl"]);
 
             //Fix for release
-            if (parameters["ipnNotificationUrl"] != "")
+            if (parameters["ipnNotificationUrl"] != string.Empty)
             {
                 req.ipnNotificationUrl = parameters["ipnNotificationUrl"];
             }
             //(Optional) A note associated with the payment (text, not HTML). 
             // Maximum length: 1000 characters, including newline characters 
-            if (parameters["memo"] != "")
+            if (parameters["memo"] != string.Empty)
             {
                 req.memo = parameters["memo"];
             }
             //The sender's personal identification number, which was specified 
             //when the sender signed up for a preapproval. 
-            if (parameters["pin"] != "")
+            if (parameters["pin"] != string.Empty)
             {
                 req.pin = parameters["pin"];
             }
             // (Optional) The key associated with a preapproval for this payment. 
             // The preapproval key is required if this is a preapproved payment.
             // Note: The Preapproval API is unavailable to API callers with Standard permission levels.
-            if (parameters["preapprovalKey"] != "")
+            if (parameters["preapprovalKey"] != string.Empty)
             {
                 req.preapprovalKey = parameters["preapprovalKey"];
             }
@@ -202,18 +194,18 @@ namespace AdaptivePaymentsSampleApp
             //Allowable values are:
             //true – Each parallel payment is reversed if an error occurs
             //false – Only incomplete payments are reversed (default)
-            if (parameters["reverseAllParallelPaymentsOnError"] != "")
+            if (parameters["reverseAllParallelPaymentsOnError"] != string.Empty)
                 req.reverseAllParallelPaymentsOnError = 
                     Boolean.Parse(parameters["reverseAllParallelPaymentsOnError"]);
 
             // Sender's email address 
-            if (parameters["senderEmail"] != "")
+            if (parameters["senderEmail"] != string.Empty)
                 req.senderEmail = parameters["senderEmail"];
 
             //(Optional) A unique ID that you specify to track the payment.
             //Note: You are responsible for ensuring that the ID is unique.
             //Maximum length: 127 characters 
-            if (parameters["trackingId"] != "")
+            if (parameters["trackingId"] != string.Empty)
                 req.trackingId = parameters["trackingId"];
 
             // (Optional) Specifies a list of allowed funding types for the payment. 
@@ -222,7 +214,7 @@ namespace AdaptivePaymentsSampleApp
             // the payment can be funded by any funding type that is supported for Adaptive Payments.
             // Note: FundingConstraint is unavailable to API callers with standard permission levels; 
             // for more information, refer to the section Adaptive Payments Permission Levels.
-            if (parameters["fundingConstraint"] != "")
+            if (parameters["fundingConstraint"] != string.Empty)
             {
                 req.fundingConstraint = new FundingConstraint();
                 req.fundingConstraint.allowedFundingType = new FundingTypeList();
@@ -230,35 +222,44 @@ namespace AdaptivePaymentsSampleApp
                     new FundingTypeInfo(parameters["fundingConstraint"]));
             }
 
-            if (parameters["emailIdentifier"] != ""
-                || (parameters["senderPhoneCountry"] != "" && parameters["senderPhoneNumber"] != "")
-                || parameters["useCredentials"] != "")
+            if (parameters["emailIdentifier"] != string.Empty
+                || (parameters["senderPhoneCountry"] != string.Empty && parameters["senderPhoneNumber"] != string.Empty)
+                || parameters["useCredentials"] != string.Empty)
             {
                 req.sender = new SenderIdentifier();
                 //  (Optional) Sender's email address. Maximum length: 127 characters 
-                if (parameters["emailIdentifier"] != "")
+                if (parameters["emailIdentifier"] != string.Empty)
                     req.sender.email = parameters["emailIdentifier"];
 
                  // Sender Telephone country code
                  // Sender Telephone number
                  // Sender Telephone extension
-                if (parameters["senderPhoneCountry"] != "" && parameters["senderPhoneNumber"] != "")
+                if (parameters["senderPhoneCountry"] != string.Empty && parameters["senderPhoneNumber"] != string.Empty)
                 {
                     req.sender.phone = new PhoneNumberType(parameters["senderPhoneCountry"], parameters["senderPhoneNumber"]);
-                    if (parameters["senderPhoneExtn"] != "")
+                    if (parameters["senderPhoneExtn"] != string.Empty)
                         req.sender.phone.extension = parameters["senderPhoneExtn"];
                 }
 
                 // (Optional) If true, use credentials to identify the sender; default is false. 
-                if (parameters["useCredentials"] != "")
+                if (parameters["useCredentials"] != string.Empty)
                     req.sender.useCredentials = Boolean.Parse(parameters["useCredentials"]);
             }
 
             // All set. Fire the request            
-            AdaptivePaymentsService service = new AdaptivePaymentsService();
+            AdaptivePaymentsService service = null;
             PayResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer at 
+                // (https://github.com/paypal/adaptivepayments-sdk-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptivePaymentsService(configurationMap);
+
                 resp = service.Pay(req);
             }
             catch (System.Exception e)
@@ -314,22 +315,30 @@ namespace AdaptivePaymentsSampleApp
             // set optional parameters
             //(Optional) The pay key that identifies the payment for which 
             // you want to retrieve details. This is the pay key returned in the PayResponse message. 
-            if (parameters["payKey"] != "")
+            if (parameters["payKey"] != string.Empty)
                 req.payKey = parameters["payKey"];
             // (Optional) The PayPal transaction ID associated with the payment. 
             // The IPN message associated with the payment contains the transaction ID. 
-            if (parameters["transactionId"] != "")
+            if (parameters["transactionId"] != string.Empty)
                 req.transactionId = parameters["transactionId"];
             // (Optional) The tracking ID that was specified for this payment 
             // in the PayRequest message. Maximum length: 127 characters 
-            if (parameters["trackingId"] != "")
+            if (parameters["trackingId"] != string.Empty)
                 req.trackingId = parameters["trackingId"];
 
             // All set. Fire the request            
-            AdaptivePaymentsService service = new AdaptivePaymentsService();
+            AdaptivePaymentsService service = null;
             PaymentDetailsResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer at 
+                // (https://github.com/paypal/adaptivepayments-sdk-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptivePaymentsService(configurationMap);
                 resp = service.PaymentDetails(req);
             }
             catch (System.Exception e)
@@ -397,7 +406,7 @@ namespace AdaptivePaymentsSampleApp
             // Allowable values are numbers between 0 and 31. A number between 1 and 31 
             // indicates the date of the month. Specifying 0 indicates that payment can be 
             // made on any day of the month. 
-            if(parameters["dateOfMonth"] != "") 
+            if(parameters["dateOfMonth"] != string.Empty) 
             {
 	            req.dateOfMonth = Int32.Parse(parameters["dateOfMonth"]);
             }
@@ -413,7 +422,7 @@ namespace AdaptivePaymentsSampleApp
             //   FRIDAY
             //   SATURDAY
 
-            if(parameters["dayOfWeek"] != "" && parameters["dayOfWeek"] != "") 
+            if(parameters["dayOfWeek"] != string.Empty && parameters["dayOfWeek"] != string.Empty) 
             {
                 req.dayOfWeek = (PayPal.AdaptivePayments.Model.DayOfWeek)
                         Enum.Parse(typeof(PayPal.AdaptivePayments.Model.DayOfWeek), parameters["dayOfWeek"]);
@@ -423,7 +432,7 @@ namespace AdaptivePaymentsSampleApp
             // Allowable values are numbers between 0 and 31. A number between 1 and 31 
             // indicates the date of the month. Specifying 0 indicates that payment 
             // can be made on any day of the month. 
-            if(parameters["dateOfMonth"] != "") 
+            if(parameters["dateOfMonth"] != string.Empty) 
             {
 	            req.dateOfMonth = Int32.Parse(parameters["dateOfMonth"]);
             }
@@ -432,28 +441,28 @@ namespace AdaptivePaymentsSampleApp
             // It cannot be later than one year from the starting date.
             // Note: You must specify a value unless you have specific permission 
             // from PayPal to omit this value. 
-            if(parameters["endingDate"] != "") 
+            if(parameters["endingDate"] != string.Empty) 
             {
 	            req.endingDate = parameters["endingDate"];
             }
 
             // (Optional) The preapproved maximum amount per payment. 
             // It cannot exceed the preapproved maximum total amount of all payments. 
-            if(parameters["maxAmountPerPayment"] != "") 
+            if(parameters["maxAmountPerPayment"] != string.Empty) 
             {
 	            req.maxAmountPerPayment = Decimal.Parse(parameters["maxAmountPerPayment"]);
             }
 
             // (Optional) The preapproved maximum number of payments. 
             // It cannot exceed the preapproved maximum total number of all payments. 
-            if(parameters["maxNumberOfPayments"] != "" ) 
+            if(parameters["maxNumberOfPayments"] != string.Empty ) 
             {
 	            req.maxNumberOfPayments = Int32.Parse(parameters["maxNumberOfPayments"]);
             }
 
             //(Optional) The preapproved maximum number of all payments per period. 
             // You must specify a value unless you have specific permission from PayPal. 
-            if(parameters["maxNumberOfPaymentsPerPeriod"] != "") 
+            if(parameters["maxNumberOfPaymentsPerPeriod"] != string.Empty) 
             {
 	            req.maxNumberOfPaymentsPerPeriod = Int32.Parse(parameters["maxNumberOfPaymentsPerPeriod"]);
             }
@@ -461,7 +470,7 @@ namespace AdaptivePaymentsSampleApp
             // The preapproved maximum total amount of all payments. 
             // It cannot exceed $2,000 USD or its equivalent in other currencies. 
             // Contact PayPal if you do not want to specify a maximum amount. 
-            if(parameters["maxTotalAmountOfAllPayments"] != "") 
+            if(parameters["maxTotalAmountOfAllPayments"] != string.Empty) 
             {
 	            req.maxTotalAmountOfAllPayments = Decimal.Parse(parameters["maxTotalAmountOfAllPayments"]);
             }
@@ -474,14 +483,14 @@ namespace AdaptivePaymentsSampleApp
             //    SEMIMONTHLY – Twice a month
             //    MONTHLY – Each month
             //    ANNUALLY – Each year
-            if(parameters["paymentPeriod"] != "" && parameters["paymentPeriod"] != "") 
+            if(parameters["paymentPeriod"] != string.Empty && parameters["paymentPeriod"] != string.Empty) 
             {
 	            req.paymentPeriod = parameters["paymentPeriod"];
             }
 
             // (Optional) A note about the preapproval. 
             // Maximum length: 1000 characters, including newline characters 
-            if(parameters["memo"] != "") 
+            if(parameters["memo"] != string.Empty) 
             {
 	            req.memo = parameters["memo"];
             }
@@ -489,7 +498,7 @@ namespace AdaptivePaymentsSampleApp
             // Optional) The URL to which you want all IPN messages for 
             // this preapproval to be sent. This URL supersedes the 
             // IPN notification URL in your profile. Maximum length: 1024 characters 
-            if(parameters["ipnNotificationUrl"] != "") 
+            if(parameters["ipnNotificationUrl"] != string.Empty) 
             {
 	            req.ipnNotificationUrl = parameters["ipnNotificationUrl"];
             }
@@ -497,7 +506,7 @@ namespace AdaptivePaymentsSampleApp
             // (Optional) Sender's email address. If not specified, the email address 
             // of the sender who logs in to approve the request becomes the email address 
             // associated with the preapproval key. Maximum length: 127 characters 
-            if(parameters["senderEmail"] != "") 
+            if(parameters["senderEmail"] != string.Empty) 
             {
 	            req.senderEmail = parameters["senderEmail"];
             }
@@ -507,7 +516,7 @@ namespace AdaptivePaymentsSampleApp
 
             //    NOT_REQUIRED – A PIN is not required (default)
             //    REQUIRED – A PIN is required; the sender must specify a PIN when setting up the preapproval on PayPal
-            if(parameters["pinType"] != "" && parameters["pinType"] != "") 
+            if(parameters["pinType"] != string.Empty && parameters["pinType"] != string.Empty) 
             {
 	            req.pinType = parameters["pinType"];
             }
@@ -517,7 +526,7 @@ namespace AdaptivePaymentsSampleApp
             //    PRIMARYRECEIVER – Primary receiver pays all fees (chained payments only)
             //    EACHRECEIVER – Each receiver pays their own fee (default, personal and unilateral payments)
             //    SECONDARYONLY – Secondary receivers pay all fees (use only for chained payments with one secondary receiver)
-            if(parameters["feesPayer"] != "") 
+            if(parameters["feesPayer"] != string.Empty) 
             {
 	            req.feesPayer = parameters["feesPayer"];
             }
@@ -525,16 +534,24 @@ namespace AdaptivePaymentsSampleApp
             //(Optional) Whether to display the maximum total amount of this preapproval. It is one of the following values:
             // TRUE – Display the amount
             // FALSE – Do not display the amount (default)
-            if (parameters["displayMaxTotalAmount"] != "")
+            if (parameters["displayMaxTotalAmount"] != string.Empty)
             {
                 req.displayMaxTotalAmount = Boolean.Parse(parameters["displayMaxTotalAmount"]);
             }
 
             // All set. Fire the request            
-            AdaptivePaymentsService service = new AdaptivePaymentsService();
+            AdaptivePaymentsService service = null;
             PreapprovalResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer at 
+                // (https://github.com/paypal/adaptivepayments-sdk-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptivePaymentsService(configurationMap);
                 resp = service.Preapproval(req);
             }
             catch (System.Exception e)
@@ -580,14 +597,22 @@ namespace AdaptivePaymentsSampleApp
             //     false – Omits the billing address from the response (default)
             // Note:
             // This field is available only to API callers with advanced permission levels. For information, refer to the section Adaptive Payments Permission Levels.
-            if (parameters["getBillingAddress"] != "")
+            if (parameters["getBillingAddress"] != string.Empty)
                 req.getBillingAddress = Boolean.Parse(parameters["getBillingAddress"]);
 
             // All set. Fire the request            
-            AdaptivePaymentsService service = new AdaptivePaymentsService();
+            AdaptivePaymentsService service = null;
             PreapprovalDetailsResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer at 
+                // (https://github.com/paypal/adaptivepayments-sdk-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptivePaymentsService(configurationMap);
                 resp = service.PreapprovalDetails(req);
             }
             catch (System.Exception e)
@@ -649,10 +674,18 @@ namespace AdaptivePaymentsSampleApp
                 parameters["preapprovalKey"]);
 
             // All set. Fire the request            
-            AdaptivePaymentsService service = new AdaptivePaymentsService();
+            AdaptivePaymentsService service = null;
             CancelPreapprovalResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer at 
+                // (https://github.com/paypal/adaptivepayments-sdk-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptivePaymentsService(configurationMap);
                 resp = service.CancelPreapproval(req);
             }
             catch (System.Exception e)
@@ -689,18 +722,26 @@ namespace AdaptivePaymentsSampleApp
             // Set optional parameters
             //The sender's personal identification number, which was specified 
             //when the sender signed up for a preapproval.
-            if (parameters["pin"] != "")
+            if (parameters["pin"] != string.Empty)
                 req.pin = parameters["pin"];
 
             //Funding source ID.
-            if (parameters["fundingSourceId"] != "")
+            if (parameters["fundingSourceId"] != string.Empty)
                 req.fundingSourceId = parameters["fundingSourceId"];
 
             // All set. Fire the request            
-            AdaptivePaymentsService service = new AdaptivePaymentsService();
+            AdaptivePaymentsService service = null;
             ConfirmPreapprovalResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer at 
+                // (https://github.com/paypal/adaptivepayments-sdk-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptivePaymentsService(configurationMap);
                 resp = service.ConfirmPreapproval(req);
             }
             catch (System.Exception e)
@@ -782,18 +823,18 @@ namespace AdaptivePaymentsSampleApp
                     Receiver r = new Receiver(Decimal.Parse(amt[i]));
 		            r.email = receiverEmail[i];
                     r.primary = Boolean.Parse(primaryReceiver[i]);
-		            if(invoiceId[i] != "") {
+		            if(invoiceId[i] != string.Empty) {
 			            r.invoiceId = invoiceId[i];
 		            }
-		            if(paymentType[i] != "") {
+		            if(paymentType[i] != string.Empty) {
 			            r.paymentType = paymentType[i];
 		            }
-		            if(paymentSubType[i] != "") {
+		            if(paymentSubType[i] != string.Empty) {
 			            r.paymentSubType = paymentSubType[i];
 		            }
-		            if(phoneCountry[i] != "" && phoneNumber[i] != "") {
+		            if(phoneCountry[i] != string.Empty && phoneNumber[i] != string.Empty) {
 			            r.phone = new PhoneNumberType(phoneCountry[i], phoneNumber[i]);
-			            if(phoneExtn[i] != "") {
+			            if(phoneExtn[i] != string.Empty) {
 				            r.phone.extension = phoneExtn[i];
 			            }
 		            }
@@ -803,31 +844,39 @@ namespace AdaptivePaymentsSampleApp
             }
 
             // PayPal uses 3-character ISO-4217 codes for specifying currencies in fields and variables.  
-            if(parameters["currencyCode"] != "") {
+            if(parameters["currencyCode"] != string.Empty) {
 	            req.currencyCode = parameters["currencyCode"];
             }
 
             // The key used to create the payment that you want to refund
-            if(parameters["payKey"] != "") {
+            if(parameters["payKey"] != string.Empty) {
 	            req.payKey = parameters["payKey"];
             }
 
             // A PayPal transaction ID associated with the receiver whose payment 
             // you want to refund to the sender. Use field name characters exactly as shown.
-            if(parameters["transactionId"] != "") {
+            if(parameters["transactionId"] != string.Empty) {
 	            req.transactionId = parameters["transactionId"];
             }
 
             // The tracking ID associated with the payment that you want to refund
-            if(parameters["trackingId"] != "") {
+            if(parameters["trackingId"] != string.Empty) {
                 req.trackingId = parameters["trackingId"];
             }            
 
             // All set. Fire the request            
-            AdaptivePaymentsService service = new AdaptivePaymentsService();
+            AdaptivePaymentsService service = null;
             RefundResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer at 
+                // (https://github.com/paypal/adaptivepayments-sdk-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptivePaymentsService(configurationMap);
                 resp = service.Refund(req);
             }
             catch (System.Exception e)
@@ -899,7 +948,7 @@ namespace AdaptivePaymentsSampleApp
             }
             CurrencyList baseAmountList = new CurrencyList(currencies);
 
-            List<String> toCurrencyCodeList = new List<String>();
+            List<string> toCurrencyCodeList = new List<string>();
             for (int i = 0; i < toCurrencyCodes.Length; i++)
                 toCurrencyCodeList.Add(toCurrencyCodes[i]);
             CurrencyCodeList convertToCurrencyList = new CurrencyCodeList(toCurrencyCodeList);
@@ -909,7 +958,7 @@ namespace AdaptivePaymentsSampleApp
             
             // (Optional)The two-character ISO code for the country where the
 		    // function is supposed to happen. The default value is US.
-            if (parameters["countryCode"] != "")
+            if (parameters["countryCode"] != string.Empty)
                 req.countryCode = parameters["countryCode"];
 
             // (Optional)The conversion type allows you to determine the converted amounts 
@@ -918,15 +967,23 @@ namespace AdaptivePaymentsSampleApp
             // accepting payment in a different currency than what the user holds, 
             // or converting a balance to a different currency than the user holds.. 
             // The default value is SENDER_SIDE .
-            if (parameters["conversionType"] != "")
+            if (parameters["conversionType"] != string.Empty)
                 req.conversionType = parameters["conversionType"];
 
 
             // All set. Fire the request            
-            AdaptivePaymentsService service = new AdaptivePaymentsService();
+            AdaptivePaymentsService service = null;
             ConvertCurrencyResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer at 
+                // (https://github.com/paypal/adaptivepayments-sdk-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptivePaymentsService(configurationMap);
                 resp = service.ConvertCurrency(req);
             }
             catch (System.Exception e)
@@ -976,10 +1033,18 @@ namespace AdaptivePaymentsSampleApp
                 new GetAllowedFundingSourcesRequest(new RequestEnvelope("en_US"), parameters["key"]);
 
             // All set. Fire the request            
-            AdaptivePaymentsService service = new AdaptivePaymentsService();
+            AdaptivePaymentsService service = null;
             GetAllowedFundingSourcesResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer at 
+                // (https://github.com/paypal/adaptivepayments-sdk-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptivePaymentsService(configurationMap);
                 resp = service.GetAllowedFundingSources(req);
             }
             catch (System.Exception e)
@@ -1023,10 +1088,18 @@ namespace AdaptivePaymentsSampleApp
                 parameters["payKey"]);
 
             // All set. Fire the request            
-            AdaptivePaymentsService service = new AdaptivePaymentsService();
+            AdaptivePaymentsService service = null;
             GetFundingPlansResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer at 
+                // (https://github.com/paypal/adaptivepayments-sdk-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptivePaymentsService(configurationMap);
                 resp = service.GetFundingPlans(req);
             }
             catch (System.Exception e)
@@ -1071,10 +1144,18 @@ namespace AdaptivePaymentsSampleApp
                 parameters["key"]);
 
             // All set. Fire the request            
-            AdaptivePaymentsService service = new AdaptivePaymentsService();
+            AdaptivePaymentsService service = null;
             GetShippingAddressesResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer at 
+                // (https://github.com/paypal/adaptivepayments-sdk-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptivePaymentsService(configurationMap);
                 resp = service.GetShippingAddresses(req);
             }
             catch (System.Exception e)
@@ -1126,10 +1207,18 @@ namespace AdaptivePaymentsSampleApp
                     new RequestEnvelope("en_US"), parameters["key"]);
 
             // All set. Fire the request            
-            AdaptivePaymentsService service = new AdaptivePaymentsService();
+            AdaptivePaymentsService service = null;
             GetAvailableShippingAddressesResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer at 
+                // (https://github.com/paypal/adaptivepayments-sdk-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptivePaymentsService(configurationMap);
                 resp = service.GetAvailableShippingAddresses(req);
             }
             catch (System.Exception e)
@@ -1182,7 +1271,7 @@ namespace AdaptivePaymentsSampleApp
             // paykey : (Required) The pay key that identifies the payment for which you want 
             // to set payment options. This is the pay key returned in the PayResponse message.
             SetPaymentOptionsRequest req = new SetPaymentOptionsRequest(new RequestEnvelope("en_US"), parameters["payKey"]);
-            if (parameters["institutionId"] != "")
+            if (parameters["institutionId"] != string.Empty)
             {
                 req.initiatingEntity = new InitiatingEntity();
                 // institutionid : (Required) The unique identifier assigned to the institution
@@ -1196,59 +1285,59 @@ namespace AdaptivePaymentsSampleApp
                     parameters["institutionId"], parameters["firstName"], 
                     parameters["lastName"], parameters["displayName"], 
                     parameters["institutionCustomerId"], parameters["countryCode"]);
-                if (parameters["email"] != "")
+                if (parameters["email"] != string.Empty)
                 {
                     req.initiatingEntity.institutionCustomer.email = parameters["email"];
                 }
             }
 
-            if (parameters["emailHeaderImageUrl"] != "" || parameters["emailMarketingImageUrl"] != ""
-                || parameters["headerImageUrl"] != "" || parameters["businessName"] != "")
+            if (parameters["emailHeaderImageUrl"] != string.Empty || parameters["emailMarketingImageUrl"] != string.Empty
+                || parameters["headerImageUrl"] != string.Empty || parameters["businessName"] != string.Empty)
             {
                 req.displayOptions = new DisplayOptions();
 
                 //(Optional) The URL of the image that displays in the in the header of customer emails. 
                 // The URL cannot exceed 1,024 characters. The image dimensions are 
                 // 43 pixels high x 240 pixels wide.
-                if (parameters["emailHeaderImageUrl"] != "" )
+                if (parameters["emailHeaderImageUrl"] != string.Empty )
                     req.displayOptions.emailHeaderImageUrl = parameters["emailHeaderImageUrl"];
 
                 //(Optional) The URL of the image that displays in the in customer emails. 
                 // The URL cannot exceed 1,024 characters. The image dimensions are 
                 // 80 pixels high x 530 pixels wide.
-                if (parameters["emailMarketingImageUrl"] != "")
+                if (parameters["emailMarketingImageUrl"] != string.Empty)
                     req.displayOptions.emailMarketingImageUrl = parameters["emailMarketingImageUrl"];
 
                 // (Optional) The URL of an image that displays in the header of a payment page. 
                 // If set, it overrides the header image URL specified in your account's Profile. 
                 // The URL cannot exceed 1,024 characters. The image dimensions are 
                 // 90 pixels high x 750 pixels wide.
-                if(parameters["headerImageUrl"] != "" )
+                if(parameters["headerImageUrl"] != string.Empty )
                     req.displayOptions.headerImageUrl = parameters["headerImageUrl"];
 
                 //(Optional) The business name to display. The name cannot exceed 128 characters. 
-                if(parameters["businessName"] != "")
+                if(parameters["businessName"] != string.Empty)
                     req.displayOptions.businessName = parameters["businessName"];
             }
-            if (parameters["shippingAddressId"] != "")
+            if (parameters["shippingAddressId"] != string.Empty)
             {
                 // (Optional) Sender's shipping address ID.
                 req.shippingAddressId = parameters["shippingAddressId"];
             }
 
-            if (parameters["requireShippingAddressSelection"] != "" || parameters["referrerCode"] != "")
+            if (parameters["requireShippingAddressSelection"] != string.Empty || parameters["referrerCode"] != string.Empty)
             {
                 req.senderOptions = new SenderOptions();
                 
                 //(Optional) If true, require the sender to select a shipping address during 
                 //the embedded payment flow;  default is false. 
-                if (parameters["requireShippingAddressSelection"] != "")
+                if (parameters["requireShippingAddressSelection"] != string.Empty)
                     req.senderOptions.requireShippingAddressSelection = 
                         Boolean.Parse(parameters["requireShippingAddressSelection"]);
 
                 // (Optional) A code that identifies the partner associated with this transaction.
                 // Maximum length: 32 characters.
-                if (parameters["referrerCode"] != "")
+                if (parameters["referrerCode"] != string.Empty)
                     req.senderOptions.referrerCode = parameters["referrerCode"];
             }
             req.receiverOptions = new List<ReceiverOptions>();
@@ -1259,12 +1348,12 @@ namespace AdaptivePaymentsSampleApp
             // This overrides the value of the memo in Pay API for each receiver. 
             // If this is not specified the value in the memo will be used.
             // Maximum length: 1000 characters
-            if (parameters["description"] != "")
+            if (parameters["description"] != string.Empty)
                 receiverOption.description = parameters["description"];
 
             // (Optional) An external reference or identifier you want to associate with the payment.
             // Maximum length: 1000 characters
-            if (parameters["customId"] != "")
+            if (parameters["customId"] != string.Empty)
                 receiverOption.customId = parameters["customId"];
 
             // (Optional) Name of item. 
@@ -1281,65 +1370,73 @@ namespace AdaptivePaymentsSampleApp
 
             // (Optional) Item quantity. 
             string[] itemCount = context.Request.Form.GetValues("itemCount");
-            if (name.Length > 0 && name[0] != "")
+            if (name.Length > 0 && name[0] != string.Empty)
             {
                 receiverOption.invoiceData = new InvoiceData();
                 for (int j = 0; j < name.Length; j++)
                 {
                     InvoiceItem item = new InvoiceItem();
-                    if (name[j] != "")
+                    if (name[j] != string.Empty)
                         item.name = name[j];
-                    if (identifier[j] != "")
+                    if (identifier[j] != string.Empty)
                         item.identifier = identifier[j];
-                    if (price[j] != "")
+                    if (price[j] != string.Empty)
                         item.price = Decimal.Parse(price[j]);
-                    if (itemPrice[j] != "")
+                    if (itemPrice[j] != string.Empty)
                         item.itemPrice = Decimal.Parse(itemPrice[j]);
-                    if (itemCount[j] != "")
+                    if (itemCount[j] != string.Empty)
                         item.itemCount = Int32.Parse(itemCount[j]);
                     receiverOption.invoiceData.item.Add(item);
                 }
 
                 // (Optional) Total tax associated with the payment. 
-                if (parameters["totalTax"] != "")
+                if (parameters["totalTax"] != string.Empty)
                     receiverOption.invoiceData.totalTax = Decimal.Parse(parameters["totalTax"]);
 
                 // (Optional) Total shipping charge associated with the payment. 
-                if (parameters["totalShipping"] != "")
+                if (parameters["totalShipping"] != string.Empty)
                     receiverOption.invoiceData.totalShipping = Decimal.Parse(parameters["totalShipping"]);
             }
 
 
-            if (parameters["emailIdentifier"] != "" ||
-                (parameters["phoneCountry"] != "" && parameters["phoneNumber"] != ""))
+            if (parameters["emailIdentifier"] != string.Empty ||
+                (parameters["phoneCountry"] != string.Empty && parameters["phoneNumber"] != string.Empty))
             {
                 receiverOption.receiver = new ReceiverIdentifier();
 
                 // (Optional) Receiver's email address.Maximum length: 127 characters
-                if(parameters["emailIdentifier"] != "")
+                if(parameters["emailIdentifier"] != string.Empty)
                     receiverOption.receiver.email = parameters["emailIdentifier"];
 
                 // (Optional) Receiver's phone number. 
-                if (parameters["phoneCountry"] != "" && parameters["phoneNumber"] != "")
+                if (parameters["phoneCountry"] != string.Empty && parameters["phoneNumber"] != string.Empty)
                 {
                     receiverOption.receiver.phone = 
                         new PhoneNumberType(parameters["phoneCountry"], parameters["phoneNumber"]);
 
                     // (Optional) Telephone extension. 
-                    if (parameters["phoneExtn"] != "")
+                    if (parameters["phoneExtn"] != string.Empty)
                         receiverOption.receiver.phone.extension = parameters["phoneExtn"];
                 }
             }
 
             // (Optional) A code that identifies the partner associated with this transaction. 
-            if (parameters["receiverReferrerCode"] != "")
+            if (parameters["receiverReferrerCode"] != string.Empty)
                 receiverOption.referrerCode = parameters["receiverReferrerCode"];
 
             // All set. Fire the request            
-            AdaptivePaymentsService service = new AdaptivePaymentsService();
+            AdaptivePaymentsService service = null;
             SetPaymentOptionsResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer at 
+                // (https://github.com/paypal/adaptivepayments-sdk-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptivePaymentsService(configurationMap);
                 resp = service.SetPaymentOptions(req);
             }
             catch (System.Exception e)
@@ -1377,10 +1474,18 @@ namespace AdaptivePaymentsSampleApp
             GetPaymentOptionsRequest req = new GetPaymentOptionsRequest(new RequestEnvelope("en_US"), parameters["payKey"]);
 
             // All set. Fire the request            
-            AdaptivePaymentsService service = new AdaptivePaymentsService();
+            AdaptivePaymentsService service = null;
             GetPaymentOptionsResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer at 
+                // (https://github.com/paypal/adaptivepayments-sdk-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptivePaymentsService(configurationMap);
                 resp = service.GetPaymentOptions(req);
             }
             catch (System.Exception e)
@@ -1458,10 +1563,18 @@ namespace AdaptivePaymentsSampleApp
             req.fundingPlanId = parameters["fundingPlanId"];
 
             // All set. Fire the request            
-            AdaptivePaymentsService service = new AdaptivePaymentsService();
+            AdaptivePaymentsService service = null;
             ExecutePaymentResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer at 
+                // (https://github.com/paypal/adaptivepayments-sdk-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptivePaymentsService(configurationMap);
                 resp = service.ExecutePayment(req);
             }
             catch (System.Exception e)
@@ -1503,14 +1616,14 @@ namespace AdaptivePaymentsSampleApp
             NameValueCollection parameters = context.Request.Params;
 
             List<string> limitType = new List<string>();
-            if(parameters["limitType"] != "") 
+            if(parameters["limitType"] != string.Empty) 
                 limitType.Add(parameters["limitType"]);
             AccountIdentifier accountId = new AccountIdentifier();
-            if (parameters["email"] != "")
+            if (parameters["email"] != string.Empty)
             {
                 accountId.email = parameters["email"];
             }
-            if (parameters["phoneCountry"] != "" && parameters["phoneNumber"] != "")
+            if (parameters["phoneCountry"] != string.Empty && parameters["phoneNumber"] != string.Empty)
             {
                 accountId.phone = new PhoneNumberType(parameters["phoneCountry"], parameters["phoneNumber"]);
                 if (parameters["phoneExtension"] != "")
@@ -1522,10 +1635,18 @@ namespace AdaptivePaymentsSampleApp
                     parameters["currencyCode"], limitType);
 
             // All set. Fire the request            
-            AdaptivePaymentsService service = new AdaptivePaymentsService();
+            AdaptivePaymentsService service = null;
             GetUserLimitsResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer at 
+                // (https://github.com/paypal/adaptivepayments-sdk-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptivePaymentsService(configurationMap);
                 resp = service.GetUserLimits(req);
             }
             catch (System.Exception e)
@@ -1592,7 +1713,7 @@ namespace AdaptivePaymentsSampleApp
             context.Response.Write("<div class='note'>Consult response object and reference doc for complete list of response values.</div><table>");
             
             /*
-            foreach (KeyValuePair<String, String> entry in responseValues) {
+            foreach (KeyValuePair<string, string> entry in responseValues) {
                 context.Response.Write("<tr><td class='label'>");
                 context.Response.Write(entry.Key);
                 context.Response.Write(": </td><td>");
@@ -1602,7 +1723,7 @@ namespace AdaptivePaymentsSampleApp
             */
 
             //Selenium Test Case            
-            foreach (KeyValuePair<String, String> entry in responseValues)
+            foreach (KeyValuePair<string, string> entry in responseValues)
             {
 
                 context.Response.Write("<tr><td class='label'>");
