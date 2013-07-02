@@ -138,7 +138,7 @@ namespace AdaptivePaymentsSampleApp
             string[] paymentSubType = context.Request.Form.GetValues("paymentSubType");
             for (int i = 0; i < amt.Length; i++)
             {
-                Receiver rec = new Receiver(Decimal.Parse(amt[i]));
+                Receiver rec = new Receiver(Convert.ToDecimal(amt[i]));
                 if(receiverEmail[i] != string.Empty)
                     rec.email = receiverEmail[i];
                 if (phoneCountry[i] != string.Empty && phoneNumber[i] != string.Empty)
@@ -150,7 +150,7 @@ namespace AdaptivePaymentsSampleApp
                     }
                 }
                 if (primaryReceiver[i] != string.Empty)
-                    rec.primary = Boolean.Parse(primaryReceiver[i]);
+                    rec.primary = Convert.ToBoolean(primaryReceiver[i]);
                 if (invoiceId[i] != string.Empty)
                     rec.invoiceId = invoiceId[i];
                 if (paymentType[i] != string.Empty)
@@ -196,7 +196,7 @@ namespace AdaptivePaymentsSampleApp
             //false – Only incomplete payments are reversed (default)
             if (parameters["reverseAllParallelPaymentsOnError"] != string.Empty)
                 req.reverseAllParallelPaymentsOnError = 
-                    Boolean.Parse(parameters["reverseAllParallelPaymentsOnError"]);
+                 Convert.ToBoolean(parameters["reverseAllParallelPaymentsOnError"]);
 
             // Sender's email address 
             if (parameters["senderEmail"] != string.Empty)
@@ -243,7 +243,7 @@ namespace AdaptivePaymentsSampleApp
 
                 // (Optional) If true, use credentials to identify the sender; default is false. 
                 if (parameters["useCredentials"] != string.Empty)
-                    req.sender.useCredentials = Boolean.Parse(parameters["useCredentials"]);
+                    req.sender.useCredentials = Convert.ToBoolean(parameters["useCredentials"]);
             }
 
             // All set. Fire the request            
@@ -408,7 +408,7 @@ namespace AdaptivePaymentsSampleApp
             // made on any day of the month. 
             if(parameters["dateOfMonth"] != string.Empty) 
             {
-	            req.dateOfMonth = Int32.Parse(parameters["dateOfMonth"]);
+	            req.dateOfMonth = Convert.ToInt32(parameters["dateOfMonth"]);
             }
 
             // (Optional) The day of the week that a weekly payment is to be made. 
@@ -434,7 +434,7 @@ namespace AdaptivePaymentsSampleApp
             // can be made on any day of the month. 
             if(parameters["dateOfMonth"] != string.Empty) 
             {
-	            req.dateOfMonth = Int32.Parse(parameters["dateOfMonth"]);
+	            req.dateOfMonth = Convert.ToInt32(parameters["dateOfMonth"]);
             }
 
             // xs:dateTime (Optional) Last date for which the preapproval is valid. 
@@ -450,21 +450,21 @@ namespace AdaptivePaymentsSampleApp
             // It cannot exceed the preapproved maximum total amount of all payments. 
             if(parameters["maxAmountPerPayment"] != string.Empty) 
             {
-	            req.maxAmountPerPayment = Decimal.Parse(parameters["maxAmountPerPayment"]);
+	            req.maxAmountPerPayment = Convert.ToDecimal(parameters["maxAmountPerPayment"]);
             }
 
             // (Optional) The preapproved maximum number of payments. 
             // It cannot exceed the preapproved maximum total number of all payments. 
             if(parameters["maxNumberOfPayments"] != string.Empty ) 
             {
-	            req.maxNumberOfPayments = Int32.Parse(parameters["maxNumberOfPayments"]);
+	            req.maxNumberOfPayments = Convert.ToInt32(parameters["maxNumberOfPayments"]);
             }
 
             //(Optional) The preapproved maximum number of all payments per period. 
             // You must specify a value unless you have specific permission from PayPal. 
             if(parameters["maxNumberOfPaymentsPerPeriod"] != string.Empty) 
             {
-	            req.maxNumberOfPaymentsPerPeriod = Int32.Parse(parameters["maxNumberOfPaymentsPerPeriod"]);
+	            req.maxNumberOfPaymentsPerPeriod = Convert.ToInt32(parameters["maxNumberOfPaymentsPerPeriod"]);
             }
 
             // The preapproved maximum total amount of all payments. 
@@ -472,7 +472,7 @@ namespace AdaptivePaymentsSampleApp
             // Contact PayPal if you do not want to specify a maximum amount. 
             if(parameters["maxTotalAmountOfAllPayments"] != string.Empty) 
             {
-	            req.maxTotalAmountOfAllPayments = Decimal.Parse(parameters["maxTotalAmountOfAllPayments"]);
+	            req.maxTotalAmountOfAllPayments = Convert.ToDecimal(parameters["maxTotalAmountOfAllPayments"]);
             }
 
             //(Optional) The payment period. It is one of the following values:
@@ -536,7 +536,7 @@ namespace AdaptivePaymentsSampleApp
             // FALSE – Do not display the amount (default)
             if (parameters["displayMaxTotalAmount"] != string.Empty)
             {
-                req.displayMaxTotalAmount = Boolean.Parse(parameters["displayMaxTotalAmount"]);
+                req.displayMaxTotalAmount = Convert.ToBoolean(parameters["displayMaxTotalAmount"]);
             }
 
             // All set. Fire the request            
@@ -598,7 +598,7 @@ namespace AdaptivePaymentsSampleApp
             // Note:
             // This field is available only to API callers with advanced permission levels. For information, refer to the section Adaptive Payments Permission Levels.
             if (parameters["getBillingAddress"] != string.Empty)
-                req.getBillingAddress = Boolean.Parse(parameters["getBillingAddress"]);
+                req.getBillingAddress = Convert.ToBoolean(parameters["getBillingAddress"]);
 
             // All set. Fire the request            
             AdaptivePaymentsService service = null;
@@ -820,9 +820,9 @@ namespace AdaptivePaymentsSampleApp
 
 	            List<Receiver> receivers = new List<Receiver>();
 	            for(int i=0; i<amt.Length; i++) {
-                    Receiver r = new Receiver(Decimal.Parse(amt[i]));
+                    Receiver r = new Receiver(Convert.ToDecimal(amt[i]));
 		            r.email = receiverEmail[i];
-                    r.primary = Boolean.Parse(primaryReceiver[i]);
+                    r.primary = Convert.ToBoolean(primaryReceiver[i]);
 		            if(invoiceId[i] != string.Empty) {
 			            r.invoiceId = invoiceId[i];
 		            }
@@ -943,7 +943,7 @@ namespace AdaptivePaymentsSampleApp
             for(int i=0; i<fromCurrencyCodes.Length; i++)
             {
                 currencies.Add(
-                    new CurrencyType(fromCurrencyCodes[i], decimal.Parse(fromCurrencyAmounts[i]))
+                    new CurrencyType(fromCurrencyCodes[i], Convert.ToDecimal(fromCurrencyAmounts[i]))
                 );
             }
             CurrencyList baseAmountList = new CurrencyList(currencies);
@@ -1333,7 +1333,7 @@ namespace AdaptivePaymentsSampleApp
                 //the embedded payment flow;  default is false. 
                 if (parameters["requireShippingAddressSelection"] != string.Empty)
                     req.senderOptions.requireShippingAddressSelection = 
-                        Boolean.Parse(parameters["requireShippingAddressSelection"]);
+                       Convert.ToBoolean(parameters["requireShippingAddressSelection"]);
 
                 // (Optional) A code that identifies the partner associated with this transaction.
                 // Maximum length: 32 characters.
@@ -1381,21 +1381,21 @@ namespace AdaptivePaymentsSampleApp
                     if (identifier[j] != string.Empty)
                         item.identifier = identifier[j];
                     if (price[j] != string.Empty)
-                        item.price = Decimal.Parse(price[j]);
+                        item.price = Convert.ToDecimal(price[j]);
                     if (itemPrice[j] != string.Empty)
-                        item.itemPrice = Decimal.Parse(itemPrice[j]);
+                        item.itemPrice = Convert.ToDecimal(itemPrice[j]);
                     if (itemCount[j] != string.Empty)
-                        item.itemCount = Int32.Parse(itemCount[j]);
+                        item.itemCount = Convert.ToInt32(itemCount[j]);
                     receiverOption.invoiceData.item.Add(item);
                 }
 
                 // (Optional) Total tax associated with the payment. 
                 if (parameters["totalTax"] != string.Empty)
-                    receiverOption.invoiceData.totalTax = Decimal.Parse(parameters["totalTax"]);
+                    receiverOption.invoiceData.totalTax = Convert.ToDecimal(parameters["totalTax"]);
 
                 // (Optional) Total shipping charge associated with the payment. 
                 if (parameters["totalShipping"] != string.Empty)
-                    receiverOption.invoiceData.totalShipping = Decimal.Parse(parameters["totalShipping"]);
+                    receiverOption.invoiceData.totalShipping = Convert.ToDecimal(parameters["totalShipping"]);
             }
 
 
@@ -1626,7 +1626,7 @@ namespace AdaptivePaymentsSampleApp
             if (parameters["phoneCountry"] != string.Empty && parameters["phoneNumber"] != string.Empty)
             {
                 accountId.phone = new PhoneNumberType(parameters["phoneCountry"], parameters["phoneNumber"]);
-                if (parameters["phoneExtension"] != "")
+                if (parameters["phoneExtension"] != string.Empty)
                     accountId.phone.extension = parameters["phoneExtension"];
             }
 
