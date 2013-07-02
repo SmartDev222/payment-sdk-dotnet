@@ -22,7 +22,7 @@
                 payments, chained payments, or parallel payments.</div>
         </div>
         <div id="request_form">
-            <form action="adaptivepaymentshandler.ashx" method="post" runat="server">
+            <form action="AdaptivePaymentsHandler.ashx" method="post" runat="server">
                 <div class="params">
                     <div class="param_name">
                         Action type *</div>
@@ -225,7 +225,7 @@
                     </tr>
                 </table>
                 <div class="submit">
-                    <asp:Button ID="AdaptivePaymentsBtn" Text="Pay" runat="server" PostBackUrl="adaptivepaymentshandler.ashx" />
+                    <asp:Button ID="AdaptivePaymentsBtn" Text="Pay" runat="server" PostBackUrl="AdaptivePaymentsHandler.ashx" />
                 </div>
             </form>
         </div>

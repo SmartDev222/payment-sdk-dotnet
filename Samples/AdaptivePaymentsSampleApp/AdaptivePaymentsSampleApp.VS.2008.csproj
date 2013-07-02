@@ -69,8 +69,8 @@
     <Content Include="Preapproval.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="adaptivepaymentshandler.ashx.cs">
-      <DependentUpon>adaptivepaymentshandler.ashx</DependentUpon>
+    <Compile Include="AdaptivePaymentsHandler.ashx.cs">
+      <DependentUpon>AdaptivePaymentsHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="App_Code\Message.cs" />
     <Compile Include="CancelPreapproval.aspx.cs">
@@ -214,7 +214,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="adaptivepaymentshandler.ashx" />
     <Content Include="CancelPreapproval.aspx" />
     <Content Include="ConfirmPreapproval.aspx" />
     <Content Include="ConvertCurrency.aspx" />
@@ -236,6 +235,7 @@
     <Content Include="SetPaymentOptions.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdaptivePaymentsHandler.ashx" />
     <None Include="IPN-README.md" />
     <None Include="README.md" />
     <Content Include="Web.config" />

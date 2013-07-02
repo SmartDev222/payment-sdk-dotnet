@@ -23,7 +23,7 @@
                 message, or the pay key associated with the payment.</div>
         </div>
         <div id="request_form">
-            <form method="post" action="adaptivepaymentshandler.ashx" runat="server">
+            <form method="post" action="AdaptivePaymentsHandler.ashx" runat="server">
                 <div class="params">
                     <div class="param_name">
                         Pay key</div>
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="submit">
-                    <asp:Button ID="AdaptivePaymentsBtn" Text="PaymentDetails" runat="server" PostBackUrl="adaptivepaymentshandler.ashx" />
+                    <asp:Button ID="AdaptivePaymentsBtn" Text="PaymentDetails" runat="server" PostBackUrl="AdaptivePaymentsHandler.ashx" />
                 </div>
             </form>
         </div>

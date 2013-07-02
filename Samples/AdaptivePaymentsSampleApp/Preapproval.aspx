@@ -25,7 +25,7 @@
                 or not a PIN is required for each payment request.</div>
         </div>
         <div id="request_form">
-            <form id="Form1" method="post" action="adaptivepaymentshandler.ashx" runat="server">
+            <form id="Form1" method="post" action="AdaptivePaymentsHandler.ashx" runat="server">
                 <div class="params">
                     <div class="param_name">
                         Cancel Url *</div>
@@ -181,7 +181,7 @@
                     </div>
                 </div>
                 <div class="submit">
-                    <asp:Button ID="AdaptivePaymentsBtn" Text="Preapproval" runat="server" PostBackUrl="adaptivepaymentshandler.ashx" />
+                    <asp:Button ID="AdaptivePaymentsBtn" Text="Preapproval" runat="server" PostBackUrl="AdaptivePaymentsHandler.ashx" />
                 </div>
             </form>
         </div>

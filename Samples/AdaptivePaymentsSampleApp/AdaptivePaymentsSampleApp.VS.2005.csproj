@@ -49,8 +49,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="adaptivepaymentshandler.ashx.cs">
-      <DependentUpon>adaptivepaymentshandler.ashx</DependentUpon>
+    <Compile Include="AdaptivePaymentsHandler.ashx.cs">
+      <DependentUpon>AdaptivePaymentsHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="App_Code\Message.cs" />
     <Compile Include="CancelPreapproval.aspx.cs">
@@ -194,7 +194,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="adaptivepaymentshandler.ashx" />
+    <Content Include="AdaptivePaymentsHandler.ashx" />
     <Content Include="CancelPreapproval.aspx" />
     <Content Include="ConfirmPreapproval.aspx" />
     <Content Include="ConvertCurrency.aspx" />
