@@ -141,7 +141,6 @@
     <Compile Include="IPNListener.aspx.designer.cs">
       <DependentUpon>IPNListener.aspx</DependentUpon>
     </Compile>
-    <Compile Include="objectdumper.cs" />
     <Compile Include="Pay.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Pay.aspx</DependentUpon>
