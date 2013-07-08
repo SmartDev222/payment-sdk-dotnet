@@ -140,14 +140,14 @@
                     <div class="param_name">
                         Sender email</div>
                     <div class="param_value">
-                        <input name="senderEmail" id="senderEmail" value="" />
+                        <input name="senderEmail" id="senderEmail" runat="server" />
                     </div>
                 </div>
                 <div class="params">
                     <div class="param_name">
                         Starting date *</div>
                     <div class="param_value">
-                        <input name="startingDate" id="startingDate" value="" runat="server" />
+                        <input name="startingDate" id="startingDate" runat="server" />
                     </div>
                 </div>
                 <div class="params">

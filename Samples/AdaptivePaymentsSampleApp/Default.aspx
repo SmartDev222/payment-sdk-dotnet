@@ -6,8 +6,7 @@
     <title>AdaptivePayments Sample App</title>
 </head>
 <body>
-    <h2>
-        AdaptivePayments API samples</h2>
+    <h2>AdaptivePayments API samples</h2>
     <form id="form1" runat="server">
         <div>
             <a href="Pay.aspx">Pay</a>
@@ -41,7 +40,19 @@
             <a href="GetShippingAddresses.aspx">GetShippingAddresses</a>
             <br />
             <a href="GetUserLimits.aspx">GetUserLimits</a>
+
+            <h2>Adaptive Payments Usecase Samples</h2>
+            <a href="UseCaseSamples/SimplePayment.aspx">SimplePayment</a>
             <br />
+            <a href="UseCaseSamples/ParallelPayment.aspx">ParallelPayment</a>
+            <br />
+            <a href="UseCaseSamples/ChainedPayment.aspx">ChainedPayment</a>
+            <br />
+            <a href="UseCaseSamples/DeferredPayment.aspx">DeferredPayment</a>
+            <br />
+            <a href="UseCaseSamples/EmbeddedPayment.aspx">EmbeddedPayment</a>
+            <br />
+            <a href="UseCaseSamples/PreapprovalPayment.aspx">PreapprovalPayment</a>    
         </div>
     </form>
 </body>
