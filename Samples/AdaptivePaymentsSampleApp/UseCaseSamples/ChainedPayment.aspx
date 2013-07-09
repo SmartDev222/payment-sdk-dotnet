@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    
 </head>
 <body>
     <div id="wrapper">
@@ -80,7 +81,7 @@
                         </td>
                         <td class="param_value">
                             <input type="text" name="mail"
-                                value="platfo_1255077030_biz@gmail.com" />
+                                value="jb-us-seller@paypal.com" />
                         </td>
                         <td>
                             <select name="primaryReceiver" id="primaryReceiver_0"
@@ -96,7 +97,7 @@
                         </td>
                         <td class="param_value">
                             <input type="text" name="mail"
-                                value="platfo_1255612361_per@gmail.com" />
+                                value="sdk.seller@gmail.com" />
                         </td>
                         <td>
                             <select name="primaryReceiver" id="primaryReceiver_1"
