@@ -51,7 +51,7 @@
 
                 <div class="param_name">Sender Email*</div>
                 <div class="param_value">
-                    <input type="text" name="senderEmail" value="jb-us-seller@paypal.com" />
+                    <input type="text" name="senderEmail" value="jb-us-seller2@paypal.com" />
                 </div>
 
                 <div class="section_header">ReceiverList</div>
