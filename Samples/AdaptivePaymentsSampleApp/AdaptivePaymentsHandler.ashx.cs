@@ -2715,7 +2715,7 @@ namespace AdaptivePaymentsSampleApp
             if (redirectUrl != null)
             {
                 string red = "<div>This API involves a web flow. You must now redirect your user to " + redirectUrl;
-                red = red + "<br />Please click <a href='" + redirectUrl + "' target='_blank'>here</a> to try the flow.</div><br/>";
+                red = red + "<br />Please click <a href='" + redirectUrl + "' target='_parent'>here</a> to try the flow.</div><br/>";
                 context.Response.Write(red);
             }
             context.Response.Write("<div class='section_header'>Key values from response</div>");

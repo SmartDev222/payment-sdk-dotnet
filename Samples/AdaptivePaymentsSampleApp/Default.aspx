@@ -42,7 +42,7 @@
             <br />
             <a href="GetUserLimits.aspx">GetUserLimits</a>
 
-            <h2>Adaptive Payments Usecase Samples</h2>
+            <h2>Adaptive Payments UseCase Samples</h2>
             <a href="UseCaseSamples/SimplePayment.aspx">SimplePayment</a>
             <br />
             <a href="UseCaseSamples/ParallelPayment.aspx">ParallelPayment</a>
