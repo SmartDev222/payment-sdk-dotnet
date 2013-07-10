@@ -1,7 +1,7 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdaptivePaymentsSampleApp.VS.2008", "AdaptivePaymentsSampleApp.VS.2008.csproj", "{AA2162C6-EC00-4903-8920-8B9652AAF685}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdaptivePaymentsSampleApp.VS.2010", "AdaptivePaymentsSampleApp\AdaptivePaymentsSampleApp.VS.2010.csproj", "{AA2162C6-EC00-4903-8920-8B9652AAF685}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
