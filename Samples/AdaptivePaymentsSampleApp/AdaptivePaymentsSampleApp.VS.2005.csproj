@@ -29,6 +29,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=1.0.20229.27168, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL" />
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL" />
     <Reference Include="PayPalAdaptivePaymentsSDK, Version=2.5.103.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="PayPalCoreSDK, Version=1.3.1.0, Culture=neutral, processorArchitecture=MSIL" />
@@ -36,6 +37,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -227,6 +229,13 @@
     <Compile Include="UseCaseSamples\PreapprovalPayment.aspx.designer.cs">
       <DependentUpon>PreapprovalPayment.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UseCaseSamples\RequestResponse.aspx.cs">
+      <DependentUpon>RequestResponse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UseCaseSamples\RequestResponse.aspx.designer.cs">
+      <DependentUpon>RequestResponse.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UseCaseSamples\SimplePayment.aspx.cs">
       <DependentUpon>SimplePayment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -258,13 +267,20 @@
     <Content Include="SetPaymentOptions.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Ajax\20\Microsoft ASPNET 2.0 AJAX Extensions 1.0\ASPAJAXExtSetup.msi" />
     <None Include="IPN-README.md" />
     <None Include="README.md" />
+    <Content Include="Ajax\20\AjaxControlToolkit.dll" />
+    <Content Include="Ajax\35\AjaxControlToolkit.dll" />
+    <Content Include="Ajax\40\AjaxControlToolkit.dll" />
+    <Content Include="Ajax\45\AjaxControlToolkit.dll" />
+    <Content Include="Images\Calendar.png" />
     <Content Include="UseCaseSamples\ChainedPayment.aspx" />
     <Content Include="UseCaseSamples\DeferredPayment.aspx" />
     <Content Include="UseCaseSamples\EmbeddedPayment.aspx" />
     <Content Include="UseCaseSamples\ParallelPayment.aspx" />
     <Content Include="UseCaseSamples\PreapprovalPayment.aspx" />
+    <Content Include="UseCaseSamples\RequestResponse.aspx" />
     <Content Include="UseCaseSamples\SimplePayment.aspx" />
     <Content Include="IPNListener.aspx" />
     <Content Include="lib\PayPalAdaptivePaymentsSDK.dll" />
@@ -286,8 +302,8 @@
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>2646</DevelopmentServerPort>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>3032</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

@@ -4,8 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-    
+    <title>AdaptivePayments API - Chained Payment</title>  
+    <link rel="stylesheet" type="text/css" href="../Content/sdk.css" />
+    <script type="text/javascript" src="../Content/jquery-1.3.2.min.js"></script>
+    <script type="text/javascript" src="../Content/sdk_functions.js"></script>  
 </head>
 <body>
 	<img src="https://devtools-paypal.com/image/bdg_payments_by_pp_2line.png" alt="PAYMENTS BY PayPal" />
@@ -13,107 +15,106 @@
         <div id="header">
             <h3>Chained Payment</h3>
             <div id="apidetails">
-                A chained payment is a payment from a
-	            sender that is indirectly split among multiple receivers. It is an
-	            extension of a typical payment from a sender to a receiver, in which
-	            a receiver, known as the primary receiver, passes part of the
-	            payment to other receivers, who are called secondary receivers
-	            Create your PayRequest message by setting the common fields. If you
-	            want more than a simple payment, add fields for the specific kind of
-	            request, which include parallel payments, chained payments, implicit
-	            payments, and preapproved payments.
+            <p>
+                <i>
+                    A Chained Payment is a Payment from a sender that is indirectly split among multiple receivers. 
+                    It is an extension of a typical Payment from a sender to a receiver, in which a receiver, 
+                    known as the Primary Receiver, passes part of the Payment to other Receivers, who are called Secondary Receivers.
+	                Create your PayRequest message by setting the common fields. 
+                    If you want more than a Simple Payment, add fields for the specific kind of request, which include 
+                    Parallel Payments, Chained Payments, Implicit Payments, and Preapproved Payments.
+                </i>
+            </p>  
             </div>
         </div>
     </div>
-    <br />
-    <form id="form1" runat="server" method="post">
+    <form id="form1" runat="server">
         <div class="params">
             <div class="params">
                 <div class="param_name">Currency Code*</div>
                 <div class="param_value">
-                    <input type="text" name="currencyCode" value="USD" />
+                    <asp:TextBox runat="server" ID="currencyCode" Text="USD" />
                 </div>
                 <div class="param_name">Action Type*</div>
                 <div class="param_value">
-                    <select name="actionType">
-                        <option value="PAY">Pay</option>
-                        <option value="PAY_PRIMARY">Pay Primary</option>
-                    </select>
+                    <asp:DropDownList runat="server" ID="actionType">
+                        <asp:ListItem Text="Pay" Value="PAY" />
+                        <asp:ListItem Text="Pay Primary" Value="PAY_PRIMARY" Selected="True" />
+                        <asp:ListItem Text="Create" Value="CREATE" />
+                    </asp:DropDownList>
                 </div>
                 <div class="param_name">Cancel URL*</div>
                 <div class="param_value">
-                    <input type="text" name="cancelURL" id="cancelURL" runat="server" />
+                    <asp:TextBox runat="server" ID="cancelURL" />
                 </div>
                 <div class="param_name">Return URL*</div>
                 <div class="param_value">
-                    <input type="text" name="returnURL" id="returnURL" runat="server" />
+                    <asp:TextBox runat="server" ID="returnURL" />
                 </div>
                 <div class="param_name">
-                    IPN Notification URL (For receiving
-						IPN call back from PayPal)
+                    IPN Notification URL (For receiving IPN call back from PayPal)
                 </div>
                 <div class="param_value">
-                    <input type="text" name="ipnNotificationURL" value="" />
+                    <asp:TextBox runat="server" ID="ipnNotificationURL" />
                 </div>
                 <div class="param_name">Sender Email</div>
                 <div class="param_value">
-                    <input type="text" name="senderEmail" value="jb-us-seller2@paypal.com" />
+                    <asp:TextBox runat="server" ID="senderEmail" Text="jb-us-seller2@paypal.com" />
                 </div>
                 <div class="section_header">ReceiverList</div>
                 <div class="note">
-                    <p>
-                        Receiver is the party where funds are
-						transferred to. A primary receiver receives a payment directly
-						from the sender in a chained split payment. A primary receiver
-						should not be specified when making a single or parallel split
-						payment. At most one receiver can be set as primary receiver
-                    </p>
+                    <i>
+                        Receiver is the party where funds are transferred to. 
+                        A Primary Receiver receives a Payment directly from the sender in a Chained Split Payment. 
+                        A Primary Receiver should not be specified when making a single or Parallel Split Payment. 
+                        At most one Receiver can be set as Primary Receiver.
+                    </i>
                 </div>
                 <table>
                     <tr>
                         <th class="param_name">Amount*</th>
-                        <th class="param_name">E-mail*</th>
+                        <th class="param_name">Email*</th>
                         <th>Primary Receiver</th>
                     </tr>
                     <tr>
                         <td class="param_value">
-                            <input type="text" name="amount"
-                                value="2.00" />
+                            <asp:TextBox runat="server" ID="amount1" Text="3.00" />
                         </td>
                         <td class="param_value">
-                            <input type="text" name="mail"
-                                value="jb-us-seller@paypal.com" />
+                            <asp:TextBox runat="server" ID="mail1" Text="jb-us-seller@paypal.com" />
                         </td>
                         <td>
-                            <select name="primaryReceiver" id="primaryReceiver_0"
-                                class="smallfield">
-                                <option value="true" selected="selected">true</option>
-                                <option value="false">false</option>
-                            </select></td>
+                            <asp:DropDownList runat="server" ID="primaryReceiver1">
+                                <asp:ListItem Text="True" Value="true" Selected="True" />
+                                <asp:ListItem Text="False" Value="false" />
+                            </asp:DropDownList>
+                        </td>
                     </tr>
                     <tr>
                         <td class="param_value">
-                            <input type="text" name="amount"
-                                value="2.00" />
+                            <asp:TextBox runat="server" ID="amount2" Text="2.00" />
                         </td>
                         <td class="param_value">
-                            <input type="text" name="mail"
-                                value="sdk.seller@gmail.com" />
+                            <asp:TextBox runat="server" ID="mail2" Text="sdk.seller@gmail.com" />
                         </td>
                         <td>
-                            <select name="primaryReceiver" id="primaryReceiver_1"
-                                class="smallfield">
-                                <option value="true">true</option>
-                                <option value="false" selected="selected">false</option>
-                            </select></td>
+                            <asp:DropDownList runat="server" ID="primaryReceiver2">
+                                <asp:ListItem Text="True" Value="true" />
+                                <asp:ListItem Text="False" Value="false" Selected="True" />
+                            </asp:DropDownList>
+                        </td>
                     </tr>
                 </table>
             </div>
+            <br />
             <div class="submit">
-                <asp:Button ID="AdaptivePaymentsBtn" Text="ChainedPay" runat="server" PostBackUrl="~/AdaptivePaymentsHandler.ashx" />
+                <asp:Button ID="ButtonAdaptivePayments" Text="ChainedPayment" runat="server" PostBackUrl="~/UseCaseSamples/RequestResponse.aspx" />
             </div>
             <br />
-            <a href="../Default.aspx">Home</a>
+            <asp:HyperLink runat="server" ID="HyperLinkHome" NavigateUrl="~/Default.aspx" Text="Home" />
+            <br />
+            <br />
+            <asp:HyperLink ID="HyperLinkBack" runat="server" NavigateUrl="javascript:history.back();" Text="Back" />
         </div>
     </form>
 </body>
