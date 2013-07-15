@@ -6,6 +6,7 @@ bin
 
 # IDE files
 *.user
+*.suo
 *.pdb
 *.bak
 *.FileListAbsolute.txt
