@@ -284,11 +284,9 @@
     <Content Include="AdaptivePaymentsHandler.ashx" />
     <None Include="IPN-README.md" />
     <None Include="README.md" />
-    <Content Include="Ajax\35\AjaxControlToolkit.dll" />
-    <Content Include="Ajax\40\AjaxControlToolkit.dll" />
-    <Content Include="Ajax\45\AjaxControlToolkit.dll" />
+    <Content Include="Web.config" />
+    <Content Include="AJAX\AJAX .NET Framework 3.5\AjaxControlToolkit.dll" />
     <Content Include="Images\Calendar.png" />
-    <Content Include="web.config" />
     <Content Include="UseCaseSamples\ChainedPayment.aspx" />
     <Content Include="UseCaseSamples\DeferredPayment.aspx" />
     <Content Include="UseCaseSamples\EmbeddedPayment.aspx" />

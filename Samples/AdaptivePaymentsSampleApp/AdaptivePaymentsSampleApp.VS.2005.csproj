@@ -267,13 +267,10 @@
     <Content Include="SetPaymentOptions.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Ajax\20\Microsoft ASPNET 2.0 AJAX Extensions 1.0\ASPAJAXExtSetup.msi" />
+    <None Include="AJAX\AJAX .NET Framework 2.0\Microsoft ASPNET 2.0 AJAX Extensions 1.0\ASPAJAXExtSetup.msi" />
     <None Include="IPN-README.md" />
     <None Include="README.md" />
-    <Content Include="Ajax\20\AjaxControlToolkit.dll" />
-    <Content Include="Ajax\35\AjaxControlToolkit.dll" />
-    <Content Include="Ajax\40\AjaxControlToolkit.dll" />
-    <Content Include="Ajax\45\AjaxControlToolkit.dll" />
+    <Content Include="AJAX\AJAX .NET Framework 2.0\AjaxControlToolkit.dll" />
     <Content Include="Images\Calendar.png" />
     <Content Include="UseCaseSamples\ChainedPayment.aspx" />
     <Content Include="UseCaseSamples\DeferredPayment.aspx" />

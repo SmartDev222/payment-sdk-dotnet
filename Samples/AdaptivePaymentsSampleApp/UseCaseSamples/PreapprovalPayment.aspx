@@ -16,16 +16,14 @@
     <div id="wrapper">
         <div id="header">
             <h3>Preapproval Payment</h3>
-			<div id="apidetails">
-                <i>
+            <div id="apidetails">
+                <i>         
                     Preapproval API operation is used to set up an agreement between yourself and a sender for making payments on the sender's behalf. 
-                    You set up a Preapprovals for a specific maximum amount over a specific period of time and, 
-                    optionally, by any of the following constraints: 
+                    You set up a Preapprovals for a specific maximum amount over a specific period of time and, optionally, by any of the following constraints: 
                     Number of Payments, Maximum Per-Payment Amount, Specific Day of the Week or Month, and If a PIN is required for each Payment request.
                 </i>
-			</div>
+            </div>
         </div>
-        <br />
         <form id="form1" runat="server">
             <ajaxToolkit:ToolkitScriptManager runat="Server" EnableScriptGlobalization="true" EnableScriptLocalization="true" ID="ScriptManagerPreapprovalPayment" />
             <div>

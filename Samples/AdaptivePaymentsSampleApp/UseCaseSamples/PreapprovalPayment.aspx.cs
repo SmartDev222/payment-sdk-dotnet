@@ -28,7 +28,9 @@ namespace AdaptivePaymentsSampleApp.UseCaseSamples
             }           
 
             this.returnURL.Text = returnUniformResourceLocator;
-            this.cancelURL.Text = cancelUniformResourceLocator;            
+            this.cancelURL.Text = cancelUniformResourceLocator;
+
+            this.startingDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
     }
 }

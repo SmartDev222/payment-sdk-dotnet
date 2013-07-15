@@ -155,3 +155,11 @@ The typical location for Visual Studio 2005:
  'C:\Program Files (x86)\Microsoft Visual Studio 8\Common7\IDE\'
 The typical Installation location for Visual Studio 2008:
 'C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\'
+
+
+AJAX
+----
+•	AJAX .NET Framework 2.0
+•	AJAX .NET Framework 3.5 [Note to uncomment element <pages> and "GET,HEAD" httpHandler in <system.web> for Visual Studio 2008 .NET Framework 3.5]
+•	AJAX .NET Framework 4.0
+•	AJAX .NET Framework 4.5

@@ -39,9 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit, Version=3.0.20820.29578, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+    <Reference Include="AjaxControlToolkit, Version=1.0.20229.27168, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Ajax\ASP.NET AJAX Framework 3.5\AjaxControlToolkit.dll</HintPath>
+      <HintPath>AJAX\AJAX .NET Framework 4.0\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL" />
     <Reference Include="PayPalAdaptivePaymentsSDK, Version=2.5.103.0, Culture=neutral, processorArchitecture=MSIL" />
@@ -64,7 +64,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Ajax\ASP.NET AJAX Framework 3.5\AjaxControlToolkit.dll" />
+    <Content Include="AJAX\AJAX .NET Framework 4.0\AjaxControlToolkit.dll" />
     <Content Include="Default.aspx" />
     <Content Include="Images\Calendar.png" />
     <Content Include="Pay.aspx" />
@@ -296,14 +296,12 @@
     <Content Include="UseCaseSamples\PreapprovalPayment.aspx" />
     <Content Include="UseCaseSamples\RequestResponse.aspx" />
     <Content Include="UseCaseSamples\SimplePayment.aspx" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="IPNListener.aspx" />
     <Content Include="lib\PayPalAdaptivePaymentsSDK.dll" />
     <Content Include="lib\PayPalCoreSDK.dll" />
     <Content Include="SanityTest\Web.development.config" />
     <Content Include="ShowError.aspx" />
+    <Content Include="Web.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

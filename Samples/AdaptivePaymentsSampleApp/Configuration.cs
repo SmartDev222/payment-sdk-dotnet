@@ -18,9 +18,6 @@ namespace AdaptivePaymentsSampleApp
             configMap.Add("account1.apiSignature", "AFcWxV21C7fd0v3bYYYRCpSSRl31A7yDhhsPUU2XhtMoZXsWHFxu-RWy");
             configMap.Add("account1.applicationId", "APP-80W284485P519543T");
 
-            // Sandbox Email Address
-            configMap.Add("sandbox.EmailAddress", "pp.devtools@gmail.com");
-
             return configMap;
         }
 	
@@ -39,10 +36,16 @@ namespace AdaptivePaymentsSampleApp
             configMap.Add("account2.privateKeyPassword", "password");
             configMap.Add("account2.applicationId", "APP-80W284485P519543T");
 
+            return configMap;
+        }
 
-            // Sandbox Email Address
-            configMap.Add("sandbox.EmailAddress", "pp.devtools@gmail.com");
+        // Creates a configuration map containing IPN Endpoint Mode
+        public static Dictionary<string, string> GetIPNConfig()
+        {
+            Dictionary<string, string> configMap = new Dictionary<string, string>();
 
+            // Endpoints are varied depending on whether sandbox OR live is chosen for mode
+            configMap.Add("mode", "sandbox");
             return configMap;
         }
     }
