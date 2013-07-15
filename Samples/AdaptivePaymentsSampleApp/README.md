@@ -159,7 +159,7 @@ The typical Installation location for Visual Studio 2008:
 
 AJAX
 ----
-•	AJAX .NET Framework 2.0
+•	AJAX .NET Framework 2.0 [Install ASPAJAXExtSetup.msi in AJAX\AJAX .NET Framework 2.0\Microsoft ASPNET 2.0 AJAX Extensions 1.0]
 •	AJAX .NET Framework 3.5 [Note to uncomment element <pages> and "GET,HEAD" httpHandler in <system.web> for Visual Studio 2008 .NET Framework 3.5]
 •	AJAX .NET Framework 4.0
 •	AJAX .NET Framework 4.5
