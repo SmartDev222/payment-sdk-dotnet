@@ -38,6 +38,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Extensions.Design, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -56,79 +57,79 @@
     </Compile>
     <Compile Include="App_Code\Message.cs" />
     <Compile Include="CancelPreapproval.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>CancelPreapproval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CancelPreapproval.aspx.designer.cs">
       <DependentUpon>CancelPreapproval.aspx</DependentUpon>
     </Compile>
     <Compile Include="Configuration.cs" />
     <Compile Include="ConfirmPreapproval.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>ConfirmPreapproval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ConfirmPreapproval.aspx.designer.cs">
       <DependentUpon>ConfirmPreapproval.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConvertCurrency.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>ConvertCurrency.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ConvertCurrency.aspx.designer.cs">
       <DependentUpon>ConvertCurrency.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="ExecutePayment.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>ExecutePayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ExecutePayment.aspx.designer.cs">
       <DependentUpon>ExecutePayment.aspx</DependentUpon>
     </Compile>
     <Compile Include="GetAllowedFundingSources.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>GetAllowedFundingSources.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="GetAllowedFundingSources.aspx.designer.cs">
       <DependentUpon>GetAllowedFundingSources.aspx</DependentUpon>
     </Compile>
     <Compile Include="GetAvailableShippingAddresses.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>GetAvailableShippingAddresses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="GetAvailableShippingAddresses.aspx.designer.cs">
       <DependentUpon>GetAvailableShippingAddresses.aspx</DependentUpon>
     </Compile>
     <Compile Include="GetFundingPlans.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>GetFundingPlans.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="GetFundingPlans.aspx.designer.cs">
       <DependentUpon>GetFundingPlans.aspx</DependentUpon>
     </Compile>
     <Compile Include="GetPaymentOptions.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>GetPaymentOptions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="GetPaymentOptions.aspx.designer.cs">
       <DependentUpon>GetPaymentOptions.aspx</DependentUpon>
     </Compile>
     <Compile Include="GetShippingAddresses.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>GetShippingAddresses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="GetShippingAddresses.aspx.designer.cs">
       <DependentUpon>GetShippingAddresses.aspx</DependentUpon>
     </Compile>
     <Compile Include="GetUserLimits.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>GetUserLimits.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="GetUserLimits.aspx.designer.cs">
       <DependentUpon>GetUserLimits.aspx</DependentUpon>
@@ -137,59 +138,59 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="IPNListener.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>IPNListener.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="IPNListener.aspx.designer.cs">
       <DependentUpon>IPNListener.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pay.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Pay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pay.aspx.designer.cs">
       <DependentUpon>Pay.aspx</DependentUpon>
     </Compile>
     <Compile Include="PaymentDetails.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>PaymentDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PaymentDetails.aspx.designer.cs">
       <DependentUpon>PaymentDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Preapproval.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Preapproval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Preapproval.aspx.designer.cs">
       <DependentUpon>Preapproval.aspx</DependentUpon>
     </Compile>
     <Compile Include="PreapprovalDetails.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>PreapprovalDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PreapprovalDetails.aspx.designer.cs">
       <DependentUpon>PreapprovalDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Refund.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Refund.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Refund.aspx.designer.cs">
       <DependentUpon>Refund.aspx</DependentUpon>
     </Compile>
     <Compile Include="SetPaymentOptions.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>SetPaymentOptions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SetPaymentOptions.aspx.designer.cs">
       <DependentUpon>SetPaymentOptions.aspx</DependentUpon>
     </Compile>
     <Compile Include="SanityTest\DeserializationTestFilter.cs" />
     <Compile Include="ShowError.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>ShowError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ShowError.aspx.designer.cs">
       <DependentUpon>ShowError.aspx</DependentUpon>
@@ -207,13 +208,6 @@
     </Compile>
     <Compile Include="UseCaseSamples\DeferredPayment.aspx.designer.cs">
       <DependentUpon>DeferredPayment.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UseCaseSamples\EmbeddedPayment.aspx.cs">
-      <DependentUpon>EmbeddedPayment.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UseCaseSamples\EmbeddedPayment.aspx.designer.cs">
-      <DependentUpon>EmbeddedPayment.aspx</DependentUpon>
     </Compile>
     <Compile Include="UseCaseSamples\ParallelPayment.aspx.cs">
       <DependentUpon>ParallelPayment.aspx</DependentUpon>
@@ -274,7 +268,6 @@
     <Content Include="Images\Calendar.png" />
     <Content Include="UseCaseSamples\ChainedPayment.aspx" />
     <Content Include="UseCaseSamples\DeferredPayment.aspx" />
-    <Content Include="UseCaseSamples\EmbeddedPayment.aspx" />
     <Content Include="UseCaseSamples\ParallelPayment.aspx" />
     <Content Include="UseCaseSamples\PreapprovalPayment.aspx" />
     <Content Include="UseCaseSamples\RequestResponse.aspx" />

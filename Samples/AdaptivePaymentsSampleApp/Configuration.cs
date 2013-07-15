@@ -40,12 +40,19 @@ namespace AdaptivePaymentsSampleApp
         }
 
         // Creates a configuration map containing IPN Endpoint Mode
-        public static Dictionary<string, string> GetIPNConfig()
+        public static Dictionary<string, string> GetConfig()
         {
             Dictionary<string, string> configMap = new Dictionary<string, string>();
 
             // Endpoints are varied depending on whether sandbox OR live is chosen for mode
             configMap.Add("mode", "sandbox");
+
+            // These values are defaulted in SDK. If you want to override default values, uncomment it and add your value.
+            //configMap.Add("http.ConnectionTimeOut", "5000");
+            //configMap.Add("http.Retry", "2");
+            //configMap.Add("http.ReadTimeOut", "30000");
+            //configMap.Add("http.MaxConnection", "100");
+
             return configMap;
         }
     }

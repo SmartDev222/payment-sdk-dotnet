@@ -234,13 +234,6 @@
     <Compile Include="UseCaseSamples\DeferredPayment.aspx.designer.cs">
       <DependentUpon>DeferredPayment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UseCaseSamples\EmbeddedPayment.aspx.cs">
-      <DependentUpon>EmbeddedPayment.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UseCaseSamples\EmbeddedPayment.aspx.designer.cs">
-      <DependentUpon>EmbeddedPayment.aspx</DependentUpon>
-    </Compile>
     <Compile Include="UseCaseSamples\ParallelPayment.aspx.cs">
       <DependentUpon>ParallelPayment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -297,7 +290,6 @@
     <None Include="README.md" />
     <Content Include="UseCaseSamples\ChainedPayment.aspx" />
     <Content Include="UseCaseSamples\DeferredPayment.aspx" />
-    <Content Include="UseCaseSamples\EmbeddedPayment.aspx" />
     <Content Include="UseCaseSamples\ParallelPayment.aspx" />
     <Content Include="UseCaseSamples\PreapprovalPayment.aspx" />
     <Content Include="UseCaseSamples\RequestResponse.aspx" />

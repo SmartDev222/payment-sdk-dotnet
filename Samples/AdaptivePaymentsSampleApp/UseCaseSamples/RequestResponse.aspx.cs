@@ -31,9 +31,6 @@ namespace AdaptivePaymentsSampleApp
                 case "DeferredPayment":
                     DeferredPayment(Context);
                     break;
-                case "EmbeddedPayment":
-                    EmbeddedPayment(Context);
-                    break;
                 case "PreapprovalPayment":
                     PreapprovalPayment(Context);
                     break;
@@ -148,7 +145,8 @@ namespace AdaptivePaymentsSampleApp
 
             Dictionary<string, string> responseValues = new Dictionary<string, string>();
             string redirectUrl = null;
-            if (!(response.responseEnvelope.ack == AckCode.FAILURE) && !(response.responseEnvelope.ack == AckCode.FAILUREWITHWARNING))
+
+            if (!response.responseEnvelope.ack.ToString().Trim().Equals(AckCode.FAILURE.ToString()) && !response.responseEnvelope.ack.ToString().Trim().Equals(AckCode.FAILUREWITHWARNING.ToString()))
             {
                 redirectUrl = ConfigurationManager.AppSettings["PAYPAL_REDIRECT_URL"] + "_ap-payment&paykey=" + response.payKey;
 
@@ -174,9 +172,13 @@ namespace AdaptivePaymentsSampleApp
                     responseValues.Add("Sender fees", response.defaultFundingPlan.senderFees.amount +
                                                 response.defaultFundingPlan.senderFees.code);
                 }
-
                 responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString());
             }
+            else
+            {
+                responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString());
+            }
+
             Display(contextHttp, "SimplePayment", "AdaptivePayments", responseValues, service.getLastRequest(), service.getLastResponse(), response.error, redirectUrl);
         }
 
@@ -305,7 +307,8 @@ namespace AdaptivePaymentsSampleApp
 
             Dictionary<string, string> responseValues = new Dictionary<string, string>();
             string redirectUrl = null;
-            if (!(response.responseEnvelope.ack == AckCode.FAILURE) && !(response.responseEnvelope.ack == AckCode.FAILUREWITHWARNING))
+
+            if (!response.responseEnvelope.ack.ToString().Trim().Equals(AckCode.FAILURE.ToString()) && !response.responseEnvelope.ack.ToString().Trim().Equals(AckCode.FAILUREWITHWARNING.ToString()))
             {
                 redirectUrl = ConfigurationManager.AppSettings["PAYPAL_REDIRECT_URL"] + "_ap-payment&paykey=" + response.payKey;
                 // The pay key, which is a token you use in other Adaptive Payment APIs 
@@ -332,6 +335,11 @@ namespace AdaptivePaymentsSampleApp
 
                 responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString());
             }
+            else
+            {
+                responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString());
+            }
+
             Display(contextHttp, "ParallelPayment", "AdaptivePayments", responseValues, service.getLastRequest(), service.getLastResponse(), response.error, redirectUrl);
         }
 
@@ -474,7 +482,7 @@ namespace AdaptivePaymentsSampleApp
             Dictionary<string, string> responseValues = new Dictionary<string, string>();
             string redirectUrl = null;
 
-            if (!(response.responseEnvelope.ack == AckCode.FAILURE) && !(response.responseEnvelope.ack == AckCode.FAILUREWITHWARNING))
+            if (!response.responseEnvelope.ack.ToString().Trim().Equals(AckCode.FAILURE.ToString()) && !response.responseEnvelope.ack.ToString().Trim().Equals(AckCode.FAILUREWITHWARNING.ToString()))
             {
                 redirectUrl = ConfigurationManager.AppSettings["PAYPAL_REDIRECT_URL"] + "_ap-payment&paykey=" + response.payKey;
 
@@ -502,6 +510,11 @@ namespace AdaptivePaymentsSampleApp
 
                 responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString());
             }
+            else
+            {
+                responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString());
+            }
+
             Display(contextHttp, "ChainedPayment", "AdaptivePayments", responseValues, service.getLastRequest(), service.getLastResponse(), response.error, redirectUrl);
         }
 
@@ -613,7 +626,8 @@ namespace AdaptivePaymentsSampleApp
 
             Dictionary<string, string> responseValues = new Dictionary<string, string>();
             string redirectUrl = null;
-            if (!(response.responseEnvelope.ack == AckCode.FAILURE) && !(response.responseEnvelope.ack == AckCode.FAILUREWITHWARNING))
+
+            if (!response.responseEnvelope.ack.ToString().Trim().Equals(AckCode.FAILURE.ToString()) && !response.responseEnvelope.ack.ToString().Trim().Equals(AckCode.FAILUREWITHWARNING.ToString()))
             {
                 redirectUrl = ConfigurationManager.AppSettings["PAYPAL_REDIRECT_URL"] + "_ap-payment&paykey=" + response.payKey;
 
@@ -641,148 +655,12 @@ namespace AdaptivePaymentsSampleApp
 
                 responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString());
             }
+            else
+            {
+                responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString());
+            }
+
             Display(contextHttp, "DeferredPayment", "AdaptivePayments", responseValues, service.getLastRequest(), service.getLastResponse(), response.error, redirectUrl);
-        }
-
-        /// <summary>
-        /// Handles Embedded Pay API calls
-        /// </summary>
-        /// <param name="contextHttp"></param>
-        private void EmbeddedPayment(HttpContext contextHttp)
-        {
-            NameValueCollection parameters = contextHttp.Request.Params;
-            ReceiverList receiverList = new ReceiverList();
-            receiverList.receiver = new List<Receiver>();
-            PayRequest request = new PayRequest();
-            Receiver rec = new Receiver();
-
-            RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
-            request.requestEnvelope = requestEnvelope;
-
-            // (Required) Amount to be paid to the receiver 
-            if (parameters["amount"] != null && parameters["amount"].Trim() != string.Empty)
-            {
-                rec.amount = Convert.ToDecimal(parameters["amount"]);
-            }
-            
-            // Receiver's email address. This address can be unregistered with
-            // paypal.com. If so, a receiver cannot claim the payment until a PayPal
-            // account is linked to the email address. The PayRequest must pass
-            // either an email address or a phone number. Maximum length: 127 characters
-            if (parameters["mail"] != null && parameters["mail"].Trim() != string.Empty)
-            {
-                rec.email = parameters["mail"];
-            }
-
-            receiverList.receiver.Add(rec);
-
-            ReceiverList receiverlst = new ReceiverList(receiverList.receiver);
-            request.receiverList = receiverlst;
-
-            // Optional) Sender's email address. Maximum length: 127 characters
-            if (parameters["senderEmail"] != null && parameters["senderEmail"].Trim() != string.Empty)
-            {
-                request.senderEmail = parameters["senderEmail"];
-            }
-
-
-            // The action for this request. Possible values are: PAY – Use this
-            // option if you are not using the Pay request in combination with
-            // ExecutePayment. CREATE – Use this option to set up the payment
-            // instructions with SetPaymentOptions and then execute the payment at a
-            // later time with the ExecutePayment. PAY_PRIMARY – For chained
-            // payments only, specify this value to delay payments to the secondary
-            // receivers; only the payment to the primary receiver is processed.
-            if (parameters["actionType"] != null && parameters["actionType"].Trim() != string.Empty)
-            {
-                request.actionType = parameters["actionType"];
-            }
-
-
-            // URL to redirect the sender's browser to after canceling the approval
-            // for a payment; it is always required but only used for payments that
-            // require approval (explicit payments)
-            if (parameters["cancelURL"] != null && parameters["cancelURL"].Trim() != string.Empty)
-            {
-                request.cancelUrl = parameters["cancelURL"];
-            }
-            
-            // The code for the currency in which the payment is made; you can
-            // specify only one currency, regardless of the number of receivers
-            if (parameters["currencyCode"] != null && parameters["currencyCode"].Trim() != string.Empty)
-            {
-                request.currencyCode = parameters["currencyCode"];
-            }
-            
-            // URL to redirect the sender's browser to after the sender has logged
-            // into PayPal and approved a payment; it is always required but only
-            // used if a payment requires explicit approval
-            if (parameters["returnURL"] != null && parameters["returnURL"].Trim() != string.Empty)
-            {
-                request.returnUrl = parameters["returnURL"];
-            }
-
-            request.requestEnvelope = requestEnvelope;
-
-            // (Optional) The URL to which you want all IPN messages for this
-            // payment to be sent. Maximum length: 1024 characters
-            if (parameters["ipnNotificationURL"] != null && parameters["ipnNotificationURL"].Trim() != string.Empty)
-            {
-                request.ipnNotificationUrl = parameters["ipnNotificationURL"];
-            }
-
-            AdaptivePaymentsService service = null;
-            PayResponse response = null;
-            try
-            {
-                // Configuration map containing signature credentials and other required configuration.
-                // For a full list of configuration parameters refer at 
-                // (https://github.com/paypal/adaptivepayments-sdk-dotnet/wiki/SDK-Configuration-Parameters)
-                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
-
-                // Creating service wrapper object to make an API call and loading
-                // configuration map for your credentials and endpoint
-                service = new AdaptivePaymentsService(configurationMap);
-
-                response = service.Pay(request);
-            }
-            catch (System.Exception e)
-            {
-                contextHttp.Response.Write(e.Message);
-                return;
-            }
-
-            Dictionary<string, string> responseValues = new Dictionary<string, string>();
-            string redirectUrl = null;
-
-            if (!(response.responseEnvelope.ack == AckCode.FAILURE) && !(response.responseEnvelope.ack == AckCode.FAILUREWITHWARNING))
-            {
-                redirectUrl = ConfigurationManager.AppSettings["PAYPAL_REDIRECT_URL"] + "_ap-payment&paykey=" + response.payKey;
-                // The pay key, which is a token you use in other Adaptive Payment APIs 
-                // (such as the Refund Method) to identify this payment. 
-                // The pay key is valid for 3 hours; the payment must be approved while the 
-                // pay key is valid. 
-                responseValues.Add("Pay key", response.payKey);
-
-                // The status of the payment. Possible values are:
-                // CREATED – The payment request was received; funds will be transferred once the payment is approved
-                // COMPLETED – The payment was successful
-                // INCOMPLETE – Some transfers succeeded and some failed for a parallel payment or, for a delayed chained payment, secondary receivers have not been paid
-                // ERROR – The payment failed and all attempted transfers failed or all completed transfers were successfully reversed
-                // REVERSALERROR – One or more transfers failed when attempting to reverse a payment
-                // PROCESSING – The payment is in progress
-                // PENDING – The payment is awaiting processing
-                responseValues.Add("Payment execution status", response.paymentExecStatus);
-
-                if (response.defaultFundingPlan != null && response.defaultFundingPlan.senderFees != null)
-                {
-                    //Fees to be paid by the sender.
-                    responseValues.Add("Sender fees", response.defaultFundingPlan.senderFees.amount + response.defaultFundingPlan.senderFees.code);
-                }
-
-                responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString());
-            }
-            Display(contextHttp, "EmbeddedPayment", "AdaptivePayments", responseValues, service.getLastRequest(), service.getLastResponse(), response.error, redirectUrl);
         }
         
         /// <summary>
@@ -796,7 +674,13 @@ namespace AdaptivePaymentsSampleApp
 
             RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
             request.requestEnvelope = requestEnvelope;
-            
+
+            // (Optional) Sender's email address. Maximum length: 127 characters
+            if (parameters["senderEmail"] != null && parameters["senderEmail"].Trim() != string.Empty)
+            {
+                request.senderEmail = "jb-us-seller2@paypal.com";
+            }
+
             // (Optional) The day of the month on which a monthly payment is to be made.
             // Allowable values are numbers between 0 and 31.
             // A number between 1 and 31 indicates the date of the month.
@@ -844,7 +728,6 @@ namespace AdaptivePaymentsSampleApp
                 request.maxAmountPerPayment = Convert.ToDecimal(parameters["maxAmountPerPayment"]);
             }
 
-
             // (Optional) The preapproved maximum number of payments.
             // It cannot exceed the preapproved maximum total number of all payments. 
             if (parameters["maxNumberOfPayments"] != null && parameters["maxNumberOfPayments"].Trim() != string.Empty)
@@ -879,8 +762,7 @@ namespace AdaptivePaymentsSampleApp
             {
                 request.paymentPeriod = parameters["paymentPeriod"];
             }
-
-
+            
             // (Optional) Sender's email address. If not specified,
             // the email address of the sender who logs in to approve
             // the request becomes the email address associated with the preapproval key.
@@ -950,13 +832,17 @@ namespace AdaptivePaymentsSampleApp
             Dictionary<string, string> responseValues = new Dictionary<string, string>();
             string redirectUrl = null;
 
-            if (!(response.responseEnvelope.ack == AckCode.FAILURE) && !(response.responseEnvelope.ack == AckCode.FAILUREWITHWARNING))
+            if (!response.responseEnvelope.ack.ToString().Trim().Equals(AckCode.FAILURE.ToString()) && !response.responseEnvelope.ack.ToString().Trim().Equals(AckCode.FAILUREWITHWARNING.ToString()))
             {
-                //  A preapproval key that identifies the preapproval requested.
+                // A preapproval key that identifies the preapproval requested.
                 responseValues.Add("Preapproval key", response.preapprovalKey);
                 redirectUrl = ConfigurationManager.AppSettings["PAYPAL_REDIRECT_URL"] + "_ap-preapproval&preapprovalkey=" + response.preapprovalKey;
                 responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString());
                 responseValues.Add("Redirect To PayPal", redirectUrl);
+            }
+            else
+            {
+                responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString().Trim());
             }
             Display(contextHttp, "PreapprovalPayment", "AdaptivePayments", responseValues, service.getLastRequest(), service.getLastResponse(), response.error, redirectUrl);
         }
@@ -976,14 +862,21 @@ namespace AdaptivePaymentsSampleApp
             }
             else
             {
-                GridViewResponseValues.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(0, 200, 100);
+                if (responseValues["Acknowledgement"].Equals(AckCode.SUCCESS.ToString()))
+                {
+                    GridViewResponseValues.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(0, 200, 100);
+                }
+                else
+                {
+                    GridViewResponseValues.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(255, 255, 0);
+                }
                 if (redirectUrl != null)
                 {
                     LabelWebFlow.Text = "This API has Web Flow to redirect the user to complete the API call, please click the hyperlink to redirect the user to ";
                     HyperLinkWebFlow.Text = redirectUrl;
                     HyperLinkWebFlow.NavigateUrl = redirectUrl;
                     LabelWebFlowSuffix.Text = ".<br/><br/>";
-                } 
+                }
             }
 
             requestPayload = HttpUtility.UrlDecode(requestPayload);

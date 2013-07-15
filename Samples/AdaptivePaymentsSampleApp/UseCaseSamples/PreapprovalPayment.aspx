@@ -74,7 +74,7 @@
 					</table>
 					<div class="param_name">Sender Email</div>
 					<div class="param_value">
-                        <asp:TextBox runat="server" ID="senderEmail" />
+                        <asp:TextBox runat="server" ID="senderEmail" Text="jb-us-seller2@paypal.com" />
 					</div>					
 					<table>
 						<tr>
