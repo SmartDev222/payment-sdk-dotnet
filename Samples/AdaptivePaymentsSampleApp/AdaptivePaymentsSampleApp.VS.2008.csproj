@@ -223,12 +223,26 @@
     <Compile Include="UseCaseSamples\DeferredPayment.aspx.designer.cs">
       <DependentUpon>DeferredPayment.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UseCaseSamples\DelayedChainedPayment.aspx.cs">
+      <DependentUpon>DelayedChainedPayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UseCaseSamples\DelayedChainedPayment.aspx.designer.cs">
+      <DependentUpon>DelayedChainedPayment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UseCaseSamples\ParallelPayment.aspx.cs">
       <DependentUpon>ParallelPayment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UseCaseSamples\ParallelPayment.aspx.designer.cs">
       <DependentUpon>ParallelPayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UseCaseSamples\Preapproval.aspx.cs">
+      <DependentUpon>Preapproval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UseCaseSamples\Preapproval.aspx.designer.cs">
+      <DependentUpon>Preapproval.aspx</DependentUpon>
     </Compile>
     <Compile Include="UseCaseSamples\PreapprovalPayment.aspx.cs">
       <DependentUpon>PreapprovalPayment.aspx</DependentUpon>
@@ -277,6 +291,8 @@
     <Content Include="AdaptivePaymentsHandler.ashx" />
     <None Include="IPN-README.md" />
     <None Include="README.md" />
+    <Content Include="UseCaseSamples\DelayedChainedPayment.aspx" />
+    <Content Include="UseCaseSamples\Preapproval.aspx" />
     <Content Include="Web.config" />
     <Content Include="AJAX\AJAX .NET Framework 3.5\AjaxControlToolkit.dll" />
     <Content Include="Images\Calendar.png" />

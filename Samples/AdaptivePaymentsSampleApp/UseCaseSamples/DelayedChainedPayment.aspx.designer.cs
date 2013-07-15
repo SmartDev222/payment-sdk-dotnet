@@ -10,7 +10,7 @@
 namespace AdaptivePaymentsSampleApp.UseCaseSamples {
     
     
-    public partial class ChainedPayment {
+    public partial class DelayedChainedPayment {
         
         /// <summary>
         /// form1 control.

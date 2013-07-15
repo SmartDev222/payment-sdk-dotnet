@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DeferredPayment.aspx.cs" Inherits="AdaptivePaymentsSampleApp.UseCaseSamples.DeferredPayment" %>
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -17,8 +17,10 @@
             <div id="apidetails">
                 <p>
                     <i>                    
-                        Deferred Payment is about  Creating a Payment (Using  Pay API with [actionType:create]) and Executing a Payment later (using ExecutingPayment API). 
-                        Here the sender Email should be the Email of API caller (whose credential are used for the API call), the Payment needs to be approved for a deferred payment.
+                        Deferred Payment is about  Creating a Payment (Using  Pay API with [actionType:create]) 
+                        and Executing a Payment later (using ExecutingPayment API). 
+                        Here the sender Email should be the Email of API caller (whose credential are used for the API call), 
+                        the Payment needs to be approved for a deferred payment.
                     </i>
                 </p>
             </div>
@@ -30,9 +32,8 @@
             <div class="params">
                 <div class="param_name">Currency Code*</div>
                 <div class="param_value">
-                    <input type="text" name="currencyCode" value="USD" />
+                    <asp:TextBox runat="server" ID="currencyCode" Text="USD" />
                 </div>
-
                 <div class="param_name">Action Type*</div>
                 <div class="param_value">
                 <asp:DropDownList runat="server" ID="actionType">
@@ -55,12 +56,10 @@
                 <div class="param_value">
                     <asp:TextBox runat="server" ID="ipnNotificationURL" />
                 </div>
-
                 <div class="param_name">Sender Email*</div>
                 <div class="param_value">
                     <asp:TextBox runat="server" ID="senderEmail" Text="jb-us-seller2@paypal.com" />
                 </div>
-
                 <div class="section_header">Receiver</div>
                 <div class="note">
                     <i>Receiver is the party to whom funds are transferred.</i>

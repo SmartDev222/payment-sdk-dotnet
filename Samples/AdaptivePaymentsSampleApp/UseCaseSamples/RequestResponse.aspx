@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="True" CodeBehind="RequestResponse.aspx.cs" Inherits="AdaptivePaymentsSampleApp.RequestResponse" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title runat="server" id="titleName"></title>

@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChainedPayment.aspx.cs"
-    Inherits="AdaptivePaymentsSampleApp.UseCaseSamples.ChainedPayment" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DelayedChainedPayment.aspx.cs"
+    Inherits="AdaptivePaymentsSampleApp.UseCaseSamples.DelayedChainedPayment" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>AdaptivePayments API - Chained Payment</title>
+    <title>AdaptivePayments API - Delayed Chained Payment</title>
     <link rel="stylesheet" type="text/css" href="../Content/sdk.css" />
     <script type="text/javascript" src="../Content/jquery-1.3.2.min.js"></script>
     <script type="text/javascript" src="../Content/sdk_functions.js"></script>
@@ -13,17 +13,17 @@
     <img src="https://devtools-paypal.com/image/bdg_payments_by_pp_2line.png" alt="PAYMENTS BY PayPal" />
     <div id="wrapper">
         <div id="header">
-            <h3>Chained Payment</h3>
+            <h3>
+                Delayed Chained Payment</h3>
             <div id="apidetails">
                 <p>
-                    <i>A Chained Payment is a Payment from a sender that is indirectly split among multiple
-                        receivers. It is an extension of a typical Payment from a sender to a receiver,
-                        in which a receiver, known as the Primary Receiver, passes part of the Payment to
-                        other Receivers, who are called Secondary Receivers. Create your PayRequest message
-                        by setting the common fields. If you want more than a Simple Payment, add fields
-                        for the specific kind of request, which include Parallel Payments, Chained Payments,
-                        Implicit Payments, and Preapproved Payments.
-                    </i>
+                    <i>By default, payments to all receivers in a chained payment are immediate. However,
+                        you can choose to delay a payment to a secondary receiver. For example, as primary
+                        receiver, you may require secondary receivers to perform some action, such as shipping
+                        goods or waiting for expiration of a return period, before making payment. To complete
+                        the payment, you must explicitly execute a payment to secondary receivers after
+                        the sender pays you. The payment must occur within 90 days, after which you cannot
+                        complete the payment as part of the original chained payment. </i>
                 </p>
             </div>
         </div>
@@ -32,7 +32,8 @@
         <div id="request_form">
             <div class="params">
                 <div class="param_name">
-                    Currency Code*</div>
+                    Currency Code*
+                </div>
                 <div class="param_value">
                     <asp:TextBox runat="server" ID="currencyCode" Text="USD" />
                 </div>
@@ -40,18 +41,21 @@
                     Action Type*</div>
                 <div class="param_value">
                     <asp:DropDownList runat="server" ID="actionType">
-                        <asp:ListItem Text="Pay" Value="PAY" />
+                        <asp:ListItem Text="Pay" Value="PAY" Enabled="false" />
                         <asp:ListItem Text="Pay Primary" Value="PAY_PRIMARY" Selected="True" />
-                        <asp:ListItem Text="Create" Value="CREATE" />
+                        <asp:ListItem Text="Create" Value="CREATE" Enabled="false" />
                     </asp:DropDownList>
                 </div>
                 <div class="param_name">
-                    Cancel URL*</div>
+                    Cancel URL*
+                </div>
                 <div class="param_value">
+                   
                     <asp:TextBox runat="server" ID="cancelURL" />
                 </div>
                 <div class="param_name">
-                    Return URL*</div>
+                    Return URL*
+                </div>
                 <div class="param_value">
                     <asp:TextBox runat="server" ID="returnURL" />
                 </div>
@@ -62,8 +66,7 @@
                     <asp:TextBox runat="server" ID="ipnNotificationURL" />
                 </div>
                 <div class="param_name">
-                    Sender Email
-                </div>
+                    Sender Email (Email other than API caller)</div>
                 <div class="param_value">
                     <asp:TextBox runat="server" ID="senderEmail" Text="jb-us-seller2@paypal.com" />
                 </div>
@@ -83,7 +86,7 @@
                             Amount*
                         </th>
                         <th class="param_name">
-                            Email*
+                            Email*<br />(Primary Receiver should be the API caller)
                         </th>
                         <th>
                             Primary Receiver
@@ -94,7 +97,7 @@
                             <asp:TextBox runat="server" ID="amount1" Text="3.00" />
                         </td>
                         <td class="param_value">
-                            <asp:TextBox runat="server" ID="mail1" Text="jb-us-seller@paypal.com" />
+                            <asp:TextBox runat="server" ID="mail1" Text="jb-us-seller@paypal.com" Columns="50" />
                         </td>
                         <td>
                             <asp:DropDownList runat="server" ID="primaryReceiver1">
@@ -108,7 +111,7 @@
                             <asp:TextBox runat="server" ID="amount2" Text="2.00" />
                         </td>
                         <td class="param_value">
-                            <asp:TextBox runat="server" ID="mail2" Text="sdk.seller@gmail.com" />
+                            <asp:TextBox runat="server" ID="mail2" Text="platfo_1255612361_per@gmail.com" Columns="50" />
                         </td>
                         <td>
                             <asp:DropDownList runat="server" ID="primaryReceiver2">
@@ -121,7 +124,8 @@
             </div>
             <br />
             <div class="submit">
-                <asp:Button ID="ButtonAdaptivePayments" Text="ChainedPayment" runat="server" PostBackUrl="~/UseCaseSamples/RequestResponse.aspx" />
+                <asp:Button ID="ButtonAdaptivePayments" Text="DelayedChainedPayment" runat="server"
+                    PostBackUrl="~/UseCaseSamples/RequestResponse.aspx" />
             </div>
             <br />
             <asp:HyperLink runat="server" ID="HyperLinkHome" NavigateUrl="~/Default.aspx" Text="Home" />

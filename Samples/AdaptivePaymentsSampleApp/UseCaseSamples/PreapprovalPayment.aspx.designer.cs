@@ -49,58 +49,13 @@ namespace AdaptivePaymentsSampleApp.UseCaseSamples {
         protected global::System.Web.UI.WebControls.TextBox currencyCode;
         
         /// <summary>
-        /// startingDate control.
+        /// actionType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox startingDate;
-        
-        /// <summary>
-        /// ImageButtonStartingDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButtonStartingDate;
-        
-        /// <summary>
-        /// CalendarExtenderStartingDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtenderStartingDate;
-        
-        /// <summary>
-        /// endingDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox endingDate;
-        
-        /// <summary>
-        /// ImageButtonEndingDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButtonEndingDate;
-        
-        /// <summary>
-        /// CalendarExtenderEndingDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtenderEndingDate;
+        protected global::System.Web.UI.WebControls.DropDownList actionType;
         
         /// <summary>
         /// cancelURL control.
@@ -130,85 +85,31 @@ namespace AdaptivePaymentsSampleApp.UseCaseSamples {
         protected global::System.Web.UI.WebControls.TextBox ipnNotificationURL;
         
         /// <summary>
-        /// senderEmail control.
+        /// preapprovalKey control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox senderEmail;
+        protected global::System.Web.UI.WebControls.TextBox preapprovalKey;
         
         /// <summary>
-        /// dateOfMonth control.
+        /// amount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox dateOfMonth;
+        protected global::System.Web.UI.WebControls.TextBox amount;
         
         /// <summary>
-        /// dayOfWeek control.
+        /// mail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dayOfWeek;
-        
-        /// <summary>
-        /// maxAmountPerPayment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox maxAmountPerPayment;
-        
-        /// <summary>
-        /// maxNumberOfPayments control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox maxNumberOfPayments;
-        
-        /// <summary>
-        /// maxNumberOfPaymentsPerPeriod control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox maxNumberOfPaymentsPerPeriod;
-        
-        /// <summary>
-        /// totalAmountOfAllPayments control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox totalAmountOfAllPayments;
-        
-        /// <summary>
-        /// paymentPeriod control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList paymentPeriod;
-        
-        /// <summary>
-        /// displayMaxTotalAmount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList displayMaxTotalAmount;
+        protected global::System.Web.UI.WebControls.TextBox mail;
         
         /// <summary>
         /// ButtonAdaptivePayments control.

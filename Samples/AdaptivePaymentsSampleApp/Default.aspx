@@ -16,8 +16,9 @@
                     <asp:ListItem Value="~/UseCaseSamples/SimplePayment.aspx" Text="SimplePayment" />
                     <asp:ListItem Value="~/UseCaseSamples/ParallelPayment.aspx" Text="ParallelPayment" />
                     <asp:ListItem Value="~/UseCaseSamples/ChainedPayment.aspx" Text="ChainedPayment" />
+                    <asp:ListItem Value="~/UseCaseSamples/DelayedChainedPayment.aspx" Text="DelayedChainedPayment" />
                     <asp:ListItem Value="~/UseCaseSamples/DeferredPayment.aspx" Text="DeferredPayment" /> 
-                    <asp:ListItem Value="~/UseCaseSamples/PreapprovalPayment.aspx" Text="PreapprovalPayment" />
+                    <asp:ListItem Value="~/UseCaseSamples/Preapproval.aspx" Text="PreapprovalPayment" />
                 </asp:BulletedList>
             </div>
             <br />

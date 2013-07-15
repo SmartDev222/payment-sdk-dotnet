@@ -209,12 +209,26 @@
     <Compile Include="UseCaseSamples\DeferredPayment.aspx.designer.cs">
       <DependentUpon>DeferredPayment.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UseCaseSamples\DelayedChainedPayment.aspx.cs">
+      <DependentUpon>DelayedChainedPayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UseCaseSamples\DelayedChainedPayment.aspx.designer.cs">
+      <DependentUpon>DelayedChainedPayment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UseCaseSamples\ParallelPayment.aspx.cs">
       <DependentUpon>ParallelPayment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UseCaseSamples\ParallelPayment.aspx.designer.cs">
       <DependentUpon>ParallelPayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UseCaseSamples\Preapproval.aspx.cs">
+      <DependentUpon>Preapproval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UseCaseSamples\Preapproval.aspx.designer.cs">
+      <DependentUpon>Preapproval.aspx</DependentUpon>
     </Compile>
     <Compile Include="UseCaseSamples\PreapprovalPayment.aspx.cs">
       <DependentUpon>PreapprovalPayment.aspx</DependentUpon>

@@ -10,7 +10,7 @@
 namespace AdaptivePaymentsSampleApp.UseCaseSamples {
     
     
-    public partial class ChainedPayment {
+    public partial class Preapproval {
         
         /// <summary>
         /// form1 control.
@@ -22,6 +22,15 @@ namespace AdaptivePaymentsSampleApp.UseCaseSamples {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// ScriptManagerPreapprovalPayment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ToolkitScriptManager ScriptManagerPreapprovalPayment;
+        
+        /// <summary>
         /// currencyCode control.
         /// </summary>
         /// <remarks>
@@ -31,13 +40,58 @@ namespace AdaptivePaymentsSampleApp.UseCaseSamples {
         protected global::System.Web.UI.WebControls.TextBox currencyCode;
         
         /// <summary>
-        /// actionType control.
+        /// startingDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList actionType;
+        protected global::System.Web.UI.WebControls.TextBox startingDate;
+        
+        /// <summary>
+        /// ImageButtonStartingDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ImageButtonStartingDate;
+        
+        /// <summary>
+        /// CalendarExtenderStartingDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtenderStartingDate;
+        
+        /// <summary>
+        /// endingDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox endingDate;
+        
+        /// <summary>
+        /// ImageButtonEndingDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ImageButtonEndingDate;
+        
+        /// <summary>
+        /// CalendarExtenderEndingDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtenderEndingDate;
         
         /// <summary>
         /// cancelURL control.
@@ -76,58 +130,76 @@ namespace AdaptivePaymentsSampleApp.UseCaseSamples {
         protected global::System.Web.UI.WebControls.TextBox senderEmail;
         
         /// <summary>
-        /// amount1 control.
+        /// dateOfMonth control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox amount1;
+        protected global::System.Web.UI.WebControls.TextBox dateOfMonth;
         
         /// <summary>
-        /// mail1 control.
+        /// dayOfWeek control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox mail1;
+        protected global::System.Web.UI.WebControls.DropDownList dayOfWeek;
         
         /// <summary>
-        /// primaryReceiver1 control.
+        /// maxAmountPerPayment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList primaryReceiver1;
+        protected global::System.Web.UI.WebControls.TextBox maxAmountPerPayment;
         
         /// <summary>
-        /// amount2 control.
+        /// maxNumberOfPayments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox amount2;
+        protected global::System.Web.UI.WebControls.TextBox maxNumberOfPayments;
         
         /// <summary>
-        /// mail2 control.
+        /// maxNumberOfPaymentsPerPeriod control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox mail2;
+        protected global::System.Web.UI.WebControls.TextBox maxNumberOfPaymentsPerPeriod;
         
         /// <summary>
-        /// primaryReceiver2 control.
+        /// totalAmountOfAllPayments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList primaryReceiver2;
+        protected global::System.Web.UI.WebControls.TextBox totalAmountOfAllPayments;
+        
+        /// <summary>
+        /// paymentPeriod control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList paymentPeriod;
+        
+        /// <summary>
+        /// displayMaxTotalAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList displayMaxTotalAmount;
         
         /// <summary>
         /// ButtonAdaptivePayments control.
