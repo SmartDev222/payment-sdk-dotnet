@@ -175,12 +175,9 @@ namespace AdaptivePaymentsSampleApp
                     responseValues.Add("Sender Fees", response.defaultFundingPlan.senderFees.amount +
                                                 response.defaultFundingPlan.senderFees.code);
                 }
-                responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString());
             }
-            else
-            {
-                responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString());
-            }
+
+            responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString().Trim().ToUpper());
 
             Display(contextHttp, "SimplePayment", "AdaptivePayments", responseValues, service.getLastRequest(), service.getLastResponse(), response.error, redirectUrl);
         }
@@ -332,16 +329,12 @@ namespace AdaptivePaymentsSampleApp
 
                 if (response.defaultFundingPlan != null && response.defaultFundingPlan.senderFees != null)
                 {
-                    //Fees to be paid by the sender.
+                    // Fees to be paid by the sender
                     responseValues.Add("Sender Fees", response.defaultFundingPlan.senderFees.amount + response.defaultFundingPlan.senderFees.code);
                 }
+            }
 
-                responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString());
-            }
-            else
-            {
-                responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString());
-            }
+            responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString().Trim().ToUpper());
 
             Display(contextHttp, "ParallelPayment", "AdaptivePayments", responseValues, service.getLastRequest(), service.getLastResponse(), response.error, redirectUrl);
         }
@@ -507,16 +500,12 @@ namespace AdaptivePaymentsSampleApp
 
                 if (response.defaultFundingPlan != null && response.defaultFundingPlan.senderFees != null)
                 {
-                    //Fees to be paid by the sender.
+                    // Fees to be paid by the sender
                     responseValues.Add("Sender Fees", response.defaultFundingPlan.senderFees.amount + response.defaultFundingPlan.senderFees.code);
                 }
+            }
 
-                responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString());
-            }
-            else
-            {
-                responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString());
-            }
+            responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString().Trim().ToUpper());
 
             Display(contextHttp, "ChainedPayment", "AdaptivePayments", responseValues, service.getLastRequest(), service.getLastResponse(), response.error, redirectUrl);
         }
@@ -685,13 +674,9 @@ namespace AdaptivePaymentsSampleApp
                     //Fees to be paid by the sender.
                     responseValues.Add("Sender Fees", response.defaultFundingPlan.senderFees.amount + response.defaultFundingPlan.senderFees.code);
                 }
+            }
 
-                responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString());
-            }
-            else
-            {
-                responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString());
-            }
+            responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString().Trim().ToUpper());
 
             Display(contextHttp, "ChainedPayment", "AdaptivePayments", responseValues, service.getLastRequest(), service.getLastResponse(), response.error, redirectUrl);
         }
@@ -830,13 +815,9 @@ namespace AdaptivePaymentsSampleApp
                     //Fees to be paid by the sender.
                     responseValues.Add("Sender Fees", response.defaultFundingPlan.senderFees.amount + response.defaultFundingPlan.senderFees.code);
                 }
+            }
 
-                responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString());
-            }
-            else
-            {
-                responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString());
-            }
+            responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString().Trim().ToUpper());
 
             Display(contextHttp, "DeferredPayment", "AdaptivePayments", responseValues, service.getLastRequest(), service.getLastResponse(), response.error, redirectUrl);
         }
@@ -1014,15 +995,13 @@ namespace AdaptivePaymentsSampleApp
                 // A preapproval key that identifies the preapproval requested.
                 responseValues.Add("Preapproval Key", response.preapprovalKey);
                 redirectUrl = ConfigurationManager.AppSettings["PAYPAL_REDIRECT_URL"] + "_ap-preapproval&preapprovalkey=" + response.preapprovalKey;
-                responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString());
                 Application.Lock();
                 Application["preapprovalKey"] = response.preapprovalKey;
-                Application.UnLock();  
+                Application.UnLock();
             }
-            else
-            {
-                responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString().Trim());
-            }
+
+            responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString().Trim().ToUpper());
+
             Display(contextHttp, "Preapproval", "AdaptivePayments", responseValues, service.getLastRequest(), service.getLastResponse(), response.error, redirectUrl);
         }
         /// <summary>
@@ -1129,15 +1108,8 @@ namespace AdaptivePaymentsSampleApp
 
             Dictionary<string, string> responseValues = new Dictionary<string, string>();
             string redirectUrl = null;
-
-            if (!response.responseEnvelope.ack.ToString().Trim().ToUpper().Equals(AckCode.FAILURE.ToString()) && !response.responseEnvelope.ack.ToString().Trim().ToUpper().Equals(AckCode.FAILUREWITHWARNING.ToString()))
-            {
-                responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString());
-            }
-            else
-            {
-                responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString().Trim());
-            }
+            responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString().Trim().ToUpper());
+   
             Display(contextHttp, "PreapprovalPayment", "AdaptivePayments", responseValues, service.getLastRequest(), service.getLastResponse(), response.error, redirectUrl);
         }
 

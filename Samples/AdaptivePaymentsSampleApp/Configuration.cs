@@ -48,10 +48,8 @@ namespace AdaptivePaymentsSampleApp
             configMap.Add("mode", "sandbox");
 
             // These values are defaulted in SDK. If you want to override default values, uncomment it and add your value.
-            //configMap.Add("http.ConnectionTimeOut", "5000");
-            //configMap.Add("http.Retry", "2");
-            //configMap.Add("http.ReadTimeOut", "30000");
-            //configMap.Add("http.MaxConnection", "100");
+            //configMap.Add("connectionTimeout", "36000");
+            //configMap.Add("requestRetries", "3");
 
             return configMap;
         }
