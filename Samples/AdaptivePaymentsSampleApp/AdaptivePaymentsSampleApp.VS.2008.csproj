@@ -289,8 +289,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdaptivePaymentsHandler.ashx" />
-    <None Include="IPN-README.md" />
-    <None Include="README.md" />
     <Content Include="UseCaseSamples\DelayedChainedPayment.aspx" />
     <Content Include="UseCaseSamples\Preapproval.aspx" />
     <Content Include="Web.config" />

@@ -995,15 +995,14 @@ namespace AdaptivePaymentsSampleApp
                 // A preapproval key that identifies the preapproval requested.
                 responseValues.Add("Preapproval Key", response.preapprovalKey);
                 redirectUrl = ConfigurationManager.AppSettings["PAYPAL_REDIRECT_URL"] + "_ap-preapproval&preapprovalkey=" + response.preapprovalKey;
-                Application.Lock();
-                Application["preapprovalKey"] = response.preapprovalKey;
-                Application.UnLock();
+                Session["preapprovalKey"] = response.preapprovalKey;
             }
 
             responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString().Trim().ToUpper());
 
             Display(contextHttp, "Preapproval", "AdaptivePayments", responseValues, service.getLastRequest(), service.getLastResponse(), response.error, redirectUrl);
         }
+
         /// <summary>
         /// Handles Preapproval Pay API calls
         /// </summary>

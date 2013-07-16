@@ -276,8 +276,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="AJAX\AJAX .NET Framework 2.0\Microsoft ASPNET 2.0 AJAX Extensions 1.0\ASPAJAXExtSetup.msi" />
-    <None Include="IPN-README.md" />
-    <None Include="README.md" />
     <Content Include="AJAX\AJAX .NET Framework 2.0\AjaxControlToolkit.dll" />
     <Content Include="Images\Calendar.png" />
     <Content Include="UseCaseSamples\ChainedPayment.aspx" />

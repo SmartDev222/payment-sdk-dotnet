@@ -30,9 +30,9 @@ namespace AdaptivePaymentsSampleApp.UseCaseSamples
             this.returnURL.Text = returnUniformResourceLocator;
             this.cancelURL.Text = cancelUniformResourceLocator;
 
-            if (Application["preapprovalKey"] != null)
+            if (Session["preapprovalKey"] != null)
             {
-                preapprovalKey.Text = Convert.ToString(Application["preapprovalKey"]);
+                preapprovalKey.Text = Convert.ToString(Session["preapprovalKey"]);
             }
         }
     }
