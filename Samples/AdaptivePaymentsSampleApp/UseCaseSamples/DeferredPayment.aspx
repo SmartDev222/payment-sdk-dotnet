@@ -37,8 +37,8 @@
                 <div class="param_name">Action Type*</div>
                 <div class="param_value">
                 <asp:DropDownList runat="server" ID="actionType">
-                    <asp:ListItem Text="Pay" Value="PAY" />
-                    <asp:ListItem Text="Pay Primary" Value="PAY_PRIMARY" />
+                    <asp:ListItem Text="Pay" Value="PAY" Enabled="false" />
+                    <asp:ListItem Text="Pay Primary" Value="PAY_PRIMARY" Enabled="false" />
                     <asp:ListItem Text="Create" Value="CREATE" Selected="True" />
                 </asp:DropDownList>
                 </div>

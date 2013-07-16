@@ -7,19 +7,32 @@ namespace AdaptivePaymentsSampleApp.UseCaseSamples
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Context.Request.QueryString["cancelURL"] != null)
+            string returnUniformResourceLocator = Request.Url.OriginalString;
+            string returnAuthority = Request.Url.Authority;
+            string returnDnsSafeHost = Request.Url.DnsSafeHost;
+
+            if (Request.UrlReferrer != null && Request.UrlReferrer.Scheme == "https")
             {
-                returnURL.Text = Request.QueryString["cancelURL"];
+                returnUniformResourceLocator = returnUniformResourceLocator.Replace("http://", "https://");
+                returnUniformResourceLocator = returnUniformResourceLocator.Replace(returnAuthority, returnDnsSafeHost);
             }
 
-            if (Context.Request.QueryString["returnURL"] != null)
+            string cancelUniformResourceLocator = Request.Url.OriginalString;
+            string cancelAuthority = Request.Url.Authority;
+            string cancelDnsSafeHost = Request.Url.DnsSafeHost;
+
+            if (Request.UrlReferrer != null && Request.UrlReferrer.Scheme == "https")
             {
-                returnURL.Text = Request.QueryString["returnURL"];
+                cancelUniformResourceLocator = cancelUniformResourceLocator.Replace("http://", "https://");
+                cancelUniformResourceLocator = cancelUniformResourceLocator.Replace(cancelAuthority, cancelDnsSafeHost);
             }
 
-            if (Context.Request.QueryString["preapprovalkey"] != null)
+            this.returnURL.Text = returnUniformResourceLocator;
+            this.cancelURL.Text = cancelUniformResourceLocator;
+
+            if (Application["preapprovalKey"] != null)
             {
-                returnURL.Text = Request.QueryString["preapprovalkey"];
+                preapprovalKey.Text = Convert.ToString(Application["preapprovalKey"]);
             }
         }
     }

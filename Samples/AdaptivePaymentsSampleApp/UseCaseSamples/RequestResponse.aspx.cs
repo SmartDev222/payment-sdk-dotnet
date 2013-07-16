@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Web;
-using System.Xml;
-using System.IO;
-using System.Text;
 using System.Configuration;
 using PayPal.AdaptivePayments.Model;
 using PayPal.AdaptivePayments;
@@ -152,7 +149,7 @@ namespace AdaptivePaymentsSampleApp
             Dictionary<string, string> responseValues = new Dictionary<string, string>();
             string redirectUrl = null;
 
-            if (!response.responseEnvelope.ack.ToString().Trim().Equals(AckCode.FAILURE.ToString()) && !response.responseEnvelope.ack.ToString().Trim().Equals(AckCode.FAILUREWITHWARNING.ToString()))
+            if (!response.responseEnvelope.ack.ToString().Trim().ToUpper().Equals(AckCode.FAILURE.ToString()) && !response.responseEnvelope.ack.ToString().Trim().ToUpper().Equals(AckCode.FAILUREWITHWARNING.ToString()))
             {
                 redirectUrl = ConfigurationManager.AppSettings["PAYPAL_REDIRECT_URL"] + "_ap-payment&paykey=" + response.payKey;
 
@@ -314,7 +311,7 @@ namespace AdaptivePaymentsSampleApp
             Dictionary<string, string> responseValues = new Dictionary<string, string>();
             string redirectUrl = null;
 
-            if (!response.responseEnvelope.ack.ToString().Trim().Equals(AckCode.FAILURE.ToString()) && !response.responseEnvelope.ack.ToString().Trim().Equals(AckCode.FAILUREWITHWARNING.ToString()))
+            if (!response.responseEnvelope.ack.ToString().Trim().ToUpper().Equals(AckCode.FAILURE.ToString()) && !response.responseEnvelope.ack.ToString().Trim().ToUpper().Equals(AckCode.FAILUREWITHWARNING.ToString()))
             {
                 redirectUrl = ConfigurationManager.AppSettings["PAYPAL_REDIRECT_URL"] + "_ap-payment&paykey=" + response.payKey;
                 // The pay key, which is a token you use in other Adaptive Payment APIs 
@@ -488,7 +485,7 @@ namespace AdaptivePaymentsSampleApp
             Dictionary<string, string> responseValues = new Dictionary<string, string>();
             string redirectUrl = null;
 
-            if (!response.responseEnvelope.ack.ToString().Trim().Equals(AckCode.FAILURE.ToString()) && !response.responseEnvelope.ack.ToString().Trim().Equals(AckCode.FAILUREWITHWARNING.ToString()))
+            if (!response.responseEnvelope.ack.ToString().Trim().ToUpper().Equals(AckCode.FAILURE.ToString()) && !response.responseEnvelope.ack.ToString().Trim().ToUpper().Equals(AckCode.FAILUREWITHWARNING.ToString()))
             {
                 redirectUrl = ConfigurationManager.AppSettings["PAYPAL_REDIRECT_URL"] + "_ap-payment&paykey=" + response.payKey;
 
@@ -663,7 +660,7 @@ namespace AdaptivePaymentsSampleApp
             Dictionary<string, string> responseValues = new Dictionary<string, string>();
             string redirectUrl = null;
 
-            if (!response.responseEnvelope.ack.ToString().Trim().Equals(AckCode.FAILURE.ToString()) && !response.responseEnvelope.ack.ToString().Trim().Equals(AckCode.FAILUREWITHWARNING.ToString()))
+            if (!response.responseEnvelope.ack.ToString().Trim().ToUpper().Equals(AckCode.FAILURE.ToString()) && !response.responseEnvelope.ack.ToString().Trim().ToUpper().Equals(AckCode.FAILUREWITHWARNING.ToString()))
             {
                 redirectUrl = ConfigurationManager.AppSettings["PAYPAL_REDIRECT_URL"] + "_ap-payment&paykey=" + response.payKey;
 
@@ -808,7 +805,7 @@ namespace AdaptivePaymentsSampleApp
             Dictionary<string, string> responseValues = new Dictionary<string, string>();
             string redirectUrl = null;
 
-            if (!response.responseEnvelope.ack.ToString().Trim().Equals(AckCode.FAILURE.ToString()) && !response.responseEnvelope.ack.ToString().Trim().Equals(AckCode.FAILUREWITHWARNING.ToString()))
+            if (!response.responseEnvelope.ack.ToString().Trim().ToUpper().Equals(AckCode.FAILURE.ToString()) && !response.responseEnvelope.ack.ToString().Trim().ToUpper().Equals(AckCode.FAILUREWITHWARNING.ToString()))
             {
                 redirectUrl = ConfigurationManager.AppSettings["PAYPAL_REDIRECT_URL"] + "_ap-payment&paykey=" + response.payKey;
 
@@ -915,8 +912,7 @@ namespace AdaptivePaymentsSampleApp
             {
                 request.maxNumberOfPayments = Convert.ToInt32(parameters["maxNumberOfPayments"]);
             }
-
-
+            
             // (Optional) The preapproved maximum number of all payments per period. 
             // You must specify a value unless you have specific permission from PayPal.
             if (parameters["maxNumberOfPaymentsPerPeriod"] != null && parameters["maxNumberOfPaymentsPerPeriod"].Trim() != string.Empty)
@@ -964,8 +960,8 @@ namespace AdaptivePaymentsSampleApp
             if (parameters["cancelURL"] != null && parameters["cancelURL"].Trim() != string.Empty)
             {
                 request.cancelUrl = parameters["cancelURL"];
-            }           
-
+            }
+            
             // URL to redirect the sender's browser
             // to after the sender has logged into PayPal and confirmed the preapproval.
             if (parameters["returnURL"] != null && parameters["returnURL"].Trim() != string.Empty)
@@ -1013,13 +1009,15 @@ namespace AdaptivePaymentsSampleApp
             Dictionary<string, string> responseValues = new Dictionary<string, string>();
             string redirectUrl = null;
 
-            if (!response.responseEnvelope.ack.ToString().Trim().Equals(AckCode.FAILURE.ToString()) && !response.responseEnvelope.ack.ToString().Trim().Equals(AckCode.FAILUREWITHWARNING.ToString()))
+            if (!response.responseEnvelope.ack.ToString().Trim().ToUpper().Equals(AckCode.FAILURE.ToString()) && !response.responseEnvelope.ack.ToString().Trim().ToUpper().Equals(AckCode.FAILUREWITHWARNING.ToString()))
             {
                 // A preapproval key that identifies the preapproval requested.
                 responseValues.Add("Preapproval Key", response.preapprovalKey);
                 redirectUrl = ConfigurationManager.AppSettings["PAYPAL_REDIRECT_URL"] + "_ap-preapproval&preapprovalkey=" + response.preapprovalKey;
                 responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString());
-                responseValues.Add("Redirect To PayPal", redirectUrl);
+                Application.Lock();
+                Application["preapprovalKey"] = response.preapprovalKey;
+                Application.UnLock();  
             }
             else
             {
@@ -1038,13 +1036,13 @@ namespace AdaptivePaymentsSampleApp
             RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
             request.requestEnvelope = requestEnvelope;
 
-            List<Receiver> receiver = new List<Receiver>();
-            Receiver rec = new Receiver();
+            List<Receiver> receiverList = new List<Receiver>();
+            Receiver sampleReceiver = new Receiver();
 
             // (Required) Amount to be paid to the receiver
             if (parameters["amount"] != null && parameters["amount"].Trim() != string.Empty)
             {
-                rec.amount = Convert.ToDecimal(parameters["amount"]);
+                sampleReceiver.amount = Convert.ToDecimal(parameters["amount"]);
             }           
             
             // Receiver's email address. This address can be unregistered with
@@ -1053,12 +1051,12 @@ namespace AdaptivePaymentsSampleApp
             // either an email address or a phone number. Maximum length: 127 characters
             if (parameters["mail"] != null && parameters["mail"].Trim() != string.Empty)
             {
-                rec.email = parameters["mail"];
+                sampleReceiver.email = parameters["mail"];
             }   
 
-            receiver.Add(rec);
+            receiverList.Add(sampleReceiver);
 
-            ReceiverList receiverlst = new ReceiverList(receiver);
+            ReceiverList receiverlst = new ReceiverList(receiverList);
             request.receiverList = receiverlst;
 
             // Preapproval key for the approval set up between you and the sender
@@ -1101,8 +1099,7 @@ namespace AdaptivePaymentsSampleApp
             {
                 request.returnUrl = parameters["returnURL"];
             }
-
-
+            
             // (Optional) The URL to which you want all IPN messages for this
             // payment to be sent. Maximum length: 1024 characters
             if (parameters["ipnNotificationURL"] != null && parameters["ipnNotificationURL"].Trim() != string.Empty)
@@ -1133,10 +1130,9 @@ namespace AdaptivePaymentsSampleApp
             Dictionary<string, string> responseValues = new Dictionary<string, string>();
             string redirectUrl = null;
 
-            if (!response.responseEnvelope.ack.ToString().Trim().Equals(AckCode.FAILURE.ToString()) && !response.responseEnvelope.ack.ToString().Trim().Equals(AckCode.FAILUREWITHWARNING.ToString()))
+            if (!response.responseEnvelope.ack.ToString().Trim().ToUpper().Equals(AckCode.FAILURE.ToString()) && !response.responseEnvelope.ack.ToString().Trim().ToUpper().Equals(AckCode.FAILUREWITHWARNING.ToString()))
             {
                 responseValues.Add("Acknowledgement", response.responseEnvelope.ack.ToString());
-                responseValues.Add("Redirect To PayPal", redirectUrl);
             }
             else
             {

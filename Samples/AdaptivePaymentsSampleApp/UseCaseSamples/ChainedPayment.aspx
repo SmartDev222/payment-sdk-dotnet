@@ -40,9 +40,9 @@
                     Action Type*</div>
                 <div class="param_value">
                     <asp:DropDownList runat="server" ID="actionType">
-                        <asp:ListItem Text="Pay" Value="PAY" />
+                        <asp:ListItem Text="Pay" Value="PAY" Enabled="false" />
                         <asp:ListItem Text="Pay Primary" Value="PAY_PRIMARY" Selected="True" />
-                        <asp:ListItem Text="Create" Value="CREATE" />
+                        <asp:ListItem Text="Create" Value="CREATE" Enabled="false" />
                     </asp:DropDownList>
                 </div>
                 <div class="param_name">
@@ -99,7 +99,7 @@
                         <td>
                             <asp:DropDownList runat="server" ID="primaryReceiver1">
                                 <asp:ListItem Text="True" Value="true" Selected="True" />
-                                <asp:ListItem Text="False" Value="false" />
+                                <asp:ListItem Text="False" Value="false" Enabled="false" />
                             </asp:DropDownList>
                         </td>
                     </tr>
@@ -112,7 +112,7 @@
                         </td>
                         <td>
                             <asp:DropDownList runat="server" ID="primaryReceiver2">
-                                <asp:ListItem Text="True" Value="true" />
+                                <asp:ListItem Text="True" Value="true" Enabled="false" />
                                 <asp:ListItem Text="False" Value="false" Selected="True" />
                             </asp:DropDownList>
                         </td>
