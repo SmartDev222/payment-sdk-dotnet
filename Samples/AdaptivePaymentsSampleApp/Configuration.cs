@@ -39,7 +39,7 @@ namespace AdaptivePaymentsSampleApp
             return configMap;
         }
 
-        // Creates a configuration map containing IPN Endpoint Mode
+        // Creates a configuration map containing IPN Endpoint mode and other optional parameters
         public static Dictionary<string, string> GetConfig()
         {
             Dictionary<string, string> configMap = new Dictionary<string, string>();
