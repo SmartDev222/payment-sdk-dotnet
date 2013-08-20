@@ -4,8 +4,20 @@ The AdaptivePaymentsSampleApp ASP.NET C# Web Application contains the PayPal Ada
 Prerequisites
 -------------
 *	Visual Studio 2005 or higher
-*	NuGet 2.2
-*	.NET Framework 4.0
+*	NuGet 2.2 or higher in case of NuGet Install [Note: NuGet requires .NET Framework 4.0 or higher] 
+
+AJAX
+----
+•	AJAX .NET Framework 2.0 - Visual Studio 2005
+•	[Install ASPAJAXExtSetup.msi in Samples\AdaptivePaymentsSampleApp\AJAX\AJAX .NET Framework 2.0\Microsoft ASPNET 2.0 AJAX Extensions 1.0]
+•	[Note: Uncomment tagPrefix="asp" in <pages><controls> and verb="GET,HEAD" <httpHandlers> in <system.web> in Web.config]
+
+•	AJAX .NET Framework 3.5 - Visual Studio 2008 
+•	[Note: Uncomment tagPrefix="asp" in <pages><controls> and verb="GET,HEAD" <httpHandlers> in <system.web> in Web.config]
+
+•	AJAX .NET Framework 4.0 - Visual Studio 2010
+
+•	AJAX .NET Framework 4.5 - Visual Studio 2012
 
 
 The PayPal Adaptive Payments API Samples
@@ -157,15 +169,3 @@ The typical Installation location for Visual Studio 2008:
 'C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\'
 
 
-AJAX
-----
-•	AJAX .NET Framework 2.0 - Visual Studio 2005
-•	[Install ASPAJAXExtSetup.msi in AJAX\AJAX .NET Framework 2.0\Microsoft ASPNET 2.0 AJAX Extensions 1.0]
-•	[Note: Uncomment tagPrefix="asp" in <pages><controls> and verb="GET,HEAD" <httpHandlers> in <system.web> in Web.config]
-
-•	AJAX .NET Framework 3.5 - Visual Studio 2008 
-•	[Note: Uncomment tagPrefix="asp" in <pages><controls> and verb="GET,HEAD" <httpHandlers> in <system.web> in Web.config]
-
-•	AJAX .NET Framework 4.0 - Visual Studio 2010
-
-•	AJAX .NET Framework 4.5 - Visual Studio 2012

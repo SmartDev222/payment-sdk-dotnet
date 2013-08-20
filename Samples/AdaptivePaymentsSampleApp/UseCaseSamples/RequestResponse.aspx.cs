@@ -130,9 +130,9 @@ namespace AdaptivePaymentsSampleApp
             try
             {
                 // Configuration map containing signature credentials and other required configuration.
-                // For a full list of configuration parameters refer at 
-                // (https://github.com/paypal/adaptivepayments-sdk-dotnet/wiki/SDK-Configuration-Parameters)
-                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+                // For a full list of configuration parameters refer in wiki page
+                // (https://github.com/paypal/sdk-core-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetAcctAndConfig();
 
                 // Creating service wrapper object to make an API call and loading
                 // configuration map for your credentials and endpoint
@@ -289,9 +289,9 @@ namespace AdaptivePaymentsSampleApp
             try
             {
                 // Configuration map containing signature credentials and other required configuration.
-                // For a full list of configuration parameters refer at 
-                // (https://github.com/paypal/adaptivepayments-sdk-dotnet/wiki/SDK-Configuration-Parameters)
-                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+                // For a full list of configuration parameters refer in wiki page
+                // (https://github.com/paypal/sdk-core-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetAcctAndConfig();
 
                 // Creating service wrapper object to make an API call and loading
                 // configuration map for your credentials and endpoint
@@ -459,9 +459,9 @@ namespace AdaptivePaymentsSampleApp
             try
             {
                 // Configuration map containing signature credentials and other required configuration.
-                // For a full list of configuration parameters refer at 
-                // (https://github.com/paypal/adaptivepayments-sdk-dotnet/wiki/SDK-Configuration-Parameters)
-                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+                // For a full list of configuration parameters refer in wiki page
+                // (https://github.com/paypal/sdk-core-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetAcctAndConfig();
 
                 // Creating service wrapper object to make an API call and loading
                 // configuration map for your credentials and endpoint
@@ -630,9 +630,9 @@ namespace AdaptivePaymentsSampleApp
             try
             {
                 // Configuration map containing signature credentials and other required configuration.
-                // For a full list of configuration parameters refer at 
-                // (https://github.com/paypal/adaptivepayments-sdk-dotnet/wiki/SDK-Configuration-Parameters)
-                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+                // For a full list of configuration parameters refer in wiki page 
+                // (https://github.com/paypal/sdk-core-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetAcctAndConfig();
 
                 // Creating service wrapper object to make an API call and loading
                 // configuration map for your credentials and endpoint
@@ -771,9 +771,9 @@ namespace AdaptivePaymentsSampleApp
             try
             {
                 // Configuration map containing signature credentials and other required configuration.
-                // For a full list of configuration parameters refer at 
-                // (https://github.com/paypal/adaptivepayments-sdk-dotnet/wiki/SDK-Configuration-Parameters)
-                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+                // For a full list of configuration parameters refer in wiki page 
+                // (https://github.com/paypal/sdk-core-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetAcctAndConfig();
 
                 // Creating service wrapper object to make an API call and loading
                 // configuration map for your credentials and endpoint
@@ -972,9 +972,9 @@ namespace AdaptivePaymentsSampleApp
             try
             {
                 // Configuration map containing signature credentials and other required configuration.
-                // For a full list of configuration parameters refer at 
-                // (https://github.com/paypal/adaptivepayments-sdk-dotnet/wiki/SDK-Configuration-Parameters)
-                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+                // For a full list of configuration parameters refer in wiki page 
+                // (https://github.com/paypal/sdk-core-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetAcctAndConfig();
 
                 // Creating service wrapper object to make an API call and loading
                 // configuration map for your credentials and endpoint
@@ -1090,9 +1090,9 @@ namespace AdaptivePaymentsSampleApp
             try
             {
                 // Configuration map containing signature credentials and other required configuration.
-                // For a full list of configuration parameters refer at 
-                // (https://github.com/paypal/adaptivepayments-sdk-dotnet/wiki/SDK-Configuration-Parameters)
-                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+                // For a full list of configuration parameters refer in wiki page 
+                // (https://github.com/paypal/sdk-core-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetAcctAndConfig();
 
                 // Creating service wrapper object to make an API call and loading
                 // configuration map for your credentials and endpoint

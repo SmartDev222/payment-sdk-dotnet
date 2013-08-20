@@ -279,8 +279,10 @@
     <Content Include="AJAX\AJAX .NET Framework 2.0\AjaxControlToolkit.dll" />
     <Content Include="Images\Calendar.png" />
     <Content Include="UseCaseSamples\ChainedPayment.aspx" />
+	<Content Include="UseCaseSamples\DelayedChainedPayment.aspx" />
     <Content Include="UseCaseSamples\DeferredPayment.aspx" />
     <Content Include="UseCaseSamples\ParallelPayment.aspx" />
+	<Content Include="UseCaseSamples\Preapproval.aspx" />
     <Content Include="UseCaseSamples\PreapprovalPayment.aspx" />
     <Content Include="UseCaseSamples\RequestResponse.aspx" />
     <Content Include="UseCaseSamples\SimplePayment.aspx" />

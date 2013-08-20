@@ -13,7 +13,16 @@
 
 ## Configuration
 
-* Configure the 'mode' parameter in your Web.Config file or pass in a dictionary containing the 'mode' parameter. See the SDK README file for more on configuration.
+* Configure the 'mode' parameter by passing in a dictionary containing the 'mode' parameter as shown below (Skip this if you are configuring 'mode' in Web.config file). See the SDK README file for more on configuration.
+
+		Dictionary<string, string> configMap = new Dictionary<string, string>();
+
+		// Endpoints are varied depending on whether sandbox OR live is chosen for mode
+		configMap.Add("mode", "sandbox");
+
+		// These values are defaulted in SDK. If you want to override default values, uncomment it and add your value.
+		// configMap.Add("connectionTimeout", "5000");
+		// configMap.Add("requestRetries", "2");
 * A utility class 'IPNMessage.cs' is provided in sdk-core-dotnet for IPN message validation.
 
 
