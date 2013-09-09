@@ -5140,7 +5140,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				receiver = (receiver == null) ? new Receiver() : receiver;
-				receiver.amount = System.Convert.ToDecimal(map[key]);
+                receiver.amount = Convert.ToDecimal(map[key], DefaultCulture);
 			}
 			key = prefix + "email";
 			if (map.ContainsKey(key))
