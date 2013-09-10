@@ -4233,7 +4233,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				invoiceItem = (invoiceItem == null) ? new InvoiceItem() : invoiceItem;
-				invoiceItem.price = System.Convert.ToDecimal(map[key]);
+				invoiceItem.price = System.Convert.ToDecimal(map[key], DefaultCulture);
 			}
 			key = prefix + "itemPrice";
 			if (map.ContainsKey(key))
@@ -5749,7 +5749,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
-				refundInfo.refundNetAmount = System.Convert.ToDecimal(map[key]);
+				refundInfo.refundNetAmount = System.Convert.ToDecimal(map[key], DefaultCulture);
 			}
 			key = prefix + "refundFeeAmount";
 			if (map.ContainsKey(key))
@@ -6265,7 +6265,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				senderIdentifier = (senderIdentifier == null) ? new SenderIdentifier() : senderIdentifier;
-				senderIdentifier.useCredentials = System.Convert.ToBoolean(map[key]);
+				senderIdentifier.useCredentials = System.Convert.ToBoolean(map[key], DefaultCulture);
 			}
 			TaxIdDetails taxIdDetails =  TaxIdDetails.CreateInstance(map, prefix + "taxIdDetails", -1);
 			if (taxIdDetails != null)
