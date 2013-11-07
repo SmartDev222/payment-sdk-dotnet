@@ -772,8 +772,8 @@ namespace PayPal.AdaptivePayments.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		private int? errorIdField;
-		public int? errorId
+		private long? errorIdField;
+		public long? errorId
 		{
 			get
 			{
@@ -945,7 +945,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				errorData = (errorData == null) ? new ErrorData() : errorData;
-				errorData.errorId = System.Convert.ToInt32(map[key]);
+				errorData.errorId = System.Convert.ToInt64(map[key], DefaultCulture);
 			}
 			key = prefix + "domain";
 			if (map.ContainsKey(key))
@@ -4185,7 +4185,7 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			if (this.itemCount != null)
 			{
-					sb.Append(prefix).Append("itemCount").Append("=").Append(this.itemCount).Append("&");
+					sb.Append(prefix).Append("itemCount").Append("=").Append(Convert.ToString(this.itemCount, DefaultCulture)).Append("&");
 			}
 			return sb.ToString();
 		}
@@ -5088,7 +5088,7 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			if (this.primary != null)
 			{
-					sb.Append(prefix).Append("primary").Append("=").Append(this.primary.ToString().ToLower()).Append("&");
+					sb.Append(prefix).Append("primary").Append("=").Append(Convert.ToString(this.primary, DefaultCulture)).Append("&");
 			}
 			if (this.invoiceId != null)
 			{
@@ -5140,7 +5140,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				receiver = (receiver == null) ? new Receiver() : receiver;
-                receiver.amount = Convert.ToDecimal(map[key], DefaultCulture);
+				receiver.amount = System.Convert.ToDecimal(map[key], DefaultCulture);
 			}
 			key = prefix + "email";
 			if (map.ContainsKey(key))
@@ -5972,11 +5972,11 @@ namespace PayPal.AdaptivePayments.Model
 			StringBuilder sb = new StringBuilder();
 			if (this.requireShippingAddressSelection != null)
 			{
-					sb.Append(prefix).Append("requireShippingAddressSelection").Append("=").Append(this.requireShippingAddressSelection.ToString().ToLower()).Append("&");
+					sb.Append(prefix).Append("requireShippingAddressSelection").Append("=").Append(Convert.ToString(this.requireShippingAddressSelection, DefaultCulture)).Append("&");
 			}
 			if (this.addressOverride != null)
 			{
-					sb.Append(prefix).Append("addressOverride").Append("=").Append(this.addressOverride.ToString().ToLower()).Append("&");
+					sb.Append(prefix).Append("addressOverride").Append("=").Append(Convert.ToString(this.addressOverride, DefaultCulture)).Append("&");
 			}
 			if (this.referrerCode != null)
 			{
@@ -6216,7 +6216,7 @@ namespace PayPal.AdaptivePayments.Model
 			sb.Append(base.ToNVPString(prefix));
 			if (this.useCredentials != null)
 			{
-					sb.Append(prefix).Append("useCredentials").Append("=").Append(this.useCredentials.ToString().ToLower()).Append("&");
+					sb.Append(prefix).Append("useCredentials").Append("=").Append(Convert.ToString(this.useCredentials, DefaultCulture)).Append("&");
 			}
 			if (this.taxIdDetails != null)
 			{
@@ -6389,8 +6389,8 @@ namespace PayPal.AdaptivePayments.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		private int? warningIdField;
-		public int? warningId
+		private long? warningIdField;
+		public long? warningId
 		{
 			get
 			{
@@ -6460,7 +6460,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				warningData = (warningData == null) ? new WarningData() : warningData;
-				warningData.warningId = System.Convert.ToInt32(map[key]);
+				warningData.warningId = System.Convert.ToInt64(map[key], DefaultCulture);
 			}
 			key = prefix + "message";
 			if (map.ContainsKey(key))
@@ -9321,7 +9321,7 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			if (this.reverseAllParallelPaymentsOnError != null)
 			{
-					sb.Append(prefix).Append("reverseAllParallelPaymentsOnError").Append("=").Append(this.reverseAllParallelPaymentsOnError.ToString().ToLower()).Append("&");
+					sb.Append(prefix).Append("reverseAllParallelPaymentsOnError").Append("=").Append(Convert.ToString(this.reverseAllParallelPaymentsOnError, DefaultCulture)).Append("&");
 			}
 			if (this.senderEmail != null)
 			{
@@ -9715,7 +9715,7 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			if (this.getBillingAddress != null)
 			{
-					sb.Append(prefix).Append("getBillingAddress").Append("=").Append(this.getBillingAddress.ToString().ToLower()).Append("&");
+					sb.Append(prefix).Append("getBillingAddress").Append("=").Append(Convert.ToString(this.getBillingAddress, DefaultCulture)).Append("&");
 			}
 			return sb.ToString();
 		}
@@ -9787,8 +9787,8 @@ namespace PayPal.AdaptivePayments.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		private int? curPaymentsField;
-		public int? curPayments
+		private long? curPaymentsField;
+		public long? curPayments
 		{
 			get
 			{
@@ -9821,8 +9821,8 @@ namespace PayPal.AdaptivePayments.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		private int? curPeriodAttemptsField;
-		public int? curPeriodAttempts
+		private long? curPeriodAttemptsField;
+		public long? curPeriodAttempts
 		{
 			get
 			{
@@ -10284,7 +10284,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
-				preapprovalDetailsResponse.curPayments = System.Convert.ToInt32(map[key]);
+				preapprovalDetailsResponse.curPayments = System.Convert.ToInt64(map[key], DefaultCulture);
 			}
 			key = prefix + "curPaymentsAmount";
 			if (map.ContainsKey(key))
@@ -10296,7 +10296,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
-				preapprovalDetailsResponse.curPeriodAttempts = System.Convert.ToInt32(map[key]);
+				preapprovalDetailsResponse.curPeriodAttempts = System.Convert.ToInt64(map[key], DefaultCulture);
 			}
 			key = prefix + "curPeriodEndingDate";
 			if (map.ContainsKey(key))
@@ -10314,7 +10314,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
-				preapprovalDetailsResponse.dateOfMonth = System.Convert.ToInt32(map[key]);
+				preapprovalDetailsResponse.dateOfMonth = System.Convert.ToInt32(map[key], DefaultCulture);
 			}
 			key = prefix + "dayOfWeek";
 			if (map.ContainsKey(key))
@@ -10338,13 +10338,13 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
-				preapprovalDetailsResponse.maxNumberOfPayments = System.Convert.ToInt32(map[key]);
+				preapprovalDetailsResponse.maxNumberOfPayments = System.Convert.ToInt32(map[key], DefaultCulture);
 			}
 			key = prefix + "maxNumberOfPaymentsPerPeriod";
 			if (map.ContainsKey(key))
 			{
 				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
-				preapprovalDetailsResponse.maxNumberOfPaymentsPerPeriod = System.Convert.ToInt32(map[key]);
+				preapprovalDetailsResponse.maxNumberOfPaymentsPerPeriod = System.Convert.ToInt32(map[key], DefaultCulture);
 			}
 			key = prefix + "maxTotalAmountOfAllPayments";
 			if (map.ContainsKey(key))
@@ -10880,7 +10880,7 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			if (this.dateOfMonth != null)
 			{
-					sb.Append(prefix).Append("dateOfMonth").Append("=").Append(this.dateOfMonth).Append("&");
+					sb.Append(prefix).Append("dateOfMonth").Append("=").Append(Convert.ToString(this.dateOfMonth, DefaultCulture)).Append("&");
 			}
 			if (this.dayOfWeek != null)
 			{
@@ -10897,11 +10897,11 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			if (this.maxNumberOfPayments != null)
 			{
-					sb.Append(prefix).Append("maxNumberOfPayments").Append("=").Append(this.maxNumberOfPayments).Append("&");
+					sb.Append(prefix).Append("maxNumberOfPayments").Append("=").Append(Convert.ToString(this.maxNumberOfPayments, DefaultCulture)).Append("&");
 			}
 			if (this.maxNumberOfPaymentsPerPeriod != null)
 			{
-					sb.Append(prefix).Append("maxNumberOfPaymentsPerPeriod").Append("=").Append(this.maxNumberOfPaymentsPerPeriod).Append("&");
+					sb.Append(prefix).Append("maxNumberOfPaymentsPerPeriod").Append("=").Append(Convert.ToString(this.maxNumberOfPaymentsPerPeriod, DefaultCulture)).Append("&");
 			}
 			if (this.maxTotalAmountOfAllPayments != null)
 			{
@@ -10941,11 +10941,11 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			if (this.displayMaxTotalAmount != null)
 			{
-					sb.Append(prefix).Append("displayMaxTotalAmount").Append("=").Append(this.displayMaxTotalAmount.ToString().ToLower()).Append("&");
+					sb.Append(prefix).Append("displayMaxTotalAmount").Append("=").Append(Convert.ToString(this.displayMaxTotalAmount, DefaultCulture)).Append("&");
 			}
 			if (this.requireInstantFundingSource != null)
 			{
-					sb.Append(prefix).Append("requireInstantFundingSource").Append("=").Append(this.requireInstantFundingSource.ToString().ToLower()).Append("&");
+					sb.Append(prefix).Append("requireInstantFundingSource").Append("=").Append(Convert.ToString(this.requireInstantFundingSource, DefaultCulture)).Append("&");
 			}
 			if (this.sender != null)
 			{
