@@ -1,3 +1,10 @@
+Version 2.8.109 - December 24, 2013
+ 
+	- Bug fix in Chained Payments
+	
+	
+You can see source code of this release in github under https://github.com/paypal/adaptivepayments-sdk-dotnet/tree/v2.7.109.
+--------------------------------------------------------------------------------------------------
 Version 2.7.109 - November 07, 2013
  
 	- Updated stubs
