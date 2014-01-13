@@ -152,7 +152,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			AccountIdentifier accountIdentifier = null;
 			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -380,8 +380,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static BaseAddress CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			BaseAddress baseAddress = null;
-			string key;
-			int i = 0;
+			string key;			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -719,7 +718,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			CurrencyType currencyType = null;
 			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -1057,7 +1056,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			ErrorParameter errorParameter = null;
 			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -1152,7 +1151,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static FaultMessage CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			FaultMessage faultMessage = null;
-			string key;
+			
 			int i = 0;
 			if(index != -1)
 			{
@@ -1300,7 +1299,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			PhoneNumberType phoneNumberType = null;
 			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -1512,7 +1511,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			ResponseEnvelope responseEnvelope = null;
 			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -1753,7 +1752,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			Address address = null;
 			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -1835,7 +1834,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static AddressList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			AddressList addressList = null;
-			string key;
+			
 			int i = 0;
 			if(index != -1)
 			{
@@ -1988,8 +1987,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static CurrencyConversionList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			CurrencyConversionList currencyConversionList = null;
-			string key;
-			int i = 0;
+						
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -2066,7 +2064,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static CurrencyConversionTable CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			CurrencyConversionTable currencyConversionTable = null;
-			string key;
+			
 			int i = 0;
 			if(index != -1)
 			{
@@ -2167,7 +2165,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static CurrencyList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			CurrencyList currencyList = null;
-			string key;
+			
 			int i = 0;
 			if(index != -1)
 			{
@@ -2321,7 +2319,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			DisplayOptions displayOptions = null;
 			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -2409,7 +2407,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static ErrorList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ErrorList errorList = null;
-			string key;
+			
 			int i = 0;
 			if(index != -1)
 			{
@@ -2499,8 +2497,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static FundingConstraint CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			FundingConstraint fundingConstraint = null;
-			string key;
-			int i = 0;
+						
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -2588,7 +2585,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			FundingTypeInfo fundingTypeInfo = null;
 			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -2960,8 +2957,7 @@ namespace PayPal.AdaptivePayments.Model
 	 	/// </returns>
 		public static FundingTypeList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			FundingTypeList fundingTypeList = null;
-			string key;
+			FundingTypeList fundingTypeList = null;			
 			int i = 0;
 			if(index != -1)
 			{
@@ -3076,7 +3072,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			CurrencyConversion currencyConversion = null;
 			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -3227,7 +3223,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			FundingSource fundingSource = null;
 			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -3338,8 +3334,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static FundingPlanCharge CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			FundingPlanCharge fundingPlanCharge = null;
-			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -3624,8 +3619,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static InitiatingEntity CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			InitiatingEntity initiatingEntity = null;
-			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -3908,7 +3902,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			InstitutionCustomer institutionCustomer = null;
 			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -4126,7 +4120,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			InvoiceItem invoiceItem = null;
 			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -4386,8 +4380,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static PayError CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			PayError payError = null;
-			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -4463,7 +4456,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static PayErrorList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			PayErrorList payErrorList = null;
-			string key;
+			
 			int i = 0;
 			if(index != -1)
 			{
@@ -4666,7 +4659,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			PaymentInfo paymentInfo = null;
 			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -4778,7 +4771,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static PaymentInfoList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			PaymentInfoList paymentInfoList = null;
-			string key;
+			
 			int i = 0;
 			if(index != -1)
 			{
@@ -5027,7 +5020,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			Receiver receiver = null;
 			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -5185,8 +5178,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static new ReceiverIdentifier CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ReceiverIdentifier receiverIdentifier = null;
-			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -5363,7 +5355,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			ReceiverOptions receiverOptions = null;
 			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -5612,7 +5604,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			RefundInfo refundInfo = null;
 			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -5736,7 +5728,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static RefundInfoList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			RefundInfoList refundInfoList = null;
-			string key;
+			
 			int i = 0;
 			if(index != -1)
 			{
@@ -5860,11 +5852,11 @@ namespace PayPal.AdaptivePayments.Model
 			StringBuilder sb = new StringBuilder();
 			if (this.requireShippingAddressSelection != null)
 			{
-                sb.Append(prefix).Append("requireShippingAddressSelection").Append("=").Append(Convert.ToString(this.requireShippingAddressSelection, EnumUtils.DefaultCulture)).Append("&");
+                sb.Append(prefix).Append("requireShippingAddressSelection").Append("=").Append(Convert.ToString(this.requireShippingAddressSelection, EnumUtils.DefaultCulture).ToLower()).Append("&");
 			}
 			if (this.addressOverride != null)
 			{
-                sb.Append(prefix).Append("addressOverride").Append("=").Append(Convert.ToString(this.addressOverride, EnumUtils.DefaultCulture)).Append("&");
+                sb.Append(prefix).Append("addressOverride").Append("=").Append(Convert.ToString(this.addressOverride, EnumUtils.DefaultCulture).ToLower()).Append("&");
 			}
 			if (this.referrerCode != null)
 			{
@@ -5890,7 +5882,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			SenderOptions senderOptions = null;
 			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -6010,7 +6002,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			TaxIdDetails taxIdDetails = null;
 			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -6098,7 +6090,7 @@ namespace PayPal.AdaptivePayments.Model
 			sb.Append(base.ToNVPString(prefix));
 			if (this.useCredentials != null)
 			{
-                sb.Append(prefix).Append("useCredentials").Append("=").Append(Convert.ToString(this.useCredentials, EnumUtils.DefaultCulture)).Append("&");
+                sb.Append(prefix).Append("useCredentials").Append("=").Append(Convert.ToString(this.useCredentials, EnumUtils.DefaultCulture).ToLower()).Append("&");
 			}
 			if (this.taxIdDetails != null)
 			{
@@ -6120,7 +6112,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			SenderIdentifier senderIdentifier = null;
 			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -6222,7 +6214,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			UserLimit userLimit = null;
 			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -6317,7 +6309,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			WarningData warningData = null;
 			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -6393,7 +6385,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static WarningDataList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			WarningDataList warningDataList = null;
-			string key;
+			
 			int i = 0;
 			if(index != -1)
 			{
@@ -6565,7 +6557,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static CancelPreapprovalResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			CancelPreapprovalResponse cancelPreapprovalResponse = null;
-			string key;
+			
 			int i = 0;
 			if(index != -1)
 			{
@@ -6807,7 +6799,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static ConfirmPreapprovalResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ConfirmPreapprovalResponse confirmPreapprovalResponse = null;
-			string key;
+			
 			int i = 0;
 			if(index != -1)
 			{
@@ -7070,7 +7062,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static ConvertCurrencyResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ConvertCurrencyResponse convertCurrencyResponse = null;
-			string key;
+			
 			int i = 0;
 			if(index != -1)
 			{
@@ -7316,7 +7308,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			PostPaymentDisclosure postPaymentDisclosure = null;
 			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -7398,7 +7390,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static PostPaymentDisclosureList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			PostPaymentDisclosureList postPaymentDisclosureList = null;
-			string key;
+			
 			int i = 0;
 			if(index != -1)
 			{
@@ -7761,7 +7753,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static GetAllowedFundingSourcesResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			GetAllowedFundingSourcesResponse getAllowedFundingSourcesResponse = null;
-			string key;
+			
 			int i = 0;
 			if(index != -1)
 			{
@@ -9143,7 +9135,7 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			if (this.reverseAllParallelPaymentsOnError != null)
 			{
-                sb.Append(prefix).Append("reverseAllParallelPaymentsOnError").Append("=").Append(Convert.ToString(this.reverseAllParallelPaymentsOnError, EnumUtils.DefaultCulture)).Append("&");
+                sb.Append(prefix).Append("reverseAllParallelPaymentsOnError").Append("=").Append(Convert.ToString(this.reverseAllParallelPaymentsOnError, EnumUtils.DefaultCulture).ToLower()).Append("&");
 			}
 			if (this.senderEmail != null)
 			{
@@ -10755,7 +10747,7 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			if (this.requireInstantFundingSource != null)
 			{
-                sb.Append(prefix).Append("requireInstantFundingSource").Append("=").Append(Convert.ToString(this.requireInstantFundingSource, EnumUtils.DefaultCulture)).Append("&");
+                sb.Append(prefix).Append("requireInstantFundingSource").Append("=").Append(Convert.ToString(this.requireInstantFundingSource, EnumUtils.DefaultCulture).ToLower()).Append("&");
 			}
 			if (this.sender != null)
 			{
@@ -11268,7 +11260,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			PhoneNumber phoneNumber = null;
 			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -11550,7 +11542,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static SetPaymentOptionsResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			SetPaymentOptionsResponse setPaymentOptionsResponse = null;
-			string key;
+			
 			int i = 0;
 			if(index != -1)
 			{
@@ -11747,7 +11739,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static GetFundingPlansResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			GetFundingPlansResponse getFundingPlansResponse = null;
-			string key;
+			
 			int i = 0;
 			if(index != -1)
 			{
@@ -11958,7 +11950,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static GetAvailableShippingAddressesResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			GetAvailableShippingAddressesResponse getAvailableShippingAddressesResponse = null;
-			string key;
+			
 			int i = 0;
 			if(index != -1)
 			{
@@ -12169,7 +12161,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static GetShippingAddressesResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			GetShippingAddressesResponse getShippingAddressesResponse = null;
-			string key;
+			
 			int i = 0;
 			if(index != -1)
 			{
@@ -12457,7 +12449,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static GetUserLimitsResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			GetUserLimitsResponse getUserLimitsResponse = null;
-			string key;
+			
 			int i = 0;
 			if(index != -1)
 			{
@@ -12670,8 +12662,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static FeeDisclosure CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			FeeDisclosure feeDisclosure = null;
-			string key;
-			int i = 0;
+			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -12780,9 +12771,7 @@ namespace PayPal.AdaptivePayments.Model
 	 	/// </returns>
 		public static SenderDisclosure CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			SenderDisclosure senderDisclosure = null;
-			string key;
-			int i = 0;
+			SenderDisclosure senderDisclosure = null;			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -12899,8 +12888,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static ConversionRate CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ConversionRate conversionRate = null;
-			string key;
-			int i = 0;
+			string key;			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -13068,8 +13056,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static ReceiverDisclosure CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ReceiverDisclosure receiverDisclosure = null;
-			string key;
-			int i = 0;
+			string key;			
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -13168,8 +13155,7 @@ namespace PayPal.AdaptivePayments.Model
 	 	/// </returns>
 		public static ReceiverDisclosureList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			ReceiverDisclosureList receiverDisclosureList = null;
-			string key;
+			ReceiverDisclosureList receiverDisclosureList = null;			
 			int i = 0;
 			if(index != -1)
 			{
