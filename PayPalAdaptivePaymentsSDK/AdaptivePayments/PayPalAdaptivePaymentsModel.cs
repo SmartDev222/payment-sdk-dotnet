@@ -12753,6 +12753,21 @@ namespace PayPal.AdaptivePayments.Model
 		
 
 		/// <summary>
+		/// 
+		/// </summary>
+		private ConversionRate conversionRateField;
+		public ConversionRate conversionRate
+		{
+			get
+			{
+				return this.conversionRateField;
+			}
+			set
+			{
+				this.conversionRateField = value;
+			}
+		}		
+		/// <summary>
 		/// Default Constructor
 	 	/// </summary>
 	 	public SenderDisclosure()
@@ -12803,6 +12818,12 @@ namespace PayPal.AdaptivePayments.Model
 			{
 				senderDisclosure = (senderDisclosure == null) ? new SenderDisclosure() : senderDisclosure;
 				senderDisclosure.totalAmountToTransfer = totalAmountToTransfer;
+			}
+			ConversionRate conversionRate =  ConversionRate.CreateInstance(map, prefix + "conversionRate", -1);
+			if (conversionRate != null)
+			{
+				senderDisclosure = (senderDisclosure == null) ? new SenderDisclosure() : senderDisclosure;
+				senderDisclosure.conversionRate = conversionRate;
 			}
 			return senderDisclosure;
 		}
@@ -13368,14 +13389,23 @@ namespace PayPal.AdaptivePayments.Model
 	/// database. So merchant has to call the API again with same
 	/// set of parameter along with Receiver country code.This is
 	/// useful in case of Unilateral scenario. where receiver is not
-	/// holding paypal account. feePayer:Indicates who has agreed to
-	/// Pay a Fee for the RTR transaction. Merchant can use this
-	/// information to decide who actually has to pay the fee .
-	/// senderDisclosure : This Variable Holds the disclosure
-	/// related to sender. receiverDisclosureList : This list
-	/// contains the disclosure information related to receivers.
-	/// Merchant can just parse the details what ever is avaliable
-	/// in the response and display the same to user. 
+	/// holding paypal account. This is currently a place holder to
+	/// support backward compatibility since first name and last
+	/// name are mandated too. If Status =
+	/// MISSING_RECEIVER_COUNTRY_FNAME_LNAME_INFORMATION then it
+	/// means the Receiver country, first name and last name
+	/// information is not found in PayPal database. So merchant has
+	/// to call the API again with same set of parameter along with
+	/// Receiver country code.This is useful in case of Unilateral
+	/// scenario. where receiver is not holding paypal account.
+	/// feePayer:Indicates who has agreed to Pay a Fee for the RTR
+	/// transaction. Merchant can use this information to decide who
+	/// actually has to pay the fee . senderDisclosure : This
+	/// Variable Holds the disclosure related to sender.
+	/// receiverDisclosureList : This list contains the disclosure
+	/// information related to receivers. Merchant can just parse
+	/// the details what ever is avaliable in the response and
+	/// display the same to user. 
     /// </summary>
 	public partial class GetPrePaymentDisclosureResponse	{
 		
