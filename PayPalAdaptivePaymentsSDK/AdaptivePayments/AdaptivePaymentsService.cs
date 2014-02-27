@@ -16,7 +16,7 @@ namespace PayPal.AdaptivePayments
 		/// <summary>
 		/// Service Version
 		/// </summary>
-		private const string ServiceVersion = "1.8.5";
+		private const string ServiceVersion = "1.8.6";
 
 		/// <summary>
 		/// Service Name
@@ -31,7 +31,7 @@ namespace PayPal.AdaptivePayments
 		/// <summary>
 		/// SDK Version
 		/// </summary>
-		private const string SDKVersion = "2.9.109";
+		private const string SDKVersion = "2.9.110";
 
 		/// <summary>
 		/// Default constructor for loading configuration from *.Config file
