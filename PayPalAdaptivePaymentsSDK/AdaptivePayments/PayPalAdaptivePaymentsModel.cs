@@ -14,16 +14,14 @@ using System.Xml;
 using PayPal.Util;
 
 namespace PayPal.AdaptivePayments.Model
-{    
+{
 
 	/// <summary>
 	/// Utility class for Enums with descriptions
 	/// </summary>
 	public static class EnumUtils
 	{
-        // Default US culture info
-        public static CultureInfo DefaultCulture = new CultureInfo("en-US"); 
-        /// <summary>
+		/// <summary>
 		/// Get description for a give enum value
 		/// </summary>	
 		public static string GetDescription(Enum value)
@@ -60,7 +58,8 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class AccountIdentifier	{
 		
-		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
 		/// <summary>
 		/// 
@@ -152,7 +151,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			AccountIdentifier accountIdentifier = null;
 			string key;
-			
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -195,8 +194,10 @@ namespace PayPal.AdaptivePayments.Model
 	/// <summary>
 	/// 
     /// </summary>
-	public partial class BaseAddress	{	
+	public partial class BaseAddress	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
 		/// <summary>
 		/// 
@@ -380,7 +381,8 @@ namespace PayPal.AdaptivePayments.Model
 		public static BaseAddress CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			BaseAddress baseAddress = null;
-			string key;			
+			string key;
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -448,7 +450,10 @@ namespace PayPal.AdaptivePayments.Model
 	/// Details about the end user of the application invoking this
 	/// service. 
     /// </summary>
-	public partial class ClientDetailsType	{		
+	public partial class ClientDetailsType	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
 		/// <summary>
 		/// 
@@ -639,7 +644,10 @@ namespace PayPal.AdaptivePayments.Model
 	/// <summary>
 	/// 
     /// </summary>
-	public partial class CurrencyType	{		
+	public partial class CurrencyType	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
 		/// <summary>
 		/// 
@@ -701,7 +709,7 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			if (this.amount != null)
 			{
-                sb.Append(prefix).Append("amount").Append("=").Append(Convert.ToString(this.amount, EnumUtils.DefaultCulture)).Append("&");
+					sb.Append(prefix).Append("amount").Append("=").Append(Convert.ToString(this.amount, DefaultCulture)).Append("&");
 			}
 			return sb.ToString();
 		}
@@ -718,7 +726,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			CurrencyType currencyType = null;
 			string key;
-			
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -743,7 +751,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				currencyType = (currencyType == null) ? new CurrencyType() : currencyType;
-                currencyType.amount = System.Convert.ToDecimal(map[key], EnumUtils.DefaultCulture);
+				currencyType.amount = System.Convert.ToDecimal(map[key], DefaultCulture);
 			}
 			return currencyType;
 		}
@@ -756,8 +764,10 @@ namespace PayPal.AdaptivePayments.Model
 	/// This type contains the detailed error information resulting
 	/// from the service operation. 
     /// </summary>
-	public partial class ErrorData	{		
+	public partial class ErrorData	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
 		/// <summary>
 		/// 
@@ -935,7 +945,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				errorData = (errorData == null) ? new ErrorData() : errorData;
-                errorData.errorId = System.Convert.ToInt64(map[key], EnumUtils.DefaultCulture);
+				errorData.errorId = System.Convert.ToInt64(map[key], DefaultCulture);
 			}
 			key = prefix + "domain";
 			if (map.ContainsKey(key))
@@ -1000,7 +1010,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class ErrorParameter	{
 		
-		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -1056,7 +1068,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			ErrorParameter errorParameter = null;
 			string key;
-			
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -1096,7 +1108,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class FaultMessage	{
 		
-		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -1151,7 +1165,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static FaultMessage CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			FaultMessage faultMessage = null;
-			
+			string key;
 			int i = 0;
 			if(index != -1)
 			{
@@ -1200,7 +1214,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class PhoneNumberType	{
 		
-		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -1299,7 +1315,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			PhoneNumberType phoneNumberType = null;
 			string key;
-			
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -1345,7 +1361,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class RequestEnvelope	{
 		
-		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -1421,7 +1439,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class ResponseEnvelope	{
 		
-		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -1511,7 +1531,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			ResponseEnvelope responseEnvelope = null;
 			string key;
-			
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -1680,6 +1700,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class Address	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -1752,7 +1775,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			Address address = null;
 			string key;
-			
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -1797,6 +1820,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class AddressList	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -1834,7 +1860,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static AddressList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			AddressList addressList = null;
-			
+			string key;
 			int i = 0;
 			if(index != -1)
 			{
@@ -1877,6 +1903,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class CurrencyCodeList	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -1933,6 +1962,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class CurrencyConversionList	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -1987,7 +2019,8 @@ namespace PayPal.AdaptivePayments.Model
 		public static CurrencyConversionList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			CurrencyConversionList currencyConversionList = null;
-						
+			string key;
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -2027,6 +2060,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class CurrencyConversionTable	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -2064,7 +2100,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static CurrencyConversionTable CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			CurrencyConversionTable currencyConversionTable = null;
-			
+			string key;
 			int i = 0;
 			if(index != -1)
 			{
@@ -2107,6 +2143,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class CurrencyList	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -2165,7 +2204,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static CurrencyList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			CurrencyList currencyList = null;
-			
+			string key;
 			int i = 0;
 			if(index != -1)
 			{
@@ -2209,6 +2248,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class DisplayOptions	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -2319,7 +2361,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			DisplayOptions displayOptions = null;
 			string key;
-			
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -2370,6 +2412,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class ErrorList	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -2407,7 +2452,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static ErrorList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ErrorList errorList = null;
-			
+			string key;
 			int i = 0;
 			if(index != -1)
 			{
@@ -2450,6 +2495,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class FundingConstraint	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -2497,7 +2545,8 @@ namespace PayPal.AdaptivePayments.Model
 		public static FundingConstraint CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			FundingConstraint fundingConstraint = null;
-						
+			string key;
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -2530,6 +2579,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class FundingTypeInfo	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -2585,7 +2637,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			FundingTypeInfo fundingTypeInfo = null;
 			string key;
-			
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -2618,6 +2670,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class ShippingAddressInfo	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -2900,6 +2955,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class FundingTypeList	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -2957,7 +3015,8 @@ namespace PayPal.AdaptivePayments.Model
 	 	/// </returns>
 		public static FundingTypeList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			FundingTypeList fundingTypeList = null;			
+			FundingTypeList fundingTypeList = null;
+			string key;
 			int i = 0;
 			if(index != -1)
 			{
@@ -3000,6 +3059,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class CurrencyConversion	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -3072,7 +3134,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			CurrencyConversion currencyConversion = null;
 			string key;
-			
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -3103,7 +3165,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				currencyConversion = (currencyConversion == null) ? new CurrencyConversion() : currencyConversion;
-                currencyConversion.exchangeRate = System.Convert.ToDecimal(map[key], EnumUtils.DefaultCulture);
+				currencyConversion.exchangeRate = System.Convert.ToDecimal(map[key], DefaultCulture);
 			}
 			return currencyConversion;
 		}
@@ -3117,6 +3179,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class FundingSource	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -3223,7 +3288,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			FundingSource fundingSource = null;
 			string key;
-			
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -3266,7 +3331,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				fundingSource = (fundingSource == null) ? new FundingSource() : fundingSource;
-                fundingSource.allowed = System.Convert.ToBoolean(map[key], EnumUtils.DefaultCulture);
+				fundingSource.allowed = System.Convert.ToBoolean(map[key], DefaultCulture);
 			}
 			return fundingSource;
 		}
@@ -3280,6 +3345,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class FundingPlanCharge	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -3334,7 +3402,8 @@ namespace PayPal.AdaptivePayments.Model
 		public static FundingPlanCharge CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			FundingPlanCharge fundingPlanCharge = null;
-			
+			string key;
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -3374,6 +3443,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class FundingPlan	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -3572,6 +3644,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class InitiatingEntity	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -3619,7 +3694,8 @@ namespace PayPal.AdaptivePayments.Model
 		public static InitiatingEntity CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			InitiatingEntity initiatingEntity = null;
-			
+			string key;
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -3652,6 +3728,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class InstitutionCustomer	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -3902,7 +3981,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			InstitutionCustomer institutionCustomer = null;
 			string key;
-			
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -3989,6 +4068,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class InvoiceItem	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -4095,15 +4177,15 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			if (this.price != null)
 			{
-                sb.Append(prefix).Append("price").Append("=").Append(Convert.ToString(this.price, EnumUtils.DefaultCulture)).Append("&");
+					sb.Append(prefix).Append("price").Append("=").Append(Convert.ToString(this.price, DefaultCulture)).Append("&");
 			}
 			if (this.itemPrice != null)
 			{
-                sb.Append(prefix).Append("itemPrice").Append("=").Append(Convert.ToString(this.itemPrice, EnumUtils.DefaultCulture)).Append("&");
+					sb.Append(prefix).Append("itemPrice").Append("=").Append(Convert.ToString(this.itemPrice, DefaultCulture)).Append("&");
 			}
 			if (this.itemCount != null)
 			{
-                sb.Append(prefix).Append("itemCount").Append("=").Append(Convert.ToString(this.itemCount, EnumUtils.DefaultCulture)).Append("&");
+					sb.Append(prefix).Append("itemCount").Append("=").Append(Convert.ToString(this.itemCount, DefaultCulture)).Append("&");
 			}
 			return sb.ToString();
 		}
@@ -4120,7 +4202,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			InvoiceItem invoiceItem = null;
 			string key;
-			
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -4151,19 +4233,19 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				invoiceItem = (invoiceItem == null) ? new InvoiceItem() : invoiceItem;
-                invoiceItem.price = System.Convert.ToDecimal(map[key], EnumUtils.DefaultCulture);
+				invoiceItem.price = System.Convert.ToDecimal(map[key], DefaultCulture);
 			}
 			key = prefix + "itemPrice";
 			if (map.ContainsKey(key))
 			{
 				invoiceItem = (invoiceItem == null) ? new InvoiceItem() : invoiceItem;
-                invoiceItem.itemPrice = System.Convert.ToDecimal(map[key], EnumUtils.DefaultCulture);
+				invoiceItem.itemPrice = System.Convert.ToDecimal(map[key], DefaultCulture);
 			}
 			key = prefix + "itemCount";
 			if (map.ContainsKey(key))
 			{
 				invoiceItem = (invoiceItem == null) ? new InvoiceItem() : invoiceItem;
-                invoiceItem.itemCount = System.Convert.ToInt32(map[key], EnumUtils.DefaultCulture);
+				invoiceItem.itemCount = System.Convert.ToInt32(map[key], DefaultCulture);
 			}
 			return invoiceItem;
 		}
@@ -4178,6 +4260,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class InvoiceData	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -4250,11 +4335,11 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			if (this.totalTax != null)
 			{
-                sb.Append(prefix).Append("totalTax").Append("=").Append(Convert.ToString(this.totalTax, EnumUtils.DefaultCulture)).Append("&");
+					sb.Append(prefix).Append("totalTax").Append("=").Append(Convert.ToString(this.totalTax, DefaultCulture)).Append("&");
 			}
 			if (this.totalShipping != null)
 			{
-                sb.Append(prefix).Append("totalShipping").Append("=").Append(Convert.ToString(this.totalShipping, EnumUtils.DefaultCulture)).Append("&");
+					sb.Append(prefix).Append("totalShipping").Append("=").Append(Convert.ToString(this.totalShipping, DefaultCulture)).Append("&");
 			}
 			return sb.ToString();
 		}
@@ -4305,13 +4390,13 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				invoiceData = (invoiceData == null) ? new InvoiceData() : invoiceData;
-                invoiceData.totalTax = System.Convert.ToDecimal(map[key], EnumUtils.DefaultCulture);
+				invoiceData.totalTax = System.Convert.ToDecimal(map[key], DefaultCulture);
 			}
 			key = prefix + "totalShipping";
 			if (map.ContainsKey(key))
 			{
 				invoiceData = (invoiceData == null) ? new InvoiceData() : invoiceData;
-                invoiceData.totalShipping = System.Convert.ToDecimal(map[key], EnumUtils.DefaultCulture);
+				invoiceData.totalShipping = System.Convert.ToDecimal(map[key], DefaultCulture);
 			}
 			return invoiceData;
 		}
@@ -4326,6 +4411,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class PayError	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -4380,7 +4468,8 @@ namespace PayPal.AdaptivePayments.Model
 		public static PayError CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			PayError payError = null;
-			
+			string key;
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -4419,6 +4508,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class PayErrorList	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -4456,7 +4548,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static PayErrorList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			PayErrorList payErrorList = null;
-			
+			string key;
 			int i = 0;
 			if(index != -1)
 			{
@@ -4502,6 +4594,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class PaymentInfo	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -4659,7 +4754,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			PaymentInfo paymentInfo = null;
 			string key;
-			
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -4696,13 +4791,13 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				paymentInfo = (paymentInfo == null) ? new PaymentInfo() : paymentInfo;
-                paymentInfo.refundedAmount = System.Convert.ToDecimal(map[key], EnumUtils.DefaultCulture);
+				paymentInfo.refundedAmount = System.Convert.ToDecimal(map[key], DefaultCulture);
 			}
 			key = prefix + "pendingRefund";
 			if (map.ContainsKey(key))
 			{
 				paymentInfo = (paymentInfo == null) ? new PaymentInfo() : paymentInfo;
-                paymentInfo.pendingRefund = System.Convert.ToBoolean(map[key], EnumUtils.DefaultCulture);
+				paymentInfo.pendingRefund = System.Convert.ToBoolean(map[key], DefaultCulture);
 			}
 			key = prefix + "senderTransactionId";
 			if (map.ContainsKey(key))
@@ -4734,6 +4829,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class PaymentInfoList	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -4771,7 +4869,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static PaymentInfoList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			PaymentInfoList paymentInfoList = null;
-			
+			string key;
 			int i = 0;
 			if(index != -1)
 			{
@@ -4817,6 +4915,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class Receiver	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -4974,7 +5075,7 @@ namespace PayPal.AdaptivePayments.Model
 			StringBuilder sb = new StringBuilder();
 			if (this.amount != null)
 			{
-                sb.Append(prefix).Append("amount").Append("=").Append(Convert.ToString(this.amount, EnumUtils.DefaultCulture)).Append("&");
+					sb.Append(prefix).Append("amount").Append("=").Append(Convert.ToString(this.amount, DefaultCulture)).Append("&");
 			}
 			if (this.email != null)
 			{
@@ -4987,7 +5088,7 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			if (this.primary != null)
 			{
-                sb.Append(prefix).Append("primary").Append("=").Append(Convert.ToString(this.primary, EnumUtils.DefaultCulture).ToLower()).Append("&");
+					sb.Append(prefix).Append("primary").Append("=").Append(Convert.ToString(this.primary, DefaultCulture)).Append("&");
 			}
 			if (this.invoiceId != null)
 			{
@@ -5020,7 +5121,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			Receiver receiver = null;
 			string key;
-			
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -5039,7 +5140,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				receiver = (receiver == null) ? new Receiver() : receiver;
-                receiver.amount = System.Convert.ToDecimal(map[key], EnumUtils.DefaultCulture);
+				receiver.amount = System.Convert.ToDecimal(map[key], DefaultCulture);
 			}
 			key = prefix + "email";
 			if (map.ContainsKey(key))
@@ -5057,7 +5158,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				receiver = (receiver == null) ? new Receiver() : receiver;
-                receiver.primary = System.Convert.ToBoolean(map[key], EnumUtils.DefaultCulture);
+				receiver.primary = System.Convert.ToBoolean(map[key], DefaultCulture);
 			}
 			key = prefix + "invoiceId";
 			if (map.ContainsKey(key))
@@ -5095,6 +5196,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class ReceiverList	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -5152,6 +5256,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class ReceiverIdentifier : AccountIdentifier	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// Default Constructor
 	 	/// </summary>
@@ -5178,7 +5285,8 @@ namespace PayPal.AdaptivePayments.Model
 		public static new ReceiverIdentifier CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ReceiverIdentifier receiverIdentifier = null;
-			
+			string key;
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -5214,6 +5322,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class ReceiverOptions	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -5355,7 +5466,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			ReceiverOptions receiverOptions = null;
 			string key;
-			
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -5413,6 +5524,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class RefundInfo	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -5604,7 +5718,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			RefundInfo refundInfo = null;
 			string key;
-			
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -5635,31 +5749,31 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
-                refundInfo.refundNetAmount = System.Convert.ToDecimal(map[key], EnumUtils.DefaultCulture);
+				refundInfo.refundNetAmount = System.Convert.ToDecimal(map[key], DefaultCulture);
 			}
 			key = prefix + "refundFeeAmount";
 			if (map.ContainsKey(key))
 			{
 				refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
-                refundInfo.refundFeeAmount = System.Convert.ToDecimal(map[key], EnumUtils.DefaultCulture);
+				refundInfo.refundFeeAmount = System.Convert.ToDecimal(map[key], DefaultCulture);
 			}
 			key = prefix + "refundGrossAmount";
 			if (map.ContainsKey(key))
 			{
 				refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
-                refundInfo.refundGrossAmount = System.Convert.ToDecimal(map[key], EnumUtils.DefaultCulture);
+				refundInfo.refundGrossAmount = System.Convert.ToDecimal(map[key], DefaultCulture);
 			}
 			key = prefix + "totalOfAllRefunds";
 			if (map.ContainsKey(key))
 			{
 				refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
-                refundInfo.totalOfAllRefunds = System.Convert.ToDecimal(map[key], EnumUtils.DefaultCulture);
+				refundInfo.totalOfAllRefunds = System.Convert.ToDecimal(map[key], DefaultCulture);
 			}
 			key = prefix + "refundHasBecomeFull";
 			if (map.ContainsKey(key))
 			{
 				refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
-                refundInfo.refundHasBecomeFull = System.Convert.ToBoolean(map[key], EnumUtils.DefaultCulture);
+				refundInfo.refundHasBecomeFull = System.Convert.ToBoolean(map[key], DefaultCulture);
 			}
 			key = prefix + "encryptedRefundTransactionId";
 			if (map.ContainsKey(key))
@@ -5691,6 +5805,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class RefundInfoList	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -5728,7 +5845,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static RefundInfoList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			RefundInfoList refundInfoList = null;
-			
+			string key;
 			int i = 0;
 			if(index != -1)
 			{
@@ -5771,6 +5888,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class SenderOptions	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -5852,11 +5972,11 @@ namespace PayPal.AdaptivePayments.Model
 			StringBuilder sb = new StringBuilder();
 			if (this.requireShippingAddressSelection != null)
 			{
-                sb.Append(prefix).Append("requireShippingAddressSelection").Append("=").Append(Convert.ToString(this.requireShippingAddressSelection, EnumUtils.DefaultCulture).ToLower()).Append("&");
+					sb.Append(prefix).Append("requireShippingAddressSelection").Append("=").Append(Convert.ToString(this.requireShippingAddressSelection, DefaultCulture)).Append("&");
 			}
 			if (this.addressOverride != null)
 			{
-                sb.Append(prefix).Append("addressOverride").Append("=").Append(Convert.ToString(this.addressOverride, EnumUtils.DefaultCulture).ToLower()).Append("&");
+					sb.Append(prefix).Append("addressOverride").Append("=").Append(Convert.ToString(this.addressOverride, DefaultCulture)).Append("&");
 			}
 			if (this.referrerCode != null)
 			{
@@ -5882,7 +6002,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			SenderOptions senderOptions = null;
 			string key;
-			
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -5901,13 +6021,13 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				senderOptions = (senderOptions == null) ? new SenderOptions() : senderOptions;
-                senderOptions.requireShippingAddressSelection = System.Convert.ToBoolean(map[key], EnumUtils.DefaultCulture);
+				senderOptions.requireShippingAddressSelection = System.Convert.ToBoolean(map[key], DefaultCulture);
 			}
 			key = prefix + "addressOverride";
 			if (map.ContainsKey(key))
 			{
 				senderOptions = (senderOptions == null) ? new SenderOptions() : senderOptions;
-                senderOptions.addressOverride = System.Convert.ToBoolean(map[key], EnumUtils.DefaultCulture);
+				senderOptions.addressOverride = System.Convert.ToBoolean(map[key], DefaultCulture);
 			}
 			key = prefix + "referrerCode";
 			if (map.ContainsKey(key))
@@ -5934,6 +6054,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class TaxIdDetails	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -6002,7 +6125,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			TaxIdDetails taxIdDetails = null;
 			string key;
-			
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -6042,6 +6165,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class SenderIdentifier : AccountIdentifier	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -6090,7 +6216,7 @@ namespace PayPal.AdaptivePayments.Model
 			sb.Append(base.ToNVPString(prefix));
 			if (this.useCredentials != null)
 			{
-                sb.Append(prefix).Append("useCredentials").Append("=").Append(Convert.ToString(this.useCredentials, EnumUtils.DefaultCulture).ToLower()).Append("&");
+					sb.Append(prefix).Append("useCredentials").Append("=").Append(Convert.ToString(this.useCredentials, DefaultCulture)).Append("&");
 			}
 			if (this.taxIdDetails != null)
 			{
@@ -6112,7 +6238,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			SenderIdentifier senderIdentifier = null;
 			string key;
-			
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -6139,7 +6265,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				senderIdentifier = (senderIdentifier == null) ? new SenderIdentifier() : senderIdentifier;
-                senderIdentifier.useCredentials = System.Convert.ToBoolean(map[key], EnumUtils.DefaultCulture);
+				senderIdentifier.useCredentials = System.Convert.ToBoolean(map[key], DefaultCulture);
 			}
 			TaxIdDetails taxIdDetails =  TaxIdDetails.CreateInstance(map, prefix + "taxIdDetails", -1);
 			if (taxIdDetails != null)
@@ -6159,6 +6285,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class UserLimit	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -6214,7 +6343,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			UserLimit userLimit = null;
 			string key;
-			
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -6254,6 +6383,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class WarningData	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -6309,7 +6441,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			WarningData warningData = null;
 			string key;
-			
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -6328,7 +6460,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				warningData = (warningData == null) ? new WarningData() : warningData;
-                warningData.warningId = System.Convert.ToInt64(map[key], EnumUtils.DefaultCulture);
+				warningData.warningId = System.Convert.ToInt64(map[key], DefaultCulture);
 			}
 			key = prefix + "message";
 			if (map.ContainsKey(key))
@@ -6348,6 +6480,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class WarningDataList	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -6385,7 +6520,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static WarningDataList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			WarningDataList warningDataList = null;
-			
+			string key;
 			int i = 0;
 			if(index != -1)
 			{
@@ -6428,6 +6563,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class CancelPreapprovalRequest	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -6503,6 +6641,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class CancelPreapprovalResponse	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -6557,7 +6698,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static CancelPreapprovalResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			CancelPreapprovalResponse cancelPreapprovalResponse = null;
-			
+			string key;
 			int i = 0;
 			if(index != -1)
 			{
@@ -6606,6 +6747,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class ConfirmPreapprovalRequest	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -6745,6 +6889,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class ConfirmPreapprovalResponse	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -6799,7 +6946,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static ConfirmPreapprovalResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ConfirmPreapprovalResponse confirmPreapprovalResponse = null;
-			
+			string key;
 			int i = 0;
 			if(index != -1)
 			{
@@ -6849,6 +6996,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class ConvertCurrencyRequest	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -6991,6 +7141,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class ConvertCurrencyResponse	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -7062,7 +7215,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static ConvertCurrencyResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ConvertCurrencyResponse convertCurrencyResponse = null;
-			
+			string key;
 			int i = 0;
 			if(index != -1)
 			{
@@ -7117,6 +7270,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class ExecutePaymentRequest	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -7230,12 +7386,137 @@ namespace PayPal.AdaptivePayments.Model
 
 
 	/// <summary>
+	/// Contains information related to State Regulatory Agency
+	/// Information of the Sender's country for RTR transaction This
+	/// contains 1.Agency Name 2.Phone Number 3.Website 
+    /// </summary>
+	public partial class StateRegulatoryAgencyInfo	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string nameField;
+		public string Name
+		{
+			get
+			{
+				return this.nameField;
+			}
+			set
+			{
+				this.nameField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string phoneNoField;
+		public string PhoneNo
+		{
+			get
+			{
+				return this.phoneNoField;
+			}
+			set
+			{
+				this.phoneNoField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string websiteField;
+		public string Website
+		{
+			get
+			{
+				return this.websiteField;
+			}
+			set
+			{
+				this.websiteField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
+	 	public StateRegulatoryAgencyInfo()
+	 	{
+		}
+
+
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new StateRegulatoryAgencyInfo object created from the passed in NVP map
+	 	/// </returns>
+		public static StateRegulatoryAgencyInfo CreateInstance(Dictionary<string, string> map, string prefix, int index)
+		{
+			StateRegulatoryAgencyInfo stateRegulatoryAgencyInfo = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			key = prefix + "Name";
+			if (map.ContainsKey(key))
+			{
+				stateRegulatoryAgencyInfo = (stateRegulatoryAgencyInfo == null) ? new StateRegulatoryAgencyInfo() : stateRegulatoryAgencyInfo;
+				stateRegulatoryAgencyInfo.Name = map[key];
+			}
+			key = prefix + "PhoneNo";
+			if (map.ContainsKey(key))
+			{
+				stateRegulatoryAgencyInfo = (stateRegulatoryAgencyInfo == null) ? new StateRegulatoryAgencyInfo() : stateRegulatoryAgencyInfo;
+				stateRegulatoryAgencyInfo.PhoneNo = map[key];
+			}
+			key = prefix + "Website";
+			if (map.ContainsKey(key))
+			{
+				stateRegulatoryAgencyInfo = (stateRegulatoryAgencyInfo == null) ? new StateRegulatoryAgencyInfo() : stateRegulatoryAgencyInfo;
+				stateRegulatoryAgencyInfo.Website = map[key];
+			}
+			return stateRegulatoryAgencyInfo;
+		}
+	}
+
+
+
+
+	/// <summary>
 	/// Contains information related to Post Payment Disclosure
 	/// Details This contains 1.Receivers information 2.Funds
-	/// Avalibility Date 
+	/// Avalibility Date 3.State Regulatory Agency Information 
     /// </summary>
 	public partial class PostPaymentDisclosure	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -7288,6 +7569,23 @@ namespace PayPal.AdaptivePayments.Model
 		
 
 		/// <summary>
+		/// 
+		/// </summary>
+		private StateRegulatoryAgencyInfo stateRegulatoryAgencyInfoField;
+		public StateRegulatoryAgencyInfo stateRegulatoryAgencyInfo
+		{
+			get
+			{
+				return this.stateRegulatoryAgencyInfoField;
+			}
+			set
+			{
+				this.stateRegulatoryAgencyInfoField = value;
+			}
+		}
+		
+
+		/// <summary>
 		/// Default Constructor
 	 	/// </summary>
 	 	public PostPaymentDisclosure()
@@ -7308,7 +7606,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			PostPaymentDisclosure postPaymentDisclosure = null;
 			string key;
-			
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -7341,6 +7639,12 @@ namespace PayPal.AdaptivePayments.Model
 				postPaymentDisclosure = (postPaymentDisclosure == null) ? new PostPaymentDisclosure() : postPaymentDisclosure;
 				postPaymentDisclosure.fundsAvailabilityDateDisclaimerText = map[key];
 			}
+			StateRegulatoryAgencyInfo stateRegulatoryAgencyInfo =  StateRegulatoryAgencyInfo.CreateInstance(map, prefix + "stateRegulatoryAgencyInfo", -1);
+			if (stateRegulatoryAgencyInfo != null)
+			{
+				postPaymentDisclosure = (postPaymentDisclosure == null) ? new PostPaymentDisclosure() : postPaymentDisclosure;
+				postPaymentDisclosure.stateRegulatoryAgencyInfo = stateRegulatoryAgencyInfo;
+			}
 			return postPaymentDisclosure;
 		}
 	}
@@ -7353,6 +7657,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class PostPaymentDisclosureList	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -7390,7 +7697,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static PostPaymentDisclosureList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			PostPaymentDisclosureList postPaymentDisclosureList = null;
-			
+			string key;
 			int i = 0;
 			if(index != -1)
 			{
@@ -7433,6 +7740,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class ExecutePaymentResponse	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -7606,6 +7916,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class GetAllowedFundingSourcesRequest	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -7682,6 +7995,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class GetAllowedFundingSourcesResponse	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -7753,7 +8069,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static GetAllowedFundingSourcesResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			GetAllowedFundingSourcesResponse getAllowedFundingSourcesResponse = null;
-			
+			string key;
 			int i = 0;
 			if(index != -1)
 			{
@@ -7817,6 +8133,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class GetPaymentOptionsRequest	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -7892,6 +8211,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class GetPaymentOptionsResponse	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -8121,6 +8443,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class PaymentDetailsRequest	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -8238,6 +8563,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class PaymentDetailsResponse	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -8696,7 +9024,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
-                paymentDetailsResponse.reverseAllParallelPaymentsOnError = System.Convert.ToBoolean(map[key], EnumUtils.DefaultCulture);
+				paymentDetailsResponse.reverseAllParallelPaymentsOnError = System.Convert.ToBoolean(map[key], DefaultCulture);
 			}
 			key = prefix + "preapprovalKey";
 			if (map.ContainsKey(key))
@@ -8756,6 +9084,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class PayRequest	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -9135,7 +9466,7 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			if (this.reverseAllParallelPaymentsOnError != null)
 			{
-                sb.Append(prefix).Append("reverseAllParallelPaymentsOnError").Append("=").Append(Convert.ToString(this.reverseAllParallelPaymentsOnError, EnumUtils.DefaultCulture).ToLower()).Append("&");
+					sb.Append(prefix).Append("reverseAllParallelPaymentsOnError").Append("=").Append(Convert.ToString(this.reverseAllParallelPaymentsOnError, DefaultCulture)).Append("&");
 			}
 			if (this.senderEmail != null)
 			{
@@ -9177,6 +9508,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class PayResponse	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -9441,6 +9775,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class PreapprovalDetailsRequest	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -9523,7 +9860,7 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			if (this.getBillingAddress != null)
 			{
-                sb.Append(prefix).Append("getBillingAddress").Append("=").Append(Convert.ToString(this.getBillingAddress, EnumUtils.DefaultCulture)).Append("&");
+					sb.Append(prefix).Append("getBillingAddress").Append("=").Append(Convert.ToString(this.getBillingAddress, DefaultCulture)).Append("&");
 			}
 			return sb.ToString();
 		}
@@ -9538,6 +9875,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class PreapprovalDetailsResponse	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -10077,7 +10417,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
-                preapprovalDetailsResponse.approved = System.Convert.ToBoolean(map[key], EnumUtils.DefaultCulture);
+				preapprovalDetailsResponse.approved = System.Convert.ToBoolean(map[key], DefaultCulture);
 			}
 			key = prefix + "cancelUrl";
 			if (map.ContainsKey(key))
@@ -10089,19 +10429,19 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
-                preapprovalDetailsResponse.curPayments = System.Convert.ToInt64(map[key], EnumUtils.DefaultCulture);
+				preapprovalDetailsResponse.curPayments = System.Convert.ToInt64(map[key], DefaultCulture);
 			}
 			key = prefix + "curPaymentsAmount";
 			if (map.ContainsKey(key))
 			{
 				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
-                preapprovalDetailsResponse.curPaymentsAmount = System.Convert.ToDecimal(map[key], EnumUtils.DefaultCulture);
+				preapprovalDetailsResponse.curPaymentsAmount = System.Convert.ToDecimal(map[key], DefaultCulture);
 			}
 			key = prefix + "curPeriodAttempts";
 			if (map.ContainsKey(key))
 			{
 				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
-                preapprovalDetailsResponse.curPeriodAttempts = System.Convert.ToInt64(map[key], EnumUtils.DefaultCulture);
+				preapprovalDetailsResponse.curPeriodAttempts = System.Convert.ToInt64(map[key], DefaultCulture);
 			}
 			key = prefix + "curPeriodEndingDate";
 			if (map.ContainsKey(key))
@@ -10119,7 +10459,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
-                preapprovalDetailsResponse.dateOfMonth = System.Convert.ToInt32(map[key], EnumUtils.DefaultCulture);
+				preapprovalDetailsResponse.dateOfMonth = System.Convert.ToInt32(map[key], DefaultCulture);
 			}
 			key = prefix + "dayOfWeek";
 			if (map.ContainsKey(key))
@@ -10137,25 +10477,25 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
-                preapprovalDetailsResponse.maxAmountPerPayment = System.Convert.ToDecimal(map[key], EnumUtils.DefaultCulture);
+				preapprovalDetailsResponse.maxAmountPerPayment = System.Convert.ToDecimal(map[key], DefaultCulture);
 			}
 			key = prefix + "maxNumberOfPayments";
 			if (map.ContainsKey(key))
 			{
 				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
-                preapprovalDetailsResponse.maxNumberOfPayments = System.Convert.ToInt32(map[key], EnumUtils.DefaultCulture);
+				preapprovalDetailsResponse.maxNumberOfPayments = System.Convert.ToInt32(map[key], DefaultCulture);
 			}
 			key = prefix + "maxNumberOfPaymentsPerPeriod";
 			if (map.ContainsKey(key))
 			{
 				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
-                preapprovalDetailsResponse.maxNumberOfPaymentsPerPeriod = System.Convert.ToInt32(map[key], EnumUtils.DefaultCulture);
+				preapprovalDetailsResponse.maxNumberOfPaymentsPerPeriod = System.Convert.ToInt32(map[key], DefaultCulture);
 			}
 			key = prefix + "maxTotalAmountOfAllPayments";
 			if (map.ContainsKey(key))
 			{
 				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
-                preapprovalDetailsResponse.maxTotalAmountOfAllPayments = System.Convert.ToDecimal(map[key], EnumUtils.DefaultCulture);
+				preapprovalDetailsResponse.maxTotalAmountOfAllPayments = System.Convert.ToDecimal(map[key], DefaultCulture);
 			}
 			key = prefix + "paymentPeriod";
 			if (map.ContainsKey(key))
@@ -10221,7 +10561,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
-                preapprovalDetailsResponse.displayMaxTotalAmount = System.Convert.ToBoolean(map[key], EnumUtils.DefaultCulture);
+				preapprovalDetailsResponse.displayMaxTotalAmount = System.Convert.ToBoolean(map[key], DefaultCulture);
 			}
 			SenderIdentifier sender =  SenderIdentifier.CreateInstance(map, prefix + "sender", -1);
 			if (sender != null)
@@ -10265,6 +10605,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class PreapprovalRequest	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -10682,7 +11025,7 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			if (this.dateOfMonth != null)
 			{
-                sb.Append(prefix).Append("dateOfMonth").Append("=").Append(Convert.ToString(this.dateOfMonth, EnumUtils.DefaultCulture)).Append("&");
+					sb.Append(prefix).Append("dateOfMonth").Append("=").Append(Convert.ToString(this.dateOfMonth, DefaultCulture)).Append("&");
 			}
 			if (this.dayOfWeek != null)
 			{
@@ -10695,19 +11038,19 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			if (this.maxAmountPerPayment != null)
 			{
-                sb.Append(prefix).Append("maxAmountPerPayment").Append("=").Append(Convert.ToString(this.maxAmountPerPayment, EnumUtils.DefaultCulture)).Append("&");
+					sb.Append(prefix).Append("maxAmountPerPayment").Append("=").Append(Convert.ToString(this.maxAmountPerPayment, DefaultCulture)).Append("&");
 			}
 			if (this.maxNumberOfPayments != null)
 			{
-                sb.Append(prefix).Append("maxNumberOfPayments").Append("=").Append(Convert.ToString(this.maxNumberOfPayments, EnumUtils.DefaultCulture)).Append("&");
+					sb.Append(prefix).Append("maxNumberOfPayments").Append("=").Append(Convert.ToString(this.maxNumberOfPayments, DefaultCulture)).Append("&");
 			}
 			if (this.maxNumberOfPaymentsPerPeriod != null)
 			{
-                sb.Append(prefix).Append("maxNumberOfPaymentsPerPeriod").Append("=").Append(Convert.ToString(this.maxNumberOfPaymentsPerPeriod, EnumUtils.DefaultCulture)).Append("&");
+					sb.Append(prefix).Append("maxNumberOfPaymentsPerPeriod").Append("=").Append(Convert.ToString(this.maxNumberOfPaymentsPerPeriod, DefaultCulture)).Append("&");
 			}
 			if (this.maxTotalAmountOfAllPayments != null)
 			{
-                sb.Append(prefix).Append("maxTotalAmountOfAllPayments").Append("=").Append(Convert.ToString(this.maxTotalAmountOfAllPayments, EnumUtils.DefaultCulture)).Append("&");
+					sb.Append(prefix).Append("maxTotalAmountOfAllPayments").Append("=").Append(Convert.ToString(this.maxTotalAmountOfAllPayments, DefaultCulture)).Append("&");
 			}
 			if (this.paymentPeriod != null)
 			{
@@ -10743,11 +11086,11 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			if (this.displayMaxTotalAmount != null)
 			{
-                sb.Append(prefix).Append("displayMaxTotalAmount").Append("=").Append(Convert.ToString(this.displayMaxTotalAmount, EnumUtils.DefaultCulture)).Append("&");
+					sb.Append(prefix).Append("displayMaxTotalAmount").Append("=").Append(Convert.ToString(this.displayMaxTotalAmount, DefaultCulture)).Append("&");
 			}
 			if (this.requireInstantFundingSource != null)
 			{
-                sb.Append(prefix).Append("requireInstantFundingSource").Append("=").Append(Convert.ToString(this.requireInstantFundingSource, EnumUtils.DefaultCulture).ToLower()).Append("&");
+					sb.Append(prefix).Append("requireInstantFundingSource").Append("=").Append(Convert.ToString(this.requireInstantFundingSource, DefaultCulture)).Append("&");
 			}
 			if (this.sender != null)
 			{
@@ -10766,6 +11109,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class PreapprovalResponse	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -10895,6 +11241,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class RefundRequest	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -11054,6 +11403,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class RefundResponse	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -11203,6 +11555,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class PhoneNumber : PhoneNumberType	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -11260,7 +11615,7 @@ namespace PayPal.AdaptivePayments.Model
 		{
 			PhoneNumber phoneNumber = null;
 			string key;
-			
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -11301,6 +11656,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class SetPaymentOptionsRequest	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -11488,6 +11846,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class SetPaymentOptionsResponse	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -11542,7 +11903,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static SetPaymentOptionsResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			SetPaymentOptionsResponse setPaymentOptionsResponse = null;
-			
+			string key;
 			int i = 0;
 			if(index != -1)
 			{
@@ -11592,6 +11953,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class GetFundingPlansRequest	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -11668,6 +12032,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class GetFundingPlansResponse	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -11739,7 +12106,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static GetFundingPlansResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			GetFundingPlansResponse getFundingPlansResponse = null;
-			
+			string key;
 			int i = 0;
 			if(index != -1)
 			{
@@ -11803,6 +12170,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class GetAvailableShippingAddressesRequest	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -11879,6 +12249,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class GetAvailableShippingAddressesResponse	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -11950,7 +12323,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static GetAvailableShippingAddressesResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			GetAvailableShippingAddressesResponse getAvailableShippingAddressesResponse = null;
-			
+			string key;
 			int i = 0;
 			if(index != -1)
 			{
@@ -12014,6 +12387,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class GetShippingAddressesRequest	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -12090,6 +12466,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class GetShippingAddressesResponse	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -12161,7 +12540,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static GetShippingAddressesResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			GetShippingAddressesResponse getShippingAddressesResponse = null;
-			
+			string key;
 			int i = 0;
 			if(index != -1)
 			{
@@ -12216,6 +12595,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class GetUserLimitsRequest	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -12361,6 +12743,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class GetUserLimitsResponse	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -12449,7 +12834,7 @@ namespace PayPal.AdaptivePayments.Model
 		public static GetUserLimitsResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			GetUserLimitsResponse getUserLimitsResponse = null;
-			
+			string key;
 			int i = 0;
 			if(index != -1)
 			{
@@ -12520,6 +12905,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class ReceiverInfo : AccountIdentifier	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -12608,6 +12996,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class FeeDisclosure	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -12662,7 +13053,8 @@ namespace PayPal.AdaptivePayments.Model
 		public static FeeDisclosure CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			FeeDisclosure feeDisclosure = null;
-			
+			string key;
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -12701,6 +13093,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class SenderDisclosure	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -12766,7 +13161,9 @@ namespace PayPal.AdaptivePayments.Model
 			{
 				this.conversionRateField = value;
 			}
-		}		
+		}
+		
+
 		/// <summary>
 		/// Default Constructor
 	 	/// </summary>
@@ -12786,7 +13183,9 @@ namespace PayPal.AdaptivePayments.Model
 	 	/// </returns>
 		public static SenderDisclosure CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			SenderDisclosure senderDisclosure = null;			
+			SenderDisclosure senderDisclosure = null;
+			string key;
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -12838,6 +13237,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class ConversionRate	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -12909,7 +13311,8 @@ namespace PayPal.AdaptivePayments.Model
 		public static ConversionRate CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ConversionRate conversionRate = null;
-			string key;			
+			string key;
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -12940,7 +13343,7 @@ namespace PayPal.AdaptivePayments.Model
 			if (map.ContainsKey(key))
 			{
 				conversionRate = (conversionRate == null) ? new ConversionRate() : conversionRate;
-                conversionRate.exchangeRate = System.Convert.ToDecimal(map[key], EnumUtils.DefaultCulture);
+				conversionRate.exchangeRate = System.Convert.ToDecimal(map[key], DefaultCulture);
 			}
 			return conversionRate;
 		}
@@ -12955,6 +13358,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class ReceiverDisclosure	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -13077,7 +13483,8 @@ namespace PayPal.AdaptivePayments.Model
 		public static ReceiverDisclosure CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ReceiverDisclosure receiverDisclosure = null;
-			string key;			
+			string key;
+			int i = 0;
 			if(index != -1)
 			{
 				if (prefix.Length > 0 && !prefix.EndsWith("."))
@@ -13140,6 +13547,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class ReceiverDisclosureList	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -13176,7 +13586,8 @@ namespace PayPal.AdaptivePayments.Model
 	 	/// </returns>
 		public static ReceiverDisclosureList CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			ReceiverDisclosureList receiverDisclosureList = null;			
+			ReceiverDisclosureList receiverDisclosureList = null;
+			string key;
 			int i = 0;
 			if(index != -1)
 			{
@@ -13219,6 +13630,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class ReceiverInfoList	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -13286,6 +13700,9 @@ namespace PayPal.AdaptivePayments.Model
     /// </summary>
 	public partial class GetPrePaymentDisclosureRequest	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -13391,24 +13808,20 @@ namespace PayPal.AdaptivePayments.Model
 	/// useful in case of Unilateral scenario. where receiver is not
 	/// holding paypal account. This is currently a place holder to
 	/// support backward compatibility since first name and last
-	/// name are mandated too. If Status =
-	/// MISSING_RECEIVER_COUNTRY_FNAME_LNAME_INFORMATION then it
-	/// means the Receiver country, first name and last name
-	/// information is not found in PayPal database. So merchant has
-	/// to call the API again with same set of parameter along with
-	/// Receiver country code.This is useful in case of Unilateral
-	/// scenario. where receiver is not holding paypal account.
-	/// feePayer:Indicates who has agreed to Pay a Fee for the RTR
-	/// transaction. Merchant can use this information to decide who
-	/// actually has to pay the fee . senderDisclosure : This
-	/// Variable Holds the disclosure related to sender.
-	/// receiverDisclosureList : This list contains the disclosure
-	/// information related to receivers. Merchant can just parse
-	/// the details what ever is avaliable in the response and
-	/// display the same to user. 
+	/// name are mandated too. feePayer:Indicates who has agreed to
+	/// Pay a Fee for the RTR transaction. Merchant can use this
+	/// information to decide who actually has to pay the fee .
+	/// senderDisclosure : This Variable Holds the disclosure
+	/// related to sender. receiverDisclosureList : This list
+	/// contains the disclosure information related to receivers.
+	/// Merchant can just parse the details what ever is avaliable
+	/// in the response and display the same to user. 
     /// </summary>
 	public partial class GetPrePaymentDisclosureResponse	{
 		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
 		/// <summary>
 		/// 
 		/// </summary>

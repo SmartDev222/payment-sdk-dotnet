@@ -34,6 +34,11 @@
             
             </summary>
         </member>
+        <member name="F:PayPal.AdaptivePayments.Model.AccountIdentifier.accountIdField">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:PayPal.AdaptivePayments.Model.AccountIdentifier.#ctor">
             <summary>
             Default Constructor
@@ -88,6 +93,11 @@
         <member name="F:PayPal.AdaptivePayments.Model.BaseAddress.typeField">
             <summary>
             
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.BaseAddress.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Constructor with arguments
             </summary>
         </member>
         <member name="M:PayPal.AdaptivePayments.Model.BaseAddress.#ctor">
@@ -459,6 +469,21 @@
             
             </summary>
         </member>
+        <member name="T:PayPal.AdaptivePayments.Model.Status">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:PayPal.AdaptivePayments.Model.AgreementType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:PayPal.AdaptivePayments.Model.PhoneType">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:PayPal.AdaptivePayments.Model.Address">
             <summary>
             
@@ -756,6 +781,67 @@
             A new FundingTypeInfo object created from the passed in NVP map
             </returns>
         </member>
+        <member name="T:PayPal.AdaptivePayments.Model.ShippingAddressInfo">
+            <summary>
+            ShippingAddressInfo. 
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.ShippingAddressInfo.addresseeNameField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.ShippingAddressInfo.street1Field">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.ShippingAddressInfo.street2Field">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.ShippingAddressInfo.cityField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.ShippingAddressInfo.stateField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.ShippingAddressInfo.zipField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.ShippingAddressInfo.countryField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.ShippingAddressInfo.phoneField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.ShippingAddressInfo.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.ShippingAddressInfo.CreateInstance(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Int32)">
+            <summary>
+            Factory method for creating new object instances. For use by the de-serialization classes only.
+            </summary>
+            <param name="map">NVP map as returned by an API call</param>
+            <param name="prefix">NVP prefix for this class in the response</param>
+            <param name="index">For array elements, index of this element in the response</param>
+            <returns>
+            A new ShippingAddressInfo object created from the passed in NVP map
+            </returns>
+        </member>
         <member name="T:PayPal.AdaptivePayments.Model.FundingTypeList">
             <summary>
             
@@ -1001,6 +1087,11 @@
             
             </summary>
         </member>
+        <member name="F:PayPal.AdaptivePayments.Model.InstitutionCustomer.middleNameField">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="F:PayPal.AdaptivePayments.Model.InstitutionCustomer.displayNameField">
             <summary>
             
@@ -1017,6 +1108,16 @@
             </summary>
         </member>
         <member name="F:PayPal.AdaptivePayments.Model.InstitutionCustomer.emailField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.InstitutionCustomer.dateOfBirthField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.InstitutionCustomer.addressField">
             <summary>
             
             </summary>
@@ -1316,6 +1417,11 @@
             
             </summary>
         </member>
+        <member name="F:PayPal.AdaptivePayments.Model.Receiver.accountIdField">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:PayPal.AdaptivePayments.Model.Receiver.#ctor(System.Nullable{System.Decimal})">
             <summary>
             Constructor with arguments
@@ -1539,7 +1645,17 @@
             
             </summary>
         </member>
+        <member name="F:PayPal.AdaptivePayments.Model.SenderOptions.addressOverrideField">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="F:PayPal.AdaptivePayments.Model.SenderOptions.referrerCodeField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.SenderOptions.shippingAddressField">
             <summary>
             
             </summary>
@@ -1794,6 +1910,11 @@
             
             </summary>
         </member>
+        <member name="F:PayPal.AdaptivePayments.Model.ConfirmPreapprovalRequest.agreementTypeField">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:PayPal.AdaptivePayments.Model.ConfirmPreapprovalRequest.#ctor(PayPal.AdaptivePayments.Model.RequestEnvelope,System.String)">
             <summary>
             Constructor with arguments
@@ -1948,6 +2069,113 @@
             Default Constructor
             </summary>
         </member>
+        <member name="T:PayPal.AdaptivePayments.Model.StateRegulatoryAgencyInfo">
+            <summary>
+            Contains information related to State Regulatory Agency
+            Information of the Sender's country for RTR transaction This
+            contains 1.Agency Name 2.Phone Number 3.Website 
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.StateRegulatoryAgencyInfo.nameField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.StateRegulatoryAgencyInfo.phoneNoField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.StateRegulatoryAgencyInfo.websiteField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.StateRegulatoryAgencyInfo.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.StateRegulatoryAgencyInfo.CreateInstance(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Int32)">
+            <summary>
+            Factory method for creating new object instances. For use by the de-serialization classes only.
+            </summary>
+            <param name="map">NVP map as returned by an API call</param>
+            <param name="prefix">NVP prefix for this class in the response</param>
+            <param name="index">For array elements, index of this element in the response</param>
+            <returns>
+            A new StateRegulatoryAgencyInfo object created from the passed in NVP map
+            </returns>
+        </member>
+        <member name="T:PayPal.AdaptivePayments.Model.PostPaymentDisclosure">
+            <summary>
+            Contains information related to Post Payment Disclosure
+            Details This contains 1.Receivers information 2.Funds
+            Avalibility Date 3.State Regulatory Agency Information 
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.PostPaymentDisclosure.accountIdentifierField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.PostPaymentDisclosure.fundsAvailabilityDateField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.PostPaymentDisclosure.fundsAvailabilityDateDisclaimerTextField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.PostPaymentDisclosure.stateRegulatoryAgencyInfoField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.PostPaymentDisclosure.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.PostPaymentDisclosure.CreateInstance(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Int32)">
+            <summary>
+            Factory method for creating new object instances. For use by the de-serialization classes only.
+            </summary>
+            <param name="map">NVP map as returned by an API call</param>
+            <param name="prefix">NVP prefix for this class in the response</param>
+            <param name="index">For array elements, index of this element in the response</param>
+            <returns>
+            A new PostPaymentDisclosure object created from the passed in NVP map
+            </returns>
+        </member>
+        <member name="T:PayPal.AdaptivePayments.Model.PostPaymentDisclosureList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.PostPaymentDisclosureList.postPaymentDisclosureField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.PostPaymentDisclosureList.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.PostPaymentDisclosureList.CreateInstance(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Int32)">
+            <summary>
+            Factory method for creating new object instances. For use by the de-serialization classes only.
+            </summary>
+            <param name="map">NVP map as returned by an API call</param>
+            <param name="prefix">NVP prefix for this class in the response</param>
+            <param name="index">For array elements, index of this element in the response</param>
+            <returns>
+            A new PostPaymentDisclosureList object created from the passed in NVP map
+            </returns>
+        </member>
         <member name="T:PayPal.AdaptivePayments.Model.ExecutePaymentResponse">
             <summary>
             The result of a payment execution. 
@@ -1964,6 +2192,11 @@
             </summary>
         </member>
         <member name="F:PayPal.AdaptivePayments.Model.ExecutePaymentResponse.payErrorListField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.ExecutePaymentResponse.postPaymentDisclosureListField">
             <summary>
             
             </summary>
@@ -2261,6 +2494,16 @@
             
             </summary>
         </member>
+        <member name="F:PayPal.AdaptivePayments.Model.PaymentDetailsResponse.shippingAddressField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.PaymentDetailsResponse.payKeyExpirationDateField">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="F:PayPal.AdaptivePayments.Model.PaymentDetailsResponse.errorField">
             <summary>
             
@@ -2373,6 +2616,11 @@
             
             </summary>
         </member>
+        <member name="F:PayPal.AdaptivePayments.Model.PayRequest.payKeyDurationField">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:PayPal.AdaptivePayments.Model.PayRequest.#ctor(PayPal.AdaptivePayments.Model.RequestEnvelope,System.String,System.String,System.String,PayPal.AdaptivePayments.Model.ReceiverList,System.String)">
             <summary>
             Constructor with arguments
@@ -2406,6 +2654,16 @@
             </summary>
         </member>
         <member name="F:PayPal.AdaptivePayments.Model.PayResponse.payErrorListField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.PayResponse.paymentInfoListField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.PayResponse.senderField">
             <summary>
             
             </summary>
@@ -2607,6 +2865,16 @@
             
             </summary>
         </member>
+        <member name="F:PayPal.AdaptivePayments.Model.PreapprovalDetailsResponse.senderField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.PreapprovalDetailsResponse.agreementTypeField">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="F:PayPal.AdaptivePayments.Model.PreapprovalDetailsResponse.errorField">
             <summary>
             
@@ -2737,6 +3005,11 @@
             </summary>
         </member>
         <member name="F:PayPal.AdaptivePayments.Model.PreapprovalRequest.requireInstantFundingSourceField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.PreapprovalRequest.senderField">
             <summary>
             
             </summary>
@@ -2874,6 +3147,37 @@
             <param name="index">For array elements, index of this element in the response</param>
             <returns>
             A new RefundResponse object created from the passed in NVP map
+            </returns>
+        </member>
+        <member name="T:PayPal.AdaptivePayments.Model.PhoneNumber">
+            <summary>
+            Phone number with Type of phone number 
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.PhoneNumber.typeField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.PhoneNumber.#ctor(System.Nullable{PayPal.AdaptivePayments.Model.PhoneType})">
+            <summary>
+            Constructor with arguments
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.PhoneNumber.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.PhoneNumber.CreateInstance(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Int32)">
+            <summary>
+            Factory method for creating new object instances. For use by the de-serialization classes only.
+            </summary>
+            <param name="map">NVP map as returned by an API call</param>
+            <param name="prefix">NVP prefix for this class in the response</param>
+            <param name="index">For array elements, index of this element in the response</param>
+            <returns>
+            A new PhoneNumber object created from the passed in NVP map
             </returns>
         </member>
         <member name="T:PayPal.AdaptivePayments.Model.SetPaymentOptionsRequest">
@@ -3225,6 +3529,356 @@
             A new GetUserLimitsResponse object created from the passed in NVP map
             </returns>
         </member>
+        <member name="T:PayPal.AdaptivePayments.Model.ReceiverInfo">
+            <summary>
+            ReceiverInfo needs to be populate for the receiver who
+            doesn't have paypal account. 
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.ReceiverInfo.countryCodeField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.ReceiverInfo.firstNameField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.ReceiverInfo.lastNameField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.ReceiverInfo.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="T:PayPal.AdaptivePayments.Model.FeeDisclosure">
+            <summary>
+            FeeDisclosure contains the information related to Fees and
+            taxes. 
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.FeeDisclosure.feeField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.FeeDisclosure.taxesField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.FeeDisclosure.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.FeeDisclosure.CreateInstance(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Int32)">
+            <summary>
+            Factory method for creating new object instances. For use by the de-serialization classes only.
+            </summary>
+            <param name="map">NVP map as returned by an API call</param>
+            <param name="prefix">NVP prefix for this class in the response</param>
+            <param name="index">For array elements, index of this element in the response</param>
+            <returns>
+            A new FeeDisclosure object created from the passed in NVP map
+            </returns>
+        </member>
+        <member name="T:PayPal.AdaptivePayments.Model.SenderDisclosure">
+            <summary>
+            SenderDisclosure contains the disclosure related to Sender 
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.SenderDisclosure.amountToTransferField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.SenderDisclosure.feeDisclosureField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.SenderDisclosure.totalAmountToTransferField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.SenderDisclosure.conversionRateField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.SenderDisclosure.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.SenderDisclosure.CreateInstance(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Int32)">
+            <summary>
+            Factory method for creating new object instances. For use by the de-serialization classes only.
+            </summary>
+            <param name="map">NVP map as returned by an API call</param>
+            <param name="prefix">NVP prefix for this class in the response</param>
+            <param name="index">For array elements, index of this element in the response</param>
+            <returns>
+            A new SenderDisclosure object created from the passed in NVP map
+            </returns>
+        </member>
+        <member name="T:PayPal.AdaptivePayments.Model.ConversionRate">
+            <summary>
+            This holds the conversion rate from "Sender currency for one
+            bucks to equivalent value in the receivers currency" 
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.ConversionRate.senderCurrencyField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.ConversionRate.receiverCurrencyField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.ConversionRate.exchangeRateField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.ConversionRate.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.ConversionRate.CreateInstance(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Int32)">
+            <summary>
+            Factory method for creating new object instances. For use by the de-serialization classes only.
+            </summary>
+            <param name="map">NVP map as returned by an API call</param>
+            <param name="prefix">NVP prefix for this class in the response</param>
+            <param name="index">For array elements, index of this element in the response</param>
+            <returns>
+            A new ConversionRate object created from the passed in NVP map
+            </returns>
+        </member>
+        <member name="T:PayPal.AdaptivePayments.Model.ReceiverDisclosure">
+            <summary>
+            ReceiverDisclosure contains the disclosure related to
+            Receiver/Receivers. 
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.ReceiverDisclosure.accountIdentifierField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.ReceiverDisclosure.amountReceivedFromSenderField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.ReceiverDisclosure.countryCodeField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.ReceiverDisclosure.conversionRateField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.ReceiverDisclosure.feeDisclosureField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.ReceiverDisclosure.totalAmountReceivedField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.ReceiverDisclosure.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.ReceiverDisclosure.CreateInstance(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Int32)">
+            <summary>
+            Factory method for creating new object instances. For use by the de-serialization classes only.
+            </summary>
+            <param name="map">NVP map as returned by an API call</param>
+            <param name="prefix">NVP prefix for this class in the response</param>
+            <param name="index">For array elements, index of this element in the response</param>
+            <returns>
+            A new ReceiverDisclosure object created from the passed in NVP map
+            </returns>
+        </member>
+        <member name="T:PayPal.AdaptivePayments.Model.ReceiverDisclosureList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.ReceiverDisclosureList.receiverDisclosureField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.ReceiverDisclosureList.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.ReceiverDisclosureList.CreateInstance(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Int32)">
+            <summary>
+            Factory method for creating new object instances. For use by the de-serialization classes only.
+            </summary>
+            <param name="map">NVP map as returned by an API call</param>
+            <param name="prefix">NVP prefix for this class in the response</param>
+            <param name="index">For array elements, index of this element in the response</param>
+            <returns>
+            A new ReceiverDisclosureList object created from the passed in NVP map
+            </returns>
+        </member>
+        <member name="T:PayPal.AdaptivePayments.Model.ReceiverInfoList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.ReceiverInfoList.receiverInfoField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.ReceiverInfoList.#ctor(System.Collections.Generic.List{PayPal.AdaptivePayments.Model.ReceiverInfo})">
+            <summary>
+            Constructor with arguments
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.ReceiverInfoList.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="T:PayPal.AdaptivePayments.Model.GetPrePaymentDisclosureRequest">
+            <summary>
+            GetPrePaymentDisclosureRequest is used to get the PrePayment
+            Disclosure.; GetPrePaymentDisclosureRequest contains
+            following parameters payKey :The pay key that identifies the
+            payment for which you want to retrieve details. this is the
+            pay key returned in the PayResponse message.
+            receiverInfoList : This is an optional.This needs to be
+            provided in case of Unilateral scenario. receiverInfoList
+            has a list of ReceiverInfo type. List is provided here to
+            support in future for Parallel/Chained Payemnts. Each
+            ReceiverInfo has following variables firstName : firstName
+            of recipient.  lastName : lastName of recipient. 
+            countryCode : CountryCode of Recipient. 
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.GetPrePaymentDisclosureRequest.requestEnvelopeField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.GetPrePaymentDisclosureRequest.payKeyField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.GetPrePaymentDisclosureRequest.receiverInfoListField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.GetPrePaymentDisclosureRequest.#ctor(PayPal.AdaptivePayments.Model.RequestEnvelope,System.String)">
+            <summary>
+            Constructor with arguments
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.GetPrePaymentDisclosureRequest.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="T:PayPal.AdaptivePayments.Model.GetPrePaymentDisclosureResponse">
+            <summary>
+            GetPrePaymentDisclosureResponse contains the information
+            related to PrePayment disclosure. status : indicates the
+            status of response. If Status = RTR then it means that this
+            is RTR transaction. If Status = NON_RTR then it means that
+            this is non RTR transaction. If Status =
+            MISSING_RECEIVER_COUNTRY_INFORMATION then it means the
+            Receiver country information is not found in PayPal
+            database. So merchant has to call the API again with same
+            set of parameter along with Receiver country code.This is
+            useful in case of Unilateral scenario. where receiver is not
+            holding paypal account. This is currently a place holder to
+            support backward compatibility since first name and last
+            name are mandated too. feePayer:Indicates who has agreed to
+            Pay a Fee for the RTR transaction. Merchant can use this
+            information to decide who actually has to pay the fee .
+            senderDisclosure : This Variable Holds the disclosure
+            related to sender. receiverDisclosureList : This list
+            contains the disclosure information related to receivers.
+            Merchant can just parse the details what ever is avaliable
+            in the response and display the same to user. 
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.GetPrePaymentDisclosureResponse.responseEnvelopeField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.GetPrePaymentDisclosureResponse.statusField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.GetPrePaymentDisclosureResponse.feesPayerField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.GetPrePaymentDisclosureResponse.senderDisclosureField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.GetPrePaymentDisclosureResponse.receiverDisclosureListField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.GetPrePaymentDisclosureResponse.disclaimerField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PayPal.AdaptivePayments.Model.GetPrePaymentDisclosureResponse.errorField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.GetPrePaymentDisclosureResponse.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.Model.GetPrePaymentDisclosureResponse.CreateInstance(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Int32)">
+            <summary>
+            Factory method for creating new object instances. For use by the de-serialization classes only.
+            </summary>
+            <param name="map">NVP map as returned by an API call</param>
+            <param name="prefix">NVP prefix for this class in the response</param>
+            <param name="index">For array elements, index of this element in the response</param>
+            <returns>
+            A new GetPrePaymentDisclosureResponse object created from the passed in NVP map
+            </returns>
+        </member>
         <member name="F:PayPal.AdaptivePayments.AdaptivePaymentsService.ServiceVersion">
             <summary>
             Service Version
@@ -3573,6 +4227,26 @@
              
              </summary>
             <param name="getUserLimitsRequest"></param>
+            <param name="credential">An explicit ICredential object that you want to authenticate this call against</param> 
+        </member>
+        <member name="M:PayPal.AdaptivePayments.AdaptivePaymentsService.GetPrePaymentDisclosure(PayPal.AdaptivePayments.Model.GetPrePaymentDisclosureRequest,System.String)">
+             <summary>
+             
+             </summary>
+            <param name="getPrePaymentDisclosureRequest"></param>
+            <param name="apiUserName">API Username that you want to authenticate this call against. This username and the corresponding 3-token/certificate credentials must be available in Web.Config/App.Config</param>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.AdaptivePaymentsService.GetPrePaymentDisclosure(PayPal.AdaptivePayments.Model.GetPrePaymentDisclosureRequest)">
+             <summary> 
+             
+             </summary>
+            <param name="getPrePaymentDisclosureRequest"></param>
+        </member>
+        <member name="M:PayPal.AdaptivePayments.AdaptivePaymentsService.GetPrePaymentDisclosure(PayPal.AdaptivePayments.Model.GetPrePaymentDisclosureRequest,PayPal.Authentication.ICredential)">
+             <summary>
+             
+             </summary>
+            <param name="getPrePaymentDisclosureRequest"></param>
             <param name="credential">An explicit ICredential object that you want to authenticate this call against</param> 
         </member>
     </members>
