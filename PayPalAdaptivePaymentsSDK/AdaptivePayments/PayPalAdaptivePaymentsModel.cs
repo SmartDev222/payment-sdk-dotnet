@@ -5088,7 +5088,7 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			if (this.primary != null)
 			{
-					sb.Append(prefix).Append("primary").Append("=").Append(Convert.ToString(this.primary, DefaultCulture)).Append("&");
+					sb.Append(prefix).Append("primary").Append("=").Append(Convert.ToString(this.primary, DefaultCulture).ToLower()).Append("&");
 			}
 			if (this.invoiceId != null)
 			{
@@ -5972,11 +5972,11 @@ namespace PayPal.AdaptivePayments.Model
 			StringBuilder sb = new StringBuilder();
 			if (this.requireShippingAddressSelection != null)
 			{
-					sb.Append(prefix).Append("requireShippingAddressSelection").Append("=").Append(Convert.ToString(this.requireShippingAddressSelection, DefaultCulture)).Append("&");
+					sb.Append(prefix).Append("requireShippingAddressSelection").Append("=").Append(Convert.ToString(this.requireShippingAddressSelection, DefaultCulture).ToLower()).Append("&");
 			}
 			if (this.addressOverride != null)
 			{
-					sb.Append(prefix).Append("addressOverride").Append("=").Append(Convert.ToString(this.addressOverride, DefaultCulture)).Append("&");
+					sb.Append(prefix).Append("addressOverride").Append("=").Append(Convert.ToString(this.addressOverride, DefaultCulture).ToLower()).Append("&");
 			}
 			if (this.referrerCode != null)
 			{
@@ -6216,7 +6216,7 @@ namespace PayPal.AdaptivePayments.Model
 			sb.Append(base.ToNVPString(prefix));
 			if (this.useCredentials != null)
 			{
-					sb.Append(prefix).Append("useCredentials").Append("=").Append(Convert.ToString(this.useCredentials, DefaultCulture)).Append("&");
+					sb.Append(prefix).Append("useCredentials").Append("=").Append(Convert.ToString(this.useCredentials, DefaultCulture).ToLower()).Append("&");
 			}
 			if (this.taxIdDetails != null)
 			{
@@ -9466,7 +9466,7 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			if (this.reverseAllParallelPaymentsOnError != null)
 			{
-					sb.Append(prefix).Append("reverseAllParallelPaymentsOnError").Append("=").Append(Convert.ToString(this.reverseAllParallelPaymentsOnError, DefaultCulture)).Append("&");
+					sb.Append(prefix).Append("reverseAllParallelPaymentsOnError").Append("=").Append(Convert.ToString(this.reverseAllParallelPaymentsOnError, DefaultCulture).ToLower()).Append("&");
 			}
 			if (this.senderEmail != null)
 			{
@@ -9860,7 +9860,7 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			if (this.getBillingAddress != null)
 			{
-					sb.Append(prefix).Append("getBillingAddress").Append("=").Append(Convert.ToString(this.getBillingAddress, DefaultCulture)).Append("&");
+					sb.Append(prefix).Append("getBillingAddress").Append("=").Append(Convert.ToString(this.getBillingAddress, DefaultCulture).ToLower()).Append("&");
 			}
 			return sb.ToString();
 		}
@@ -11086,11 +11086,11 @@ namespace PayPal.AdaptivePayments.Model
 			}
 			if (this.displayMaxTotalAmount != null)
 			{
-					sb.Append(prefix).Append("displayMaxTotalAmount").Append("=").Append(Convert.ToString(this.displayMaxTotalAmount, DefaultCulture)).Append("&");
+					sb.Append(prefix).Append("displayMaxTotalAmount").Append("=").Append(Convert.ToString(this.displayMaxTotalAmount, DefaultCulture).ToLower()).Append("&");
 			}
 			if (this.requireInstantFundingSource != null)
 			{
-					sb.Append(prefix).Append("requireInstantFundingSource").Append("=").Append(Convert.ToString(this.requireInstantFundingSource, DefaultCulture)).Append("&");
+					sb.Append(prefix).Append("requireInstantFundingSource").Append("=").Append(Convert.ToString(this.requireInstantFundingSource, DefaultCulture).ToLower()).Append("&");
 			}
 			if (this.sender != null)
 			{
