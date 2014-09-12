@@ -1,3 +1,9 @@
+Version 2.12.117 - September 12, 2014
+ 
+	- Fixing chained payments - parameterized booleans must be lowercase
+	
+You can see source code of this release in github under https://github.com/paypal/adaptivepayments-sdk-dotnet/tree/v2.12.117.
+--------------------------------------------------------------------------------------------------
 Version 2.11.117 - September 10, 2014
  
 	- NuGet dependency fix
