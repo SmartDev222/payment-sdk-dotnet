@@ -1,3 +1,9 @@
+#### This Classic SDK is not actively supported and will be deprecated in the future. For full support on new integrations, please use the [PayPal .NET SDK](https://github.com/paypal/PayPal-NET-SDK)
+
+---
+
+# PayPal Adaptive Payments Classic SDK for .NET
+
 The repository contains the PayPal Adaptive Payments SDK C#.NET Class Library Application and the AdaptivePaymentsSampleApp Sample ASP.NET C# Web Application.
 
 
@@ -10,16 +16,16 @@ SDK Integration
 *	The NuGet package installs the dependencies to the solution and automatically updates the project
 
 *	Dependent library references:
-	•	'log4net.dll'
-	•	'PayPalCoreSDK.dll'	
-	•	'PayPalAdaptivePaymentsSDK.dll'
+	â€¢	'log4net.dll'
+	â€¢	'PayPalCoreSDK.dll'	
+	â€¢	'PayPalAdaptivePaymentsSDK.dll'
 
 *	Namespaces:
-	•	PayPal
-	•	PayPal.AdaptivePayments
-	•	PayPal.AdaptivePayments.Model
-	•	PayPal.Util
-	•	PayPal.Exception
+	â€¢	PayPal
+	â€¢	PayPal.AdaptivePayments
+	â€¢	PayPal.AdaptivePayments.Model
+	â€¢	PayPal.Util
+	â€¢	PayPal.Exception
 
 	
 Help
