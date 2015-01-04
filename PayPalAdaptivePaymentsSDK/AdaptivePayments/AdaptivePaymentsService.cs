@@ -1,10 +1,6 @@
-using System;
 using System.Collections.Generic;
-using System.Xml;
-using PayPal;
 using PayPal.Authentication;
 using PayPal.Util;
-using PayPal.Manager;
 using PayPal.NVP;
 using PayPal.AdaptivePayments.Model;
 
@@ -12,11 +8,6 @@ namespace PayPal.AdaptivePayments
 {
 	public partial class AdaptivePaymentsService : BasePayPalService 
 	{
-
-		/// <summary>
-		/// Service Version
-		/// </summary>
-		private const string ServiceVersion = "1.8.7";
 
 		/// <summary>
 		/// Service Name
