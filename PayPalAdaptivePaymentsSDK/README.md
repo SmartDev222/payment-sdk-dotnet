@@ -71,7 +71,31 @@ The PayPal Adaptive Payments API enables merchants and developers to pay almost 
     ```
 
 	You can refer full list of configuration parameters in [wiki](https://github.com/paypal/sdk-core-dotnet/wiki/SDK-Configuration-Parameters)
-	
+
+
+## Example
+
+```csharp
+using PayPal.AdaptivePayments;
+using PayPal.AdaptivePayments.Model;
+
+// Assuming you will configure using the Web.Config / App.Config files.
+var service = new AdaptivePaymentsService();
+
+var receiverList = new ReceiverList(new List<Receiver>
+{
+    new Receiver { email = "receiver1@gmail.com", amount = 10m,
+    new Receiver { email = "receiver2@gmail.com", amount = 20m}
+});
+
+var payRequest = new PayRequest(
+    new RequestEnvelope { errorLanguage = "en_US", detailLevel = DetailLevelCode.RETURNALL},
+    "PAY", "http://localhost:60686/Paypal/Cancel",
+    "USD", receiverList, "http://localhost:60686/Paypal/Return");
+
+var response = service.Pay(payRequest);
+```
+ 
 ## Links
 
    * [Installing NuGet in Visual Studio 2005 & 2008] (https://github.com/paypal/sdk-core-dotnet/wiki/Using-Nuget-in-Visual-Studio-2005-&-2008)
