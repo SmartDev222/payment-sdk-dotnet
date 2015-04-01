@@ -7,8 +7,8 @@
 The repository contains the PayPal Adaptive Payments SDK C#.NET Class Library Application and the AdaptivePaymentsSampleApp Sample ASP.NET C# Web Application.
 
 
-SDK Integration
----------------
+## SDK Integration
+
 *	Integrate the PayPal Adaptive Payments SDK with an ASP.NET Web Application
 
 *	Use NuGet to install the 'PayPalAdaptivePaymentsSDK' package 
@@ -27,9 +27,12 @@ SDK Integration
 	•	PayPal.Util
 	•	PayPal.Exception
 
+## Using Classic SDKs and PayPal .NET SDK
+
+[See here](https://github.com/paypal/merchant-sdk-dotnet#using-classic-sdks-and-paypal-net-sdk) for instructions on how to use this SDK along with the [PayPal .NET SDK](https://github.com/paypal/PayPal-NET-SDK).
 	
-Help
-----
+## Help
+
 *	AdaptivePayments.bat - Automation script that builds the PayPal Adaptive Payments SDK C#.NET Class Library Application in release mode and copies the built dlls to the lib folder in the AdaptivePaymentsSampleApp Sample ASP.NET C# Web Application
 
 *	Changelog.txt - Release Notes
