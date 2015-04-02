@@ -5,10 +5,10 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PayPal Adaptive Payments API Sample App for .NET")]
-[assembly: AssemblyCompany("eBay Inc.")]
+[assembly: AssemblyTitle("PayPal Adaptive Payments SDK Samples for .NET")]
+[assembly: AssemblyCompany("PayPal")]
 [assembly: AssemblyProduct("AdaptivePaymentsSampleApp")]
-[assembly: AssemblyCopyright("Copyright © eBay Inc., 2009-2014")]
+[assembly: AssemblyCopyright("Copyright © 2009-2015 PayPal")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
@@ -27,6 +27,6 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("2.12.117.0")]
-[assembly: AssemblyFileVersion("2.12.117.0")]
+[assembly: AssemblyVersion("2.14.117.0")]
+[assembly: AssemblyFileVersion("2.14.117.0")]
 
